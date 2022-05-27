@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito", "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background: #262626;
+    color: #fff;
+}
+
+.navbar {
+    background: #000 !important;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.card {
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.15);
+}
+
+.card-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+a:not(:hover) {
+    text-decoration: none;
+}
+
+input,
+.form-control,
+.form-control:focus,
+.form-check-input,
+.form-control:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+input[disabled],
+.form-control[disabled],
+.form-control[disabled]:focus,
+.form-check-input[disabled],
+.form-control[disabled]:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.form-check-input {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+input:focus,
+.form-control:focus {
+    /* box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.1); */
+    border: 2px solid #007bff;
+    box-shadow: none;
+}
+
+select option {
+    color: #000;
+}
+
+select,
+select:hover {
+    display: inline-block;
+    line-height: 1.5em;
+    margin: 0;      
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select.minimal,
+select.minimal:hover {
+    background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%);
+    background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+    background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+select.minimal:focus {
+    background-image:
+    linear-gradient(45deg, green 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, green 50%);
+    background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+    background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+    background-repeat: no-repeat;
+    outline: 0;
+}
+
+.cmd {
+    font-family: monospace;
+    background: #999;
+    color: #000;
+    border-radius: 5px;
+}
+
+.sudotoast {
+    position: fixed;
+    bottom: -100px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.sudotoast.open {
+    bottom: 20px;
+}
+
+.sudotoast p {
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+.sudotoast div {
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sudotoast div button {
+    margin: 0 10px;
+}
+
+#hidden1 {
+    display: none;
+}
+
+.form-text {
+    padding: 5px 0;
+    display: block;
+}
+
+.modal-content div {
+    border-color: #777 !important;
+}
+
+.btn-custom {
+    border: 2px solid #007bff;
+    color: #fff;
+    background: #007bff;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.btn-custom:hover {
+    background: rgb(35, 67, 165);
+    color: #fff;
+}
+
+.btn-custom-outline {
+    border: 2px solid #007bff;
+    color: #fff;
+    background: transparent;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.btn-custom-outline:hover {
+    border-color: rgb(35, 67, 165);
+    background: #007bff;
+    color: #fff;
+}
+
+.footer-links {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-links ul li {
+    margin: 0 10px;
+}
+
+.footer-links ul li a {
+    border: 2px solid #fff;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.footer-links ul li a:hover {
+    border-color: #007bff;
+}
+
+.footer-links ul li img {
+    width: 30px;
+    height: 30px;
+}
+
+
+@media screen and (max-width: 970px) {
+    .sudotoast {
+        left: 0;
+        padding: 5px;
+        border-radius: 0;
+    }
+
+    .sudotoast.open {
+        bottom: 0;
+    }
+
+    .sudotoast * {
+        font-size: 12px;
+    }
+
+    .sudotoast div button {
+        padding: 5px auto;
+        margin: 0 2px;
+    }
+
+    .sudotoast div {
+        padding: 0;
+        margin-left: 0;
+    }
+
+    .d-desktop {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 971px) {
+    .d-mobile{
+        display: none;
+    }
+
+    .user-wrapper {
+        right: 10px;
+        position: absolute;
+    }
+}

@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteRule ^storage(.*)$ - [L,R=403]
+
+ErrorDocument 404 Default
+ErrorDocument 403 Default
+ErrorDocument 400 Default
+ErrorDocument 500 Default
