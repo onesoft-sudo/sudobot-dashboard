@@ -1,2 +1,3 @@
-# sudobot-dashboard
-SudoBot web dashboard (control panel).
+# SudoBot Dashboard
+
+[SudoBot](https://github.com/virtual-designer/sudobot) web dashboard (control panel).
