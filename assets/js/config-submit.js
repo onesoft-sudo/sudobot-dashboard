@@ -17,6 +17,10 @@ document.querySelector('form').addEventListener('submit', e => {
         logging_channel_join_leave: qs('logging_channel_join_leave').value,
         mod_role: qs('mod_role').value,
         announcement_channel: qs('announcement_channel').value,
+        autoclear: {
+            enabled: qs('autoclear_enabled').checked,
+            channels: qs('autoclear_channels').value.split('\n').filter(e => e !== '')
+        },
         spam_filter: {
             enabled: qs('spam_enabled').checked,
             limit: parseInt(qs('spam_limit').value),

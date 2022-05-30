@@ -268,9 +268,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md">
-                    <div class="form-group mt-3 mt-md-0">
+
+                    <div class="form-group mt-3">
                         <div class="card card-dark bg-dark">
                             <div class="card-body">
                                 <h5 class="card-title">Message filters</h5>
@@ -289,8 +288,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-group mt-3">
+                </div>
+                <div class="col-md">
+                    <div class="form-group mt-3 mt-md-0">
                         <div class="card card-dark bg-dark">
                             <div class="card-body">
                                 <h5 class="card-title">Invite Filter</h5>
@@ -320,6 +320,37 @@
                                             <textarea name="invite_message" class="form-control mt-2" rows="4" data-key="filters.invite_message"></textarea>
                                             <span class="form-text text-muted">The message to send when a user posts an invite.</span>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="card card-dark bg-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">Automatic Message Cleaning</h5>
+                                <p class="card-text">Delete messages from a user in the given channels when the leave the server.</p>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-check d-flex align-items-center mt-3">
+                                            <input class="form-check-input mt-0" type="checkbox" name="autoclear_enabled" value="true" data-key="autoclear.enabled">
+                                            <label for="" class="ms-2">Enable this service</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row pt-3">
+                                    <div class="col">
+                                        <label for="">Channels</label>
+                                        <br>
+                                        <span class="form-text text-muted">This service will work in the selected channels.</span>
+                                        
+                                        <div class="checkboxes mt-3">
+                                            <textarea name="autoclear_channels" class="form-control" rows="4" data-jsonraw="autoclear.channels"></textarea>
+                                            <span class="form-text text-muted">Channel IDs should be separated by a newline (enter). Channel categories can also be passed to represent all channels in the category. Must be valid IDs.</span>
+                                        </div>      
                                     </div>
                                 </div>
                             </div>

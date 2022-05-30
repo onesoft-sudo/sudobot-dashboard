@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md">
             <h1>The Ultimate Solution for <span class="text-primary">All in One</span> Moderation.</h1>
-            <p>SudoBot is built for auto moderation and has a lot of auto moderation tools that can sav you from headaches.<br>Keep your servers secure, with one click.</p>
+            <p>SudoBot is built for auto moderation and has a lot of auto moderation tools that can save you from headaches.<br>Keep your servers secure, with one click.</p>
 
             <div class="buttons d-md-flex">
                 <a href="<?= $_PREFIX ?>/dashboard" class="btn btn-custom d-block d-md-inline-block">Control Panel</a>
