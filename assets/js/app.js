@@ -18,6 +18,7 @@ window.$ = function (selector) {
 
 window.state = window.state || {};
 window.methods = window.methods || {};
+window.methods.tagFilters = window.methods.tagFilters || {};
 
 document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('#processing')) {

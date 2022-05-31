@@ -114,42 +114,56 @@
         document.addEventListener('DOMContentLoaded', () => {
             startProcess();
 
-            axios.post(`${CONFIG.endpoint}/guilds/?token=${CONFIG.token}`, {
-                guilds: <?= json_encode(array_keys((array) $_SESSION['tokens'])); ?>
-            })
-            .then(res => {
-                const els = [...document.querySelectorAll('.guildName')];
-                state.guilds = [];
+            try {
+                axios.post(`${CONFIG.endpoint}/guilds/?token=${CONFIG.token}`, {
+                    guilds: <?= json_encode(array_keys((array) $_SESSION['tokens'])); ?>
+                })
+                .then(res => {
+                    const els = [...document.querySelectorAll('.guildName')];
+                    state.guilds = [];
 
-                console.log(res.data.guilds);
+                    console.log(res.data.guilds);
 
-                for (let index in els) {
-                    console.log(index);
-                    state.guilds.push(res.data.guilds[index]);
+                    for (let index in els) {
+                        console.log(index);
+                        state.guilds.push(res.data.guilds[index]);
 
-                    if (res.data.guilds[index].id === '<?= $guild_id1 ?>') {
-                        state.currentGuild = res.data.guilds[index];
-                        els[index].classList.add('active');
+                        if (res.data.guilds[index].id === '<?= $guild_id1 ?>') {
+                            state.currentGuild = res.data.guilds[index];
+                            els[index].classList.add('active');
+                        }
+
+                        els[index].innerHTML = res.data.guilds[index].name;
                     }
 
-                    els[index].innerHTML = res.data.guilds[index].name;
-                }
+                    if (!state.currentGuild) { 
+                        state.currentGuild = state.guilds[0];
+                        els[0].classList.add('active');
+                    }
 
-                if (!state.currentGuild) { 
-                    state.currentGuild = state.guilds[0];
-                    els[0].classList.add('active');
-                }
+                    if (window.methods.guildLoad)
+                        window.methods.guildLoad(state.currentGuild);
+                    
+                    endProcess();
+                })
+                .catch(e => {
+                    console.log(e);
 
-                if (window.methods.guildLoad)
-                    window.methods.guildLoad(state.currentGuild);
-                
-                endProcess();
-            })
-            .catch(e => {
+                    if (!(new RegExp('There was an error while trying to fetch data from the API.', 'gm')).test($('.container').innerHTML)) {
+                        insertAlert($('.container'), {
+                            content: 'There was an error while trying to fetch data from the API.',
+                            type: 'warning',
+                            expire: 5500,
+                            top: true
+                        });
+                    }
+
+                    endProcess();
+                });
+            }
+            catch (e) {
                 console.log(e);
-                alert("Error while trying fetch data from API");
-                endProcess();
-            });
+            }
         });
         
     </script>

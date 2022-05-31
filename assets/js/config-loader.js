@@ -55,7 +55,13 @@ function loadChannelsToState() {
             resolve(res);
         })
         .catch(e => {
-            alert('There was an error while trying to fetch data from the API.');
+            insertAlert($('.container'), {
+                content: 'There was an error while trying to fetch data from the API.',
+                type: 'warning',
+                expire: 5500,
+                top: true
+            });
+            
             console.log(e);
             reject(e);
         });
@@ -70,7 +76,13 @@ function loadRolesToState() {
             resolve(res);
         })
         .catch(e => {
-            alert('There was an error while trying to fetch data from the API.');
+            insertAlert($('.container'), {
+                content: 'There was an error while trying to fetch data from the API.',
+                type: 'warning',
+                expire: 5500,
+                top: true
+            });
+
             console.log(e);
             reject(e);
         });
@@ -147,12 +159,61 @@ document.addEventListener('DOMContentLoaded', () => {
                 return role.id === state.config.gen_role;
             if (el.getAttribute('name') === 'muted_role') 
                 return role.id === state.config.mute_role;
-        });
+        }).then(() => {
+            tagsInit();
+            
+            const tagInputs = [...document.querySelectorAll('[data-jsontagid]')];
 
-        endProcess();
+            for (const tag of tagInputs) {
+                let attr = tag.getAttribute('data-jsontagid');
+                let value;
+
+                if (attr.includes('.')) {
+                    attr = attr.split('.');
+                    value = state.config[attr[0]][attr[1]];
+                }
+                else {
+                    value = state.config[attr];
+                }
+
+                if (!state[tag.getAttribute('data-jsontag')]) {
+                    console.error('state property not found');
+                    return;
+                }
+
+                const data = state[tag.getAttribute('data-jsontag')];
+                let i = 0;
+
+                for (const el of data) {
+                    console.log(el.id, value);
+
+                    if (el.id && value.includes(el.id)) {
+                        const li = document.createElement('li');
+                        li.classList.add('tags-li');
+                        li.innerHTML = el.name;
+                        li.setAttribute('data-value', el.id);
+                        addCloseBtn(li);
+
+                        tag.children[0].appendChild(li);
+                    }
+
+                    i++;
+                }
+            }
+
+            
+            endProcess();
+        })
+        .catch(e => console.log(e));        
     })
     .catch(e => {
-        alert('There was an error while trying to fetch data from the API.');
+        insertAlert($('.container'), {
+            content: 'There was an error while trying to fetch data from the API.',
+            type: 'warning',
+            expire: 5500,
+            top: true
+        });
+
         console.log(e);
 
         endProcess();

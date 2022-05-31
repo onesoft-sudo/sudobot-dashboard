@@ -218,6 +218,93 @@ select.minimal:focus {
     height: 30px;
 }
 
+.input-tag {
+    border: 1px solid #fff;
+    display: block;
+    padding: 5px 10px;
+    background:rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.input-tag.focused {
+    border: 2px solid #007bff;
+}
+
+.input-tag .tags {
+    display: flex;
+    list-style: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-left: 0;
+    position: relative;
+    overflow-wrap: break-word;
+    flex-wrap: wrap;
+}
+
+.input-tag .tags li, .tags-li {
+    --tag-color: #fff;
+    margin-right: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: var(--tag-color);
+    display: flex;
+    margin: 5px inherit;
+}
+
+.input-tag .tags li .close, .tags-li .close {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.input-tag input,
+.input-tag input:focus,
+.input-tag input:hover,
+.input-tag input:valid {
+    border: 0;
+    outline: 0;
+    background: transparent;
+}
+
+.input-tag-wrapper {
+    position: relative;
+}
+
+.autocomplete {
+    z-index: 2;
+    background: #fff;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    display: block;
+    color: #000;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+    position: absolute;
+    display: none;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.autocomplete li {
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 10px;
+}
+
+.autocomplete li:hover {
+    background: #ddd;
+}
+
+.autocomplete li:last-child {
+    border-bottom: none;
+}
 
 @media screen and (max-width: 970px) {
     .sudotoast {

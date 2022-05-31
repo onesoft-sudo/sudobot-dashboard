@@ -28,7 +28,7 @@ document.querySelector('form').addEventListener('submit', e => {
         },
         autorole: {
             enabled: qs('autorole_enabled').checked,
-            roles: qs('autorole_roles').value.split('\n').filter(c => c !== ''),
+            roles: [...qs('autorole_roles').childNodes].map(e => e.getAttribute('data-value')),
         },
         role_commands: roleCommands
     };

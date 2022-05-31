@@ -89,7 +89,7 @@
 
                                     <div class="row pt-3">
                                         <div class="col">
-                                            <label for="">Words</label>
+                                            <label for="">Commands</label>
                                             <textarea name="global_commands" class="form-control" cols="30" rows="5" data-jsonraw="global_commands"></textarea>
                                             <span class="form-text text-muted">The commands. Should be separated by <span class="cmd">\n</span> (enter/newline).</span>
                                         </div>
@@ -163,7 +163,16 @@
                                     <div class="row pt-3">
                                         <div class="col">
                                             <label for="">Roles</label>
-                                            <textarea name="autorole_roles" class="form-control" cols="30" rows="5" data-jsonraw="autorole.roles"></textarea>
+                                            <div class="input-tag-wrapper">
+                                                <div class="input-tag" data-jsontagid="autorole.roles" data-jsontag="roles">
+                                                    <ul class="tags" name="autorole_roles"></ul>
+                                                    <input type="text">
+                                                </div>
+                                                <ul class="autocomplete" data-fill="roles" method="autorole">
+                                                    
+                                                </ul>
+                                            </div>
+                                            <!-- <textarea name="autorole_roles" class="form-control" cols="30" rows="5" data-jsonraw="autorole.roles"></textarea> -->
                                             <span class="form-text text-muted">The role IDs. Should be separated by <span class="cmd">\n</span> (enter/newline).</span>
                                         </div>
                                     </div>
@@ -270,6 +279,14 @@
             .catch(e => console.log(e));
         }
     };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        window.methods.tagFilters.autorole = (data, tags, q) => {
+            const ids = [...tags.childNodes];
+
+            return data.filter(r => (r.id !== "<?= $guild_id ?>") && (q === undefined || r.name.includes(q) || r.id === q) && !ids.find(e => e.getAttribute('data-value') === r.id));
+        };
+    });
 
     function addOverride() {
         const roleID = document.querySelector('#modalRole').value;
@@ -414,6 +431,7 @@
     document.querySelector('#modalAddBtn').addEventListener('click', addOverride);
 </script>
 
+<script src="<?= $_PREFIX; ?>/assets/js/taginput.js"></script>
 <script src="<?= $_PREFIX; ?>/assets/js/config-loader.js"></script>
 <script src="<?= $_PREFIX; ?>/assets/js/misc-config-submit.js"></script>
 <script src="<?= $_PREFIX; ?>/assets/js/save.js"></script>
