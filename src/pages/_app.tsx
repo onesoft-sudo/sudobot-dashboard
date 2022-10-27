@@ -3,16 +3,11 @@ import type { AppProps as NextAppProps } from 'next/app';
 import { ThemeProvider, createTheme } from '@mui/material';
 import { NextComponentType, NextPage } from 'next';
 import MainLayout from '../layouts/MainLayout';
+import { theme } from '../utils/theme';
 
 interface AppProps extends NextAppProps {
     Component: NextComponentType<NextPage, any, any> | any;
 }
-
-const theme = createTheme({
-    palette: {
-        mode: 'dark'
-    }
-});
 
 export default function App({ Component, pageProps }: AppProps) {
     return <ThemeProvider theme={theme}>

@@ -5,7 +5,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Roboto, sans-serif;
+    font-family: "Nunito", Roboto, sans-serif;
 }
 
 body {
@@ -13,6 +13,8 @@ body {
     color: #fff;
     min-height: 100vh;
     position: relative;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 a {
@@ -23,4 +25,16 @@ a {
 a:hover {
     text-decoration: underline;
     color: #0564c9;
+}
+
+@media (min-width: 971px) {
+    .mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 970px) {
+    .desktop {
+        display: none;
+    }
 }

@@ -1,4 +1,5 @@
 import { PropsWithChildren } from "react";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 export default function MainLayout({ children }: PropsWithChildren) {
@@ -10,6 +11,9 @@ export default function MainLayout({ children }: PropsWithChildren) {
             <main>
                 {children}
             </main>
+            <footer>
+                <Footer />
+            </footer>
         </div>
     );
 }

@@ -35,3 +35,45 @@
     border-bottom-right-radius: 0;
     border-bottom: 2px solid #007bff;
 }
+
+@media (max-width: 970px) {
+    .navbarListWrapper {
+        display: block;
+        margin-top: 10px;
+        position: fixed;
+        top: 0;
+        left: -100vw;
+        z-index: 1000;
+        height: 100vh;
+        overflow-y: scroll;
+        width: 80vw;
+        background: #222;
+        padding: 10px;
+        transition: 0.3s;
+    }
+
+    .open {
+        left: 0;
+    }
+
+    .list {
+        display: block;
+        margin-left: 0;
+        margin-bottom: 50px;
+    }
+
+    .active {
+        border-left: 2px solid #007bff;
+        border-bottom: none;
+    }
+
+    .list li a {
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 5px;
+        display: block;
+    }
+
+    .list li {
+        margin: 10px 0;
+    }
+}
