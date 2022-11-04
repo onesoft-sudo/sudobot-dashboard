@@ -1,6 +1,7 @@
 import ThemeButton from '../components/ThemeButton';
 import styles from '../css/Home.module.css';
-import { githubRepo } from '../utils/links';
+import { githubRepo, privacy } from '../utils/links';
+import { HiCodeBracket, HiCube, HiShieldCheck, HiWrenchScrewdriver } from 'react-icons/hi2';
 
 export default function Home() {
     return (
@@ -18,8 +19,47 @@ export default function Home() {
                 </div>
             </div>
                         
-            <div style={{ padding: 50 }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque, fugiat necessitatibus ipsam ad in quam alias magnam nam ipsum deserunt officia perferendis possimus rem sint id incidunt exercitationem officiis.
+            <div className='p-3 pb-5 md:px-[15%] md:py-10'>
+                <h2 className='mb-5'>Features</h2>
+
+                <div className={`${styles.features} grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4`}>
+                    <div>
+                        <div>
+                            <h3>Auto Moderation</h3>
+                            <p>SudoBot has auto moderation tools like Anti-Raid, Anti-Spam, and Message Filter Rules that can save you from headaches.</p>
+                        </div>
+                        <div>
+                            <HiCube aria-hidden="true" /> 
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h3>Manual Moderation Tools</h3>
+                            <p>It also has a collection of useful moderation utilities.</p>
+                        </div>
+                        <div>
+                            <HiWrenchScrewdriver aria-hidden="true" /> 
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h3>Open Source &amp; Active Development</h3>
+                            <p>SudoBot is open source &mdash; feel free to make changes to the source code! Also collaborations are welcome!</p>
+                        </div>
+                        <div>
+                            <HiCodeBracket aria-hidden="true" /> 
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h3>Secure</h3>
+                            <p>SudoBot is built to provide better security to your Discord Server. Also, we keep your data secure. <a href={privacy}>Learn more</a>.</p>
+                        </div>
+                        <div>
+                            <HiShieldCheck aria-hidden="true" /> 
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

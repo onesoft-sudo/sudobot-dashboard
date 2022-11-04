@@ -8,3 +8,26 @@
     background-position-y: 40%;
     padding: 10px;
 }
+
+.features > div {
+    padding: 10px;
+    background: #222;
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.4);
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.features > div p {
+    color: #999;
+    margin-top: 10px;
+}
+
+.features > div h3 {
+    display: flex;
+    align-items: center;
+}
+
+.features > div svg {
+    font-size: 100px;
+    margin-left: 10px;
+}

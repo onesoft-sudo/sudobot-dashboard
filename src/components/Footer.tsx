@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { privacy, terms } from "../utils/links";
 
 export default function Footer() {
     return (
@@ -32,8 +33,8 @@ export default function Footer() {
                 <h3>Useful Links</h3>
 
                 <ul className="list-none mt-3">
-                    <li><a target="_blank" rel="noreferrer" href="https://docs.onesoftnet.eu.org/legal/terms.md">Terms of Service</a></li>
-                    <li><a target="_blank" rel="noreferrer" href="https://docs.onesoftnet.eu.org/legal/policy.md">Privacy Policy</a></li>
+                    <li><a target="_blank" rel="noreferrer" href={terms}>Terms of Service</a></li>
+                    <li><a target="_blank" rel="noreferrer" href={privacy}>Privacy Policy</a></li>
                     <li><a target="_blank" rel="noreferrer" href="https://docs.onesoftnet.eu.org/">Documentation</a></li>
                 </ul>
             </div>
