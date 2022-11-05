@@ -1,6 +1,6 @@
 import ThemeButton from '../components/ThemeButton';
 import styles from '../css/Home.module.css';
-import { githubRepo, privacy } from '../utils/links';
+import { discordInvite, githubRepo, privacy } from '../utils/links';
 import { HiCodeBracket, HiCube, HiShieldCheck, HiWrenchScrewdriver } from 'react-icons/hi2';
 
 export default function Home() {
@@ -59,6 +59,14 @@ export default function Home() {
                             <HiShieldCheck aria-hidden="true" /> 
                         </div>
                     </div>
+                </div>
+
+                <br />
+
+                <div>
+                    <h2>Active Support</h2>
+                    <br />
+                    <p>The support team of SudoBot is always waiting to help you &mdash; you can email us at <a href="mailto:support@onesoftnet.eu.org">support@onesoftnet.eu.org</a> or join our <a href={discordInvite}>Discord Server</a>.</p>
                 </div>
             </div>
         </div>

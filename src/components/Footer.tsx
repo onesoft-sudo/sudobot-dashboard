@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { privacy, terms } from "../utils/links";
+import { discordInvite, privacy, terms } from "../utils/links";
 
 export default function Footer() {
     return (
@@ -16,7 +16,7 @@ export default function Footer() {
                 <ul className="list-none mt-3">
                     <li><a href="mailto:sudobot@onesoftnet.eu.org">Email</a></li>
                     <li><a href="mailto:rakinar2@onesoftnet.eu.org">Email (Webmaster)</a></li>
-                    <li><a target="_blank" rel="noreferrer" href="https://discord.gg/892GWhTzgs">Discord Server</a></li>
+                    <li><a target="_blank" rel="noreferrer" href={discordInvite}>Discord Server</a></li>
                 </ul>
             </div>
             <div className="py-5">
@@ -35,7 +35,7 @@ export default function Footer() {
                 <ul className="list-none mt-3">
                     <li><a target="_blank" rel="noreferrer" href={terms}>Terms of Service</a></li>
                     <li><a target="_blank" rel="noreferrer" href={privacy}>Privacy Policy</a></li>
-                    <li><a target="_blank" rel="noreferrer" href="https://docs.onesoftnet.eu.org/">Documentation</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://docs.sudobot.onesoftnet.eu.org/">Documentation</a></li>
                 </ul>
             </div>
         </div>
