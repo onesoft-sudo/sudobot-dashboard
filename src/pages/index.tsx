@@ -2,10 +2,15 @@ import ThemeButton from '../components/ThemeButton';
 import styles from '../css/Home.module.css';
 import { discordInvite, githubRepo, privacy } from '../utils/links';
 import { HiCodeBracket, HiCube, HiShieldCheck, HiWrenchScrewdriver } from 'react-icons/hi2';
+import Head from 'next/head';
 
 export default function Home() {
     return (
         <div>
+            <Head>
+                <title>Home - SudoBot</title>
+                <meta name="description" content='The ultimate solution for Discord Server Moderation.' />
+            </Head>
             <div className={styles.wrapper}>
                 <h1 className='text-2xl md:text-4xl lg:text-5xl text-center md:px-[25%] !leading-[2.5ch] mt-3'>A single bot for <span className="text-blue-500">everything you need</span> to <span className="text-blue-500">moderate</span> a Discord Server.</h1>
                 <h3 className="text-center text-xl md:text-2xl lg:text-3xl mt-5">It's <span className='text-blue-500'>SudoBot</span>. The ultimate solution for Discord Server Moderation.</h3>
