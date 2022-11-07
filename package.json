@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.11",
     "chart.js": "^3.9.1",
+    "date-fns": "^2.29.3",
     "next": "13.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",

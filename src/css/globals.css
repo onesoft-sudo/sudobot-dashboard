@@ -17,6 +17,10 @@ body {
     overflow-x: hidden;
 }
 
+code {
+    font-family: Consolas, 'Courier New', Courier, monospace;
+}
+
 a {
     color: #007bff;
     text-decoration: none;

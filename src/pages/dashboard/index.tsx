@@ -1,7 +1,11 @@
 import Head from "next/head";
 import Chart from 'chart.js/auto';
 import { useEffect, useRef } from "react";
-import { Card, CardContent } from "@mui/material";
+import { Card, CardContent, Button } from "@mui/material";
+import { MdAdd } from "react-icons/md";
+import { applyForm } from "../../utils/links";
+import { formatDistanceToNow, formatDistanceToNowStrict } from "date-fns";
+import PackageMeta from '../../../package.json';
 
 export default function Dashboard() {
     const ref = useRef({} as HTMLCanvasElement);
@@ -10,11 +14,11 @@ export default function Dashboard() {
         const chart = new Chart(ref.current, {
             type: 'bar',
             data: {
-                labels: ['Ban', 'Kick', 'Mute', 'Hardmute', 'Tempban', 'Shot'],
+                labels: ['Ban', 'Kick', 'Mute', 'Hardmute', 'Tempban', 'Shot', 'Unban', 'Unmute'],
                 datasets: [
                     {
                         label: 'Number of Infractions',
-                        data: [21, 0, 4, 1, 0, 7],
+                        data: [21, 0, 4, 1, 0, 7, 1, 12],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -64,7 +68,25 @@ export default function Dashboard() {
 
                         <br />
 
-                        <h3></h3>
+                        <h3 className="mb-2 flex items-center justify-between">
+                            <span>Servers</span>
+                            <Button href={applyForm} startIcon={<MdAdd />}>Add</Button>
+                        </h3>
+
+                        <p>SudoBot is installed in the following servers:</p>
+
+                        <ul className="pl-4 pt-2">
+                            {["The Everything Server", "TES Bot Workshop"].map(s => <li>{s}</li>)}
+                        </ul>
+
+                        <br />
+
+                        <h3 className="mb-2">System Information</h3>
+                        <p className="leading-[3ch]">
+                            Bot Version: <code className="p-[2px] bg-slate-700 rounded">v4.17.2</code><br />
+                            Dashboard Version: <code className="p-[2px] bg-slate-700 rounded">v{PackageMeta.version}</code><br />
+                            Uptime: <code className="p-[2px] bg-slate-700 rounded">{formatDistanceToNow(new Date("2022-11-01T11:59:00Z"))}</code>
+                        </p>
                     </CardContent>
                 </Card>
                 <Card>
