@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Card, CardContent, Button } from "@mui/material";
 import { MdAdd } from "react-icons/md";
 import { applyForm } from "../../utils/links";
-import { formatDistanceToNow, formatDistanceToNowStrict } from "date-fns";
+import { formatDistanceToNow } from "date-fns";
 import PackageMeta from '../../../package.json';
 
 export default function Dashboard() {

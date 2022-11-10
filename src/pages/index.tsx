@@ -1,7 +1,8 @@
 import ThemeButton from '../components/ThemeButton';
 import styles from '../css/Home.module.css';
 import { discordInvite, githubRepo, privacy } from '../utils/links';
-import { HiCodeBracket, HiCube, HiShieldCheck, HiWrenchScrewdriver } from 'react-icons/hi2';
+import { BsBox, BsCodeSlash, BsShieldCheck } from 'react-icons/bs';
+import { MdConstruction } from 'react-icons/md';
 import Head from 'next/head';
 
 export default function Home() {
@@ -34,7 +35,7 @@ export default function Home() {
                             <p>SudoBot has auto moderation tools like Anti-Raid, Anti-Spam, and Message Filter Rules that can save you from headaches.</p>
                         </div>
                         <div>
-                            <HiCube aria-hidden="true" /> 
+                            <BsBox aria-hidden="true" /> 
                         </div>
                     </div>
                     <div>
@@ -43,7 +44,7 @@ export default function Home() {
                             <p>It also has a collection of useful moderation utilities.</p>
                         </div>
                         <div>
-                            <HiWrenchScrewdriver aria-hidden="true" /> 
+                            <MdConstruction aria-hidden="true" /> 
                         </div>
                     </div>
                     <div>
@@ -52,7 +53,7 @@ export default function Home() {
                             <p>SudoBot is open source &mdash; feel free to make changes to the source code! Also collaborations are welcome!</p>
                         </div>
                         <div>
-                            <HiCodeBracket aria-hidden="true" /> 
+                            <BsCodeSlash aria-hidden="true" /> 
                         </div>
                     </div>
                     <div>
@@ -61,7 +62,7 @@ export default function Home() {
                             <p>SudoBot is built to provide better security to your Discord Server. Also, we keep your data secure. <a href={privacy}>Learn more</a>.</p>
                         </div>
                         <div>
-                            <HiShieldCheck aria-hidden="true" /> 
+                            <BsShieldCheck aria-hidden="true" /> 
                         </div>
                     </div>
                 </div>
