@@ -70,13 +70,13 @@ export default function Dashboard() {
 
                         <h3 className="mb-2 flex items-center justify-between">
                             <span>Servers</span>
-                            <Button href={applyForm} startIcon={<MdAdd />}>Add</Button>
+                            <Button target="_blank" rel="noreferrer" href={applyForm} startIcon={<MdAdd />}>Add</Button>
                         </h3>
 
                         <p>SudoBot is installed in the following servers:</p>
 
                         <ul className="pl-4 pt-2">
-                            {["The Everything Server", "TES Bot Workshop"].map(s => <li>{s}</li>)}
+                            {["The Everything Server", "TES Bot Workshop"].map(s => <li key={s}>{s}</li>)}
                         </ul>
 
                         <br />
