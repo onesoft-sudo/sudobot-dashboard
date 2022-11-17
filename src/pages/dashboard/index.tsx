@@ -1,14 +1,18 @@
 import Head from "next/head";
 import Chart from 'chart.js/auto';
-import { useEffect, useRef } from "react";
-import { Card, CardContent, Button } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
+import { Card, CardContent, Button, TextField, FormHelperText } from "@mui/material";
 import { MdAdd } from "react-icons/md";
 import { applyForm } from "../../utils/links";
 import { formatDistanceToNow } from "date-fns";
 import PackageMeta from '../../../package.json';
+import { useForm } from 'react-hook-form';
+import Routes from "../../utils/Routes";
 
 export default function Dashboard() {
+    const { handleSubmit, register, formState: { errors } } = useForm();
     const ref = useRef({} as HTMLCanvasElement);
+    const [message, setMessage] = useState<string | null>(null);
     
     useEffect(() => {
         const chart = new Chart(ref.current, {
@@ -50,6 +54,26 @@ export default function Dashboard() {
 
         return () => chart.destroy();
     }, []);
+
+    function onSubmit(fields: { content?: string }) {
+        fetch(Routes.contact(), { 
+            method: 'POST',
+            body: JSON.stringify({ content: fields.content }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        .then(response => response.json())
+        .then(json => {
+            console.log(json);
+            
+            if (json.success) {
+                setMessage("Message has been sent!");
+                setTimeout(() => setMessage(null), 5000);
+            }
+        })
+        .catch(console.error);
+    }
 
     return (
         <div className="p-2 md:px-[20%] min-h-[80vh]">
@@ -95,6 +119,34 @@ export default function Dashboard() {
                         <canvas ref={ref} width="500px" height="300px"></canvas>
                     </CardContent>
                 </Card>
+            </div>
+
+            <div>
+                <Card>
+                    <CardContent>
+                        <h2 className="mb-5">Contact Support via Form</h2>
+
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <TextField
+                                fullWidth={true}
+                                multiline={true}
+                                minRows={3}
+                                label="Your feedback or problem report"
+                                {...register("content", { 
+                                    required: { value: true, message: "This field is required!" }, 
+                                    maxLength: { value: 3000, message: "Your message must not contain more than 3000 characters!" } 
+                                })}
+                            />
+
+                            {errors.content?.message && <FormHelperText className="text-red-500">{errors.content.message.toString()}</FormHelperText>}
+                            {message && <FormHelperText className="text-blue-500">{message}</FormHelperText>}
+
+                            <Button className="float-right my-5" type="submit" variant="outlined">Submit</Button>
+                        </form>
+                    </CardContent>
+                </Card>
+
+                <br />
             </div>
         </div>
     );
