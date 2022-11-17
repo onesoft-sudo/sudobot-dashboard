@@ -8,6 +8,7 @@ import { formatDistanceToNow } from "date-fns";
 import PackageMeta from '../../../package.json';
 import { useForm } from 'react-hook-form';
 import Routes from "../../utils/Routes";
+import DashboardLayout from "../../layouts/DashboardLayout";
 
 export default function Dashboard() {
     const { handleSubmit, register, formState: { errors } } = useForm();
@@ -76,7 +77,7 @@ export default function Dashboard() {
     }
 
     return (
-        <div className="p-2 md:px-[20%] min-h-[80vh]">
+        <div className="p-2 min-h-[80vh]">
             <Head>
                 <title>Dashboard - SudoBot</title>
                 <meta name="robots" content="noindex" />
@@ -151,3 +152,5 @@ export default function Dashboard() {
         </div>
     );
 }
+
+Dashboard.layout = DashboardLayout;

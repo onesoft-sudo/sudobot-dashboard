@@ -39,7 +39,7 @@
 @media (max-width: 970px) {
     .navbarListWrapper {
         display: block;
-        margin-top: 10px;
+        padding-top: 10px;
         position: fixed;
         top: 0;
         left: -100vw;
