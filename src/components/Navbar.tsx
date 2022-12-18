@@ -17,12 +17,12 @@ const links = [
     }
 ];
 
-export default function Navbar() {
+export default function Navbar({ centered = true }) {
     const router = useRouter();
     const [open, setOpen] = useState(false);
 
     return (
-        <nav className="p-3 bg-[#222] md:px-[20%] flex items-center gap-3">
+        <nav className={`p-3 bg-[#222] ${centered ? 'md:px-[20%]' : 'md:px-7'} flex items-center gap-3`}>
             <div className="mobile">
                 <ThemeButton className="min-w-0" onClick={() => setOpen(true)}><MdMenu size={20} /></ThemeButton>
             </div>

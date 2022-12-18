@@ -146,8 +146,6 @@ export default function Dashboard() {
                         </form>
                     </CardContent>
                 </Card>
-
-                <br />
             </div>
         </div>
     );

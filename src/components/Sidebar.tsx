@@ -36,7 +36,7 @@ export default function Sidebar() {
                     Navigate...
                 </Button>
             </div>
-            <div className={"bg-[#222] px-4 py-3 rounded md:min-h-[100%] overflow-hidden " + (open ? '' : 'h-0 p-0 m-0 hidden')} style={{ transition: '0.5s' }}>
+            <div className={"bg-[#222] px-4 py-3 rounded md:min-h-[100%] overflow-hidden " + (open ? '' : 'h-0 p-0 m-0 hidden') + "md:block"} style={{ transition: '0.5s' }}>
                 <List>
                     {SidebarEntries.map(entry => (
                         <ListItem key={entry.name} disablePadding style={{ width: '100%' }}>
