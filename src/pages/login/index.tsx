@@ -1,5 +1,10 @@
 import { Button, FormHelperText, TextField } from "@mui/material";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { FaDiscord } from 'react-icons/fa';
+import { AuthContext, AuthContextAction } from "../../contexts/AuthContext";
 
 type FormData = {
     username: string;
@@ -8,13 +13,33 @@ type FormData = {
 
 export default function Login() {
     const { formState: { errors }, register, handleSubmit } = useForm<FormData>();
+    const { user, dispatch } = useContext(AuthContext);
+    const router = useRouter();
 
     const onSubmit = (data: FormData) => {
-        console.log(data);
+        // hard code username and password for now
+        if (data.username === 'root' && data.password === '1234') {
+            console.log(data, user);
+
+            dispatch({ 
+                type: AuthContextAction.LOGIN, 
+                payload: data
+            });
+
+            localStorage.setItem('user', `{
+                username: 'root'
+            }`);
+
+            router.push('/dashboard');
+        }
     };
 
     return (
         <div className="min-h-[80vh] flex justify-center items-center">
+            <Head>
+                <title>Login - SudoBot</title>
+                <meta name="description" content='The ultimate solution for Discord Server Moderation.' />
+            </Head>
             <div className="p-4 my-5 mx-2 md:mx-auto bg-[#222] md:w-[15%]">
                 <h1 className="lg:text-4xl text-center">Login</h1>
 
@@ -57,8 +82,11 @@ export default function Login() {
 
                     <br />
 
-                    <div className="flex justify-end">
-                        <Button type="submit" variant="outlined" className="ml-auto">Login</Button>
+                    <div>
+                        <Button type="submit" variant="outlined" fullWidth={true}>Login</Button>
+                        <br />
+                        <br />
+                        <Button type="button" style={{ color: '#7289da', borderColor: '#7289da' }} variant="outlined" fullWidth={true} startIcon={<FaDiscord />}>Login with Discord</Button>
                     </div>
                 </form>
             </div>

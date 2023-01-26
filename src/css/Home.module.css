@@ -1,5 +1,5 @@
 .wrapper {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/background.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(#007bff, #000);
     min-height: calc(100vh - 63px);
     width: calc(100vw - 20px);
     max-width: 100vw;
@@ -21,7 +21,7 @@
     color: #999;
     margin-top: 10px;
 }
-
+    
 .features > div h3 {
     display: flex;
     align-items: center;

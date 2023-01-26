@@ -38,7 +38,7 @@ export default function Navbar({ centered = true }) {
                 </ul>
 
                 <div className="ml-auto">
-                    <ThemeButton variant="outlined">Login</ThemeButton>
+                    <Link href="/login" style={{ textDecoration: 'none' }}><ThemeButton variant="outlined">Login</ThemeButton></Link>
                 </div>
             </div>
         </nav>

@@ -9,11 +9,14 @@ import PackageMeta from '../../../package.json';
 import { useForm } from 'react-hook-form';
 import Routes from "../../utils/Routes";
 import DashboardLayout from "../../layouts/DashboardLayout";
+import useAuthCheck from "../../hooks/useAuthCheck";
 
 export default function Dashboard() {
     const { handleSubmit, register, formState: { errors } } = useForm();
     const ref = useRef({} as HTMLCanvasElement);
     const [message, setMessage] = useState<string | null>(null);
+
+    useAuthCheck();
     
     useEffect(() => {
         const chart = new Chart(ref.current, {
