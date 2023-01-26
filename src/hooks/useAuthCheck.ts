@@ -5,6 +5,8 @@ export default function useAuthCheck() {
     const router = useRouter();
 
     useEffect(() => {
+        console.log(localStorage.getItem('user'));
+        
         if (!localStorage.getItem('user')) {
             router.push('/login');
         }

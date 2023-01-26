@@ -5,7 +5,7 @@ export enum AuthContextAction {
     LOGOUT = 'logout'
 }
 
-type Action = { type: AuthContextAction, payload: any };
+type Action = { type: AuthContextAction, payload?: any };
 
 export const AuthContextReducer = (state: any, action: Action) => {
     switch (action.type) {
@@ -13,6 +13,7 @@ export const AuthContextReducer = (state: any, action: Action) => {
             return { ...state, user: action.payload };
 
         case AuthContextAction.LOGOUT:
+            console.log("Logged out");
             return { ...state, user: null };
 
         default:

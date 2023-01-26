@@ -4,7 +4,8 @@ import styles from '../css/Navbar.module.css';
 import ThemeButton from "./ThemeButton";
 import { MdClose, MdMenu } from 'react-icons/md';
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext, AuthContextAction } from "../contexts/AuthContext";
 
 const links = [
     {
@@ -20,6 +21,7 @@ const links = [
 export default function Navbar({ centered = true }) {
     const router = useRouter();
     const [open, setOpen] = useState(false);
+    const { user, dispatch } = useContext(AuthContext);
 
     return (
         <nav className={`p-3 bg-[#222] ${centered ? 'md:px-[20%]' : 'md:px-7'} flex items-center gap-3`}>
@@ -38,7 +40,12 @@ export default function Navbar({ centered = true }) {
                 </ul>
 
                 <div className="ml-auto">
-                    <Link href="/login" style={{ textDecoration: 'none' }}><ThemeButton variant="outlined">Login</ThemeButton></Link>
+                    {!user && <Link href="/login" style={{ textDecoration: 'none' }}><ThemeButton variant="outlined">Login</ThemeButton></Link>}
+                    {user && <ThemeButton variant="outlined" onClick={() => {
+                        localStorage.removeItem('user');
+                        dispatch({ type: AuthContextAction.LOGOUT });
+                        router.push('/login');
+                    }}>Logout</ThemeButton>}
                 </div>
             </div>
         </nav>

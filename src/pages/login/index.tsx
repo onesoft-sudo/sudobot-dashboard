@@ -1,38 +1,51 @@
-import { Button, FormHelperText, TextField } from "@mui/material";
+import { Alert, Button, FormHelperText, TextField } from "@mui/material";
+import { useMutation } from "@tanstack/react-query";
+import { AxiosError } from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaDiscord } from 'react-icons/fa';
+import { login, LoginPayload } from "../../api/users";
 import { AuthContext, AuthContextAction } from "../../contexts/AuthContext";
 
-type FormData = {
-    username: string;
-    password: string;
-};
-
 export default function Login() {
-    const { formState: { errors }, register, handleSubmit } = useForm<FormData>();
-    const { user, dispatch } = useContext(AuthContext);
+    const { formState: { errors }, register, handleSubmit } = useForm<LoginPayload>();
+    const { dispatch } = useContext(AuthContext);
     const router = useRouter();
+    const [error, setError] = useState<string | null>(null);
 
-    const onSubmit = (data: FormData) => {
-        // hard code username and password for now
-        if (data.username === 'root' && data.password === '1234') {
-            console.log(data, user);
-
-            dispatch({ 
-                type: AuthContextAction.LOGIN, 
-                payload: data
-            });
-
-            localStorage.setItem('user', `{
-                username: 'root'
-            }`);
-
+    useEffect(() => {
+        if (localStorage.getItem('user')) {
             router.push('/dashboard');
         }
+    }, []);
+
+    const mutation = useMutation({
+        mutationFn: login,
+        onError(error: AxiosError<any>) {
+            console.log("Failure", error);
+            setError(error.response?.data?.error ?? "There was an error while authenticating. Please try again.");
+            setTimeout(() => setError(null), 5000);
+        },
+        onSuccess(data, variables, context) {
+            console.log(data);
+            dispatch({ 
+                type: AuthContextAction.LOGIN, 
+                payload: data.data
+            });
+
+            localStorage.setItem('user', JSON.stringify(data.data));
+            router.push('/dashboard');
+        },
+    });
+
+    const onSubmit = (data: LoginPayload) => {
+        setError(null);
+        mutation.mutate(data);
     };
+
+    useEffect(() => console.log(error), [error]);
 
     return (
         <div className="min-h-[80vh] flex justify-center items-center">
@@ -42,6 +55,18 @@ export default function Login() {
             </Head>
             <div className="p-4 my-5 mx-2 md:mx-auto bg-[#222] md:w-[15%]">
                 <h1 className="lg:text-4xl text-center">Login</h1>
+
+                {mutation.isLoading && (
+                    <Alert severity="info" className="mt-3">Authenticating...</Alert>
+                )}
+
+                {mutation.isSuccess && (
+                    <Alert severity="success" className="mt-3">Login sucessful.</Alert>
+                )}
+
+                {error && (
+                    <Alert severity="error" className="mt-3">{error}</Alert>
+                )}
 
                 <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
                     <TextField 

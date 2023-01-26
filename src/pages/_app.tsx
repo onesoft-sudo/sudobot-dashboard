@@ -5,17 +5,24 @@ import { NextComponentType, NextPage } from 'next';
 import MainLayout from '../layouts/MainLayout';
 import { theme } from '../utils/theme';
 import AuthContextProvider from '../contexts/AuthContext';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 interface AppProps extends NextAppProps {
     Component: NextComponentType<NextPage, any, any> | any;
 }
 
+const queryClient = new QueryClient();
+
 export default function App({ Component, pageProps }: AppProps) {
-    return <ThemeProvider theme={theme}>
-        <AuthContextProvider>
-            {Component.layout ? 
-                <Component.layout><Component {...pageProps} /></Component.layout> :
-                    <MainLayout><Component {...pageProps} /></MainLayout>}
-        </AuthContextProvider>
-    </ThemeProvider>;
+    return (
+        <QueryClientProvider client={queryClient}>
+            <ThemeProvider theme={theme}>
+                <AuthContextProvider>
+                    {Component.layout ? 
+                        <Component.layout><Component {...pageProps} /></Component.layout> :
+                            <MainLayout><Component {...pageProps} /></MainLayout>}
+                </AuthContextProvider>
+            </ThemeProvider>
+        </QueryClientProvider>
+    );
 }
