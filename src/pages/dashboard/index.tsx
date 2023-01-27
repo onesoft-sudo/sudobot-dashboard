@@ -83,7 +83,7 @@ export default function Dashboard() {
         <div className="p-2 min-h-[80vh]">
             <Head>
                 <title>Dashboard - SudoBot</title>
-                <meta name="robots" content="noindex" />
+                <meta name="robots" content="noindex, nofollow" />
             </Head>
 
             <h1>Dashboard</h1>

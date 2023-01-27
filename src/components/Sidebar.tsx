@@ -1,13 +1,18 @@
 import { Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import Link from "next/link";
 import { useState } from "react";
-import { MdInbox, MdSettings, MdShield, MdConstruction, MdPowerSettingsNew, MdMenu, MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
+import { MdInbox, MdSettings, MdShield, MdConstruction, MdPowerSettingsNew, MdMenu, MdArrowDropDown, MdArrowDropUp, MdBarChart } from 'react-icons/md';
 
 export const SidebarEntries = [
     {
+        icon: MdBarChart,
+        name: 'Overview',
+        href: '/dashboard'
+    },
+    {
         icon: MdPowerSettingsNew,
         name: 'Basic Settings',
-        href: '/dashboard'
+        href: '/dashboard/basicsettings'
     },
     {
         icon: MdShield,
@@ -32,11 +37,11 @@ export default function Sidebar() {
     return (
         <>
             <div className="mobile">
-                <Button className="mb-4" onClick={() => setOpen(s => !s)} endIcon={open ? <MdArrowDropUp size={20} /> : <MdArrowDropDown size={20} />}>
+                <Button className="mb-2" onClick={() => setOpen(s => !s)} endIcon={open ? <MdArrowDropUp size={20} /> : <MdArrowDropDown size={20} />}>
                     Navigate...
                 </Button>
             </div>
-            <div className={"bg-[#222] px-4 py-3 rounded md:min-h-[100%] overflow-hidden " + (open ? '' : 'h-0 p-0 m-0 hidden') + "md:block"} style={{ transition: '0.5s' }}>
+            <div className={"bg-[#222] px-4 py-3 rounded md:min-h-[100%] overflow-hidden " + (open ? '' : 'h-0 p-0 m-0 hidden') + " md:block"} style={{ transition: '0.5s' }}>
                 <List>
                     {SidebarEntries.map(entry => (
                         <ListItem key={entry.name} disablePadding style={{ width: '100%' }}>

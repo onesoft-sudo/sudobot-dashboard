@@ -36,7 +36,7 @@ export default function Login() {
             });
 
             localStorage.setItem('user', JSON.stringify(data.data));
-            router.push('/dashboard');
+            router.push(router.query.redirect_uri && router.query.redirect_uri.toString().startsWith('/') ? router.query.redirect_uri as string : '/dashboard');
         },
     });
 
@@ -108,10 +108,10 @@ export default function Login() {
                     <br />
 
                     <div>
-                        <Button type="submit" variant="outlined" fullWidth={true}>Login</Button>
+                        <Button disabled={mutation.isLoading} type="submit" variant="outlined" fullWidth={true}>Login</Button>
                         <br />
                         <br />
-                        <Button type="button" style={{ color: '#7289da', borderColor: '#7289da' }} variant="outlined" fullWidth={true} startIcon={<FaDiscord />}>Login with Discord</Button>
+                        <Button disabled={mutation.isLoading} type="button" style={{ color: '#7289da', borderColor: '#7289da' }} variant="outlined" fullWidth={true} startIcon={<FaDiscord />}>Login with Discord</Button>
                     </div>
                 </form>
             </div>

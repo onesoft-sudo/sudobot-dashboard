@@ -21,6 +21,7 @@ const links = [
 export default function Navbar({ centered = true }) {
     const router = useRouter();
     const [open, setOpen] = useState(false);
+    const [loggingOut, setLoggingOut] = useState(false);
     const { user, dispatch } = useContext(AuthContext);
 
     return (
@@ -40,12 +41,13 @@ export default function Navbar({ centered = true }) {
                 </ul>
 
                 <div className="ml-auto">
-                    {!user && <Link href="/login" style={{ textDecoration: 'none' }}><ThemeButton variant="outlined">Login</ThemeButton></Link>}
-                    {user && <ThemeButton variant="outlined" onClick={() => {
+                    {!user && !loggingOut && <Link href="/login" style={{ textDecoration: 'none' }}><ThemeButton variant="outlined">Login</ThemeButton></Link>}
+                    {(user || loggingOut) && <ThemeButton disabled={loggingOut} variant="outlined" onClick={(e) => {
                         localStorage.removeItem('user');
                         dispatch({ type: AuthContextAction.LOGOUT });
-                        router.push('/login');
-                    }}>Logout</ThemeButton>}
+                        setLoggingOut(true);
+                        router.push('/login').finally(() => setLoggingOut(false));
+                    }}>{loggingOut ? "Logging out..." : "Logout"}</ThemeButton>}
                 </div>
             </div>
         </nav>

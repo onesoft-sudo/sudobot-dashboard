@@ -27,6 +27,7 @@ export default async function Contact(req: NextApiRequest, res: NextApiResponse)
         res.status(200).send({ success: true });
     }
     catch (e) {
+        console.log(e);
         return res.status(500).send({ error: 'Internal error' });
     }
 }

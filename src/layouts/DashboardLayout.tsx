@@ -9,7 +9,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
             <header>
                 <Navbar centered={false} />
             </header>
-            <div className="md:grid grid-cols-[1fr_6fr] gap-5 p-3">
+            <div className="md:grid grid-cols-[1fr_6fr] gap-5 p-3 min-h-[80vh]">
                 <aside className="mb-8">
                     <Sidebar />
                 </aside>
