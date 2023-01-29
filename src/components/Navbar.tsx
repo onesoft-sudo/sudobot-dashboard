@@ -6,6 +6,7 @@ import { MdClose, MdMenu } from 'react-icons/md';
 import { Button } from "@mui/material";
 import { useContext, useState } from "react";
 import { AuthContext, AuthContextAction } from "../contexts/AuthContext";
+import Profile from "./Profile";
 
 const links = [
     {
@@ -42,13 +43,18 @@ export default function Navbar({ centered = true }) {
 
                 <div className="ml-auto">
                     {!user && !loggingOut && <Link href="/login" style={{ textDecoration: 'none' }}><ThemeButton variant="outlined">Login</ThemeButton></Link>}
-                    {user && <Link href="/dashboard" style={{ textDecoration: 'none' }}><ThemeButton className="mr-2" variant="outlined">Dashboard</ThemeButton></Link>}
-                    {(user || loggingOut) && <ThemeButton disabled={loggingOut} variant="outlined" onClick={() => {
+                    {/* {user && <Link href="/dashboard" style={{ textDecoration: 'none' }}><ThemeButton className="mr-2" variant="outlined">Dashboard</ThemeButton></Link>} */}
+                    {user && <Profile
+                        onLogout={state => {
+                            setLoggingOut(state === 'started');
+                        }}
+                    />}
+                    {/* {(user || loggingOut) && <ThemeButton disabled={loggingOut} variant="outlined" onClick={() => {
                         localStorage.removeItem('user');
                         dispatch({ type: AuthContextAction.LOGOUT });
                         setLoggingOut(true);
                         router.push('/login').finally(() => setLoggingOut(false));
-                    }}>{loggingOut ? "Logging out..." : "Logout"}</ThemeButton>}
+                    }}>{loggingOut ? "Logging out..." : "Logout"}</ThemeButton>} */}
                 </div>
             </div>
         </nav>

@@ -30,7 +30,6 @@ export default function BasicSettings() {
     const { user, guild } = useContext(AuthContext);
     const queryClient = useQueryClient();
     const submitButtonRef = useRef<HTMLButtonElement | undefined>();
-    const [isChanged, setIsChanged] = useState(false);
 
     const query = useQuery({
         enabled: !!user,
@@ -79,14 +78,12 @@ export default function BasicSettings() {
     function onSubmit(data: BasicSettingsFormData) {
         console.log(data);
         mutation.mutate(data);
-        setIsChanged(false);
     }
 
     function resetForm(e: MouseEvent) {
         reset();
         (e.currentTarget! as any).disabled = true;
         location.reload();
-        setIsChanged(false);
     }
 
     useEffect(() => console.log("query.data?.data?.mod_role", query.data?.data?.mod_role), [query]);
@@ -98,7 +95,7 @@ export default function BasicSettings() {
                 <meta name="robots" content="noindex, nofollow" />
             </Head>
 
-            <form onChange={() => setIsChanged(true)} onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="pb-3 md:flex justify-between pr-4">
                     <h1>Basic Settings</h1>
 
@@ -204,14 +201,6 @@ export default function BasicSettings() {
                 {query.isLoading && <h2>Loading...</h2>}
                 {query.isError && <h2>An error has occurred while loading this page.</h2>}
             </form>
-
-            <UnsavedNotification
-                onDiscard={resetForm}
-                onSubmit={e => {
-                    submitButtonRef.current?.click();
-                }}
-                show={isChanged || isDirty}
-            />
         </div>
     );
 }
