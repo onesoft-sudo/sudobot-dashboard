@@ -15,6 +15,7 @@ export async function configGet({ queryKey: [, id, token] }: QueryFunctionContex
 }
 
 export async function configUpdate({ token, id }: { token: string, id: string }, payload: ConfigUpdatePayload) {
+    console.log("Payload", payload);
     return axios.patch(makeAPIURL(`/config/${encodeURIComponent(id)}`), { config: payload }, {
         headers: {
             'Authorization': `Bearer ${encodeURIComponent(token)}`

@@ -1,8 +1,9 @@
-import { createContext, Dispatch, PropsWithChildren, ReducerAction, SetStateAction, useEffect, useReducer } from "react";
+import { createContext, Dispatch, PropsWithChildren, ReducerAction, SetStateAction, useContext, useEffect, useReducer } from "react";
 
 export enum AuthContextAction {
     LOGIN = 'login',
-    LOGOUT = 'logout'
+    LOGOUT = 'logout',
+    SET_GUILD = 'set_guild'
 }
 
 type Action = { type: AuthContextAction, payload?: any };
@@ -10,11 +11,15 @@ type Action = { type: AuthContextAction, payload?: any };
 export const AuthContextReducer = (state: any, action: Action) => {
     switch (action.type) {
         case AuthContextAction.LOGIN:
-            return { ...state, user: action.payload };
+            return { ...state, user: action.payload, guild: action.payload.guilds[0] ?? null };
 
         case AuthContextAction.LOGOUT:
             console.log("Logged out");
             return { ...state, user: null };
+
+        case AuthContextAction.SET_GUILD:
+            console.log("Switching guilds");
+            return { ...state, guild: action.payload ?? null };
 
         default:
             return state;
@@ -23,19 +28,20 @@ export const AuthContextReducer = (state: any, action: Action) => {
 
 export type AuthContextType = {
     user: any | null;
+    guild: any | null;
     dispatch: Dispatch<Action>;
 };
 
-export const AuthContext = createContext<AuthContextType>({ user: null, dispatch: () => null });
+export const AuthContext = createContext<AuthContextType>({ user: null, dispatch: () => null, guild: null });
 
 export default function AuthContextProvider({ children }: PropsWithChildren) {
-    const [state, dispatch] = useReducer(AuthContextReducer, { user: null });
+    const [state, dispatch] = useReducer(AuthContextReducer, { user: null, guild: null });
 
     useEffect(() => {
         const user = localStorage.getItem('user');
 
         if (user) {
-            try {
+            try { 
                 dispatch({ type: AuthContextAction.LOGIN, payload: JSON.parse(user) });
             }
             catch (e) {
@@ -49,4 +55,8 @@ export default function AuthContextProvider({ children }: PropsWithChildren) {
             {children}
         </AuthContext.Provider>
     );
+}
+
+export function useAuthContext() {
+    return useContext(AuthContext);
 }

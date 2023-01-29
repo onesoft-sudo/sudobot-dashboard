@@ -6,6 +6,7 @@ import MainLayout from '../layouts/MainLayout';
 import { theme } from '../utils/theme';
 import AuthContextProvider from '../contexts/AuthContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 interface AppProps extends NextAppProps {
     Component: NextComponentType<NextPage, any, any> | any;
@@ -23,6 +24,8 @@ export default function App({ Component, pageProps }: AppProps) {
                             <MainLayout><Component {...pageProps} /></MainLayout>}
                 </AuthContextProvider>
             </ThemeProvider>
+
+            <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
     );
 }
