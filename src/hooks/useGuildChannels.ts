@@ -8,8 +8,8 @@ export default function useGuildChannels(guild: string, options: UseQueryOptions
 
     return useQuery({
         enabled: !!user,
-        queryKey: ['channels', guild, user?.token],
-        queryFn: getChannels,
+        queryKey: ['channels', guild],
+        queryFn: (obj: any) => getChannels({ ...obj, queryKey: [...obj.queryKey, user?.token] }),
         ...options
     } as any) as UseQueryResult<AxiosResponse<any, any>>;
 }

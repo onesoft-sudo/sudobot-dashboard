@@ -108,7 +108,7 @@ export default function BasicSettings() {
                 {mutation.isError && <Alert severity="error">An error has occurred while saving the settings.</Alert>}
                 {mutation.isSuccess && <Alert severity="success">Successfully saved the settings.</Alert>}
 
-                {query.isFetched && <div className="grid grid-cols-1 md:grid-cols-3 my-3 gap-5">
+                {query.isFetched && channelQuery.isFetched && roleQuery.isFetched && <div className="grid grid-cols-1 md:grid-cols-3 my-3 gap-5">
                     <div>
                         <Card>
                             <CardContent>
