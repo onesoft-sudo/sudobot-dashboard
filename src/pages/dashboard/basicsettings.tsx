@@ -26,10 +26,10 @@ type BasicSettingsFormData = {
 export default function BasicSettings() {
     useAuthCheck();
 
+    const submitButtonRef = useRef<HTMLButtonElement | undefined>();
     const { formState: { errors, isDirty }, register, handleSubmit, reset } = useForm<BasicSettingsFormData>();
     const { user, guild } = useContext(AuthContext);
     const queryClient = useQueryClient();
-    const submitButtonRef = useRef<HTMLButtonElement | undefined>();
 
     const query = useQuery({
         enabled: !!user,

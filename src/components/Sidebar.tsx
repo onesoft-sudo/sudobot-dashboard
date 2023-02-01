@@ -18,7 +18,7 @@ export const SidebarEntries = [
     {
         icon: MdShield,
         name: 'Auto Moderation',
-        href: '/dashboard'
+        href: '/dashboard/automod'
     },
     {
         icon: MdConstruction,
