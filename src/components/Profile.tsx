@@ -31,7 +31,7 @@ export default function Profile({ onLogout = (state: 'started' | 'ended') => {} 
         <div>
             <Button onClick={handleClick} style={{ textTransform: 'none' }} endIcon={<MdArrowDropDown />}>
                 <div className="flex items-center gap-5">
-                    <Avatar>{user?.username[0].toUpperCase()}</Avatar>
+                    <Avatar sx={{ height: 30, width: 30 }}>{user?.username[0].toUpperCase()}</Avatar>
                     <span>{user?.username}</span>
                 </div>
             </Button>

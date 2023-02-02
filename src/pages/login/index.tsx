@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaDiscord } from 'react-icons/fa';
 import { login, LoginPayload } from "../../api/users";
@@ -14,6 +14,7 @@ export default function Login() {
     const { dispatch } = useContext(AuthContext);
     const router = useRouter();
     const [error, setError] = useState<string | null>(null);
+    const timeoutRef = useRef<NodeJS.Timeout | undefined>();
 
     useEffect(() => {
         if (localStorage.getItem('user')) {
@@ -26,7 +27,13 @@ export default function Login() {
         onError(error: AxiosError<any>) {
             console.log("Failure", error);
             setError(error.response?.data?.error ?? "There was an error while authenticating. Please try again.");
-            setTimeout(() => setError(null), 5000);
+
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+                timeoutRef.current = undefined;
+            }
+
+            timeoutRef.current = setTimeout(() => setError(null), 5000);
         },
         onSuccess(data, variables, context) {
             console.log(data);

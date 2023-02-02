@@ -41,8 +41,16 @@ export default function AuthContextProvider({ children }: PropsWithChildren) {
         const user = localStorage.getItem('user');
 
         if (user) {
+            const payload = JSON.parse(user);
+
+            if ((new Date(payload.expires)).getTime() <= (new Date()).getTime()) {
+                localStorage.removeItem('user');
+                dispatch({ type: AuthContextAction.LOGOUT });
+                return;
+            }
+
             try { 
-                dispatch({ type: AuthContextAction.LOGIN, payload: JSON.parse(user) });
+                dispatch({ type: AuthContextAction.LOGIN, payload });
             }
             catch (e) {
                 console.log(e);

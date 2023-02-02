@@ -12,6 +12,7 @@ import useGuildRoles from "../../hooks/useGuildRoles";
 import useGuildChannels from "../../hooks/useGuildChannels";
 import UnsavedNotification from "../../components/UnsavedNotification";
 import useAuthCheck from "../../hooks/useAuthCheck";
+import useResetForm from "../../hooks/useResetForm";
 
 type BasicSettingsFormData = {
     prefix: string;
@@ -75,15 +76,11 @@ export default function BasicSettings() {
         },
     });
 
+    const resetForm = useResetForm(reset);
+
     function onSubmit(data: BasicSettingsFormData) {
         console.log(data);
         mutation.mutate(data);
-    }
-
-    function resetForm(e: MouseEvent) {
-        reset();
-        (e.currentTarget! as any).disabled = true;
-        location.reload();
     }
 
     useEffect(() => console.log("query.data?.data?.mod_role", query.data?.data?.mod_role), [query]);
