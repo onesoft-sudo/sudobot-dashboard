@@ -8,3 +8,13 @@ body {
     min-height: 100vh;
     position: relative;
 }
+
+.link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #036bd9;
+    text-decoration: underline;
+}
