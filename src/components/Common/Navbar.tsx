@@ -74,7 +74,12 @@ const Navbar: FC = () => {
 
             <NavbarContent justify="end">
                 <NavbarItem className="flex">
-                    <Button as={Link} color="primary" href="#" variant="flat">
+                    <Button
+                        as={Link}
+                        color="primary"
+                        href="/login"
+                        variant="flat"
+                    >
                         Login
                     </Button>
                 </NavbarItem>

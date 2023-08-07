@@ -2,7 +2,6 @@
 
 import MainProvider from "@/providers/MainProvider";
 import { Inter } from "next/font/google";
-import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
 import "../styles/globals.css";
 
@@ -22,7 +21,6 @@ export default function RootLayout({
                 <MainProvider>
                     <Navbar />
                     <div>{children}</div>
-                    <Footer />
                 </MainProvider>
             </body>
         </html>
