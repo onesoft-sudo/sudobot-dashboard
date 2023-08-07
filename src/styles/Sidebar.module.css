@@ -1,0 +1,44 @@
+.items {
+    background: linear-gradient(45deg, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0.2));
+    margin: 5px 0 5px 10px;
+    border-radius: 10px;
+    height: 100%;
+    position: relative;
+}
+
+.item {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.2em;
+    padding: 5px 10px;
+}
+
+.item:hover {
+    background: rgba(0, 123, 255, 0.2);
+}
+
+.item:last-child {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.spacer {
+    position: absolute;
+    bottom: 55px;
+    width: 100%;
+    background: #444;
+    height: 1px;
+    border-radius: 10px;
+}
+
+.activeItem {
+    border-left: 1px solid #007bff;
+}
+
+.activeItem:hover {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

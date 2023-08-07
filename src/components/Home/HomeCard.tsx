@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, ReactElement } from "react";
+import { FC, PropsWithChildren } from "react";
 import { IconType } from "react-icons";
 
 interface HomeCardProps extends PropsWithChildren {
@@ -22,7 +22,13 @@ const HomeCard: FC<HomeCardProps> = ({
             }}
         >
             <div className="flex items-center gap-4 mb-3">
-                <Icon size={25} />
+                <Icon
+                    size={25}
+                    color="#007bff"
+                    style={{
+                        marginTop: -2.5,
+                    }}
+                />
                 <h2>{title}</h2>
             </div>
 
