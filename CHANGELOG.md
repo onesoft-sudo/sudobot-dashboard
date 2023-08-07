@@ -1,3 +1,17 @@
+# [0.4.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.3.0...v0.4.0) (2023-08-07)
+
+
+### Bug Fixes
+
+* add missing docs link in footer ([f4b3ad8](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f4b3ad8661563db61567cafb87f37ef022d8a3fd))
+
+
+### Features
+
+* add login page ([50507a5](https://github.com/onesoft-sudo/sudobot-dashboard/commit/50507a524536f87019c68d23846bf36413ef4b92))
+
+
+
 # [0.3.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.2.0...v0.3.0) (2023-08-07)
 
 
