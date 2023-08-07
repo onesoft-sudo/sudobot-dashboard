@@ -1,0 +1,32 @@
+name: Releases
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  changelog:
+    if: github.repository_owner == 'onesoft-sudo'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3.15.0
+        with:
+          github-token: ${{ secrets.WORKFLOW_SECRET_2 }}
+          version-file: './package.json,./package-lock.json'
+          git-user-name: "Conventional Release Action"
+          git-user-email: rakinar2@onesoftnet.eu.org
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_SECRET_2 }}
+        with:
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          release_name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}
