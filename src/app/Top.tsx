@@ -5,8 +5,22 @@ import HomeButtons from "./HomeButtons";
 
 const Top: FC = () => {
     return (
-        <div className="min-h-[85vh] px-4 md:px-[10%] pt-3 grid grid-cols-1 md:grid-cols-2 gap-20">
-            <div className="md:pt-[15%]">
+        <div className="min-h-[90vh] px-4 md:px-[10%] pt-3 grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div className="md:pt-[15%] relative z-[1]">
+                <div
+                    style={{
+                        height: "80%",
+                        width: "100%",
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        zIndex: -1,
+                        display: "block",
+                        background:
+                            "linear-gradient(to right, rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.4), rgba(0, 123, 255, 0.05))",
+                        filter: "blur(100px)",
+                    }}
+                ></div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center md:text-left">
                     A single Discord Bot for everything you need.
                 </h1>
@@ -15,7 +29,7 @@ const Top: FC = () => {
                     SudoBot<span className="text-white">.</span>
                 </h1>
 
-                <h2 className="hidden md:block text-3xl md:text-4xl font-light text-center md:text-left">
+                <h2 className="my-3 md:my-0 text-2xl md:text-4xl font-light text-center md:text-left">
                     The ultimate solution for Discord Server Moderation.
                 </h2>
 
