@@ -20,7 +20,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FC, useState } from "react";
 import { MdMenu } from "react-icons/md";
-import logo from "./icon.png";
+import logo from "../../images/logo.png";
 
 const links = [
     {

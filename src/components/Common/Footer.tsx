@@ -11,7 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import { FaDiscord, FaEnvelope, FaGithub, FaGlobe } from "react-icons/fa6";
-import logo from "./icon.png";
+import logo from "../../images/logo.png";
 
 const links = {
     Support: [

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FC } from "react";
-import shieldImage from "../images/sudobot-shield.png";
-import HomeButtons from "./HomeButtons";
+import shieldImage from "../../images/sudobot-shield.png";
+import HomeButtons from "../Home/HomeButtons";
 
 const Top: FC = () => {
     return (
@@ -17,7 +17,7 @@ const Top: FC = () => {
                         zIndex: -1,
                         display: "block",
                         background:
-                            "linear-gradient(to right, rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.4), rgba(0, 123, 255, 0.05))",
+                            "linear-gradient(to right, rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.38), rgba(0, 123, 255, 0.05))",
                         filter: "blur(100px)",
                     }}
                 ></div>

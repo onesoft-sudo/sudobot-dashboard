@@ -1,5 +1,5 @@
-import FeatureOverview from "./FeatureOverview";
-import Top from "./Top";
+import Top from "../components/Common/Top";
+import FeatureOverview from "../components/Home/FeatureOverview";
 
 export default function Home() {
     return (
