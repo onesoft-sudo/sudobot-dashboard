@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.4.0...v0.5.0) (2023-08-07)
+
+
+### Features
+
+* add basic dashboard page ([3e1b868](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3e1b8685d4b150c8547b192d5fa6932a7b2cedbb))
+
+
+
 # [0.4.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.3.0...v0.4.0) (2023-08-07)
 
 
