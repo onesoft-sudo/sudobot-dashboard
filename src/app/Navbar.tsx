@@ -1,16 +1,21 @@
 "use client";
 
-import { FC } from "react";
 import {
-    Navbar as NextUINavbar,
+    BOT_INVITE_REQUEST_URL,
+    DOCS_FEATURES_URL,
+    DOCS_URL,
+} from "@/utils/links";
+import {
+    Button,
     NavbarBrand,
     NavbarContent,
     NavbarItem,
-    Button,
+    Navbar as NextUINavbar,
 } from "@nextui-org/react";
 import Image from "next/image";
-import logo from "./icon.png";
 import Link from "next/link";
+import { FC } from "react";
+import logo from "./icon.png";
 
 const Navbar: FC = () => {
     return (
@@ -26,17 +31,17 @@ const Navbar: FC = () => {
                     </Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link color="foreground" href="/features">
+                    <Link color="foreground" href={DOCS_FEATURES_URL}>
                         Features
                     </Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link color="foreground" href="#">
+                    <Link color="foreground" href={DOCS_URL}>
                         Documentation
                     </Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link color="foreground" href="#">
+                    <Link color="foreground" href={BOT_INVITE_REQUEST_URL}>
                         Invite
                     </Link>
                 </NavbarItem>
