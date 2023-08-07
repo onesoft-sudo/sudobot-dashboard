@@ -4,6 +4,7 @@ import {
     BOT_PRIVACY_POLICY_URL,
     BOT_STATUS_PAGE_URL,
     BOT_TERMS_URL,
+    DOCS_URL,
     SUPPORT_EMAIL_ADDRESS,
     SUPPORT_SERVER_INVITE,
 } from "@/utils/links";
@@ -36,6 +37,10 @@ const links = {
         {
             name: "Request an Invite",
             url: BOT_INVITE_REQUEST_URL,
+        },
+        {
+            name: "Documentation",
+            url: DOCS_URL,
         },
     ],
     Legal: [
