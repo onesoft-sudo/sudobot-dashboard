@@ -1,3 +1,13 @@
+# [0.6.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.5.0...v0.6.0) (2023-08-08)
+
+
+### Features
+
+* basic login ([b5ee777](https://github.com/onesoft-sudo/sudobot-dashboard/commit/b5ee77724df0e30f4afbd1aca93a2df6bfd4836b))
+* connect dashboard with the API ([705fc4a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/705fc4a8224c0198ec3060dadf8e2e0a8834a869))
+
+
+
 # [0.5.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.4.0...v0.5.0) (2023-08-07)
 
 
