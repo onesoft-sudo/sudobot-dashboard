@@ -1,11 +1,13 @@
 "use client";
 
 import { login } from "@/api/users";
-import { Button, Checkbox, Input } from "@nextui-org/react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { AuthContextAction, useAuthContext } from "@/contexts/AuthContext";
+import { Button, Checkbox, CircularProgress, Input } from "@nextui-org/react";
+import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import Link from "next/link";
-import { FC } from "react";
+import { useRouter } from "next/navigation";
+import { FC, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Alert from "../Common/Alert";
 
@@ -20,8 +22,10 @@ const LoginForm: FC = () => {
         register,
         handleSubmit,
     } = useForm<LoginFormData>();
+    const router = useRouter();
 
-    const queryClient = useQueryClient();
+    const { user, dispatch } = useAuthContext();
+
     const mutation = useMutation({
         mutationFn: login,
         mutationKey: ["login"],
@@ -29,12 +33,28 @@ const LoginForm: FC = () => {
             console.log("Login failed", error);
         },
         onSuccess(data) {
-            console.log("Login successful", data);
+            console.log("Login successful");
+
+            try {
+                localStorage.setItem("user", JSON.stringify(data.data.user));
+            } catch (e) {}
+
+            dispatch?.({
+                type: AuthContextAction.Login,
+                payload: data.data.user,
+            });
+
+            router.push("/dashboard");
         },
     });
 
+    useEffect(() => {
+        if (user?.token) {
+            router.push("/dashboard");
+        }
+    }, [user]);
+
     const onValid = (data: LoginFormData) => {
-        console.log(data);
         mutation.mutate(data);
     };
 
@@ -48,81 +68,91 @@ const LoginForm: FC = () => {
                 boxShadow: "0 0 2px 0 rgba(255, 255, 255, 0.6)",
             }}
         >
-            {mutation.error?.response?.data?.error && (
-                <Alert type="error">
-                    {mutation.error?.response?.data?.error ??
-                        "An error has occurred"}
-                    .
-                </Alert>
+            {user === undefined && (
+                <>
+                    <CircularProgress isIndeterminate className="mx-auto" />
+                </>
             )}
 
-            {mutation.data?.data?.id && (
-                <Alert type="success">Login successful.</Alert>
+            {user !== undefined && (
+                <>
+                    {mutation.error?.response?.data?.error && (
+                        <Alert type="error">
+                            {mutation.error?.response?.data?.error ??
+                                "An error has occurred"}
+                            .
+                        </Alert>
+                    )}
+
+                    {mutation.data?.data?.user && (
+                        <Alert type="success">Login successful.</Alert>
+                    )}
+
+                    <Input
+                        type="text"
+                        label="Username"
+                        labelPlacement="inside"
+                        color="primary"
+                        variant="bordered"
+                        {...register("username", {
+                            required: true,
+                            value: "",
+                        })}
+                        description={
+                            <p className="text-red-500">
+                                {errors?.username?.type === "required"
+                                    ? "Please specify a username to log in!"
+                                    : ""}
+                            </p>
+                        }
+                    />
+
+                    <br />
+
+                    <Input
+                        type="password"
+                        label="Password"
+                        labelPlacement="inside"
+                        color="primary"
+                        variant="bordered"
+                        {...register("password", {
+                            required: true,
+                            value: "",
+                        })}
+                        description={
+                            <p className="text-red-500">
+                                {errors?.password?.type === "required"
+                                    ? "Please provide your password to log in!"
+                                    : ""}
+                            </p>
+                        }
+                    />
+                    <div className="flex items-center justify-between mt-2">
+                        <Checkbox>
+                            <p style={{ fontSize: 14 }}>Remember me</p>
+                        </Checkbox>
+                        <Link
+                            href="/login"
+                            className="link ml-3"
+                            style={{ fontSize: 14 }}
+                        >
+                            Forgot password?
+                        </Link>
+                    </div>
+
+                    <br />
+
+                    <Button
+                        type="submit"
+                        fullWidth
+                        color="primary"
+                        variant="flat"
+                        isLoading={mutation.isLoading}
+                    >
+                        Login
+                    </Button>
+                </>
             )}
-
-            <Input
-                type="text"
-                label="Username"
-                labelPlacement="inside"
-                color="primary"
-                variant="bordered"
-                {...register("username", {
-                    required: true,
-                    value: "",
-                })}
-                description={
-                    <p className="text-red-500">
-                        {errors?.username?.type === "required"
-                            ? "Please specify a username to log in!"
-                            : ""}
-                    </p>
-                }
-            />
-
-            <br />
-
-            <Input
-                type="password"
-                label="Password"
-                labelPlacement="inside"
-                color="primary"
-                variant="bordered"
-                {...register("password", {
-                    required: true,
-                    value: "",
-                })}
-                description={
-                    <p className="text-red-500">
-                        {errors?.password?.type === "required"
-                            ? "Please provide your password to log in!"
-                            : ""}
-                    </p>
-                }
-            />
-            <div className="flex items-center justify-between mt-2">
-                <Checkbox>
-                    <p style={{ fontSize: 14 }}>Remember me</p>
-                </Checkbox>
-                <Link
-                    href="/login"
-                    className="link ml-3"
-                    style={{ fontSize: 14 }}
-                >
-                    Forgot password?
-                </Link>
-            </div>
-
-            <br />
-
-            <Button
-                type="submit"
-                fullWidth
-                color="primary"
-                variant="flat"
-                isLoading={mutation.isLoading}
-            >
-                Login
-            </Button>
         </form>
     );
 };

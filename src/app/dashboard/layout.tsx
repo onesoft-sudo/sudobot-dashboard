@@ -1,3 +1,5 @@
+"use client";
+
 import Sidebar from "@/components/Dashboard/Sidebar";
 import { FC, PropsWithChildren } from "react";
 
