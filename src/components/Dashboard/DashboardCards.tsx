@@ -1,5 +1,6 @@
 "use client";
 
+import { APIAnnouncement } from "@/types/APIAnnouncement";
 import { SUPPORT_EMAIL_ADDRESS, SUPPORT_SERVER_INVITE } from "@/utils/links";
 import {
     Button,
@@ -8,44 +9,21 @@ import {
     CardFooter,
     CardHeader,
 } from "@nextui-org/react";
-import { formatDistanceToNowStrict } from "date-fns";
 import Link from "next/link";
 import { FC } from "react";
 import styles from "../../styles/DashboardCards.module.css";
+import DashboardAnnouncementCard from "./DashboardAnnouncementCard";
 
-const DashboardCards: FC = () => {
+interface DashboardCardsProps {
+    announcements?: APIAnnouncement[];
+}
+
+const DashboardCards: FC<DashboardCardsProps> = ({ announcements = [] }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <Card>
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                    <p className="text-tiny uppercase font-bold">
-                        From the developers
-                    </p>
-                    <small className="text-default-500">
-                        {formatDistanceToNowStrict(
-                            new Date("2023-08-07T23:35:00+06:00"),
-                            { addSuffix: true }
-                        )}
-                    </small>
-                    <h4 className="font-bold text-large">
-                        Help us make the bot even better!
-                    </h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                    We're adding new features continuously, want to know more
-                    about what we plan to implement? Let's discuss what will be
-                    the best!
-                </CardBody>
-                <CardFooter>
-                    <Button
-                        variant="flat"
-                        as={Link}
-                        href={SUPPORT_EMAIL_ADDRESS}
-                    >
-                        Contact Us
-                    </Button>
-                </CardFooter>
-            </Card>
+            {announcements.length > 0 && (
+                <DashboardAnnouncementCard data={announcements[0]} />
+            )}
 
             <Card>
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
@@ -96,6 +74,14 @@ const DashboardCards: FC = () => {
                     </Button>
                 </CardFooter>
             </Card>
+
+            {announcements.length > 1 &&
+                announcements.map(announcement => (
+                    <DashboardAnnouncementCard
+                        key={announcement.title}
+                        data={announcement}
+                    />
+                ))}
         </div>
     );
 };

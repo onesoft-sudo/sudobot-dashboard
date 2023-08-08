@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FC } from "react";
+import { FC, Fragment } from "react";
 import {
     MdBarChart,
     MdLockOutline,
@@ -51,7 +51,7 @@ const Sidebar: FC = () => {
                 </div>
 
                 {items.map((item, index) => (
-                    <>
+                    <Fragment key={index}>
                         {index === items.length - 1 && (
                             <div className={styles.spacer}></div>
                         )}
@@ -63,12 +63,11 @@ const Sidebar: FC = () => {
                                     ? ` ${styles.activeItem}`
                                     : "")
                             }
-                            key={item.name}
                         >
                             <item.icon />
                             <span>{item.name}</span>
                         </Link>
-                    </>
+                    </Fragment>
                 ))}
             </div>
         </aside>

@@ -1,7 +1,15 @@
+import { getAnnouncements } from "@/api/announcements";
 import DashboardCards from "@/components/Dashboard/DashboardCards";
 import { FC } from "react";
 
-const Dashboard: FC = () => {
+const Dashboard: FC = async () => {
+    let announcements = [];
+
+    try {
+        const response = await getAnnouncements();
+        announcements = response.data?.announcements;
+    } catch (e) {}
+
     return (
         <main className="min-h-[90vh]">
             <h1 className="text-3xl md:text-4xl lg:text-5xl text-center pt-7">
@@ -12,7 +20,7 @@ const Dashboard: FC = () => {
             <br />
             <br />
 
-            <DashboardCards />
+            <DashboardCards announcements={announcements} />
         </main>
     );
 };
