@@ -1,26 +1,18 @@
-import { getAnnouncements } from "@/api/announcements";
-import DashboardCards from "@/components/Dashboard/DashboardCards";
-import Welcome from "@/components/Dashboard/Welcome";
-import { FC } from "react";
+"use client";
 
-const Dashboard: FC = async () => {
-    let announcements = [];
+import { useAuthContext } from "@/contexts/AuthContext";
+import { useRouterContext } from "@/contexts/RouterContext";
+import { useEffect } from "react";
 
-    try {
-        const response = await getAnnouncements();
-        announcements = response.data?.announcements;
-    } catch (e) {}
+export default function DefaultDashboard() {
+    const router = useRouterContext();
+    const { currentGuild } = useAuthContext();
 
-    return (
-        <main className="min-h-[90vh]">
-            <Welcome />
+    useEffect(() => {
+        if (currentGuild) {
+            router?.push(`/dashboard/${encodeURIComponent(currentGuild.id)}`);
+        }
+    }, [currentGuild]);
 
-            <br />
-            <br />
-
-            <DashboardCards announcements={announcements} />
-        </main>
-    );
-};
-
-export default Dashboard;
+    return <></>;
+}

@@ -42,10 +42,6 @@ const links = [
         name: "Invite",
         url: BOT_INVITE_REQUEST_URL,
     },
-    {
-        name: "Test",
-        url: "/test",
-    },
 ];
 
 const Navbar: FC = () => {

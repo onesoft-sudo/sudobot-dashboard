@@ -1,8 +1,10 @@
 "use client";
 
+import { useAuthContext } from "@/contexts/AuthContext";
 import useLoggedIn from "@/hooks/useLoggedIn";
 import { usePathname } from "next/navigation";
 import { FC, Fragment } from "react";
+import { FaGears } from "react-icons/fa6";
 import {
     MdBarChart,
     MdLockOutline,
@@ -16,35 +18,41 @@ import Link from "../Router/Link";
 const items = [
     {
         name: "Dashboard",
-        url: "/dashboard",
+        url: "/dashboard/{id}",
         icon: MdBarChart,
     },
     {
+        name: "General Settings",
+        url: "/settings/{id}/general",
+        icon: FaGears,
+    },
+    {
         name: "Auto Moderation",
-        url: "/settings/automod",
+        url: "/settings/{id}/automod",
         icon: MdShield,
     },
     {
         name: "Commands",
-        url: "/settings/command",
+        url: "/settings/{id}/command",
         icon: MdTerminal,
     },
     {
         name: "Permissions",
-        url: "/settings/permissions",
+        url: "/settings/{id}/permissions",
         icon: MdLockOutline,
     },
     {
         name: "Account Settings",
-        url: "/settings/account",
+        url: "/account",
         icon: MdSettings,
     },
 ];
 
 const Sidebar: FC = () => {
     const pathname = usePathname();
+    const { currentGuild } = useAuthContext();
 
-    if (!useLoggedIn()) {
+    if (!useLoggedIn() || !currentGuild) {
         return <></>;
     }
 
@@ -61,10 +69,17 @@ const Sidebar: FC = () => {
                             <div className={styles.spacer}></div>
                         )}
                         <Link
-                            href={item.url}
+                            href={item.url.replaceAll(
+                                "{id}",
+                                currentGuild?.id ?? "__"
+                            )}
                             className={
                                 styles.item +
-                                (pathname === item.url
+                                (pathname ===
+                                item.url.replaceAll(
+                                    "{id}",
+                                    currentGuild?.id ?? "__"
+                                )
                                     ? ` ${styles.activeItem}`
                                     : "")
                             }
