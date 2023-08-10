@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 
 export default function useAuthWithCheck() {
-    const { user, dispatch } = useContext(AuthContext);
+    const { user, dispatch, currentGuild } = useContext(AuthContext);
     const router = useRouter();
 
     useEffect(() => {
@@ -14,5 +14,5 @@ export default function useAuthWithCheck() {
         }
     }, [user]);
 
-    return { user, dispatch };
+    return { user, dispatch, currentGuild };
 }

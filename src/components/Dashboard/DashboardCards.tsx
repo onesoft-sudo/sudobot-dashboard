@@ -1,7 +1,12 @@
 "use client";
 
+import { useAuthContext } from "@/contexts/AuthContext";
 import { APIAnnouncement } from "@/types/APIAnnouncement";
-import { SUPPORT_EMAIL_ADDRESS, SUPPORT_SERVER_INVITE } from "@/utils/links";
+import {
+    BOT_INVITE_REQUEST_URL,
+    SUPPORT_EMAIL_ADDRESS,
+    SUPPORT_SERVER_INVITE,
+} from "@/utils/links";
 import {
     Button,
     Card,
@@ -19,6 +24,8 @@ interface DashboardCardsProps {
 }
 
 const DashboardCards: FC<DashboardCardsProps> = ({ announcements = [] }) => {
+    const { user } = useAuthContext();
+
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {announcements.length > 0 && (
@@ -82,6 +89,36 @@ const DashboardCards: FC<DashboardCardsProps> = ({ announcements = [] }) => {
                         data={announcement}
                     />
                 ))}
+
+            <Card>
+                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                    <h4 className="font-bold text-large">Servers</h4>
+                </CardHeader>
+                <CardBody>
+                    The bot is in {user?.guilds.length ?? 0} server
+                    {(user?.guilds.length ?? 0) > 1 ? "s" : ""} where you have
+                    permission to manage the settings.
+                    <ul className="list-disc ml-5 mt-3">
+                        {user?.guilds.map(guild => (
+                            <li key={guild.id}>
+                                <Link className="link" href="/dashboard">
+                                    {guild.name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </CardBody>
+
+                <CardFooter>
+                    <Button
+                        variant="flat"
+                        as={Link}
+                        href={BOT_INVITE_REQUEST_URL}
+                    >
+                        Add The Bot To Another Server
+                    </Button>
+                </CardFooter>
+            </Card>
         </div>
     );
 };

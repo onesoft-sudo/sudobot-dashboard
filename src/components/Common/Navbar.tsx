@@ -22,6 +22,7 @@ import { usePathname } from "next/navigation";
 import { FC, useState } from "react";
 import { MdMenu } from "react-icons/md";
 import logo from "../../images/logo.png";
+import GuildSwitcher from "../Dashboard/GuildSwitcher";
 import Profile from "./Profile";
 
 const links = [
@@ -74,6 +75,8 @@ const Navbar: FC = () => {
                         </Link>
                     </NavbarItem>
                 ))}
+
+                {user && <GuildSwitcher />}
             </NavbarContent>
 
             {user !== undefined && (

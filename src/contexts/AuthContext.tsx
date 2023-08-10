@@ -1,5 +1,6 @@
 "use client";
 
+import { APIGuild } from "@/types/APIGuild";
 import { APIUser } from "@/types/APIUser";
 import {
     Dispatch,
@@ -12,6 +13,7 @@ import {
 
 interface AuthContextData {
     user: APIUser | null | undefined;
+    currentGuild?: APIGuild | null;
     dispatch?: Dispatch<AuthContextReducerAction>;
 }
 
@@ -19,12 +21,29 @@ export enum AuthContextAction {
     Login,
     Logout,
     Reload,
+    SwitchGuild,
+    SetGuild,
 }
 
-interface AuthContextReducerAction {
-    type: AuthContextAction;
-    payload?: any;
-}
+type AuthContextReducerAction =
+    | {
+          type: AuthContextAction.Login;
+          payload: APIUser;
+      }
+    | {
+          type: AuthContextAction.Logout;
+      }
+    | {
+          type: AuthContextAction.Reload;
+      }
+    | {
+          type: AuthContextAction.SwitchGuild;
+          payload: number;
+      }
+    | {
+          type: AuthContextAction.SetGuild;
+          payload: APIGuild | null;
+      };
 
 export const AuthContext = createContext<AuthContextData>({
     user: undefined,
@@ -40,9 +59,23 @@ export const AuthContextReducer = (
 ): AuthContextData => {
     switch (action.type) {
         case AuthContextAction.Login:
-            return { ...state, user: action.payload };
+            return {
+                ...state,
+                user: action.payload,
+                currentGuild: action.payload.guilds?.[0],
+            };
         case AuthContextAction.Logout:
-            return { ...state, user: null };
+            return { ...state, user: null, currentGuild: null };
+        case AuthContextAction.SwitchGuild:
+            return {
+                ...state,
+                currentGuild: state.user?.guilds[action.payload],
+            };
+        case AuthContextAction.SetGuild:
+            return {
+                ...state,
+                currentGuild: action.payload,
+            };
         case AuthContextAction.Reload:
             try {
                 const user = localStorage.getItem("user");
@@ -63,6 +96,7 @@ export const AuthContextReducer = (
 export function AuthContextProvider({ children }: PropsWithChildren) {
     const [state, dispatch] = useReducer(AuthContextReducer, {
         user: undefined,
+        currentGuild: undefined,
     });
 
     useEffect(() => {

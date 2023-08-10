@@ -6,6 +6,10 @@ import { FC } from "react";
 const Welcome: FC = () => {
     const { user } = useAuthWithCheck();
 
+    if (!user) {
+        return <></>;
+    }
+
     return (
         <h1 className="text-3xl md:text-4xl lg:text-5xl text-center pt-7">
             Welcome to The Control Panel,{" "}
