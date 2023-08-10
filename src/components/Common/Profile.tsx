@@ -1,6 +1,7 @@
 "use client";
 
 import { AuthContextAction } from "@/contexts/AuthContext";
+import { useRouterContext } from "@/contexts/RouterContext";
 import useAuthWithCheck from "@/hooks/useAuthWithCheck";
 import { SUPPORT_EMAIL_ADDRESS } from "@/utils/links";
 import {
@@ -10,12 +11,11 @@ import {
     DropdownMenu,
     DropdownTrigger,
 } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
 import { FC } from "react";
 
 const Profile: FC = () => {
     const { user, dispatch } = useAuthWithCheck();
-    const router = useRouter();
+    const router = useRouterContext();
 
     const logout = () => {
         dispatch?.({ type: AuthContextAction.Logout });
@@ -38,7 +38,7 @@ const Profile: FC = () => {
                     </DropdownTrigger>
                     <DropdownMenu aria-label="Profile Actions" variant="flat">
                         <DropdownItem
-                            onClick={() => router.push("/dashboard")}
+                            onClick={() => router?.push("/dashboard")}
                             key="dashboard"
                             className="h-14 gap-2"
                         >
@@ -49,7 +49,7 @@ const Profile: FC = () => {
                             </p>
                         </DropdownItem>
                         <DropdownItem
-                            onClick={() => router.push("/dashboard")}
+                            onClick={() => router?.push("/dashboard")}
                             key="dashboard-2"
                         >
                             Dashboard

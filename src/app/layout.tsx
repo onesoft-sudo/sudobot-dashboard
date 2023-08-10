@@ -1,5 +1,6 @@
 "use client";
 
+import PageLoadingProgress from "@/components/Common/PageLoadingProgress";
 import MainProvider from "@/providers/MainProvider";
 import { Inter } from "next/font/google";
 import Navbar from "../components/Common/Navbar";
@@ -19,6 +20,7 @@ export default function RootLayout({
             </head>
             <body className={inter.className}>
                 <MainProvider>
+                    <PageLoadingProgress />
                     <Navbar />
                     <div>{children}</div>
                 </MainProvider>

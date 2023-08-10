@@ -14,9 +14,9 @@ import {
     CardFooter,
     CardHeader,
 } from "@nextui-org/react";
-import Link from "next/link";
 import { FC } from "react";
 import styles from "../../styles/DashboardCards.module.css";
+import Link from "../Router/Link";
 import DashboardAnnouncementCard from "./DashboardAnnouncementCard";
 
 interface DashboardCardsProps {
@@ -25,6 +25,10 @@ interface DashboardCardsProps {
 
 const DashboardCards: FC<DashboardCardsProps> = ({ announcements = [] }) => {
     const { user } = useAuthContext();
+
+    if (!user) {
+        return;
+    }
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 5px 20px;
 }
 
@@ -50,7 +50,7 @@
 
 .spacer {
     position: absolute;
-    bottom: 50px;
+    bottom: 45px;
     width: 100%;
     background: #333;
     height: 1px;

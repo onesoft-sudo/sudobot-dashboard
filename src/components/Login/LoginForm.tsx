@@ -2,14 +2,14 @@
 
 import { login } from "@/api/users";
 import { AuthContextAction, useAuthContext } from "@/contexts/AuthContext";
+import { useRouterContext } from "@/contexts/RouterContext";
 import { Button, Checkbox, CircularProgress, Input } from "@nextui-org/react";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FC, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Alert from "../Common/Alert";
+import Link from "../Router/Link";
 
 interface LoginFormData {
     username: string;
@@ -22,7 +22,7 @@ const LoginForm: FC = () => {
         register,
         handleSubmit,
     } = useForm<LoginFormData>();
-    const router = useRouter();
+    const router = useRouterContext();
 
     const { user, dispatch } = useAuthContext();
 
@@ -44,13 +44,13 @@ const LoginForm: FC = () => {
                 payload: data.data.user,
             });
 
-            router.push("/dashboard");
+            router?.push("/dashboard");
         },
     });
 
     useEffect(() => {
         if (user?.token) {
-            router.push("/dashboard");
+            router?.push("/dashboard");
         }
     }, [user]);
 

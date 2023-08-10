@@ -1,4 +1,5 @@
 import { AuthContextProvider } from "@/contexts/AuthContext";
+import { RouterContextProvider } from "@/contexts/RouterContext";
 import { NextUIProvider } from "@nextui-org/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { FC, PropsWithChildren, useState } from "react";
@@ -10,7 +11,7 @@ const MainProvider: FC<PropsWithChildren> = ({ children }) => {
         <NextUIProvider>
             <AuthContextProvider>
                 <QueryClientProvider client={queryClient}>
-                    {children}
+                    <RouterContextProvider>{children}</RouterContextProvider>
                 </QueryClientProvider>
             </AuthContextProvider>
         </NextUIProvider>

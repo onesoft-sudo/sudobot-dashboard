@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import useLoggedIn from "@/hooks/useLoggedIn";
 import { usePathname } from "next/navigation";
 import { FC, Fragment } from "react";
 import {
@@ -11,6 +11,7 @@ import {
     MdTerminal,
 } from "react-icons/md";
 import styles from "../../styles/Sidebar.module.css";
+import Link from "../Router/Link";
 
 const items = [
     {
@@ -42,6 +43,10 @@ const items = [
 
 const Sidebar: FC = () => {
     const pathname = usePathname();
+
+    if (!useLoggedIn()) {
+        return <></>;
+    }
 
     return (
         <aside className="h-[100%]">

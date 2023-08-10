@@ -65,6 +65,9 @@ export const AuthContextReducer = (
                 currentGuild: action.payload.guilds?.[0],
             };
         case AuthContextAction.Logout:
+            try {
+                localStorage.removeItem("user");
+            } catch (e) {}
             return { ...state, user: null, currentGuild: null };
         case AuthContextAction.SwitchGuild:
             return {
