@@ -1,20 +1,13 @@
 "use client";
 
-import { AuthContextAction } from "@/contexts/AuthContext";
 import useAuthWithCheck from "@/hooks/useAuthWithCheck";
 import {
     BOT_INVITE_REQUEST_URL,
     DOCS_FEATURES_URL,
     DOCS_URL,
-    SUPPORT_EMAIL_ADDRESS,
 } from "@/utils/links";
 import {
-    Avatar,
     Button,
-    Dropdown,
-    DropdownItem,
-    DropdownMenu,
-    DropdownTrigger,
     NavbarBrand,
     NavbarContent,
     NavbarItem,
@@ -29,6 +22,7 @@ import { usePathname } from "next/navigation";
 import { FC, useState } from "react";
 import { MdMenu } from "react-icons/md";
 import logo from "../../images/logo.png";
+import Profile from "./Profile";
 
 const links = [
     {
@@ -52,16 +46,13 @@ const links = [
 const Navbar: FC = () => {
     const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState<boolean | undefined>(false);
-    const { user, dispatch } = useAuthWithCheck();
-
-    const logout = () => {
-        dispatch?.({ type: AuthContextAction.Logout });
-    };
+    const { user } = useAuthWithCheck();
 
     return (
         <NextUINavbar
             onMenuOpenChange={setIsMenuOpen}
-            shouldHideOnScroll={true}
+            shouldHideOnScroll
+            isBordered
         >
             <NavbarMenuToggle
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -100,58 +91,7 @@ const Navbar: FC = () => {
                         </NavbarItem>
                     )}
 
-                    {user && (
-                        <Dropdown placement="bottom-end">
-                            <DropdownTrigger>
-                                <Avatar
-                                    isBordered
-                                    as="button"
-                                    className="transition-transform"
-                                    color="secondary"
-                                    name={user.name ?? user.username}
-                                    size="sm"
-                                    src="https://cdn.discordapp.com/avatars/774553653394538506/a_4e37d385e285b48a86382109db48662e.gif?size=4096"
-                                />
-                            </DropdownTrigger>
-                            <DropdownMenu
-                                aria-label="Profile Actions"
-                                variant="flat"
-                            >
-                                <DropdownItem
-                                    key="profile"
-                                    className="h-14 gap-2"
-                                >
-                                    <p className="font-semibold">
-                                        Signed in as
-                                    </p>
-                                    <p className="font-semibold">
-                                        {user.name ?? user.username}
-                                        {user.name
-                                            ? ` (@${user.username})`
-                                            : ""}
-                                    </p>
-                                </DropdownItem>
-                                <DropdownItem key="settings">
-                                    Account Settings
-                                </DropdownItem>
-                                <DropdownItem
-                                    key="support"
-                                    onClick={() =>
-                                        location.assign(SUPPORT_EMAIL_ADDRESS)
-                                    }
-                                >
-                                    Contact Support
-                                </DropdownItem>
-                                <DropdownItem
-                                    key="logout"
-                                    color="danger"
-                                    onClick={logout}
-                                >
-                                    Log Out
-                                </DropdownItem>
-                            </DropdownMenu>
-                        </Dropdown>
-                    )}
+                    {user && <Profile />}
                 </NavbarContent>
             )}
 

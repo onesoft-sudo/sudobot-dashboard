@@ -44,9 +44,9 @@ const Sidebar: FC = () => {
     const pathname = usePathname();
 
     return (
-        <aside className="h-[100%] mb-3">
+        <aside className="h-[100%]">
             <div className={styles.items}>
-                <div className="py-3 px-3">
+                <div className="pt-3 pb-2 px-3 border-b-1 border-b-[#333]">
                     <h1 className="text-2xl">Control Panel</h1>
                 </div>
 
@@ -64,7 +64,7 @@ const Sidebar: FC = () => {
                                     : "")
                             }
                         >
-                            <item.icon />
+                            <item.icon className={styles.icon} />
                             <span>{item.name}</span>
                         </Link>
                     </Fragment>
