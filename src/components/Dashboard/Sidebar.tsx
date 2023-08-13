@@ -4,7 +4,6 @@ import { useAuthContext } from "@/contexts/AuthContext";
 import useLoggedIn from "@/hooks/useLoggedIn";
 import { usePathname } from "next/navigation";
 import { FC, Fragment } from "react";
-import { FaGears } from "react-icons/fa6";
 import {
     MdBarChart,
     MdLockOutline,
@@ -22,19 +21,14 @@ const items = [
         icon: MdBarChart,
     },
     {
-        name: "General Settings",
-        url: "/settings/{id}/general",
-        icon: FaGears,
+        name: "Commands",
+        url: "/settings/{id}/commands",
+        icon: MdTerminal,
     },
     {
         name: "Auto Moderation",
         url: "/settings/{id}/automod",
         icon: MdShield,
-    },
-    {
-        name: "Commands",
-        url: "/settings/{id}/command",
-        icon: MdTerminal,
     },
     {
         name: "Permissions",

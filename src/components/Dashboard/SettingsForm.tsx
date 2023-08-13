@@ -1,44 +1,50 @@
 "use client";
 
-import { putConfig } from "@/api/config";
+import { getConfig, putConfig } from "@/api/config";
 import { useAuthContext } from "@/contexts/AuthContext";
+import { SettingCardProps } from "@/types/SetttingCardProps";
 import { Alert, Snackbar } from "@mui/material";
 import { Button } from "@nextui-org/react";
-import { useMutation } from "@tanstack/react-query";
-import { FC, ReactNode, useState } from "react";
-import {
-    FieldErrors,
-    FieldValues,
-    UseFormRegister,
-    useForm,
-} from "react-hook-form";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { FC, ReactNode, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { MdSave } from "react-icons/md";
 
 interface SettingsFormProps {
     onSubmit?: (data: any) => any;
-    children: (data: {
-        register: UseFormRegister<FieldValues>;
-        errors: FieldErrors<FieldValues>;
-    }) => ReactNode;
+    children: (data: SettingCardProps) => ReactNode;
 }
 
 const SettingsForm: FC<SettingsFormProps> = ({ onSubmit, children }) => {
     const {
-        formState: { errors },
+        formState: { errors, touchedFields },
         register,
         handleSubmit,
+        getFieldState,
+        getValues,
     } = useForm();
 
     const { currentGuild, user } = useAuthContext();
 
+    const query = useQuery({
+        queryKey: ["config", currentGuild?.id, user?.token],
+        queryFn: () =>
+            getConfig(currentGuild?.id ?? "", user?.token ?? "", true),
+        enabled: !!(currentGuild?.id && user?.token),
+    });
+
+    useEffect(() => console.log("Data updated", query.data), [query.status]);
+
     const mutation = useMutation({
         mutationKey: ["config", currentGuild?.id, user?.token],
-        mutationFn: (data: any) =>
-            putConfig(currentGuild?.id ?? "", user?.token ?? "", { data }),
+        mutationFn: (data: Record<string, any>) =>
+            putConfig(currentGuild?.id ?? "", user?.token ?? "", {
+                data,
+            }),
     });
 
     const [snackBarOpen, setSnackBarOpen] = useState(false);
-    const innerOnSubmit = (data: any) => {
+    const innerOnSubmit = (data: Record<string, any>) => {
         setSnackBarOpen(true);
         onSubmit?.(data);
         mutation.mutate(data);
@@ -66,12 +72,26 @@ const SettingsForm: FC<SettingsFormProps> = ({ onSubmit, children }) => {
             </Snackbar>
 
             <div className="justify-end flex px-5 pt-4 md:pt-[25px]">
-                <Button type="submit" startContent={<MdSave />} radius="sm">
+                <Button
+                    type="submit"
+                    variant="flat"
+                    color="primary"
+                    startContent={<MdSave />}
+                    radius="sm"
+                >
                     Save Changes
                 </Button>
             </div>
 
-            {children({ errors, register })}
+            {query.data?.data &&
+                children({
+                    errors,
+                    register,
+                    getFieldState,
+                    touchedFields,
+                    getValues,
+                    data: query.data?.data,
+                })}
         </form>
     );
 };

@@ -1,5 +1,6 @@
 import { SettingCardProps } from "@/types/SetttingCardProps";
-import { Card, CardBody, CardHeader, Input } from "@nextui-org/react";
+import { FormHelperText, TextField } from "@mui/material";
+import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import { FC } from "react";
 
 const PrefixCard: FC<SettingCardProps> = ({ register, errors }) => {
@@ -10,7 +11,15 @@ const PrefixCard: FC<SettingCardProps> = ({ register, errors }) => {
             </CardHeader>
 
             <CardBody>
-                <Input
+                <p>
+                    You can always use the slash commands or tag the bot to run
+                    a command.
+                </p>
+
+                <br />
+
+                <TextField
+                    label="Prefix"
                     {...register("prefix", {
                         required: {
                             message: "Please enter a valid prefix!",
@@ -18,14 +27,14 @@ const PrefixCard: FC<SettingCardProps> = ({ register, errors }) => {
                         },
                         value: "-",
                     })}
-                    description={
-                        errors.prefix ? (
-                            <p className="text-red-600">
-                                {errors.prefix.message?.toString() ?? ""}
-                            </p>
-                        ) : undefined
-                    }
                 />
+                {errors.prefix ? (
+                    <FormHelperText>
+                        <span className="text-red-600">
+                            {errors.prefix.message?.toString() ?? ""}
+                        </span>
+                    </FormHelperText>
+                ) : undefined}
             </CardBody>
         </Card>
     );
