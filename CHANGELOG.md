@@ -1,3 +1,12 @@
+# [0.9.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.8.0...v0.9.0) (2023-08-13)
+
+
+### Features
+
+* add automod page ([22099f2](https://github.com/onesoft-sudo/sudobot-dashboard/commit/22099f22092145ab6bd48779acbfa6f89d5c56fd))
+
+
+
 # [0.8.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.7.0...v0.8.0) (2023-08-13)
 
 
@@ -35,15 +44,6 @@
 
 * basic login ([b5ee777](https://github.com/onesoft-sudo/sudobot-dashboard/commit/b5ee77724df0e30f4afbd1aca93a2df6bfd4836b))
 * connect dashboard with the API ([705fc4a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/705fc4a8224c0198ec3060dadf8e2e0a8834a869))
-
-
-
-# [0.5.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.4.0...v0.5.0) (2023-08-07)
-
-
-### Features
-
-* add basic dashboard page ([3e1b868](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3e1b8685d4b150c8547b192d5fa6932a7b2cedbb))
 
 
 
