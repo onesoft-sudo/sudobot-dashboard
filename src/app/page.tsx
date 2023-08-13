@@ -1,6 +1,6 @@
 import Footer from "@/components/Common/Footer";
-import Top from "../components/Common/Top";
 import FeatureOverview from "../components/Home/FeatureOverview";
+import Top from "../components/Home/Top";
 
 export default function Home() {
     return (

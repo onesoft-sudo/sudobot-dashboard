@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FC } from "react";
 import shieldImage from "../../images/sudobot-shield.png";
-import HomeButtons from "../Home/HomeButtons";
+import HomeButtons from "./HomeButtons";
 
 const Top: FC = () => {
     return (
@@ -9,7 +9,6 @@ const Top: FC = () => {
             <div className="md:pt-[15%] relative z-[1]">
                 <div
                     style={{
-                        height: "80%",
                         width: "100%",
                         position: "absolute",
                         top: 0,
@@ -20,6 +19,7 @@ const Top: FC = () => {
                             "linear-gradient(to right, rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.38), rgba(0, 123, 255, 0.05))",
                         filter: "blur(100px)",
                     }}
+                    className="h-[60%] md:h-[80%]"
                 ></div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center md:text-left">
                     A single Discord Bot for everything you need.
