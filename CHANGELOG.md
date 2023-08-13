@@ -1,3 +1,15 @@
+# [0.7.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.6.1...v0.7.0) (2023-08-10)
+
+
+### Features
+
+* add page loading progress bar ([bb6bb55](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bb6bb55d942304cbef03a519139c9118be0f4777))
+* add settings page ([501a3c7](https://github.com/onesoft-sudo/sudobot-dashboard/commit/501a3c73bebbd53d15781219fb7a04568fc30199))
+* guild switching ([cadb615](https://github.com/onesoft-sudo/sudobot-dashboard/commit/cadb61566795c23693eb6d39b28f588a9896a31b))
+* improved sidebar ([37df576](https://github.com/onesoft-sudo/sudobot-dashboard/commit/37df576160e3a08251a18344360f9dfab6624cab))
+
+
+
 ## [0.6.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.6.0...v0.6.1) (2023-08-08)
 
 
@@ -37,20 +49,6 @@
 ### Features
 
 * add login page ([50507a5](https://github.com/onesoft-sudo/sudobot-dashboard/commit/50507a524536f87019c68d23846bf36413ef4b92))
-
-
-
-# [0.3.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.2.0...v0.3.0) (2023-08-07)
-
-
-### Bug Fixes
-
-* navbar static links ([8272026](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8272026e51927c8ebae5bbdfce902dcc8f0e799d))
-
-
-### Features
-
-* add gradient feeling ([4900d45](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4900d45c850b1b50d60d675011a64d37369f60f5))
 
 
 
