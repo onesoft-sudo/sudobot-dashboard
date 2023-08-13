@@ -7,7 +7,7 @@ const PrefixCard: FC<SettingCardProps> = ({ register, errors }) => {
     return (
         <Card>
             <CardHeader>
-                <h4 className="font-bold text-large">Prefix</h4>
+                <h4 className="font-bold text-large pl-2">Prefix</h4>
             </CardHeader>
 
             <CardBody>

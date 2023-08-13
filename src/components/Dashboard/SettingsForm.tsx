@@ -6,9 +6,9 @@ import { SettingCardProps } from "@/types/SetttingCardProps";
 import { Alert, Snackbar } from "@mui/material";
 import { Button } from "@nextui-org/react";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { FC, ReactNode, useEffect, useState } from "react";
+import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { MdSave } from "react-icons/md";
+import { MdRestore, MdSave } from "react-icons/md";
 
 interface SettingsFormProps {
     onSubmit?: (data: any) => any;
@@ -16,12 +16,15 @@ interface SettingsFormProps {
 }
 
 const SettingsForm: FC<SettingsFormProps> = ({ onSubmit, children }) => {
+    const [state, setState] = useState({ resetting: false });
+    const formRef = useRef<HTMLFormElement>(null);
     const {
         formState: { errors, touchedFields },
         register,
         handleSubmit,
         getFieldState,
         getValues,
+        reset,
     } = useForm();
 
     const { currentGuild, user } = useAuthContext();
@@ -51,7 +54,7 @@ const SettingsForm: FC<SettingsFormProps> = ({ onSubmit, children }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit(innerOnSubmit)}>
+        <form noValidate onSubmit={handleSubmit(innerOnSubmit)} ref={formRef}>
             <Snackbar
                 open={snackBarOpen}
                 autoHideDuration={6000}
@@ -71,7 +74,29 @@ const SettingsForm: FC<SettingsFormProps> = ({ onSubmit, children }) => {
                 </Alert>
             </Snackbar>
 
-            <div className="justify-end flex px-5 pt-4 md:pt-[25px]">
+            <div className="justify-end flex px-5 pt-4 md:pt-[25px] gap-3">
+                <Button
+                    type="button"
+                    variant="flat"
+                    color="danger"
+                    startContent={<MdRestore />}
+                    radius="sm"
+                    onClick={event => {
+                        console.log("Reset");
+
+                        formRef.current?.reset();
+                        reset();
+
+                        setState(s => ({ ...s, resetting: true }));
+
+                        setTimeout(() => {
+                            setState(s => ({ ...s, resetting: false }));
+                        }, 200);
+                    }}
+                >
+                    Reset
+                </Button>
+
                 <Button
                     type="submit"
                     variant="flat"
@@ -83,7 +108,8 @@ const SettingsForm: FC<SettingsFormProps> = ({ onSubmit, children }) => {
                 </Button>
             </div>
 
-            {query.data?.data &&
+            {!state.resetting &&
+                query.data?.data &&
                 children({
                     errors,
                     register,

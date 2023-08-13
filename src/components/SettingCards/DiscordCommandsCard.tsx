@@ -18,7 +18,7 @@ const DiscordCommandsCard: FC<SettingCardProps> = ({
     return (
         <Card>
             <CardHeader>
-                <h4 className="font-bold text-large">Disabled Commands</h4>
+                <h4 className="font-bold text-large pl-2">Disabled Commands</h4>
             </CardHeader>
 
             <CardBody>
