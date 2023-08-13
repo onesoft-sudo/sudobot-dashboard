@@ -1,3 +1,12 @@
+# [0.8.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.7.0...v0.8.0) (2023-08-13)
+
+
+### Features
+
+* **pages:** completed commands page ([07246d6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/07246d68c328fbcee25dbd00503d7e2873081c1a))
+
+
+
 # [0.7.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.6.1...v0.7.0) (2023-08-10)
 
 
@@ -35,20 +44,6 @@
 ### Features
 
 * add basic dashboard page ([3e1b868](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3e1b8685d4b150c8547b192d5fa6932a7b2cedbb))
-
-
-
-# [0.4.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.3.0...v0.4.0) (2023-08-07)
-
-
-### Bug Fixes
-
-* add missing docs link in footer ([f4b3ad8](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f4b3ad8661563db61567cafb87f37ef022d8a3fd))
-
-
-### Features
-
-* add login page ([50507a5](https://github.com/onesoft-sudo/sudobot-dashboard/commit/50507a524536f87019c68d23846bf36413ef4b92))
 
 
 
