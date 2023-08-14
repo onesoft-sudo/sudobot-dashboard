@@ -36,6 +36,7 @@ export function RouterContextProvider({ children }: PropsWithChildren) {
 
     useEffect(() => {
         setState(state => ({ ...state, loading: false }));
+        console.log("pathname", pathname);
     }, [pathname]);
 
     useEffect(() => {

@@ -2,6 +2,7 @@
 
 import { APIGuild } from "@/types/APIGuild";
 import { APIUser } from "@/types/APIUser";
+import { useParams, usePathname } from "next/navigation";
 import {
     Dispatch,
     PropsWithChildren,
@@ -28,7 +29,10 @@ export enum AuthContextAction {
 type AuthContextReducerAction =
     | {
           type: AuthContextAction.Login;
-          payload: APIUser;
+          payload: {
+              user: APIUser;
+              guild?: string;
+          };
       }
     | {
           type: AuthContextAction.Logout;
@@ -38,7 +42,7 @@ type AuthContextReducerAction =
       }
     | {
           type: AuthContextAction.SwitchGuild;
-          payload: number;
+          payload: string;
       }
     | {
           type: AuthContextAction.SetGuild;
@@ -61,8 +65,13 @@ export const AuthContextReducer = (
         case AuthContextAction.Login:
             return {
                 ...state,
-                user: action.payload,
-                currentGuild: action.payload.guilds?.[0],
+                user: action.payload.user,
+                currentGuild:
+                    (action.payload.guild
+                        ? action.payload.user.guilds.find(
+                              g => g.id === action.payload.guild
+                          )
+                        : null) ?? action.payload.user.guilds?.[0],
             };
         case AuthContextAction.Logout:
             try {
@@ -70,9 +79,15 @@ export const AuthContextReducer = (
             } catch (e) {}
             return { ...state, user: null, currentGuild: null };
         case AuthContextAction.SwitchGuild:
+            const guild = state.user?.guilds.find(g => g.id === action.payload);
+
+            if (!guild) {
+                throw new Error(`No such guild with ID "${action.payload}"`);
+            }
+
             return {
                 ...state,
-                currentGuild: state.user?.guilds[action.payload],
+                currentGuild: guild,
             };
         case AuthContextAction.SetGuild:
             return {
@@ -102,11 +117,14 @@ export function AuthContextProvider({ children }: PropsWithChildren) {
         currentGuild: undefined,
     });
 
+    const pathname = usePathname();
+    const { id } = useParams();
+
     useEffect(() => {
         try {
-            const user = localStorage.getItem("user");
+            const jsonUser = localStorage.getItem("user");
 
-            if (!user) {
+            if (!jsonUser) {
                 dispatch({
                     type: AuthContextAction.Logout,
                 });
@@ -114,9 +132,20 @@ export function AuthContextProvider({ children }: PropsWithChildren) {
                 return;
             }
 
+            const user = JSON.parse(jsonUser) as APIUser;
+
             dispatch({
                 type: AuthContextAction.Login,
-                payload: JSON.parse(user),
+                payload: {
+                    user,
+                    guild:
+                        (id && pathname.startsWith("/dashboard")) ||
+                        pathname.startsWith("/settings")
+                            ? typeof id === "string"
+                                ? id
+                                : id[0]
+                            : undefined,
+                },
             });
         } catch (e) {
             return;

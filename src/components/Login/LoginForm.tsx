@@ -41,7 +41,9 @@ const LoginForm: FC = () => {
 
             dispatch?.({
                 type: AuthContextAction.Login,
-                payload: data.data.user,
+                payload: {
+                    user: data.data.user,
+                },
             });
 
             router?.push("/dashboard");

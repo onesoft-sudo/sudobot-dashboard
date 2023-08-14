@@ -61,6 +61,7 @@ const GuildSwitcher: FC = () => {
                 </DropdownTrigger>
             </NavbarItem>
             <DropdownMenu
+                aria-label="Dynamic Actions"
                 className="w-[250px]"
                 itemClasses={{
                     base: "gap-4",
@@ -75,7 +76,7 @@ const GuildSwitcher: FC = () => {
                     setSelectedKeys(keys as Set<string>);
                 }}
             >
-                {user.guilds.map((guild, index) => (
+                {user.guilds.map(guild => (
                     <DropdownItem
                         startContent={
                             guild.iconURL ? (
@@ -92,13 +93,14 @@ const GuildSwitcher: FC = () => {
                         onClick={() => {
                             dispatch?.({
                                 type: AuthContextAction.SwitchGuild,
-                                payload: index,
+                                payload: guild.id,
                             });
 
                             if (
                                 pathname.startsWith("/dashboard") ||
                                 pathname.startsWith("/settings")
                             ) {
+                                console.log("Route change");
                                 router?.push(
                                     pathname.replace(currentGuild.id, guild.id)
                                 );
