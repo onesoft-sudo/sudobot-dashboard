@@ -13,6 +13,7 @@ import {
     DropdownTrigger,
 } from "@nextui-org/react";
 import { FC } from "react";
+import { FaChevronDown } from "react-icons/fa6";
 
 const Profile: FC = () => {
     const { user, dispatch } = useAuthWithCheck();
@@ -30,6 +31,9 @@ const Profile: FC = () => {
                         <Button
                             disableRipple
                             variant="light"
+                            endContent={
+                                <FaChevronDown className="hidden md:inline-block" />
+                            }
                             className="pr-1 min-w-[0]"
                         >
                             <Avatar
