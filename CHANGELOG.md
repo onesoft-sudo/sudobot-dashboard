@@ -1,3 +1,12 @@
+## [0.9.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.9.2...v0.9.3) (2023-08-14)
+
+
+### Bug Fixes
+
+* **profile:** dropdown chevron icon not appearing in desktop mode ([fe0a68b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/fe0a68b7f0625854ce75989b64470af030c053c0))
+
+
+
 ## [0.9.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.9.1...v0.9.2) (2023-08-14)
 
 
@@ -32,18 +41,6 @@
 ### Features
 
 * **pages:** completed commands page ([07246d6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/07246d68c328fbcee25dbd00503d7e2873081c1a))
-
-
-
-# [0.7.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.6.1...v0.7.0) (2023-08-10)
-
-
-### Features
-
-* add page loading progress bar ([bb6bb55](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bb6bb55d942304cbef03a519139c9118be0f4777))
-* add settings page ([501a3c7](https://github.com/onesoft-sudo/sudobot-dashboard/commit/501a3c73bebbd53d15781219fb7a04568fc30199))
-* guild switching ([cadb615](https://github.com/onesoft-sudo/sudobot-dashboard/commit/cadb61566795c23693eb6d39b28f588a9896a31b))
-* improved sidebar ([37df576](https://github.com/onesoft-sudo/sudobot-dashboard/commit/37df576160e3a08251a18344360f9dfab6624cab))
 
 
 
