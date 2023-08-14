@@ -56,6 +56,7 @@ const Navbar: FC = () => {
             shouldHideOnScroll
             isBordered
             maxWidth={isDashboardPath(pathname) ? "full" : undefined}
+            isMenuOpen={isMenuOpen}
         >
             <NavbarMenuToggle
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -85,9 +86,11 @@ const Navbar: FC = () => {
             {user !== undefined && (
                 <NavbarContent as="div" justify="end">
                     {user && (
-                        <div className="hidden md:flex">
-                            <GuildSwitcher />
-                        </div>
+                        <NavbarItem>
+                            <div className="hidden md:flex">
+                                <GuildSwitcher />
+                            </div>
+                        </NavbarItem>
                     )}
                     {!user && (
                         <NavbarItem className="flex">
@@ -108,7 +111,10 @@ const Navbar: FC = () => {
 
             <NavbarMenu>
                 {links.map((link, index) => (
-                    <NavbarMenuItem key={`${link.name}_${link.url}`}>
+                    <NavbarMenuItem
+                        onClick={() => setIsMenuOpen(false)}
+                        key={`${link.name}_${link.url}`}
+                    >
                         <Link
                             color={
                                 index === 2
@@ -124,6 +130,15 @@ const Navbar: FC = () => {
                         </Link>
                     </NavbarMenuItem>
                 ))}
+
+                {user && (
+                    <NavbarMenuItem className="md:hidden">
+                        <GuildSwitcher
+                            buttonClasses="pl-0 ml-0 min-w-[0]"
+                            onGuildSwitch={() => setIsMenuOpen(false)}
+                        />
+                    </NavbarMenuItem>
+                )}
             </NavbarMenu>
         </NextUINavbar>
     );
