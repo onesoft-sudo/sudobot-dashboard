@@ -6,6 +6,7 @@ import {
     DOCS_FEATURES_URL,
     DOCS_URL,
 } from "@/utils/links";
+import { isDashboardPath } from "@/utils/utils";
 import {
     Button,
     NavbarBrand,
@@ -54,12 +55,14 @@ const Navbar: FC = () => {
             onMenuOpenChange={setIsMenuOpen}
             shouldHideOnScroll
             isBordered
+            maxWidth={isDashboardPath(pathname) ? "full" : undefined}
         >
             <NavbarMenuToggle
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 className="sm:hidden"
                 icon={<MdMenu size={30} />}
             />
+
             <NavbarBrand className="cursor-pointer">
                 <Link href="/" className="flex items-center">
                     <Image src={logo.src} alt="[Logo]" width={40} height={40} />
@@ -77,12 +80,15 @@ const Navbar: FC = () => {
                         </Link>
                     </NavbarItem>
                 ))}
-
-                {user && <GuildSwitcher />}
             </NavbarContent>
 
             {user !== undefined && (
                 <NavbarContent as="div" justify="end">
+                    {user && (
+                        <div className="hidden md:flex">
+                            <GuildSwitcher />
+                        </div>
+                    )}
                     {!user && (
                         <NavbarItem className="flex">
                             <Button

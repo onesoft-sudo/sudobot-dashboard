@@ -51,12 +51,8 @@ const Sidebar: FC = () => {
     }
 
     return (
-        <aside className="h-[100%]">
+        <aside className={`h-[100%]`}>
             <div className={styles.items}>
-                <div className="pt-3 pb-2 px-3 border-b-1 border-b-[#333]">
-                    <h1 className="text-2xl">Control Panel</h1>
-                </div>
-
                 {items.map((item, index) => (
                     <Fragment key={index}>
                         {index === items.length - 1 && (

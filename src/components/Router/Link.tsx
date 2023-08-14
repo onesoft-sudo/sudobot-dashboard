@@ -9,6 +9,8 @@ import {
     ForwardRefExoticComponent,
     PropsWithChildren,
     ReactNode,
+    Ref,
+    forwardRef,
 } from "react";
 
 type AnyElement =
@@ -24,19 +26,17 @@ type LinkProps<T extends AnyElement> = PropsWithChildren &
         href: string;
     };
 
-export default function Link<T extends AnyElement = typeof NextLink>({
-    children,
-    as = NextLink,
-    onClick,
-    href,
-    ...props
-}: LinkProps<T>) {
+function Link<T extends AnyElement = typeof NextLink>(
+    { children, as = NextLink, onClick, href, ...props }: LinkProps<T>,
+    ref?: Ref<any>
+) {
     const router = useRouterContext();
     const Root = as;
 
     return (
         <Root
             href={href}
+            ref={ref}
             onClick={(...args: any[]) => {
                 if (
                     !href.startsWith("http://") &&
@@ -53,3 +53,5 @@ export default function Link<T extends AnyElement = typeof NextLink>({
         </Root>
     );
 }
+
+export default forwardRef(Link);

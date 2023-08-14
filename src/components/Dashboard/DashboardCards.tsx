@@ -31,7 +31,7 @@ const DashboardCards: FC<DashboardCardsProps> = ({ announcements = [] }) => {
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-3 md:px-0">
             {announcements.length > 0 && (
                 <DashboardAnnouncementCard data={announcements[0]} />
             )}
@@ -45,7 +45,7 @@ const DashboardCards: FC<DashboardCardsProps> = ({ announcements = [] }) => {
                 </CardHeader>
 
                 <CardBody className="overflow-visible py-2 relative">
-                    <div className="flex items-center justify-center h-[80%]">
+                    <div className="flex items-center justify-center h-[80%] min-h-[100px]">
                         <div className={`${styles.circle}`}></div>
 
                         <p className="inline-block text-3xl md:text-4xl ml-5">

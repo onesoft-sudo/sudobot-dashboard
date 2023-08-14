@@ -54,7 +54,12 @@ const SettingsForm: FC<SettingsFormProps> = ({ onSubmit, children }) => {
     };
 
     return (
-        <form noValidate onSubmit={handleSubmit(innerOnSubmit)} ref={formRef}>
+        <form
+            noValidate
+            onSubmit={handleSubmit(innerOnSubmit)}
+            className="px-3 md:px-0"
+            ref={formRef}
+        >
             <Snackbar
                 open={snackBarOpen}
                 autoHideDuration={6000}

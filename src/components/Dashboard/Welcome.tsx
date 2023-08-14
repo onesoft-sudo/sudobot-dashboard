@@ -11,7 +11,7 @@ const Welcome: FC = () => {
     }
 
     return (
-        <h1 className="text-3xl md:text-4xl lg:text-5xl text-center pt-7">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl text-center pt-7 px-3 md:px-0">
             Welcome to The Control Panel,{" "}
             <span className="text-blue-600">
                 {user?.name ? user?.name.split(/\s+/)[0] : user?.username}
