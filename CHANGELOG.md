@@ -1,3 +1,13 @@
+## [0.9.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.9.1...v0.9.2) (2023-08-14)
+
+
+### Bug Fixes
+
+* improved appearance and control on mobile ([da477a3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/da477a3ad200b6b325554a304f082de27ec3c43b))
+* make the sidebar mobile friendly ([02e0469](https://github.com/onesoft-sudo/sudobot-dashboard/commit/02e0469581b252adaedd887f79c06a92da204726))
+
+
+
 ## [0.9.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.9.0...v0.9.1) (2023-08-14)
 
 
@@ -34,15 +44,6 @@
 * add settings page ([501a3c7](https://github.com/onesoft-sudo/sudobot-dashboard/commit/501a3c73bebbd53d15781219fb7a04568fc30199))
 * guild switching ([cadb615](https://github.com/onesoft-sudo/sudobot-dashboard/commit/cadb61566795c23693eb6d39b28f588a9896a31b))
 * improved sidebar ([37df576](https://github.com/onesoft-sudo/sudobot-dashboard/commit/37df576160e3a08251a18344360f9dfab6624cab))
-
-
-
-## [0.6.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.6.0...v0.6.1) (2023-08-08)
-
-
-### Bug Fixes
-
-* trying to use client side hook in a server component ([64368b0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/64368b0e761e537dbad08735f8ef444c460f16d7))
 
 
 
