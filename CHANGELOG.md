@@ -1,3 +1,12 @@
+## [0.9.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.9.0...v0.9.1) (2023-08-14)
+
+
+### Bug Fixes
+
+* guild switcher issue ([e4dd6a8](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e4dd6a843bc1803cab8d544de846cb921b0c14a5))
+
+
+
 # [0.9.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.8.0...v0.9.0) (2023-08-13)
 
 
@@ -34,16 +43,6 @@
 ### Bug Fixes
 
 * trying to use client side hook in a server component ([64368b0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/64368b0e761e537dbad08735f8ef444c460f16d7))
-
-
-
-# [0.6.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.5.0...v0.6.0) (2023-08-08)
-
-
-### Features
-
-* basic login ([b5ee777](https://github.com/onesoft-sudo/sudobot-dashboard/commit/b5ee77724df0e30f4afbd1aca93a2df6bfd4836b))
-* connect dashboard with the API ([705fc4a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/705fc4a8224c0198ec3060dadf8e2e0a8834a869))
 
 
 
