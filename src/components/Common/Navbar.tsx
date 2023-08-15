@@ -55,7 +55,7 @@ const Navbar: FC = () => {
             onMenuOpenChange={setIsMenuOpen}
             shouldHideOnScroll
             isBordered
-            maxWidth={isDashboardPath(pathname) ? "full" : undefined}
+            maxWidth={isDashboardPath(pathname) ? "full" : "xl"}
             isMenuOpen={isMenuOpen}
         >
             <NavbarMenuToggle
@@ -83,29 +83,30 @@ const Navbar: FC = () => {
                 ))}
             </NavbarContent>
 
-            {user !== undefined && (
+            {user !== undefined && !user && (
                 <NavbarContent as="div" justify="end">
-                    {user && (
-                        <NavbarItem>
-                            <div className="hidden md:flex">
-                                <GuildSwitcher />
-                            </div>
-                        </NavbarItem>
-                    )}
-                    {!user && (
-                        <NavbarItem className="flex">
-                            <Button
-                                as={Link}
-                                color="primary"
-                                href="/login"
-                                variant="flat"
-                            >
-                                Login
-                            </Button>
-                        </NavbarItem>
-                    )}
+                    <NavbarItem className="flex">
+                        <Button
+                            as={Link}
+                            color="primary"
+                            href="/login"
+                            variant="flat"
+                        >
+                            Login
+                        </Button>
+                    </NavbarItem>
+                </NavbarContent>
+            )}
 
-                    {user && <Profile />}
+            {user !== undefined && user && (
+                <NavbarContent as="div" justify="end">
+                    <NavbarItem>
+                        <div className="hidden md:flex">
+                            <GuildSwitcher />
+                        </div>
+                    </NavbarItem>
+
+                    <Profile />
                 </NavbarContent>
             )}
 
