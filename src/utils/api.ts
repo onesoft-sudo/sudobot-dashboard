@@ -8,6 +8,10 @@ export class API {
         return `${API_URL}/auth/login`;
     }
 
+    static discord() {
+        return `${API_URL}/auth/discord`;
+    }
+
     static config(guildId: string) {
         return `${API_URL}/config/${encodeURIComponent(guildId)}`;
     }

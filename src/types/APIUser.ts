@@ -7,4 +7,5 @@ export interface APIUser {
     username: string;
     guilds: APIGuild[];
     createdAt: Date;
+    avatarURL?: string;
 }

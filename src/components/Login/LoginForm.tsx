@@ -1,15 +1,22 @@
 "use client";
 
-import { login } from "@/api/users";
+import { login } from "@/api/auth";
 import { AuthContextAction, useAuthContext } from "@/contexts/AuthContext";
 import { useRouterContext } from "@/contexts/RouterContext";
-import { Button, Checkbox, CircularProgress, Input } from "@nextui-org/react";
+import {
+    Button,
+    Checkbox,
+    CircularProgress,
+    Divider,
+    Input,
+} from "@nextui-org/react";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { FC, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Alert from "../Common/Alert";
 import Link from "../Router/Link";
+import DiscordLogin from "./DiscordLogin";
 
 interface LoginFormData {
     username: string;
@@ -153,6 +160,10 @@ const LoginForm: FC = () => {
                     >
                         Login
                     </Button>
+
+                    <Divider className="my-5" />
+
+                    <DiscordLogin isDisabled={mutation.isLoading} />
                 </>
             )}
         </form>

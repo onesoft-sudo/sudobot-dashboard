@@ -43,7 +43,7 @@ const Profile: FC = () => {
                                 color="primary"
                                 name={user.name ?? user.username}
                                 size="sm"
-                                src="https://cdn.discordapp.com/avatars/774553653394538506/a_4e37d385e285b48a86382109db48662e.gif?size=4096"
+                                src={user.avatarURL}
                             />
 
                             <span className="ml-2 hidden md:inline-block">

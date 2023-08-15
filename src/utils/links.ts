@@ -8,3 +8,4 @@ export const BOT_STATUS_PAGE_URL = "https://osn.freshstatus.io/";
 export const SUPPORT_SERVER_INVITE = "https://discord.gg/892GWhTzgs";
 export const DOCS_SELF_SETUP_URL = `${DOCS_URL}/getting-started`;
 export const DOCS_FEATURES_URL = `${DOCS_URL}/features`;
+export const DISCORD_OAUTH_URL = process.env.NEXT_PUBLIC_DISCORD_OAUTH_URL;

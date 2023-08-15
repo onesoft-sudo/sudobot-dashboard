@@ -76,6 +76,10 @@ export const AuthContextReducer = (
         case AuthContextAction.Logout:
             try {
                 localStorage.removeItem("user");
+
+                if (sessionStorage.getItem("discord_oauth_state")) {
+                    sessionStorage.removeItem("discord_oauth_state");
+                }
             } catch (e) {}
             return { ...state, user: null, currentGuild: null };
         case AuthContextAction.SwitchGuild:
