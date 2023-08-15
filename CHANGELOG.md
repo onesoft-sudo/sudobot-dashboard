@@ -1,3 +1,12 @@
+# [0.10.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.9.3...v0.10.0) (2023-08-14)
+
+
+### Features
+
+* **hooks:** add useIsDesktop() and useIsMobile() hooks ([54ecf2e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/54ecf2e048103788beea8b40b34b07538ffb4a06))
+
+
+
 ## [0.9.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.9.2...v0.9.3) (2023-08-14)
 
 
@@ -32,15 +41,6 @@
 ### Features
 
 * add automod page ([22099f2](https://github.com/onesoft-sudo/sudobot-dashboard/commit/22099f22092145ab6bd48779acbfa6f89d5c56fd))
-
-
-
-# [0.8.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.7.0...v0.8.0) (2023-08-13)
-
-
-### Features
-
-* **pages:** completed commands page ([07246d6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/07246d68c328fbcee25dbd00503d7e2873081c1a))
 
 
 
