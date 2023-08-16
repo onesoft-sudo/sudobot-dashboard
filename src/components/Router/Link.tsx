@@ -2,6 +2,7 @@
 
 import { useRouterContext } from "@/contexts/RouterContext";
 import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 import {
     Component,
     ComponentProps,
@@ -31,6 +32,7 @@ function Link<T extends AnyElement = typeof NextLink>(
     ref?: Ref<any>
 ) {
     const router = useRouterContext();
+    const pathname = usePathname();
     const Root = as;
 
     return (
@@ -40,7 +42,8 @@ function Link<T extends AnyElement = typeof NextLink>(
             onClick={(...args: any[]) => {
                 if (
                     !href.startsWith("http://") &&
-                    !href.startsWith("https://")
+                    !href.startsWith("https://") &&
+                    href !== pathname
                 ) {
                     router?.emit("loadStart");
                 }
