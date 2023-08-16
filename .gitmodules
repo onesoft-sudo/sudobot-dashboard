@@ -1,0 +1,3 @@
+[submodule "sudobot"]
+	path = sudobot
+	url = https://github.com/onesoft-sudo/sudobot
