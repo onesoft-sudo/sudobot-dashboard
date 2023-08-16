@@ -1,12 +1,11 @@
 "use client";
 
 import SettingsForm from "@/components/Dashboard/SettingsForm";
-import DiscordCommandsCard from "@/components/SettingCards/DiscordCommandsCard";
-import PrefixCard from "@/components/SettingCards/PrefixCard";
+import PermissionRoleList from "@/components/PermissionManaging/PermissionRoleList";
 import useAuthWithCheck from "@/hooks/useAuthWithCheck";
 import { FC } from "react";
 
-const CommandSettings: FC = () => {
+const PermissionSettings: FC = () => {
     useAuthWithCheck();
 
     const onSubmit = (data: any) => {
@@ -17,9 +16,8 @@ const CommandSettings: FC = () => {
         <div>
             <SettingsForm onSubmit={onSubmit}>
                 {props => (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-4 gap-5">
-                        <PrefixCard {...props} />
-                        <DiscordCommandsCard {...props} />
+                    <div className="grid grid-cols-1 lg:grid-cols-2 pt-4 gap-5 mr-4">
+                        <PermissionRoleList {...props} />
                     </div>
                 )}
             </SettingsForm>
@@ -27,4 +25,4 @@ const CommandSettings: FC = () => {
     );
 };
 
-export default CommandSettings;
+export default PermissionSettings;

@@ -2,9 +2,12 @@
 
 import SettingsForm from "@/components/Dashboard/SettingsForm";
 import AntiSpamCard from "@/components/SettingCards/AntiSpamCard";
+import useAuthWithCheck from "@/hooks/useAuthWithCheck";
 import { FC } from "react";
 
 const CommandSettings: FC = () => {
+    useAuthWithCheck();
+
     const onSubmit = (data: any) => {
         console.log(data);
     };

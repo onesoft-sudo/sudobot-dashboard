@@ -13,9 +13,14 @@ import { MdRestore, MdSave } from "react-icons/md";
 interface SettingsFormProps {
     onSubmit?: (data: any) => any;
     children: (data: SettingCardProps) => ReactNode;
+    noInitialLoad?: boolean;
 }
 
-const SettingsForm: FC<SettingsFormProps> = ({ onSubmit, children }) => {
+const SettingsForm: FC<SettingsFormProps> = ({
+    onSubmit,
+    children,
+    noInitialLoad = true,
+}) => {
     const [state, setState] = useState({ resetting: false });
     const formRef = useRef<HTMLFormElement>(null);
     const {
@@ -33,7 +38,7 @@ const SettingsForm: FC<SettingsFormProps> = ({ onSubmit, children }) => {
         queryKey: ["config", currentGuild?.id, user?.token],
         queryFn: () =>
             getConfig(currentGuild?.id ?? "", user?.token ?? "", true),
-        enabled: !!(currentGuild?.id && user?.token),
+        enabled: noInitialLoad && !!(currentGuild?.id && user?.token),
     });
 
     useEffect(() => console.log("Data updated", query.data), [query.status]);
