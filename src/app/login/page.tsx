@@ -1,5 +1,11 @@
 import LoginForm from "@/components/Login/LoginForm";
+import { Metadata } from "next";
 import { FC } from "react";
+
+export const metadata: Metadata = {
+    title: "Login - SudoBot",
+    description: "Log into SudoBot's control panel.",
+};
 
 const Login: FC = () => {
     return (

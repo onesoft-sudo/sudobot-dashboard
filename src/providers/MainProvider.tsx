@@ -1,3 +1,5 @@
+"use client";
+
 import { AuthContextProvider } from "@/contexts/AuthContext";
 import { RouterContextProvider } from "@/contexts/RouterContext";
 import { ThemeProvider, createTheme } from "@mui/material";

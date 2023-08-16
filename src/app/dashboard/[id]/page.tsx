@@ -1,7 +1,12 @@
 import { getAnnouncements } from "@/api/announcements";
 import DashboardCards from "@/components/Dashboard/DashboardCards";
 import Welcome from "@/components/Dashboard/Welcome";
+import { Metadata } from "next";
 import { FC } from "react";
+
+export const metadata: Metadata = {
+    title: "Dashboard - SudoBot",
+};
 
 const Dashboard: FC = async () => {
     let announcements = [];
