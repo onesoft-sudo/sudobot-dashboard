@@ -79,14 +79,14 @@ const SettingsForm: FC<SettingsFormProps> = ({ onSubmit, children }) => {
                 </Alert>
             </Snackbar>
 
-            <div className="justify-end flex px-5 pt-4 md:pt-[25px] gap-3">
+            <div className="justify-end flex pr-2 md:px-5 pt-4 md:pt-[25px] gap-3">
                 <Button
                     type="button"
                     variant="flat"
                     color="danger"
                     startContent={<MdRestore />}
                     radius="sm"
-                    onClick={event => {
+                    onClick={() => {
                         console.log("Reset");
 
                         formRef.current?.reset();
