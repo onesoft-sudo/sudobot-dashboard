@@ -1,3 +1,12 @@
+## [0.13.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.13.0...v0.13.1) (2023-08-17)
+
+
+### Bug Fixes
+
+* role icon margin in deleted messages page ([e65e5b2](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e65e5b2d1ed9ee08b225fed418382693037ea0ee))
+
+
+
 # [0.13.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.12.0...v0.13.0) (2023-08-17)
 
 
@@ -48,15 +57,6 @@
 ### Features
 
 * **hooks:** add useIsDesktop() and useIsMobile() hooks ([54ecf2e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/54ecf2e048103788beea8b40b34b07538ffb4a06))
-
-
-
-## [0.9.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.9.2...v0.9.3) (2023-08-14)
-
-
-### Bug Fixes
-
-* **profile:** dropdown chevron icon not appearing in desktop mode ([fe0a68b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/fe0a68b7f0625854ce75989b64470af030c053c0))
 
 
 
