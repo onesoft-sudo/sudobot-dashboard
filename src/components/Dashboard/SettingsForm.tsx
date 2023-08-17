@@ -14,12 +14,16 @@ interface SettingsFormProps {
     onSubmit?: (data: any) => any;
     children: (data: SettingCardProps) => ReactNode;
     noInitialLoad?: boolean;
+    className?: string;
+    buttons?: boolean;
 }
 
 const SettingsForm: FC<SettingsFormProps> = ({
     onSubmit,
     children,
     noInitialLoad = true,
+    className = "",
+    buttons = true,
 }) => {
     const [state, setState] = useState({ resetting: false });
     const formRef = useRef<HTMLFormElement>(null);
@@ -62,61 +66,65 @@ const SettingsForm: FC<SettingsFormProps> = ({
         <form
             noValidate
             onSubmit={handleSubmit(innerOnSubmit)}
-            className="px-3 md:px-0"
+            className={`px-3 md:px-0 ${className}`}
             ref={formRef}
         >
-            <Snackbar
-                open={snackBarOpen}
-                autoHideDuration={6000}
-                onClose={() => setSnackBarOpen(false)}
-            >
-                <Alert
-                    onClose={() => setSnackBarOpen(false)}
-                    severity="info"
-                    icon={false}
-                    style={{
-                        backgroundColor: "#222",
-                        padding: "8px 20px",
-                    }}
-                    className="min-w-[100%] lg:min-w-[20vw]"
-                >
-                    The changes have been saved.
-                </Alert>
-            </Snackbar>
+            {buttons && (
+                <>
+                    <Snackbar
+                        open={snackBarOpen}
+                        autoHideDuration={6000}
+                        onClose={() => setSnackBarOpen(false)}
+                    >
+                        <Alert
+                            onClose={() => setSnackBarOpen(false)}
+                            severity="info"
+                            icon={false}
+                            style={{
+                                backgroundColor: "#222",
+                                padding: "8px 20px",
+                            }}
+                            className="min-w-[100%] lg:min-w-[20vw]"
+                        >
+                            The changes have been saved.
+                        </Alert>
+                    </Snackbar>
 
-            <div className="justify-end flex pr-2 md:px-5 pt-4 md:pt-[25px] gap-3">
-                <Button
-                    type="button"
-                    variant="flat"
-                    color="danger"
-                    startContent={<MdRestore />}
-                    radius="sm"
-                    onClick={() => {
-                        console.log("Reset");
+                    <div className="justify-end flex pr-2 md:px-5 pt-4 md:pt-[25px] gap-3">
+                        <Button
+                            type="button"
+                            variant="flat"
+                            color="danger"
+                            startContent={<MdRestore />}
+                            radius="sm"
+                            onClick={() => {
+                                console.log("Reset");
 
-                        formRef.current?.reset();
-                        reset();
+                                formRef.current?.reset();
+                                reset();
 
-                        setState(s => ({ ...s, resetting: true }));
+                                setState(s => ({ ...s, resetting: true }));
 
-                        setTimeout(() => {
-                            setState(s => ({ ...s, resetting: false }));
-                        }, 200);
-                    }}
-                >
-                    Reset
-                </Button>
+                                setTimeout(() => {
+                                    setState(s => ({ ...s, resetting: false }));
+                                }, 200);
+                            }}
+                        >
+                            Reset
+                        </Button>
 
-                <Button
-                    type="submit"
-                    variant="flat"
-                    color="primary"
-                    startContent={<MdSave />}
-                    radius="sm"
-                >
-                    Save Changes
-                </Button>
-            </div>
+                        <Button
+                            type="submit"
+                            variant="flat"
+                            color="primary"
+                            startContent={<MdSave />}
+                            radius="sm"
+                        >
+                            Save Changes
+                        </Button>
+                    </div>
+                </>
+            )}
 
             {!state.resetting &&
                 query.data?.data &&

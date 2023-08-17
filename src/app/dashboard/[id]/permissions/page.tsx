@@ -13,11 +13,13 @@ const PermissionSettings: FC = () => {
     };
 
     return (
-        <div>
-            <SettingsForm onSubmit={onSubmit}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 pt-4 gap-5 md:mr-4 px-3 md:px-0 mt-6">
+            <PermissionRoleList />
+
+            <SettingsForm className="px-0" buttons={false} onSubmit={onSubmit}>
                 {props => (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 pt-4 gap-5 mr-4">
-                        <PermissionRoleList {...props} />
+                    <div className="mt-5">
+                        <div></div>
                     </div>
                 )}
             </SettingsForm>

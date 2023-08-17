@@ -6,3 +6,5 @@ export interface APIPermissionRole {
     roles?: string[];
     users?: string[];
 }
+
+export type APIPermissionMode = "discord" | "advanced" | "levels";
