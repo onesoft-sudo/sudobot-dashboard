@@ -1,3 +1,18 @@
+# [0.13.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.12.0...v0.13.0) (2023-08-17)
+
+
+### Bug Fixes
+
+* **pages:** add page titles ([5bfd7cf](https://github.com/onesoft-sudo/sudobot-dashboard/commit/5bfd7cf3db2c27b4a48f8ecbca4f142556a3e678))
+
+
+### Features
+
+* add permissions page ([954ab55](https://github.com/onesoft-sudo/sudobot-dashboard/commit/954ab552f607881969c5afd5b90989d545e05264))
+* add view deleted messages page ([89fffc8](https://github.com/onesoft-sudo/sudobot-dashboard/commit/89fffc8c70f95f0da10850c9a7e3510af71dfe5d))
+
+
+
 # [0.12.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.11.0...v0.12.0) (2023-08-16)
 
 
@@ -42,16 +57,6 @@
 ### Bug Fixes
 
 * **profile:** dropdown chevron icon not appearing in desktop mode ([fe0a68b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/fe0a68b7f0625854ce75989b64470af030c053c0))
-
-
-
-## [0.9.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.9.1...v0.9.2) (2023-08-14)
-
-
-### Bug Fixes
-
-* improved appearance and control on mobile ([da477a3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/da477a3ad200b6b325554a304f082de27ec3c43b))
-* make the sidebar mobile friendly ([02e0469](https://github.com/onesoft-sudo/sudobot-dashboard/commit/02e0469581b252adaedd887f79c06a92da204726))
 
 
 
