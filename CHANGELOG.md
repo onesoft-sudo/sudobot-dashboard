@@ -1,3 +1,12 @@
+# [0.14.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.13.1...v0.14.0) (2023-08-18)
+
+
+### Features
+
+* **seo:** add sitemap ([58e6863](https://github.com/onesoft-sudo/sudobot-dashboard/commit/58e68632489c36456e2495ed49e28d2836ac6174))
+
+
+
 ## [0.13.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.13.0...v0.13.1) (2023-08-17)
 
 
@@ -48,15 +57,6 @@
 ### Features
 
 * discord log in support ([723d5db](https://github.com/onesoft-sudo/sudobot-dashboard/commit/723d5dba201e8b0f37a27f11c714eb90fbeeb9e3))
-
-
-
-# [0.10.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.9.3...v0.10.0) (2023-08-14)
-
-
-### Features
-
-* **hooks:** add useIsDesktop() and useIsMobile() hooks ([54ecf2e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/54ecf2e048103788beea8b40b34b07538ffb4a06))
 
 
 
