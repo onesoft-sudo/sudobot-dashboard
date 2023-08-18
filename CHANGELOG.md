@@ -1,3 +1,12 @@
+# [0.15.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.14.0...v0.15.0) (2023-08-18)
+
+
+### Features
+
+* **seo:** add robots.txt ([74168df](https://github.com/onesoft-sudo/sudobot-dashboard/commit/74168dfea843499db4cb4747913bae9994160166))
+
+
+
 # [0.14.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.13.1...v0.14.0) (2023-08-18)
 
 
@@ -43,20 +52,6 @@
 ### Features
 
 * add Permission Role list component ([3dbdceb](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3dbdceb7adb3b5e5d5ed824e125235f0e630e890))
-
-
-
-# [0.11.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.10.0...v0.11.0) (2023-08-15)
-
-
-### Bug Fixes
-
-* **navbar:** increase width on desktop mode ([e0ab866](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e0ab8665b1abcdb7e1a3a42630399d3b33cae8f2))
-
-
-### Features
-
-* discord log in support ([723d5db](https://github.com/onesoft-sudo/sudobot-dashboard/commit/723d5dba201e8b0f37a27f11c714eb90fbeeb9e3))
 
 
 
