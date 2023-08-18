@@ -6,5 +6,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return ['/', '/login'].map(route => ({
         url: `${baseURL}${route}`,
         lastModified: new Date(),
-    });
+    }));
 }
