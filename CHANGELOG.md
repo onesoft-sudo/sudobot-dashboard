@@ -1,3 +1,12 @@
+## [0.15.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.15.0...v0.15.1) (2023-08-18)
+
+
+### Bug Fixes
+
+* syntax error ([e11718a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e11718ad2dcef4305226861f39d4901df72cb4ef))
+
+
+
 # [0.15.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.14.0...v0.15.0) (2023-08-18)
 
 
@@ -37,21 +46,6 @@
 
 * add permissions page ([954ab55](https://github.com/onesoft-sudo/sudobot-dashboard/commit/954ab552f607881969c5afd5b90989d545e05264))
 * add view deleted messages page ([89fffc8](https://github.com/onesoft-sudo/sudobot-dashboard/commit/89fffc8c70f95f0da10850c9a7e3510af71dfe5d))
-
-
-
-# [0.12.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.11.0...v0.12.0) (2023-08-16)
-
-
-### Bug Fixes
-
-* do not emit loadStart event when the user clicks on the same page link ([8f48174](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8f481743e0cc3fdb60011a95109f597785112250))
-* save and reset button positions ([866ce3a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/866ce3acd2af42ba649ef80b715bf82e97fcb388))
-
-
-### Features
-
-* add Permission Role list component ([3dbdceb](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3dbdceb7adb3b5e5d5ed824e125235f0e630e890))
 
 
 
