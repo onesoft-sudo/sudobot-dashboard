@@ -8,9 +8,16 @@ import RoleIcon from "./RoleIcon";
 
 interface MessageProps {
     message: APIDeletedMessage;
+    systemAdmins?: string[];
 }
 
-const Message: FC<MessageProps> = ({ message }) => {
+const builtInSystemAdmins =
+    process.env.NEXT_PUBLIC_SYSTEM_ADMINS?.split(/\s*,\s*/gi) ?? [];
+
+const Message: FC<MessageProps> = ({
+    message,
+    systemAdmins = builtInSystemAdmins,
+}) => {
     return (
         <div className="flex p-2 gap-3 md:gap-8 md:p-3 bg-[#222] my-2 rounded-md">
             <div className="w-[40px] md:w-[50px] min-w-[40px] max-w-[110px]">
@@ -52,6 +59,16 @@ const Message: FC<MessageProps> = ({ message }) => {
                                 BOT
                             </div>
                         )}
+
+                        {!message.author.bot &&
+                            systemAdmins.includes(message.author.id) && (
+                                <div className="pl-[6px] pr-[5px] bg-[rgb(82,98,220)] text-white text-xs rounded-md">
+                                    <span className="hidden md:inline">
+                                        SYS
+                                    </span>
+                                    ADMIN
+                                </div>
+                            )}
                     </div>
 
                     <small className="text-[#999]">
