@@ -24,11 +24,11 @@ export const formatDistance = (date: Date) =>
             formatRelative: token =>
                 ((
                     {
-                        lastWeek: "'Last week' dddd 'at' h:ii a",
+                        lastWeek: "dd/MM/yyyy h:ii a",
                         yesterday: "'Yesterday at' h:ii a",
                         today: "'Today at' h:ii a",
                         tomorrow: "'Tomorrow at' h:ii a",
-                        nextWeek: "Next week 'at' h:ii a",
+                        nextWeek: "dd/MM/yyyy h:ii a",
                         other: "dd/MM/yyyy h:ii a",
                     } as any
                 )[token]),
