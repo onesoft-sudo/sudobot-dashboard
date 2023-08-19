@@ -1,3 +1,5 @@
+import { APIDeletedMessageMentions } from "./APIDeletedMessageMentions";
+
 export interface APIDeletedMessage {
     id: string;
     content: string;
@@ -11,6 +13,8 @@ export interface APIDeletedMessage {
         id: string;
         nickname?: string;
     };
+    guildId: string;
+    mentions: APIDeletedMessageMentions;
     authorColor?: number;
     authorAvatarURL: string;
     authorRoleIcon?: string;

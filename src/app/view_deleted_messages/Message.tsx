@@ -77,6 +77,8 @@ const Message: FC<MessageProps> = ({
                 </div>
                 <MessageContent
                     content={message.content.replaceAll("\n", "\n\n")}
+                    mentions={message.mentions}
+                    guildId={message.guildId}
                 />
             </div>
         </div>
