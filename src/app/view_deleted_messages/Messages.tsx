@@ -7,9 +7,15 @@ interface MessagesProps {
 }
 
 const Messages: FC<MessagesProps> = ({ messages }) => {
+    const sortedMessages = [...messages].sort(
+        (a, b) =>
+            new Date(a.createdTimestamp).getTime() -
+            new Date(b.createdTimestamp).getTime()
+    );
+
     return (
         <div>
-            {messages.map(message => (
+            {sortedMessages.map(message => (
                 <Message key={message.id} message={message} />
             ))}
         </div>
