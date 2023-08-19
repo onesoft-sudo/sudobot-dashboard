@@ -14,7 +14,6 @@ const RoleIcon: FC<RoleIconProps> = ({ iconURL, name }) => {
                 alt="Icon"
                 height="18px"
                 width="18px"
-                className="-mb-1"
             />
         </Tooltip>
     );
