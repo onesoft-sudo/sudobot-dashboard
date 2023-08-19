@@ -1,10 +1,11 @@
-export interface APIMessage {
+export interface APIDeletedMessage {
     id: string;
     content: string;
     author: {
         id: string;
         username: string;
         avatar: string;
+        bot: boolean;
     };
     member: {
         id: string;

@@ -1,4 +1,4 @@
-import { APIMessage } from "@/types/APIMessage";
+import { APIDeletedMessage } from "@/types/APIMessage";
 import { Container } from "@mui/material";
 import axios, { AxiosResponse } from "axios";
 import { ComponentProps, FC } from "react";
@@ -15,7 +15,7 @@ const ViewDeletedMessages: FC<{
 
     let response:
         | AxiosResponse<{
-              messages: APIMessage[];
+              messages: APIDeletedMessage[];
               guild: {
                   id: string;
                   name: string;

@@ -1,4 +1,4 @@
-import { APIMessage } from "@/types/APIMessage";
+import { APIDeletedMessage } from "@/types/APIMessage";
 import { formatDistance } from "@/utils/utils";
 import { FC } from "react";
 import Avatar from "./Avatar";
@@ -7,7 +7,7 @@ import MessageContent from "./MessageContent";
 import RoleIcon from "./RoleIcon";
 
 interface MessageProps {
-    message: APIMessage;
+    message: APIDeletedMessage;
 }
 
 const Message: FC<MessageProps> = ({ message }) => {
@@ -45,6 +45,12 @@ const Message: FC<MessageProps> = ({ message }) => {
                                 iconURL={message.authorRoleIcon}
                                 name={message.authorRoleName}
                             />
+                        )}
+
+                        {message.author.bot && (
+                            <div className="pl-[6px] pr-[5px] bg-[rgb(82,98,220)] text-white text-xs rounded-md">
+                                BOT
+                            </div>
                         )}
                     </div>
 

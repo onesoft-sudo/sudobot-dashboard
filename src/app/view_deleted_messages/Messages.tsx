@@ -1,9 +1,9 @@
-import { APIMessage } from "@/types/APIMessage";
+import { APIDeletedMessage } from "@/types/APIMessage";
 import { FC } from "react";
 import Message from "./Message";
 
 interface MessagesProps {
-    messages: APIMessage[];
+    messages: APIDeletedMessage[];
 }
 
 const Messages: FC<MessagesProps> = ({ messages }) => {
