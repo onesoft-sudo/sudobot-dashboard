@@ -69,7 +69,7 @@ const LoginForm: FC = () => {
 
     return (
         <form
-            className="mx-3 md:mx-auto my-3 p-4 rounded-lg md:w-[20vw]"
+            className="mx-2 md:mx-auto my-3 p-4 rounded-lg md:w-[20vw]"
             onSubmit={handleSubmit(onValid)}
             style={{
                 background:
@@ -142,7 +142,7 @@ const LoginForm: FC = () => {
                         </Checkbox>
                         <Link
                             href="/login"
-                            className="link ml-3"
+                            className="link ml-10 md:ml-3"
                             style={{ fontSize: 14 }}
                         >
                             Forgot password?
