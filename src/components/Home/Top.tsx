@@ -1,6 +1,5 @@
-import Image from "next/image";
 import { FC } from "react";
-import shieldImage from "../../images/sudobot-shield.png";
+import Shield from "../Images/Shield";
 import HomeButtons from "./HomeButtons";
 
 const Top: FC = () => {
@@ -56,20 +55,7 @@ const Top: FC = () => {
                 <HomeButtons />
             </div>
             <div className="relative justify-center items-center hidden md:flex">
-                <Image
-                    src={shieldImage.src}
-                    alt="Banner"
-                    width={0}
-                    height={0}
-                    sizes="80vw"
-                    style={{
-                        width: "80%",
-                        height: "auto",
-                        background:
-                            "linear-gradient(rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.2))",
-                        borderRadius: "20px",
-                    }}
-                />
+                <Shield />
             </div>
         </div>
     );
