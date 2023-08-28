@@ -1,3 +1,13 @@
+# [0.19.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.18.0...v0.19.0) (2023-08-28)
+
+
+### Features
+
+* add 404 not found page ([0dc7106](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0dc7106c568b8cf24ac8b73a552fd7f83ea8d313))
+* add loading component ([7e0cffd](https://github.com/onesoft-sudo/sudobot-dashboard/commit/7e0cffd2c4e790c4825839db7aa5a6643092c7c6))
+
+
+
 # [0.18.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.17.0...v0.18.0) (2023-08-20)
 
 
@@ -39,15 +49,6 @@
 ### Bug Fixes
 
 * syntax error ([e11718a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e11718ad2dcef4305226861f39d4901df72cb4ef))
-
-
-
-# [0.15.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.14.0...v0.15.0) (2023-08-18)
-
-
-### Features
-
-* **seo:** add robots.txt ([74168df](https://github.com/onesoft-sudo/sudobot-dashboard/commit/74168dfea843499db4cb4747913bae9994160166))
 
 
 
