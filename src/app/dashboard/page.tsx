@@ -1,5 +1,6 @@
 "use client";
 
+import Loading from "@/components/Loading/Loading";
 import { useAuthContext } from "@/contexts/AuthContext";
 import { useRouterContext } from "@/contexts/RouterContext";
 import { useEffect } from "react";
@@ -14,5 +15,9 @@ export default function DefaultDashboard() {
         }
     }, [currentGuild]);
 
-    return <></>;
+    return (
+        <main className="my-4">
+            <Loading />
+        </main>
+    );
 }

@@ -22,12 +22,10 @@ const DiscordCommandsCard: FC<SettingCardProps> = ({
             </CardHeader>
 
             <CardBody>
-                <p>
+                <p className="pb-6">
                     These commands will be disabled in the current server, but
                     administrators can still use it.
                 </p>
-
-                <br />
 
                 <TextField
                     select

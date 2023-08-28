@@ -50,14 +50,12 @@ const AntiSpamCard: FC<SettingCardProps> = ({
             </CardHeader>
 
             <CardBody>
-                <p>
+                <p className="pb-6">
                     Rate-limits the messages and prevents users from spamming.
                 </p>
 
                 {state.enabled && (
                     <>
-                        <br />
-
                         <div className="grid grid-cols-2 gap-5">
                             <div>
                                 <TextField
@@ -154,7 +152,7 @@ const AntiSpamCard: FC<SettingCardProps> = ({
                             )}
                         </FormHelperText>
 
-                        <br />
+                        <div className="pb-6"></div>
 
                         <TextField
                             select
@@ -183,7 +181,7 @@ const AntiSpamCard: FC<SettingCardProps> = ({
 
                         {state.action.startsWith("mute") && (
                             <>
-                                <br />
+                                <div className="pb-6"></div>
                                 <TextField
                                     type="number"
                                     label="Mute Duration"

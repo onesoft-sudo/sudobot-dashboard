@@ -11,12 +11,10 @@ const PrefixCard: FC<SettingCardProps> = ({ register, errors }) => {
             </CardHeader>
 
             <CardBody>
-                <p>
+                <p className="pb-6">
                     You can always use the slash commands or tag the bot to run
                     a command.
                 </p>
-
-                <br />
 
                 <TextField
                     label="Prefix"
