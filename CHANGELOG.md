@@ -1,3 +1,12 @@
+## [0.19.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.19.1...v0.19.2) (2023-08-29)
+
+
+### Bug Fixes
+
+* spacing ([a42d7a3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a42d7a3a5ee4c485b6e77f62d133f90a0815121c))
+
+
+
 ## [0.19.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.19.0...v0.19.1) (2023-08-29)
 
 
@@ -32,23 +41,6 @@
 ### Features
 
 * parse mentions ([83cd4e6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/83cd4e6fb127a11904bab27928e51baa7fab05cd))
-
-
-
-# [0.16.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.15.1...v0.16.0) (2023-08-19)
-
-
-### Bug Fixes
-
-* shrinked login form ([4ed731e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4ed731e6af9c4c1ec34556e87da6c684e028dd85))
-* sorted message list ([8cda4be](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8cda4be8819ff96e0cb67f28904613f48f741e53))
-* wrong date format ([fb7ed1d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/fb7ed1d8ae192290199e0ff1fc49a1e84e382833))
-
-
-### Features
-
-* show bot version ([18c746e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/18c746e5be2d86776b6efb5de76731e0fefc0257))
-* sysadmin badge ([8e56c04](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8e56c049e0c0f19e8e2fe0b0ddba1c6be1b7bb0b))
 
 
 
