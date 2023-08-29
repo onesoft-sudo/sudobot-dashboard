@@ -16,7 +16,12 @@ const apiPermissionRoles: APIResponse = {
             level: 0,
             name: "Member",
             permissions: ["SendMessages"],
-            roles: [],
+            roles: [
+                {
+                    name: "als",
+                    id: "2757566586637",
+                },
+            ],
             users: [],
         },
         {
@@ -54,10 +59,8 @@ const apiPermissionRoles: APIResponse = {
     ],
 };
 
-const permissions = [...apiPermissionRoles.permissions].sort((a, b) =>
-    apiPermissionRoles.mode === "levels"
-        ? (b.level ?? 0) - (a.level ?? 0)
-        : (b.name ?? "Z").charCodeAt(0) - (a.name ?? "Z").charCodeAt(0)
+const permissions = [...apiPermissionRoles.permissions].sort(
+    (a, b) => (a.name ?? "Z").charCodeAt(0) - (b.name ?? "Z").charCodeAt(0)
 );
 
 const PermissionRoleList: FC = ({}) => {

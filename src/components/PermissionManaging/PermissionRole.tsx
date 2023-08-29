@@ -10,9 +10,8 @@ import {
 import { Button, Tooltip } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { FC } from "react";
-import { FaChevronDown } from "react-icons/fa6";
-import { MdOutlineKey, MdSecurity } from "react-icons/md";
-import PermissionRoleForm from "./PermissionRoleForm";
+import { FaChevronDown, FaPencil } from "react-icons/fa6";
+import { MdOutlineKey, MdSecurity, MdWarning } from "react-icons/md";
 
 interface PermissionRoleProps {
     permission: APIPermissionRole;
@@ -61,12 +60,28 @@ const PermissionRole: FC<PermissionRoleProps> = ({ mode, permission }) => {
 
                 <div className="flex items-center gap-2">
                     <Button
+                        variant="flat"
+                        radius="sm"
+                        isIconOnly
+                        color="primary"
+                        onClick={() => alert("Unimplemented feature.")}
+                    >
+                        <FaPencil size={15} />
+                    </Button>
+
+                    <Button
                         onClick={() => toggleExpanded()}
                         variant="flat"
                         radius="sm"
                         isIconOnly
                     >
-                        <FaChevronDown size={15} />
+                        <motion.span
+                            animate={{
+                                transform: `rotate(${expanded ? 180 : 0}deg)`,
+                            }}
+                        >
+                            <FaChevronDown size={15} />
+                        </motion.span>
                     </Button>
                 </div>
             </div>
@@ -82,7 +97,87 @@ const PermissionRole: FC<PermissionRoleProps> = ({ mode, permission }) => {
                         duration: isInitialRender ? 0 : 0.2,
                     }}
                 >
-                    <PermissionRoleForm permission={permission} />
+                    <div>
+                        <br />
+                        <strong className="font-bold">
+                            Granted Permissions
+                        </strong>
+                        <div>
+                            {permission.permissions?.map(
+                                (permissionKey, index, array) => (
+                                    <div
+                                        key={permissionKey}
+                                        className="flex items-center gap-2"
+                                    >
+                                        {permissionKey === "Administrator" && (
+                                            <Tooltip
+                                                content={
+                                                    <>
+                                                        This permission role
+                                                        grants Administrator
+                                                        permission,
+                                                        <br />
+                                                        which means users having
+                                                        this permission role
+                                                        have every possible
+                                                        permission.
+                                                    </>
+                                                }
+                                                delay={1000}
+                                            >
+                                                <MdWarning
+                                                    className="inline-block"
+                                                    size={"1.2em"}
+                                                />
+                                            </Tooltip>
+                                        )}
+                                        <span className="font-mono">{`${permissionKey}`}</span>
+                                        {array.length - 1 == index ? "" : ", "}
+                                    </div>
+                                )
+                            )}
+                        </div>
+
+                        <br />
+                        <p className="text-[#999]">
+                            The following users and roles have been assigned to
+                            this permission role. Adding any new user or role
+                            will grant all the configured permissions to that
+                            user or users having the role.
+                        </p>
+                        <br />
+
+                        <strong className="font-bold pb-2 block">Roles</strong>
+                        <div>
+                            {permission.roles?.map(role => (
+                                <div
+                                    key={role.id}
+                                    className="flex items-center justify-between p-2 rounded-lg bg-[#333]"
+                                >
+                                    <span>@{`${role.name}`}</span>
+                                    <span className="font-mono text-[#999]">
+                                        {role.id}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+
+                        <br />
+                        <strong className="font-bold block pb-2">Users</strong>
+                        <div>
+                            {permission.users?.map(user => (
+                                <div
+                                    key={user.id}
+                                    className="flex items-center justify-between p-2 rounded-lg bg-[#333]"
+                                >
+                                    <span>@{`${user.name}`}</span>
+                                    <span className="font-mono text-[#999]">
+                                        {user.id}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </motion.div>
             </div>
         </div>
