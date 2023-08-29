@@ -6,7 +6,7 @@ const Top: FC = () => {
     return (
         <div className="min-h-[90vh] px-4 md:px-[10%] pt-3 grid grid-cols-1 md:grid-cols-2 gap-20">
             <div className="md:pt-[15%] relative z-[1]">
-                <div className="flex md:block flex-col justify-between h-[60vh] md:h-[auto]">
+                <div className="flex md:block flex-col justify-between h-[52vh] md:h-[auto]">
                     <div>
                         <div
                             style={{
