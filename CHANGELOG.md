@@ -1,3 +1,12 @@
+## [0.19.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.19.0...v0.19.1) (2023-08-29)
+
+
+### Bug Fixes
+
+* design changes ([5753289](https://github.com/onesoft-sudo/sudobot-dashboard/commit/57532892ef3e980ac9ad7efded299e9901a74c3c))
+
+
+
 # [0.19.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.18.0...v0.19.0) (2023-08-28)
 
 
@@ -40,15 +49,6 @@
 
 * show bot version ([18c746e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/18c746e5be2d86776b6efb5de76731e0fefc0257))
 * sysadmin badge ([8e56c04](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8e56c049e0c0f19e8e2fe0b0ddba1c6be1b7bb0b))
-
-
-
-## [0.15.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.15.0...v0.15.1) (2023-08-18)
-
-
-### Bug Fixes
-
-* syntax error ([e11718a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e11718ad2dcef4305226861f39d4901df72cb4ef))
 
 
 
