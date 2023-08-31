@@ -69,7 +69,7 @@ const LoginForm: FC = () => {
 
     return (
         <form
-            className="mx-2 md:mx-auto my-3 p-4 rounded-lg md:w-[20vw]"
+            className="mx-2 my-3 p-4 rounded-lg w-[calc(100vw-20px)] sm:w-[auto] md:min-w-[20vw]"
             onSubmit={handleSubmit(onValid)}
             style={{
                 background:
@@ -138,12 +138,11 @@ const LoginForm: FC = () => {
                     />
                     <div className="flex items-center justify-between mt-2">
                         <Checkbox>
-                            <p style={{ fontSize: 14 }}>Remember me</p>
+                            <p className="text-xs md:text-md">Remember me</p>
                         </Checkbox>
                         <Link
                             href="/login"
-                            className="link ml-10 md:ml-3"
-                            style={{ fontSize: 14 }}
+                            className="link ml-3 text-xs md:text-md"
                         >
                             Forgot password?
                         </Link>
