@@ -10,3 +10,4 @@ A huge thanks to all of the contributors and the people who have helped us devel
 * [Kars](https://github.com/Kars1996) (Also helped by giving away a domain to us)
 
 Copyright (C) 2023 OSN Developers and all the contributors.
+ 
