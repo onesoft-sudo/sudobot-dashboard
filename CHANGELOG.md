@@ -1,3 +1,17 @@
+# [0.20.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.19.3...v0.20.0) (2023-08-31)
+
+
+### Bug Fixes
+
+* login form width ([e22b155](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e22b15526f3d04128d782e7480aedd8e4d39aedc))
+
+
+### Features
+
+* **dashboard:** view and edit named permission roles ([f896706](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f896706ee06f5710143eb796c4ef65a6c6779c22))
+
+
+
 ## [0.19.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.19.2...v0.19.3) (2023-08-31)
 
 
@@ -32,15 +46,6 @@
 
 * add 404 not found page ([0dc7106](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0dc7106c568b8cf24ac8b73a552fd7f83ea8d313))
 * add loading component ([7e0cffd](https://github.com/onesoft-sudo/sudobot-dashboard/commit/7e0cffd2c4e790c4825839db7aa5a6643092c7c6))
-
-
-
-# [0.18.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.17.0...v0.18.0) (2023-08-20)
-
-
-### Features
-
-* **analytics:** add google analytics scripts ([8bda741](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8bda741f34aae7070b4fca0f3dadd3c289c9031a))
 
 
 
