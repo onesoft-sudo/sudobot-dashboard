@@ -15,4 +15,11 @@ export class API {
     static config(guildId: string) {
         return `${API_URL}/config/${encodeURIComponent(guildId)}`;
     }
+
+    static permissionRoles(guildId: string, id?: number | string) {
+        return (
+            `${API_URL}/permission_roles/${encodeURIComponent(guildId)}` +
+            (id !== undefined ? `/${encodeURIComponent(id.toString())}` : "")
+        );
+    }
 }

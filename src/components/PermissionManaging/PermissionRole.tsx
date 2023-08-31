@@ -3,23 +3,21 @@
 import useIsDesktop from "@/hooks/useIsDesktop";
 import useIsInitialRender from "@/hooks/useIsInitialRender";
 import useTogglableState from "@/hooks/useTogglableState";
-import {
-    APIPermissionMode,
-    APIPermissionRole,
-} from "@/types/APIPermissionRole";
+import { APIPermissionRole } from "@/types/APIPermissionRole";
 import { Button, Tooltip } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { FC } from "react";
 import { FaChevronDown, FaPencil } from "react-icons/fa6";
-import { MdOutlineKey, MdSecurity, MdWarning } from "react-icons/md";
+import { MdSecurity, MdWarning } from "react-icons/md";
+import PermissionRoleEditModal from "./PermissionRoleEditModal";
 
 interface PermissionRoleProps {
     permission: APIPermissionRole;
-    mode: APIPermissionMode;
 }
 
-const PermissionRole: FC<PermissionRoleProps> = ({ mode, permission }) => {
+const PermissionRole: FC<PermissionRoleProps> = ({ permission }) => {
     const [expanded, toggleExpanded] = useTogglableState();
+    const [isEditing, toggleEditing] = useTogglableState();
     const isInitialRender = useIsInitialRender();
     const isDesktop = useIsDesktop();
 
@@ -31,31 +29,24 @@ const PermissionRole: FC<PermissionRoleProps> = ({ mode, permission }) => {
                 margin: "10px " + (isDesktop ? "10px" : "0"),
             }}
         >
+            <PermissionRoleEditModal
+                isEditing={isEditing}
+                toggleEditing={toggleEditing}
+                permission={permission}
+            />
+
             <div className="flex justify-between items-center">
                 <div className="flex items-center">
                     <Tooltip
-                        content={
-                            permission.level !== undefined
-                                ? "This is a permission level."
-                                : "This is a named permission role."
-                        }
+                        content={"This is a named permission role."}
                         delay={1200}
                         color="foreground"
                     >
                         <div>
-                            {permission.level !== undefined ? (
-                                <MdSecurity size={20} />
-                            ) : (
-                                <MdOutlineKey size={20} />
-                            )}
+                            <MdSecurity size={20} />
                         </div>
                     </Tooltip>
                     <h3 className="ml-2">{permission.name}</h3>
-                    {permission.level !== undefined && (
-                        <h4 className="ml-5 text-sm text-[#999]">
-                            {permission.level}
-                        </h4>
-                    )}
                 </div>
 
                 <div className="flex items-center gap-2">
@@ -64,7 +55,7 @@ const PermissionRole: FC<PermissionRoleProps> = ({ mode, permission }) => {
                         radius="sm"
                         isIconOnly
                         color="primary"
-                        onClick={() => alert("Unimplemented feature.")}
+                        onClick={() => toggleEditing()}
                     >
                         <FaPencil size={15} />
                     </Button>
@@ -103,7 +94,7 @@ const PermissionRole: FC<PermissionRoleProps> = ({ mode, permission }) => {
                             Granted Permissions
                         </strong>
                         <div>
-                            {permission.permissions?.map(
+                            {permission.grantedPermissions?.map(
                                 (permissionKey, index, array) => (
                                     <div
                                         key={permissionKey}
@@ -131,8 +122,12 @@ const PermissionRole: FC<PermissionRoleProps> = ({ mode, permission }) => {
                                                 />
                                             </Tooltip>
                                         )}
-                                        <span className="font-mono">{`${permissionKey}`}</span>
-                                        {array.length - 1 == index ? "" : ", "}
+                                        <span className="font-mono">
+                                            {`${permissionKey}`}
+                                            {array.length - 1 == index
+                                                ? ""
+                                                : ", "}
+                                        </span>
                                     </div>
                                 )
                             )}
@@ -160,6 +155,12 @@ const PermissionRole: FC<PermissionRoleProps> = ({ mode, permission }) => {
                                     </span>
                                 </div>
                             ))}
+
+                            {permission.roles?.length === 0 && (
+                                <p className="text-xs text-[#999]">
+                                    No role found.
+                                </p>
+                            )}
                         </div>
 
                         <br />
@@ -176,6 +177,10 @@ const PermissionRole: FC<PermissionRoleProps> = ({ mode, permission }) => {
                                     </span>
                                 </div>
                             ))}
+
+                            {permission.users?.length === 0 && (
+                                <p className="text-[#999]">No user found.</p>
+                            )}
                         </div>
                     </div>
                 </motion.div>
