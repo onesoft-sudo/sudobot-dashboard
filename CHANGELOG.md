@@ -1,3 +1,12 @@
+## [0.19.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.19.2...v0.19.3) (2023-08-31)
+
+
+### Bug Fixes
+
+* vercel not showing custom 404 page ([a23dd47](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a23dd47bfa7a3e1ad9b1ee3397fe29904d44ccf6))
+
+
+
 ## [0.19.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.19.1...v0.19.2) (2023-08-29)
 
 
@@ -32,15 +41,6 @@
 ### Features
 
 * **analytics:** add google analytics scripts ([8bda741](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8bda741f34aae7070b4fca0f3dadd3c289c9031a))
-
-
-
-# [0.17.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.16.0...v0.17.0) (2023-08-19)
-
-
-### Features
-
-* parse mentions ([83cd4e6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/83cd4e6fb127a11904bab27928e51baa7fab05cd))
 
 
 
