@@ -14,7 +14,7 @@ import {
 import styles from "../../styles/Sidebar.module.css";
 import Link from "../Router/Link";
 
-const items = [
+export const sidebarItems = [
     {
         name: "Dashboard",
         url: "/dashboard/{id}",
@@ -53,9 +53,9 @@ const Sidebar: FC = () => {
     return (
         <aside className={`h-[100%]`}>
             <div className={styles.items}>
-                {items.map((item, index) => (
+                {sidebarItems.map((item, index) => (
                     <Fragment key={index}>
-                        {index === items.length - 1 && (
+                        {index === sidebarItems.length - 1 && (
                             <div className={styles.spacer}></div>
                         )}
                         <Link

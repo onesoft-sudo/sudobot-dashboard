@@ -13,10 +13,10 @@ interface PermissionRoleEditFormProps {
     onEnd?: () => any;
 }
 
-const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = (
-    { permission, onEnd },
-    ref
-) => {
+const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = ({
+    permission,
+    onEnd,
+}) => {
     const key = `permission_${permission.id}`;
     const {
         formState: { errors },
@@ -127,10 +127,18 @@ const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = (
                 defaultValue={
                     permission.users?.map(({ id }) => id).join("\n") ?? ""
                 }
-                {...register(`${key}__users`)}
+                {...register(`${key}__users`, {
+                    validate(input) {
+                        return /^([0-9,\s])*$/.test(input?.toString() ?? "")
+                            ? undefined
+                            : "The User IDs are invalid!";
+                    },
+                })}
             />
 
-            <div className="py-2"></div>
+            <div className="py-2 text-xs text-red-600">
+                {errors?.[`${key}__users`]?.message}
+            </div>
 
             <Textarea
                 type="text"
@@ -140,10 +148,19 @@ const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = (
                 defaultValue={
                     permission.roles?.map(({ id }) => id).join("\n") ?? ""
                 }
-                {...register(`${key}__roles`)}
+                {...register(`${key}__roles`, {
+                    validate(input) {
+                        return /^([0-9,\s])*$/.test(input?.toString() ?? "")
+                            ? undefined
+                            : "The Role IDs are invalid!";
+                    },
+                })}
             />
+            <div className="py-2 text-xs text-red-600">
+                {errors?.[`${key}__roles`]?.message}
+            </div>
 
-            <div className="py-2 text-xs">
+            <div className="pb-2 text-xs">
                 IDs should be seperated by spaces, new lines or commas (
                 <span className="text-mono px-1 bg-[#333]">,</span>).
                 <br />

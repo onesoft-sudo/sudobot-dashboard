@@ -4,7 +4,7 @@ import Link from "@/components/Router/Link";
 import { Button } from "@nextui-org/react";
 import { FC } from "react";
 
-const NotFoundButtons: FC = () => {
+const ErrorButtons: FC = () => {
     return (
         <div>
             <Button variant="flat" color="primary" size="lg" as={Link} href="/">
@@ -14,4 +14,4 @@ const NotFoundButtons: FC = () => {
     );
 };
 
-export default NotFoundButtons;
+export default ErrorButtons;

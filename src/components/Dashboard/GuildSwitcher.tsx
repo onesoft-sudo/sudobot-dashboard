@@ -11,7 +11,7 @@ import {
     DropdownMenu,
     DropdownTrigger,
 } from "@nextui-org/react";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { FC, useEffect, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 
@@ -24,6 +24,7 @@ const GuildSwitcher: FC<{
     const [selectedKeys, setSelectedKeys] = useState(new Set<string>());
     const router = useRouterContext();
     const pathname = usePathname();
+    const { id } = useParams();
 
     useEffect(() => {
         if (!previousGuild && currentGuild) {
@@ -33,6 +34,10 @@ const GuildSwitcher: FC<{
     }, [currentGuild]);
 
     if (!currentGuild || !user) {
+        return <></>;
+    }
+
+    if (!user.guilds.find(g => g.id === id)) {
         return <></>;
     }
 
@@ -52,6 +57,7 @@ const GuildSwitcher: FC<{
                                 style={{
                                     marginRight: 5,
                                 }}
+                                alt=""
                             />
                         ) : (
                             <></>
@@ -86,6 +92,7 @@ const GuildSwitcher: FC<{
                                     src={guild.iconURL}
                                     height={20}
                                     width={20}
+                                    alt=""
                                 />
                             ) : (
                                 <></>

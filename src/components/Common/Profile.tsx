@@ -21,6 +21,7 @@ const Profile: FC = () => {
 
     const logout = () => {
         dispatch?.({ type: AuthContextAction.Logout });
+        router?.push("/login");
     };
 
     return (
