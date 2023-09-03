@@ -7,7 +7,7 @@ export default function Home() {
         <>
             <main>
                 <Top />
-                <div style={{ marginTop: "100px" }}></div>
+                <div className="mt-[20px] md:mt-[100px]"></div>
                 <FeatureOverview />
                 <br />
                 <br />

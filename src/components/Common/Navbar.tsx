@@ -1,11 +1,7 @@
 "use client";
 
 import { useAuthContext } from "@/contexts/AuthContext";
-import {
-    BOT_INVITE_REQUEST_URL,
-    DOCS_FEATURES_URL,
-    DOCS_URL,
-} from "@/utils/links";
+import { navbarLinks } from "@/utils/links";
 import { isDashboardPath } from "@/utils/utils";
 import { Button as MUIButton } from "@mui/material";
 import {
@@ -24,25 +20,6 @@ import GuildSwitcher from "../Dashboard/GuildSwitcher";
 import MobileNavbar from "../Dashboard/MobileNavbar";
 import Link from "../Router/Link";
 import Profile from "./Profile";
-
-const links = [
-    {
-        name: "Home",
-        url: "/",
-    },
-    {
-        name: "Features",
-        url: DOCS_FEATURES_URL,
-    },
-    {
-        name: "Documentation",
-        url: DOCS_URL,
-    },
-    {
-        name: "Invite",
-        url: BOT_INVITE_REQUEST_URL,
-    },
-];
 
 const Navbar: FC = () => {
     const pathname = usePathname();
@@ -64,7 +41,7 @@ const Navbar: FC = () => {
 
                 <div>
                     <MUIButton
-                        className="min-w-[0] p-1 m-0 text-white"
+                        className="min-w-[0] p-1 m-0 text-white md:hidden"
                         onClick={() => setIsMenuOpen(true)}
                     >
                         <MdMenu size={25} />
@@ -86,7 +63,7 @@ const Navbar: FC = () => {
                     className="hidden sm:flex gap-4"
                     justify="center"
                 >
-                    {links.map(link => (
+                    {navbarLinks.map(link => (
                         <NavbarItem
                             key={`${link.name}_${link.url}`}
                             isActive={link.url === pathname}

@@ -2,45 +2,11 @@
 
 import { useAuthContext } from "@/contexts/AuthContext";
 import useLoggedIn from "@/hooks/useLoggedIn";
+import { sidebarItems } from "@/utils/links";
 import { usePathname } from "next/navigation";
 import { FC, Fragment } from "react";
-import {
-    MdBarChart,
-    MdLockOutline,
-    MdSettings,
-    MdShield,
-    MdTerminal,
-} from "react-icons/md";
 import styles from "../../styles/Sidebar.module.css";
 import Link from "../Router/Link";
-
-export const sidebarItems = [
-    {
-        name: "Dashboard",
-        url: "/dashboard/{id}",
-        icon: MdBarChart,
-    },
-    {
-        name: "Commands",
-        url: "/settings/{id}/commands",
-        icon: MdTerminal,
-    },
-    {
-        name: "Auto Moderation",
-        url: "/settings/{id}/automod",
-        icon: MdShield,
-    },
-    {
-        name: "Permissions",
-        url: "/settings/{id}/permissions",
-        icon: MdLockOutline,
-    },
-    {
-        name: "Account Settings",
-        url: "/account",
-        icon: MdSettings,
-    },
-];
 
 const Sidebar: FC = () => {
     const pathname = usePathname();
