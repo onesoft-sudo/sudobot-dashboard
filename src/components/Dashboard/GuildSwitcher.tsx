@@ -18,7 +18,8 @@ import { FaChevronDown } from "react-icons/fa6";
 const GuildSwitcher: FC<{
     buttonClasses?: string;
     onGuildSwitch?: () => any;
-}> = ({ buttonClasses = "", onGuildSwitch }) => {
+    forceShow?: boolean;
+}> = ({ buttonClasses = "", onGuildSwitch, forceShow }) => {
     const { currentGuild, user, dispatch } = useAuthContext();
     const previousGuild = usePreviousValue(currentGuild);
     const [selectedKeys, setSelectedKeys] = useState(new Set<string>());
@@ -37,7 +38,7 @@ const GuildSwitcher: FC<{
         return <></>;
     }
 
-    if (!user.guilds.find(g => g.id === id)) {
+    if (isDashboardPath(pathname) && !user.guilds.find(g => g.id === id)) {
         return <></>;
     }
 
