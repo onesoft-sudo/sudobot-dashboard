@@ -1,3 +1,12 @@
+## [0.20.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.20.0...v0.20.1) (2023-09-03)
+
+
+### Bug Fixes
+
+* delete src/app/[...not-found]/page.tsx ([bbc00a6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bbc00a6a17f87202f0a0361c8ad1f704603a8d76))
+
+
+
 # [0.20.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.19.3...v0.20.0) (2023-08-31)
 
 
@@ -36,16 +45,6 @@
 ### Bug Fixes
 
 * design changes ([5753289](https://github.com/onesoft-sudo/sudobot-dashboard/commit/57532892ef3e980ac9ad7efded299e9901a74c3c))
-
-
-
-# [0.19.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.18.0...v0.19.0) (2023-08-28)
-
-
-### Features
-
-* add 404 not found page ([0dc7106](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0dc7106c568b8cf24ac8b73a552fd7f83ea8d313))
-* add loading component ([7e0cffd](https://github.com/onesoft-sudo/sudobot-dashboard/commit/7e0cffd2c4e790c4825839db7aa5a6643092c7c6))
 
 
 
