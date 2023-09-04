@@ -1,3 +1,12 @@
+## [0.21.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.0...v0.21.1) (2023-09-04)
+
+
+### Bug Fixes
+
+* mobile navbar not visible without logging in ([4e7b4a6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4e7b4a6daf596821cece070f8cfc750f6e1b8659))
+
+
+
 # [0.21.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.20.1...v0.21.0) (2023-09-03)
 
 
@@ -42,15 +51,6 @@
 ### Bug Fixes
 
 * vercel not showing custom 404 page ([a23dd47](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a23dd47bfa7a3e1ad9b1ee3397fe29904d44ccf6))
-
-
-
-## [0.19.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.19.1...v0.19.2) (2023-08-29)
-
-
-### Bug Fixes
-
-* spacing ([a42d7a3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a42d7a3a5ee4c485b6e77f62d133f90a0815121c))
 
 
 
