@@ -121,8 +121,8 @@ export function AuthContextProvider({ children }: PropsWithChildren) {
         currentGuild: undefined,
     });
 
-    const pathname = usePathname();
-    const { id } = useParams();
+    const pathname = usePathname()!;
+    const { id } = useParams()!;
 
     useEffect(() => {
         try {
