@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { FC } from "react";
 import { FaChevronDown, FaPencil } from "react-icons/fa6";
 import { MdSecurity, MdWarning } from "react-icons/md";
+import PermissionRoleDelete from "./PermissionRoleDelete";
 import PermissionRoleEditModal from "./PermissionRoleEditModal";
 
 interface PermissionRoleProps {
@@ -181,6 +182,13 @@ const PermissionRole: FC<PermissionRoleProps> = ({ permission }) => {
                             {permission.users?.length === 0 && (
                                 <p className="text-[#999]">No user found.</p>
                             )}
+
+                            <div className="pt-3 flex justify-end">
+                                <PermissionRoleDelete
+                                    id={permission.id}
+                                    guildId={permission.guild_id}
+                                />
+                            </div>
                         </div>
                     </div>
                 </motion.div>

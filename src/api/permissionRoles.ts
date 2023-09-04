@@ -40,3 +40,20 @@ export function patchPermissionRole({
         },
     });
 }
+
+export function deletePermissionRole({
+    guildId,
+    id,
+    token,
+}: {
+    guildId: string;
+    id: string | number;
+    token: string;
+}) {
+    return axios.delete(API.permissionRoles(guildId, id), {
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    });
+}

@@ -12,6 +12,9 @@ const PermissionRoles: FC<PermissionRolesProps> = ({ permissions }) => {
             {permissions.map(permission => (
                 <PermissionRole key={permission.id} permission={permission} />
             ))}
+            {permissions.length === 0 && (
+                <p className="text-[#999]">None yet.</p>
+            )}
         </div>
     );
 };
