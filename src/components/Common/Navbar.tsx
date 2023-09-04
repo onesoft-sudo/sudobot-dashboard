@@ -1,10 +1,10 @@
 "use client";
 
 import { useAuthContext } from "@/contexts/AuthContext";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import useIsMobile from "@/hooks/useIsMobile";
 import { navbarLinks } from "@/utils/links";
 import { isDashboardPath } from "@/utils/utils";
-import { Button as MUIButton } from "@mui/material";
+import { Button as MUIButton, styled } from "@mui/material";
 import {
     Button,
     NavbarBrand,
@@ -28,33 +28,27 @@ const Navbar: FC = () => {
     const { user } = useAuthContext();
     const isMobile = useIsMobile();
 
+    const CustomButton = styled(MUIButton)({
+        minWidth: 0,
+        padding: "2px",
+        margin: 0,
+        color: "white",
+    });
+
     return (
         <div>
             <NextUINavbar
                 shouldHideOnScroll
                 isBordered
-                maxWidth={isDashboardPath(pathname) ? "full" : "xl"}
+                maxWidth={isDashboardPath(pathname!) ? "full" : "xl"}
             >
-                {/* <NavbarMenuToggle
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                className="sm:hidden"
-                icon={<MdMenu size={30} />}
-            /> */}
-
-                {isMobile && <div className="md:hidden">
-                    <MUIButton
-                        className="min-w-[0] p-1 m-0 text-white"
-                        style={{
-                            minWidth: 0,
-                            padding: 2,
-                            margin: 0,
-                            color: 'white'
-                        }}
-                        onClick={() => setIsMenuOpen(true)}
-                    >
-                        <MdMenu size={25} />
-                    </MUIButton>
-                </div>}
+                {isMobile && (
+                    <div className="md:hidden">
+                        <CustomButton onClick={() => setIsMenuOpen(true)}>
+                            <MdMenu size={25} />
+                        </CustomButton>
+                    </div>
+                )}
 
                 <NavbarBrand className="cursor-pointer">
                     <Link href="/" className="flex items-center">

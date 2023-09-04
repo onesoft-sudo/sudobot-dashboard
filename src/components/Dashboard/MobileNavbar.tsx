@@ -27,7 +27,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isOpen, setIsOpen }) => {
                 isOpen ? styles.open : styles.closed
             } md:hidden`}
         >
-            <div className="flex justify-between items-center pl-3">
+            <div className="flex justify-between items-center pl-3 py-2">
                 <div>
                     <Link
                         onClick={() => setIsOpen(false)}
