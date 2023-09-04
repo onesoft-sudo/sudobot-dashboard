@@ -15,15 +15,11 @@ type MobileNavbarProps = {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const items = [...navbarLinks, ...sidebarItems];
-
 const MobileNavbar: FC<MobileNavbarProps> = ({ isOpen, setIsOpen }) => {
     const pathname = usePathname();
     const { currentGuild, user } = useAuthContext();
-
-    if (!useLoggedIn() || !currentGuild) {
-        return <></>;
-    }
+    const loggedIn = useLoggedIn() && !!currentGuild;
+    const items = [...navbarLinks, ...(loggedIn ? sidebarItems : [])];
 
     return (
         <nav
@@ -62,7 +58,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isOpen, setIsOpen }) => {
 
                     return (
                         <Fragment key={index}>
-                            {index === navbarLinks.length && (
+                            {loggedIn && index === navbarLinks.length && (
                                 <div className={styles.spacer}></div>
                             )}
                             <Link
