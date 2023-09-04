@@ -1,3 +1,12 @@
+# [0.24.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.23.1...v0.24.0) (2023-09-04)
+
+
+### Features
+
+* delete permission roles ([302cf27](https://github.com/onesoft-sudo/sudobot-dashboard/commit/302cf27386b1b597c26a28185f12d0b7cc852b77))
+
+
+
 ## [0.23.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.23.0...v0.23.1) (2023-09-04)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * type errors ([c43ca4e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c43ca4e598cf196e0f74b41d816e1ce5718f033f))
-
-
-
-## [0.21.5](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.4...v0.21.5) (2023-09-04)
-
-
-### Bug Fixes
-
-* type errors ([627762e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/627762eb988a9053e61f9b4d644a22eee521bea5))
 
 
 
