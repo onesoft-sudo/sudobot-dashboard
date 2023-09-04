@@ -1,6 +1,7 @@
 "use client";
 
 import { useAuthContext } from "@/contexts/AuthContext";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { navbarLinks } from "@/utils/links";
 import { isDashboardPath } from "@/utils/utils";
 import { Button as MUIButton } from "@mui/material";
@@ -25,6 +26,7 @@ const Navbar: FC = () => {
     const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const { user } = useAuthContext();
+    const isMobile = useIsMobile();
 
     return (
         <div>
@@ -39,14 +41,14 @@ const Navbar: FC = () => {
                 icon={<MdMenu size={30} />}
             /> */}
 
-                <div>
+                {isMobile && <div className="md:hidden">
                     <MUIButton
-                        className="min-w-[0] p-1 m-0 text-white md:hidden"
+                        className="min-w-[0] p-1 m-0 text-white"
                         onClick={() => setIsMenuOpen(true)}
                     >
                         <MdMenu size={25} />
                     </MUIButton>
-                </div>
+                </div>}
 
                 <NavbarBrand className="cursor-pointer">
                     <Link href="/" className="flex items-center">
