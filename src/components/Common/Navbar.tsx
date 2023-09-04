@@ -44,6 +44,12 @@ const Navbar: FC = () => {
                 {isMobile && <div className="md:hidden">
                     <MUIButton
                         className="min-w-[0] p-1 m-0 text-white"
+                        style={{
+                            minWidth: 0,
+                            padding: 2,
+                            margin: 0,
+                            color: 'white'
+                        }}
                         onClick={() => setIsMenuOpen(true)}
                     >
                         <MdMenu size={25} />
