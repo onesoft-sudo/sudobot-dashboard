@@ -3,20 +3,20 @@ import { Chip, Select, SelectItem } from "@nextui-org/react";
 import { FC, useState } from "react";
 import { UseFormRegister, UseFormResetField } from "react-hook-form";
 
-interface PermissionRoleEditFormSelectProps {
+interface PermissionRoleFormSelectProps {
     register: UseFormRegister<any>;
     fieldName: string;
     resetField: UseFormResetField<any>;
-    defaultValue: string[];
+    defaultValue?: string[];
 }
 
 const availablePermissions = getPermissionsArray();
 
-const PermissionRoleEditFormSelect: FC<PermissionRoleEditFormSelectProps> = ({
+const PermissionRoleFormSelect: FC<PermissionRoleFormSelectProps> = ({
     register,
     fieldName,
     resetField,
-    defaultValue,
+    defaultValue = [],
 }) => {
     const [isEmpty, setIsEmpty] = useState(() => defaultValue.length === 0);
     const [keys, setKeys] = useState(() => defaultValue);
@@ -80,4 +80,4 @@ const PermissionRoleEditFormSelect: FC<PermissionRoleEditFormSelectProps> = ({
     );
 };
 
-export default PermissionRoleEditFormSelect;
+export default PermissionRoleFormSelect;

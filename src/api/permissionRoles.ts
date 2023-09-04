@@ -41,6 +41,28 @@ export function patchPermissionRole({
     });
 }
 
+export function createPermissionRole({
+    guildId,
+    token,
+    payload,
+}: {
+    guildId: string;
+    token: string;
+    payload: {
+        name: string;
+        permissions?: Array<keyof typeof PermissionFlagsBits>;
+        users?: string[];
+        roles?: string[];
+    };
+}) {
+    return axios.post(API.permissionRoles(guildId), payload, {
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    });
+}
+
 export function deletePermissionRole({
     guildId,
     id,

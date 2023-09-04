@@ -1,6 +1,5 @@
-import { patchPermissionRole } from "@/api/permissionRoles";
+import { createPermissionRole } from "@/api/permissionRoles";
 import { useAuthContext } from "@/contexts/AuthContext";
-import { APIPermissionRole } from "@/types/APIPermissionRole";
 import { Alert } from "@mui/material";
 import { Button, Input, Textarea } from "@nextui-org/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -8,36 +7,27 @@ import { FC } from "react";
 import { useForm } from "react-hook-form";
 import PermissionRoleFormSelect from "./PermissionRoleFormSelect";
 
-interface PermissionRoleEditFormProps {
-    permission: APIPermissionRole;
+interface PermissionRoleCreateFormProps {
     onEnd?: () => any;
 }
 
-const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = ({
-    permission,
+const PermissionRoleCreateForm: FC<PermissionRoleCreateFormProps> = ({
     onEnd,
 }) => {
-    const key = `permission_${permission.id}`;
     const {
         formState: { errors },
         handleSubmit,
         register,
         reset,
         resetField,
-    } = useForm({
-        defaultValues: {
-            [`${key}__name`]: permission.name,
-            [`${key}__permissions`]: permission.grantedPermissions ?? [],
-        },
-    });
-    const { user } = useAuthContext();
+    } = useForm();
+    const { user, currentGuild } = useAuthContext();
     const queryClient = useQueryClient();
     const mutation = useMutation({
-        mutationKey: ["permission_role", permission.guild_id, permission.id],
+        mutationKey: ["permission_role_create"],
         mutationFn: (data: any) =>
-            patchPermissionRole({
-                guildId: permission.guild_id,
-                id: permission.id,
+            createPermissionRole({
+                guildId: currentGuild?.id ?? "",
                 payload: data as any,
                 token: user?.token ?? "",
             }),
@@ -45,7 +35,7 @@ const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = ({
             console.log(data);
             queryClient.invalidateQueries([
                 "permission_roles",
-                permission.guild_id,
+                currentGuild?.id ?? "",
             ]);
             onEnd?.();
         },
@@ -55,13 +45,7 @@ const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = ({
     });
 
     const onSuccess = (data: any) => {
-        const processedData = {} as any;
-
-        for (const objKey in data) {
-            processedData[objKey.replace(`${key}__`, "")] = data[objKey];
-        }
-
-        console.log(processedData);
+        const processedData = data;
 
         processedData.permissions =
             processedData.permissions === ""
@@ -86,7 +70,7 @@ const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = ({
             {mutation.isError && (
                 <>
                     <Alert severity="error">
-                        An error has occurred while updating this permission
+                        An error has occurred while creating the permission
                         role.
                     </Alert>
                     <div className="py-2"></div>
@@ -96,8 +80,7 @@ const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = ({
             <Input
                 type="text"
                 label="Name"
-                defaultValue={permission.name}
-                {...register(`${key}__name`, {
+                {...register(`name`, {
                     required: {
                         message:
                             "You must specify a name for this permission role!",
@@ -107,14 +90,14 @@ const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = ({
             />
 
             <div className="py-2 text-xs text-red-600">
-                {errors?.[`${key}__name`]?.message}
+                {errors?.name?.message?.toString()}
             </div>
 
             <PermissionRoleFormSelect
-                fieldName={`${key}__permissions`}
+                fieldName={`permissions`}
                 register={register}
                 resetField={resetField}
-                defaultValue={permission.grantedPermissions ?? []}
+                defaultValue={[]}
             />
 
             <div className="py-2"></div>
@@ -124,10 +107,7 @@ const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = ({
                 label="Users"
                 minRows={2}
                 placeholder="Add a User ID"
-                defaultValue={
-                    permission.users?.map(({ id }) => id).join("\n") ?? ""
-                }
-                {...register(`${key}__users`, {
+                {...register(`users`, {
                     validate(input) {
                         return /^([0-9,\s])*$/.test(input?.toString() ?? "")
                             ? undefined
@@ -137,7 +117,7 @@ const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = ({
             />
 
             <div className="py-2 text-xs text-red-600">
-                {errors?.[`${key}__users`]?.message}
+                {errors?.users?.message?.toString()}
             </div>
 
             <Textarea
@@ -145,10 +125,7 @@ const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = ({
                 label="Roles"
                 minRows={2}
                 placeholder="Add a Role ID"
-                defaultValue={
-                    permission.roles?.map(({ id }) => id).join("\n") ?? ""
-                }
-                {...register(`${key}__roles`, {
+                {...register(`roles`, {
                     validate(input) {
                         return /^([0-9,\s])*$/.test(input?.toString() ?? "")
                             ? undefined
@@ -157,7 +134,7 @@ const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = ({
                 })}
             />
             <div className="py-2 text-xs text-red-600">
-                {errors?.[`${key}__roles`]?.message}
+                {errors?.roles?.message?.toString()}
             </div>
 
             <div className="pb-2 text-xs">
@@ -200,4 +177,4 @@ const PermissionRoleEditForm: FC<PermissionRoleEditFormProps> = ({
     );
 };
 
-export default PermissionRoleEditForm;
+export default PermissionRoleCreateForm;

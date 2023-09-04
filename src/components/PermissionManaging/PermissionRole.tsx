@@ -117,10 +117,12 @@ const PermissionRole: FC<PermissionRoleProps> = ({ permission }) => {
                                                 }
                                                 delay={1000}
                                             >
-                                                <MdWarning
-                                                    className="inline-block"
-                                                    size={"1.2em"}
-                                                />
+                                                <div>
+                                                    <MdWarning
+                                                        className="inline-block"
+                                                        size={"1.2em"}
+                                                    />
+                                                </div>
                                             </Tooltip>
                                         )}
                                         <span className="font-mono">
