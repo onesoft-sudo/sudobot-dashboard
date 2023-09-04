@@ -1,3 +1,12 @@
+## [0.23.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.23.0...v0.23.1) (2023-09-04)
+
+
+### Bug Fixes
+
+* **mobileNavbar:** close button ([ec46079](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ec460795ebe688bc75b2e9d67a90e8530b24c6eb))
+
+
+
 # [0.23.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.22.0...v0.23.0) (2023-09-04)
 
 
@@ -31,16 +40,6 @@
 ### Bug Fixes
 
 * type errors ([627762e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/627762eb988a9053e61f9b4d644a22eee521bea5))
-
-
-
-## [0.21.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.3...v0.21.4) (2023-09-04)
-
-
-### Bug Fixes
-
-* navbar styles ([bc7b0cc](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bc7b0cc920fb027e69a29cf16f757051f16510e4))
-* redirect to login page if not logged in ([f972526](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f972526712800c36871e71f5b2499522daa93682))
 
 
 
