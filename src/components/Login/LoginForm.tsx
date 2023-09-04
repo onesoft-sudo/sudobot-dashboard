@@ -12,7 +12,7 @@ import {
 } from "@nextui-org/react";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import Alert from "../Common/Alert";
 import Link from "../Router/Link";
@@ -21,7 +21,6 @@ import DiscordLogin from "./DiscordLogin";
 interface LoginFormData {
     username: string;
     password: string;
-    remember: boolean;
 }
 
 const LoginForm: FC = () => {
@@ -29,22 +28,22 @@ const LoginForm: FC = () => {
         formState: { errors },
         register,
         handleSubmit,
-    } = useForm<LoginFormData>();
+    } = useForm<LoginFormData>({});
     const router = useRouterContext();
-
+    const rememberRef = useRef(true);
     const { user, dispatch } = useAuthContext();
 
-    const mutation = useMutation<any, any, LoginFormData>({
+    const mutation = useMutation({
         mutationFn: login,
         mutationKey: ["login"],
         onError(error: AxiosError<{ error?: string }>) {
             console.log("Login failed", error);
         },
-        onSuccess(data, { remember }) {
+        onSuccess(data) {
             console.log("Login successful");
 
             try {
-                (remember ? localStorage : sessionStorage).setItem(
+                (rememberRef.current ? localStorage : sessionStorage).setItem(
                     "user",
                     JSON.stringify(data.data.user)
                 );
@@ -141,7 +140,12 @@ const LoginForm: FC = () => {
                         }
                     />
                     <div className="flex items-center justify-between mt-2">
-                        <Checkbox defaultChecked {...register("remember")}>
+                        <Checkbox
+                            defaultSelected
+                            onChange={event =>
+                                (rememberRef.current = !!event.target.checked)
+                            }
+                        >
                             <p className="text-xs md:text-md">Remember me</p>
                         </Checkbox>
                         <Link
