@@ -1,3 +1,12 @@
+## [0.21.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.1...v0.21.2) (2023-09-04)
+
+
+### Bug Fixes
+
+* hide the navbar toggle on desktops ([46b7c79](https://github.com/onesoft-sudo/sudobot-dashboard/commit/46b7c791d5501a2ec64752d3e4160b842e123971))
+
+
+
 ## [0.21.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.0...v0.21.1) (2023-09-04)
 
 
@@ -42,15 +51,6 @@
 ### Features
 
 * **dashboard:** view and edit named permission roles ([f896706](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f896706ee06f5710143eb796c4ef65a6c6779c22))
-
-
-
-## [0.19.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.19.2...v0.19.3) (2023-08-31)
-
-
-### Bug Fixes
-
-* vercel not showing custom 404 page ([a23dd47](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a23dd47bfa7a3e1ad9b1ee3397fe29904d44ccf6))
 
 
 
