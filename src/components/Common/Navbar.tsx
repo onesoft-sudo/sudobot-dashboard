@@ -18,8 +18,8 @@ import { FC, useState } from "react";
 import { MdMenu } from "react-icons/md";
 import logo from "../../images/logo.png";
 import GuildSwitcher from "../Dashboard/GuildSwitcher";
-import MobileNavbar from "../Dashboard/MobileNavbar";
 import Link from "../Router/Link";
+import MobileNavbar from "./MobileNavbar";
 import Profile from "./Profile";
 
 const Navbar: FC = () => {
