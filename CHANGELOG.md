@@ -1,3 +1,12 @@
+## [0.21.6](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.5...v0.21.6) (2023-09-04)
+
+
+### Bug Fixes
+
+* type errors ([c43ca4e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c43ca4e598cf196e0f74b41d816e1ce5718f033f))
+
+
+
 ## [0.21.5](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.4...v0.21.5) (2023-09-04)
 
 
@@ -32,15 +41,6 @@
 ### Bug Fixes
 
 * hide the navbar toggle on desktops ([46b7c79](https://github.com/onesoft-sudo/sudobot-dashboard/commit/46b7c791d5501a2ec64752d3e4160b842e123971))
-
-
-
-## [0.21.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.0...v0.21.1) (2023-09-04)
-
-
-### Bug Fixes
-
-* mobile navbar not visible without logging in ([4e7b4a6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4e7b4a6daf596821cece070f8cfc750f6e1b8659))
 
 
 
