@@ -1,3 +1,12 @@
+## [0.21.5](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.4...v0.21.5) (2023-09-04)
+
+
+### Bug Fixes
+
+* type errors ([627762e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/627762eb988a9053e61f9b4d644a22eee521bea5))
+
+
+
 ## [0.21.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.3...v0.21.4) (2023-09-04)
 
 
@@ -32,21 +41,6 @@
 ### Bug Fixes
 
 * mobile navbar not visible without logging in ([4e7b4a6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4e7b4a6daf596821cece070f8cfc750f6e1b8659))
-
-
-
-# [0.21.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.20.1...v0.21.0) (2023-09-03)
-
-
-### Bug Fixes
-
-* home page element spacing ([3d4fb3b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3d4fb3b99085bfeb2760729cfe80f98295052f25))
-
-
-### Features
-
-* add separate mobile side navbar ([5ab94f0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/5ab94f093296829409d6bba13e90777670532b36))
-* show forbidden page when accessing a guild that isn't in the user's allowlist ([688c48f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/688c48f8b67ef558373af7467dc42f004c1a1a9b))
 
 
 
