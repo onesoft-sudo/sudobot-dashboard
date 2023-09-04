@@ -8,7 +8,7 @@ import { FC, PropsWithChildren } from "react";
 
 const DashboardLayout: FC<PropsWithChildren> = ({ children }) => {
     const { user } = useAuthContext();
-    const { id } = useParams();
+    const { id } = useParams()!;
 
     if (!user || user?.guilds === undefined || user?.guilds === null)
         return null;

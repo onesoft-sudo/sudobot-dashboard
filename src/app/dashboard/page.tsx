@@ -1,13 +1,13 @@
 "use client";
 
 import Loading from "@/components/Loading/Loading";
-import { useAuthContext } from "@/contexts/AuthContext";
 import { useRouterContext } from "@/contexts/RouterContext";
+import useAuthWithCheck from "@/hooks/useAuthWithCheck";
 import { useEffect } from "react";
 
 export default function DefaultDashboard() {
     const router = useRouterContext();
-    const { currentGuild } = useAuthContext();
+    const { currentGuild } = useAuthWithCheck();
 
     useEffect(() => {
         if (currentGuild) {
