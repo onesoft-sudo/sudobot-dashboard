@@ -1,3 +1,13 @@
+## [0.21.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.3...v0.21.4) (2023-09-04)
+
+
+### Bug Fixes
+
+* navbar styles ([bc7b0cc](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bc7b0cc920fb027e69a29cf16f757051f16510e4))
+* redirect to login page if not logged in ([f972526](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f972526712800c36871e71f5b2499522daa93682))
+
+
+
 ## [0.21.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.2...v0.21.3) (2023-09-04)
 
 
@@ -37,15 +47,6 @@
 
 * add separate mobile side navbar ([5ab94f0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/5ab94f093296829409d6bba13e90777670532b36))
 * show forbidden page when accessing a guild that isn't in the user's allowlist ([688c48f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/688c48f8b67ef558373af7467dc42f004c1a1a9b))
-
-
-
-## [0.20.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.20.0...v0.20.1) (2023-09-03)
-
-
-### Bug Fixes
-
-* delete src/app/[...not-found]/page.tsx ([bbc00a6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bbc00a6a17f87202f0a0361c8ad1f704603a8d76))
 
 
 
