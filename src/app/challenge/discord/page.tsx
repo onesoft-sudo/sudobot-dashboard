@@ -11,7 +11,7 @@ import { FC, useEffect, useRef, useState } from "react";
 import { MdCheck, MdErrorOutline, MdWarning } from "react-icons/md";
 
 const DiscordChallenge: FC = () => {
-    const params = useSearchParams();
+    const params = useSearchParams()!;
     const router = useRouterContext();
     const { user, dispatch } = useAuthContext();
     const [oauthState] = useSessionStorage("discord_oauth_state");
