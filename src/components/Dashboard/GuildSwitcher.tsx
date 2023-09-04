@@ -24,8 +24,8 @@ const GuildSwitcher: FC<{
     const previousGuild = usePreviousValue(currentGuild);
     const [selectedKeys, setSelectedKeys] = useState(new Set<string>());
     const router = useRouterContext();
-    const pathname = usePathname();
-    const { id } = useParams();
+    const pathname = usePathname()!;
+    const { id } = useParams()!;
 
     useEffect(() => {
         if (!previousGuild && currentGuild) {

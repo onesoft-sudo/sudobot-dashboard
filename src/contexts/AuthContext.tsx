@@ -75,7 +75,13 @@ export const AuthContextReducer = (
             };
         case AuthContextAction.Logout:
             try {
-                localStorage.removeItem("user");
+                if (localStorage.getItem("user")) {
+                    localStorage.removeItem("user");
+                }
+
+                if (sessionStorage.getItem("user")) {
+                    sessionStorage.removeItem("user");
+                }
 
                 if (sessionStorage.getItem("discord_oauth_state")) {
                     sessionStorage.removeItem("discord_oauth_state");
@@ -100,7 +106,9 @@ export const AuthContextReducer = (
             };
         case AuthContextAction.Reload:
             try {
-                const user = localStorage.getItem("user");
+                const user =
+                    sessionStorage.getItem("user") ??
+                    localStorage.getItem("user");
 
                 if (!user) {
                     return state;
@@ -126,7 +134,8 @@ export function AuthContextProvider({ children }: PropsWithChildren) {
 
     useEffect(() => {
         try {
-            const jsonUser = localStorage.getItem("user");
+            const jsonUser =
+                sessionStorage.getItem("user") ?? localStorage.getItem("user");
 
             if (!jsonUser) {
                 dispatch({

@@ -21,6 +21,7 @@ import DiscordLogin from "./DiscordLogin";
 interface LoginFormData {
     username: string;
     password: string;
+    remember: boolean;
 }
 
 const LoginForm: FC = () => {
@@ -33,17 +34,20 @@ const LoginForm: FC = () => {
 
     const { user, dispatch } = useAuthContext();
 
-    const mutation = useMutation({
+    const mutation = useMutation<any, any, LoginFormData>({
         mutationFn: login,
         mutationKey: ["login"],
         onError(error: AxiosError<{ error?: string }>) {
             console.log("Login failed", error);
         },
-        onSuccess(data) {
+        onSuccess(data, { remember }) {
             console.log("Login successful");
 
             try {
-                localStorage.setItem("user", JSON.stringify(data.data.user));
+                (remember ? localStorage : sessionStorage).setItem(
+                    "user",
+                    JSON.stringify(data.data.user)
+                );
             } catch (e) {}
 
             dispatch?.({
@@ -137,7 +141,7 @@ const LoginForm: FC = () => {
                         }
                     />
                     <div className="flex items-center justify-between mt-2">
-                        <Checkbox>
+                        <Checkbox defaultChecked {...register("remember")}>
                             <p className="text-xs md:text-md">Remember me</p>
                         </Checkbox>
                         <Link
