@@ -1,3 +1,12 @@
+# [0.23.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.22.0...v0.23.0) (2023-09-04)
+
+
+### Features
+
+* sessionStorage and localStorage login ([a3b6203](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a3b6203959eb3d15f762be6fea8170a474e698c0))
+
+
+
 # [0.22.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.6...v0.22.0) (2023-09-04)
 
 
@@ -32,15 +41,6 @@
 
 * navbar styles ([bc7b0cc](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bc7b0cc920fb027e69a29cf16f757051f16510e4))
 * redirect to login page if not logged in ([f972526](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f972526712800c36871e71f5b2499522daa93682))
-
-
-
-## [0.21.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.2...v0.21.3) (2023-09-04)
-
-
-### Bug Fixes
-
-* navbar toggle ([57b6e3f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/57b6e3fc3ebcc12751c91fb6c7dcb18e655ad9ec))
 
 
 
