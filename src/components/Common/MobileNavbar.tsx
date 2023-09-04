@@ -1,7 +1,7 @@
 import { useAuthContext } from "@/contexts/AuthContext";
 import useLoggedIn from "@/hooks/useLoggedIn";
 import { navbarLinks, sidebarItems } from "@/utils/links";
-import { Button } from "@mui/material";
+import { Button, styled } from "@mui/material";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Dispatch, FC, Fragment, SetStateAction } from "react";
@@ -20,6 +20,13 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isOpen, setIsOpen }) => {
     const { currentGuild, user } = useAuthContext();
     const loggedIn = useLoggedIn() && !!currentGuild;
     const items = [...navbarLinks, ...(loggedIn ? sidebarItems : [])];
+    const CustomButton = styled(Button)({
+        minWidth: 0,
+        padding: "3px 5px",
+        marginRight: "10px",
+        marginTop: "5px",
+        marginBottom: "5px",
+    });
 
     return (
         <nav
@@ -43,12 +50,9 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isOpen, setIsOpen }) => {
                         <p className="font-bold text-inherit ml-3">SudoBot</p>
                     </Link>
                 </div>
-                <Button
-                    className="min-w-[0] m-2"
-                    onClick={() => setIsOpen(false)}
-                >
+                <CustomButton onClick={() => setIsOpen(false)}>
                     <MdClose size={28} />
-                </Button>
+                </CustomButton>
             </div>
 
             <div className="list-none pt-5 border-t-[1px] border-t-[rgba(255,255,255,0.1)]">
