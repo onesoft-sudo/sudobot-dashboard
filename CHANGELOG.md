@@ -1,3 +1,12 @@
+## [0.26.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.26.1...v0.26.2) (2023-09-10)
+
+
+### Bug Fixes
+
+* status being overwritten ([9a9bbb9](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9a9bbb94a85a749cc9f4eb102e9ac328b89b658a))
+
+
+
 ## [0.26.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.26.0...v0.26.1) (2023-09-10)
 
 
@@ -36,15 +45,6 @@
 ### Features
 
 * delete permission roles ([302cf27](https://github.com/onesoft-sudo/sudobot-dashboard/commit/302cf27386b1b597c26a28185f12d0b7cc852b77))
-
-
-
-## [0.23.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.23.0...v0.23.1) (2023-09-04)
-
-
-### Bug Fixes
-
-* **mobileNavbar:** close button ([ec46079](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ec460795ebe688bc75b2e9d67a90e8530b24c6eb))
 
 
 
