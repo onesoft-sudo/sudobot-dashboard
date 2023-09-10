@@ -147,6 +147,20 @@ export function AuthContextProvider({ children }: PropsWithChildren) {
 
             const user = JSON.parse(jsonUser) as APIUser;
 
+            if ("tokenExpiresAt" in user) {
+                const tokenExpiresAt = new Date(user.tokenExpiresAt);
+
+                if (tokenExpiresAt.getTime() <= Date.now()) {
+                    console.log("Token expired");
+
+                    dispatch({
+                        type: AuthContextAction.Logout,
+                    });
+
+                    return;
+                }
+            }
+
             dispatch({
                 type: AuthContextAction.Login,
                 payload: {
