@@ -1,3 +1,12 @@
+# [0.25.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.24.0...v0.25.0) (2023-09-04)
+
+
+### Features
+
+* create permission roles ([462f877](https://github.com/onesoft-sudo/sudobot-dashboard/commit/462f877b4fa7e704efd0f4b11f6e9d26f2d49fe6))
+
+
+
 # [0.24.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.23.1...v0.24.0) (2023-09-04)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * sessionStorage and localStorage login ([afdd9d2](https://github.com/onesoft-sudo/sudobot-dashboard/commit/afdd9d24136b843ac3fca3dc82b866bc9d90cbc4))
-
-
-
-## [0.21.6](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.5...v0.21.6) (2023-09-04)
-
-
-### Bug Fixes
-
-* type errors ([c43ca4e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c43ca4e598cf196e0f74b41d816e1ce5718f033f))
 
 
 
