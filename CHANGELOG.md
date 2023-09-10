@@ -1,3 +1,12 @@
+## [0.26.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.26.0...v0.26.1) (2023-09-10)
+
+
+### Bug Fixes
+
+* **types:** incompatible dependent types ([9c610de](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9c610de014261ed9c7c713a8c714d8f24e874b6d))
+
+
+
 # [0.26.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.25.0...v0.26.0) (2023-09-10)
 
 
@@ -36,15 +45,6 @@
 ### Bug Fixes
 
 * **mobileNavbar:** close button ([ec46079](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ec460795ebe688bc75b2e9d67a90e8530b24c6eb))
-
-
-
-# [0.23.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.22.0...v0.23.0) (2023-09-04)
-
-
-### Features
-
-* sessionStorage and localStorage login ([a3b6203](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a3b6203959eb3d15f762be6fea8170a474e698c0))
 
 
 
