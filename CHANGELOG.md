@@ -1,3 +1,17 @@
+# [0.26.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.25.0...v0.26.0) (2023-09-10)
+
+
+### Bug Fixes
+
+* user stays logged in even after token expiry date ([32a9a1a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/32a9a1ad06413588ad91cb7fe029f08019dcbbb2))
+
+
+### Features
+
+* dynamic system status card ([20e276c](https://github.com/onesoft-sudo/sudobot-dashboard/commit/20e276cd98ac005583ea76c4620ab716155cb71b))
+
+
+
 # [0.25.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.24.0...v0.25.0) (2023-09-04)
 
 
@@ -31,15 +45,6 @@
 ### Features
 
 * sessionStorage and localStorage login ([a3b6203](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a3b6203959eb3d15f762be6fea8170a474e698c0))
-
-
-
-# [0.22.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.21.6...v0.22.0) (2023-09-04)
-
-
-### Features
-
-* sessionStorage and localStorage login ([afdd9d2](https://github.com/onesoft-sudo/sudobot-dashboard/commit/afdd9d24136b843ac3fca3dc82b866bc9d90cbc4))
 
 
 
