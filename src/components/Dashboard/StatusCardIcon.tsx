@@ -1,3 +1,4 @@
+import { APIStatus } from "@/types/APIStatus";
 import { ComponentProps, FC } from "react";
 import {
     MdCancel,
@@ -6,11 +7,10 @@ import {
     MdWarning,
     MdWarningAmber,
 } from "react-icons/md";
-import { SystemConfig } from "../../../sudobot/src/types/SystemConfigSchema";
 import styles from "../../styles/StatusCardIcon.module.css";
 
 interface StatusCardIconProps {
-    status: SystemConfig["api"]["server_status"];
+    status: APIStatus;
 }
 
 const iconProps: ComponentProps<typeof MdWarningAmber> = {

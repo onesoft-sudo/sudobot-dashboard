@@ -1,18 +1,15 @@
 "use client";
 
 import { getStatus } from "@/api/status";
+import { APIStatus } from "@/types/APIStatus";
 import { Skeleton } from "@mui/material";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import { useQuery } from "@tanstack/react-query";
 import { FC } from "react";
 import { twMerge } from "tailwind-merge";
-import { SystemConfig } from "../../../sudobot/src/types/SystemConfigSchema";
 import StatusCardIcon from "./StatusCardIcon";
 
-const statusTypeToStatusString: Record<
-    SystemConfig["api"]["server_status"],
-    string
-> = {
+const statusTypeToStatusString: Record<APIStatus, string> = {
     degraded: "Degraded Performance",
     error: "System Error",
     maintenence: "Under Maintenance",
