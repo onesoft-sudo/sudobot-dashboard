@@ -15,9 +15,9 @@ import {
     CardHeader,
 } from "@nextui-org/react";
 import { FC } from "react";
-import styles from "../../styles/DashboardCards.module.css";
 import Link from "../Router/Link";
 import DashboardAnnouncementCard from "./DashboardAnnouncementCard";
+import StatusCard from "./StatusCard";
 
 interface DashboardCardsProps {
     announcements?: APIAnnouncement[];
@@ -36,24 +36,7 @@ const DashboardCards: FC<DashboardCardsProps> = ({ announcements = [] }) => {
                 <DashboardAnnouncementCard data={announcements[0]} />
             )}
 
-            <Card>
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                    <small className="text-default-500">
-                        Updates in each five minutes
-                    </small>
-                    <h4 className="font-bold text-large">System Status</h4>
-                </CardHeader>
-
-                <CardBody className="overflow-visible py-2 relative">
-                    <div className="flex items-center justify-center h-[80%] min-h-[100px]">
-                        <div className={`${styles.circle}`}></div>
-
-                        <p className="inline-block text-3xl md:text-4xl ml-5">
-                            Operational
-                        </p>
-                    </div>
-                </CardBody>
-            </Card>
+            <StatusCard />
 
             <Card>
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">

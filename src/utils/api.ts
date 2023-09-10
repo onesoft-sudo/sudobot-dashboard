@@ -4,6 +4,10 @@ export class API {
         return `${API_URL}/announcements`;
     }
 
+    static status() {
+        return `${API_URL}/status`;
+    }
+
     static login() {
         return `${API_URL}/auth/login`;
     }
