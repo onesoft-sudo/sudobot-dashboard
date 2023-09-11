@@ -1,3 +1,12 @@
+## [0.28.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.28.0...v0.28.1) (2023-09-11)
+
+
+### Bug Fixes
+
+* select menu description in permission mode card ([566f16e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/566f16e8dad4c15689ab45ea591812455f562381))
+
+
+
 # [0.28.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.27.0...v0.28.0) (2023-09-11)
 
 
@@ -36,20 +45,6 @@
 ### Bug Fixes
 
 * **types:** incompatible dependent types ([9c610de](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9c610de014261ed9c7c713a8c714d8f24e874b6d))
-
-
-
-# [0.26.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.25.0...v0.26.0) (2023-09-10)
-
-
-### Bug Fixes
-
-* user stays logged in even after token expiry date ([32a9a1a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/32a9a1ad06413588ad91cb7fe029f08019dcbbb2))
-
-
-### Features
-
-* dynamic system status card ([20e276c](https://github.com/onesoft-sudo/sudobot-dashboard/commit/20e276cd98ac005583ea76c4620ab716155cb71b))
 
 
 
