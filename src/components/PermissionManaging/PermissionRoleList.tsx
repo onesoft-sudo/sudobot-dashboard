@@ -37,12 +37,16 @@ const PermissionRoleList: FC<
                             Permission Roles
                         </h4>
                         <div>
-                            <Button
-                                onClick={() => setCreating(true)}
-                                startIcon={<MdAdd />}
-                            >
-                                Create
-                            </Button>
+                            {config?.permissions?.mode === "advanced" &&
+                                !!user &&
+                                !!currentGuild && (
+                                    <Button
+                                        onClick={() => setCreating(true)}
+                                        startIcon={<MdAdd />}
+                                    >
+                                        Create
+                                    </Button>
+                                )}
                         </div>
                     </div>
                 </CardHeader>
