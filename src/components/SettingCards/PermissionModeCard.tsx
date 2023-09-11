@@ -47,7 +47,7 @@ const PermissionModeCard: FC<SettingCardProps> = ({
             </CardHeader>
 
             <CardBody>
-                <p className="pb-6">
+                <p className="pb-6 text-[#999]">
                     Select the permission mode for the bot that you like.
                 </p>
 
