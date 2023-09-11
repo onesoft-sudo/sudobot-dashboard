@@ -1,3 +1,17 @@
+# [0.28.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.27.0...v0.28.0) (2023-09-11)
+
+
+### Bug Fixes
+
+* permission role create button should not be visible when it's not enabled ([46a3e5f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/46a3e5f7eb515fbb1b3904258395b6bafb75b998))
+
+
+### Features
+
+* changing permission modes ([2a2a6b4](https://github.com/onesoft-sudo/sudobot-dashboard/commit/2a2a6b49c8ccb3418a19828d7ade62fde935b5ff))
+
+
+
 # [0.27.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.26.2...v0.27.0) (2023-09-11)
 
 
@@ -36,15 +50,6 @@
 ### Features
 
 * dynamic system status card ([20e276c](https://github.com/onesoft-sudo/sudobot-dashboard/commit/20e276cd98ac005583ea76c4620ab716155cb71b))
-
-
-
-# [0.25.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.24.0...v0.25.0) (2023-09-04)
-
-
-### Features
-
-* create permission roles ([462f877](https://github.com/onesoft-sudo/sudobot-dashboard/commit/462f877b4fa7e704efd0f4b11f6e9d26f2d49fe6))
 
 
 
