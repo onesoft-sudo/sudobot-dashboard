@@ -1,3 +1,12 @@
+## [0.28.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.28.1...v0.28.2) (2023-09-11)
+
+
+### Bug Fixes
+
+* description text color in PermissionModeCard ([bfc9668](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bfc9668d168cdfd3a4555d27c42f968bc1464b87))
+
+
+
 ## [0.28.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.28.0...v0.28.1) (2023-09-11)
 
 
@@ -36,15 +45,6 @@
 ### Bug Fixes
 
 * status being overwritten ([9a9bbb9](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9a9bbb94a85a749cc9f4eb102e9ac328b89b658a))
-
-
-
-## [0.26.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.26.0...v0.26.1) (2023-09-10)
-
-
-### Bug Fixes
-
-* **types:** incompatible dependent types ([9c610de](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9c610de014261ed9c7c713a8c714d8f24e874b6d))
 
 
 
