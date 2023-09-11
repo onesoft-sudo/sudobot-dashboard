@@ -24,11 +24,6 @@ const StatusCard: FC = () => {
         queryKey: ["status"],
     });
 
-    if (query.isSuccess) {
-        console.log(query.data.data);
-        query.data!.data.status = "maintenence";
-    }
-
     return query.isLoading ? (
         <Skeleton variant="rounded" className="rounded-xl" height="100%" />
     ) : (
