@@ -1,3 +1,12 @@
+# [0.27.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.26.2...v0.27.0) (2023-09-11)
+
+
+### Features
+
+* **seo:** disallow robots to index or follow /dashboard URLs ([967e155](https://github.com/onesoft-sudo/sudobot-dashboard/commit/967e15532cebe37e63b651e78b8cf5acaf6afd46))
+
+
+
 ## [0.26.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.26.1...v0.26.2) (2023-09-10)
 
 
@@ -36,15 +45,6 @@
 ### Features
 
 * create permission roles ([462f877](https://github.com/onesoft-sudo/sudobot-dashboard/commit/462f877b4fa7e704efd0f4b11f6e9d26f2d49fe6))
-
-
-
-# [0.24.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.23.1...v0.24.0) (2023-09-04)
-
-
-### Features
-
-* delete permission roles ([302cf27](https://github.com/onesoft-sudo/sudobot-dashboard/commit/302cf27386b1b597c26a28185f12d0b7cc852b77))
 
 
 
