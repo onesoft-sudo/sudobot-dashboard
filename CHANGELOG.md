@@ -1,3 +1,17 @@
+# [0.29.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.28.2...v0.29.0) (2023-09-12)
+
+
+### Bug Fixes
+
+* snackbar visibility duration ([8d51269](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8d51269bf3af56f8c153a535b14c880c631a9ae4))
+
+
+### Features
+
+* add raid protection setting card ([d0ba24b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d0ba24b8c6b77f124fe30e440cc6978d9edd0fa6))
+
+
+
 ## [0.28.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.28.1...v0.28.2) (2023-09-11)
 
 
@@ -36,15 +50,6 @@
 ### Features
 
 * **seo:** disallow robots to index or follow /dashboard URLs ([967e155](https://github.com/onesoft-sudo/sudobot-dashboard/commit/967e15532cebe37e63b651e78b8cf5acaf6afd46))
-
-
-
-## [0.26.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.26.1...v0.26.2) (2023-09-10)
-
-
-### Bug Fixes
-
-* status being overwritten ([9a9bbb9](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9a9bbb94a85a749cc9f4eb102e9ac328b89b658a))
 
 
 
