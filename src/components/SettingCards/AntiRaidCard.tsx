@@ -226,7 +226,7 @@ const AntiRaidCard: FC<SettingCardProps> = ({
                                     select
                                     fullWidth
                                     className="mt-4"
-                                    label="Action"
+                                    label="Action Mode"
                                     {...register("antiraid.channel_mode")}
                                 >
                                     <MenuItem value="include">
