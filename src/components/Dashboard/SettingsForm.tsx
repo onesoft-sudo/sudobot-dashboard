@@ -74,7 +74,7 @@ const SettingsForm: FC<SettingsFormProps> = ({
                 <>
                     <Snackbar
                         open={snackBarOpen}
-                        autoHideDuration={6000}
+                        autoHideDuration={4000}
                         onClose={() => setSnackBarOpen(false)}
                     >
                         <Alert
