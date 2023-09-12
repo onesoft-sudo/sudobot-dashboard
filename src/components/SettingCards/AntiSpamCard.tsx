@@ -50,7 +50,7 @@ const AntiSpamCard: FC<SettingCardProps> = ({
             </CardHeader>
 
             <CardBody>
-                <p className="pb-6">
+                <p className="pb-6 text-[#999]">
                     Rate-limits the messages and prevents users from spamming.
                 </p>
 

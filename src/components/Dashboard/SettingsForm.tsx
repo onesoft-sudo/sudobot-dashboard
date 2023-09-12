@@ -34,6 +34,7 @@ const SettingsForm: FC<SettingsFormProps> = ({
         getFieldState,
         getValues,
         reset,
+        setValue,
     } = useForm();
 
     const { currentGuild, user } = useAuthContext();
@@ -135,6 +136,7 @@ const SettingsForm: FC<SettingsFormProps> = ({
                     touchedFields,
                     getValues,
                     data: query.data?.data,
+                    setValue,
                 })}
         </form>
     );
