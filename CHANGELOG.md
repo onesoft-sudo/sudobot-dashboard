@@ -1,3 +1,12 @@
+## [0.30.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.30.0...v0.30.1) (2023-09-12)
+
+
+### Bug Fixes
+
+* spacing between inputs ([119f570](https://github.com/onesoft-sudo/sudobot-dashboard/commit/119f57014b5bd0ebe5539b680536f83963f65e72))
+
+
+
 # [0.30.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.29.0...v0.30.0) (2023-09-12)
 
 
@@ -41,20 +50,6 @@
 ### Bug Fixes
 
 * select menu description in permission mode card ([566f16e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/566f16e8dad4c15689ab45ea591812455f562381))
-
-
-
-# [0.28.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.27.0...v0.28.0) (2023-09-11)
-
-
-### Bug Fixes
-
-* permission role create button should not be visible when it's not enabled ([46a3e5f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/46a3e5f7eb515fbb1b3904258395b6bafb75b998))
-
-
-### Features
-
-* changing permission modes ([2a2a6b4](https://github.com/onesoft-sudo/sudobot-dashboard/commit/2a2a6b49c8ccb3418a19828d7ade62fde935b5ff))
 
 
 
