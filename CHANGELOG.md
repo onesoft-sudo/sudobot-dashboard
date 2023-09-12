@@ -1,3 +1,17 @@
+# [0.30.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.29.0...v0.30.0) (2023-09-12)
+
+
+### Bug Fixes
+
+* input label ([6ed704a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6ed704af5ccd2c09cb0e7fe011b61dbad3c5e355))
+
+
+### Features
+
+* show unsaved changes warning on page unload/reload ([889261b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/889261b6150ae2705f1cb53be5bc13ded901e50e))
+
+
+
 # [0.29.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.28.2...v0.29.0) (2023-09-12)
 
 
@@ -41,15 +55,6 @@
 ### Features
 
 * changing permission modes ([2a2a6b4](https://github.com/onesoft-sudo/sudobot-dashboard/commit/2a2a6b49c8ccb3418a19828d7ade62fde935b5ff))
-
-
-
-# [0.27.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.26.2...v0.27.0) (2023-09-11)
-
-
-### Features
-
-* **seo:** disallow robots to index or follow /dashboard URLs ([967e155](https://github.com/onesoft-sudo/sudobot-dashboard/commit/967e15532cebe37e63b651e78b8cf5acaf6afd46))
 
 
 
