@@ -8,7 +8,7 @@ import { Button } from "@nextui-org/react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { MdRestore, MdSave } from "react-icons/md";
+import { MdRestore, MdSave, MdWarning } from "react-icons/md";
 
 interface SettingsFormProps {
     onSubmit?: (data: any) => any;
@@ -28,7 +28,7 @@ const SettingsForm: FC<SettingsFormProps> = ({
     const [state, setState] = useState({ resetting: false });
     const formRef = useRef<HTMLFormElement>(null);
     const {
-        formState: { errors, touchedFields },
+        formState: { errors, touchedFields, isDirty },
         register,
         handleSubmit,
         getFieldState,
@@ -47,6 +47,23 @@ const SettingsForm: FC<SettingsFormProps> = ({
     });
 
     useEffect(() => console.log("Data updated", query.data), [query.status]);
+
+    const beforeUnload = useRef((e: Event) => {
+        e.preventDefault();
+    });
+
+    useEffect(() => {
+        const callback = (e: Event) => {
+            if (isDirty) {
+                e.preventDefault();
+                e.returnValue = "" as any;
+            }
+        };
+
+        window.addEventListener("beforeunload", callback);
+
+        return () => window.removeEventListener("beforeunload", callback);
+    }, [isDirty]);
 
     const mutation = useMutation({
         mutationKey: ["config", currentGuild?.id, user?.token],
@@ -91,7 +108,13 @@ const SettingsForm: FC<SettingsFormProps> = ({
                         </Alert>
                     </Snackbar>
 
-                    <div className="justify-end flex pr-2 md:px-5 pt-4 md:pt-[25px] gap-3">
+                    <div className="justify-end flex pr-2 md:px-5 pt-4 md:pt-[25px] gap-3 items-center">
+                        {isDirty && (
+                            <div className="text-orange-500 flex items-center gap-2 pr-5">
+                                <MdWarning /> You have unsaved changes!
+                            </div>
+                        )}
+
                         <Button
                             type="button"
                             variant="flat"
