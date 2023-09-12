@@ -6,25 +6,6 @@ import { FC, useState } from "react";
 import Switch from "../Common/Switch";
 import EntitySelect from "../Form/EntitySelect";
 
-/**
- *  enabled: z.boolean().optional().default(false),
-    max_joins: z.number().int().default(-1).optional(),
-    timeframe: z.number().int().default(-1).optional(),
-    action: z
-        .union([
-            z.literal("auto"),
-            z.literal("lock"),
-            z.literal("antijoin"),
-            z.literal("lock_and_antijoin"),
-            z.literal("none")
-        ])
-        .optional(),
-    send_log: z.boolean().optional().default(true),
-    channels: z.array(zSnowflake).default([]),
-    channel_mode: z.literal("exclude").or(z.literal("include")).default("exclude"),
-    ignore_private_channels: z.boolean().optional().default(true)
- */
-
 const AntiRaidCard: FC<SettingCardProps> = ({
     register,
     data: { config },
@@ -217,6 +198,8 @@ const AntiRaidCard: FC<SettingCardProps> = ({
                                     {...register("antiraid.channels")}
                                 />
 
+                                <div className="pt-4"></div>
+
                                 <TextField
                                     SelectProps={{
                                         defaultValue:
@@ -225,7 +208,6 @@ const AntiRaidCard: FC<SettingCardProps> = ({
                                     }}
                                     select
                                     fullWidth
-                                    className="mt-4"
                                     label="Action Mode"
                                     {...register("antiraid.channel_mode")}
                                 >
