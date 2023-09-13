@@ -1,3 +1,12 @@
+## [0.30.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.30.2...v0.30.3) (2023-09-13)
+
+
+### Bug Fixes
+
+* status card loading skeleton not visible in mobile devices ([0365b79](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0365b79c6d0ddbe44c3a2f2f170d2b68b9fee9be))
+
+
+
 ## [0.30.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.30.1...v0.30.2) (2023-09-13)
 
 
@@ -41,15 +50,6 @@
 ### Features
 
 * add raid protection setting card ([d0ba24b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d0ba24b8c6b77f124fe30e440cc6978d9edd0fa6))
-
-
-
-## [0.28.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.28.1...v0.28.2) (2023-09-11)
-
-
-### Bug Fixes
-
-* description text color in PermissionModeCard ([bfc9668](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bfc9668d168cdfd3a4555d27c42f968bc1464b87))
 
 
 
