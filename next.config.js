@@ -7,6 +7,10 @@ const nextConfig = {
                 source: "/settings/:path*",
                 destination: "/dashboard/:path*",
             },
+            {
+                source: "/account",
+                destination: "/dashboard/account",
+            },
         ];
     },
 };

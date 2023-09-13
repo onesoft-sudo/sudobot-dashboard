@@ -1,5 +1,5 @@
 import { useMediaQuery } from "@mui/material";
 
-export default function useIsDesktop() {
+export default function useIsMobile() {
     return useMediaQuery("(max-width: 970px)");
 }

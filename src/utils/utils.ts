@@ -8,7 +8,9 @@ export const formatDuration = (time: number) =>
     formatDistanceToNowStrict(new Date(Date.now() - time));
 
 export const isDashboardPath = (pathname: string) =>
-    pathname.startsWith("/dashboard") || pathname.startsWith("/settings");
+    pathname.startsWith("/dashboard") ||
+    pathname.startsWith("/settings") ||
+    pathname.startsWith("/account");
 
 export const avatarURL = (id: string, avatar: string) =>
     `https://cdn.discordapp.com/avatars/${encodeURIComponent(

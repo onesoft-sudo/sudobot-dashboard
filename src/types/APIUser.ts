@@ -9,4 +9,5 @@ export interface APIUser {
     createdAt: Date;
     tokenExpiresAt: Date;
     avatarURL?: string;
+    discordId: string;
 }

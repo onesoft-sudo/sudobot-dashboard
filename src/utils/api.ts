@@ -12,6 +12,10 @@ export class API {
         return `${API_URL}/auth/login`;
     }
 
+    static me() {
+        return `${API_URL}/auth/me`;
+    }
+
     static discord() {
         return `${API_URL}/auth/discord`;
     }

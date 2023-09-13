@@ -32,3 +32,31 @@ export function discordLogin({ code }: { code: string }) {
         }
     );
 }
+
+export function me({ token }: { token: string }) {
+    return axios.get(API.me(), {
+        headers: {
+            Authorization: `Bearer ${encodeURIComponent(token)}`,
+        },
+    });
+}
+
+export function updateMe({
+    token,
+    username,
+    name,
+}: {
+    token: string;
+    username?: string;
+    name?: string;
+}) {
+    return axios.patch(
+        API.me(),
+        { username, name },
+        {
+            headers: {
+                Authorization: `Bearer ${encodeURIComponent(token)}`,
+            },
+        }
+    );
+}
