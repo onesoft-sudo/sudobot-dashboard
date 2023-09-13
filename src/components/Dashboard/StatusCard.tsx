@@ -22,10 +22,22 @@ const StatusCard: FC = () => {
     const query = useQuery({
         queryFn: getStatus,
         queryKey: ["status"],
+        refetchInterval: 300_000,
+        refetchOnWindowFocus: false,
     });
 
+    const status = (
+        query.isError ? "major_outage" : query.data?.data?.status
+    ) as keyof typeof statusTypeToStatusString;
+
     return query.isLoading ? (
-        <Skeleton variant="rounded" className="rounded-xl" height="100%" />
+        <Skeleton
+            variant="rounded"
+            className="rounded-xl"
+            classes={{
+                rounded: "h-[150px] md:h-[100%]",
+            }}
+        />
     ) : (
         <Card>
             <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
@@ -37,9 +49,7 @@ const StatusCard: FC = () => {
 
             <CardBody className="overflow-visible py-2 relative">
                 <div className="flex items-center justify-center h-[80%] min-h-[100px]">
-                    <StatusCardIcon
-                        status={query.data?.data.status ?? "operational"}
-                    />
+                    <StatusCardIcon status={status ?? "operational"} />
                     <p className={"inline-block ml-5"}>
                         <span
                             className={twMerge(
@@ -53,18 +63,10 @@ const StatusCard: FC = () => {
                                         operational: "text-white",
                                         partial_outage: "text-red-400",
                                     } satisfies typeof statusTypeToStatusString
-                                )[
-                                    query.data?.data
-                                        .status as keyof typeof statusTypeToStatusString
-                                ]
+                                )[status]
                             )}
                         >
-                            {
-                                statusTypeToStatusString[
-                                    query.data?.data
-                                        .status as keyof typeof statusTypeToStatusString
-                                ]
-                            }
+                            {statusTypeToStatusString[status]}
                         </span>
                     </p>
                 </div>
