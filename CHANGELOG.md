@@ -1,3 +1,12 @@
+# [0.31.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.30.3...v0.31.0) (2023-09-13)
+
+
+### Features
+
+* add account management page ([9820cf4](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9820cf44801301e7a7697d450aec73a958837b55))
+
+
+
 ## [0.30.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.30.2...v0.30.3) (2023-09-13)
 
 
@@ -36,20 +45,6 @@
 ### Features
 
 * show unsaved changes warning on page unload/reload ([889261b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/889261b6150ae2705f1cb53be5bc13ded901e50e))
-
-
-
-# [0.29.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.28.2...v0.29.0) (2023-09-12)
-
-
-### Bug Fixes
-
-* snackbar visibility duration ([8d51269](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8d51269bf3af56f8c153a535b14c880c631a9ae4))
-
-
-### Features
-
-* add raid protection setting card ([d0ba24b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d0ba24b8c6b77f124fe30e440cc6978d9edd0fa6))
 
 
 
