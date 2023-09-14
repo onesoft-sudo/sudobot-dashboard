@@ -24,6 +24,7 @@ export enum AuthContextAction {
     Reload,
     SwitchGuild,
     SetGuild,
+    SetUser,
 }
 
 type AuthContextReducerAction =
@@ -32,6 +33,12 @@ type AuthContextReducerAction =
           payload: {
               user: APIUser;
               guild?: string;
+          };
+      }
+    | {
+          type: AuthContextAction.SetUser;
+          payload: {
+              user: Partial<APIUser>;
           };
       }
     | {
@@ -103,6 +110,22 @@ export const AuthContextReducer = (
             return {
                 ...state,
                 currentGuild: action.payload,
+            };
+        case AuthContextAction.SetUser:
+            const user = { ...state.user, ...action.payload.user } as any;
+            const userJSON = JSON.stringify(user);
+
+            if (sessionStorage.getItem("user")) {
+                sessionStorage.setItem("user", userJSON);
+            }
+
+            if (localStorage.getItem("user")) {
+                localStorage.setItem("user", userJSON);
+            }
+
+            return {
+                ...state,
+                user,
             };
         case AuthContextAction.Reload:
             try {

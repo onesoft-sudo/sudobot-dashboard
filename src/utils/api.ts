@@ -12,8 +12,8 @@ export class API {
         return `${API_URL}/auth/login`;
     }
 
-    static me() {
-        return `${API_URL}/auth/me`;
+    static user(userId: string) {
+        return `${API_URL}/users/${encodeURIComponent(userId)}`;
     }
 
     static discord() {

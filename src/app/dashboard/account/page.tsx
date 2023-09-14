@@ -1,28 +1,42 @@
 "use client";
 
-import { updateMe } from "@/api/auth";
+import { updateUser } from "@/api/users";
 import Loading from "@/components/Loading/Loading";
 import Link from "@/components/Router/Link";
-import { useAuthContext } from "@/contexts/AuthContext";
+import { AuthContextAction, useAuthContext } from "@/contexts/AuthContext";
 import useIsMobile from "@/hooks/useIsMobile";
+import { IconButton, Snackbar } from "@mui/material";
 import { Button, Card, CardBody, CardHeader, Input } from "@nextui-org/react";
 import { useMutation } from "@tanstack/react-query";
 import { formatDistanceToNowStrict } from "date-fns";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
-import { MdRestore, MdSave } from "react-icons/md";
+import { MdClose, MdRestore, MdSave } from "react-icons/md";
 
 const AccountPage: FC = () => {
     const isMobile = useIsMobile();
-    const { user } = useAuthContext();
+    const { user, dispatch } = useAuthContext();
     const {
-        formState: { errors, isDirty },
+        formState: { errors },
         register,
         handleSubmit,
         reset,
     } = useForm();
     const mutation = useMutation<any, any, any>({
-        mutationFn: vars => updateMe({ ...vars, token: user?.token ?? "" }),
+        mutationFn: async vars => {
+            const result = await updateUser({
+                ...vars,
+                id: user?.id ?? 0,
+                token: user?.token ?? "",
+            });
+
+            dispatch?.({
+                type: AuthContextAction.SetUser,
+                payload: { user: vars },
+            });
+
+            return result;
+        },
         onError: () =>
             console.log(
                 "Error occurred while trying to update user information"
@@ -47,6 +61,22 @@ const AccountPage: FC = () => {
             onSubmit={handleSubmit(onValid)}
             className="pt-5 grid grid-cols-1 px-2"
         >
+            <Snackbar
+                open={mutation.isSuccess}
+                autoHideDuration={4000}
+                onClose={mutation.reset}
+                message="Successfully saved your changes"
+                action={
+                    <IconButton
+                        size="small"
+                        aria-label="close"
+                        color="inherit"
+                        onClick={mutation.reset}
+                    >
+                        <MdClose size={20} />
+                    </IconButton>
+                }
+            />
             <div className="flex flex-col pt-5 md:pt-0 md:flex-row justify-center md:justify-end items-center md:px-5 gap-4 order-last md:order-first">
                 <Button
                     variant="flat"
