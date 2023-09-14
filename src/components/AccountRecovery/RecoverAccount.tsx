@@ -17,7 +17,7 @@ const RecoverAccount: FC = () => {
     const stepTwoMutation = useMutation({
         mutationFn: variables => axios.post(API.recoveryToken(), variables),
     });
-    const isMutating = stepOneMutation.isLoading;
+    const isMutating = stepOneMutation.isLoading || stepTwoMutation.isLoading;
     const isDesktop = useIsDesktop();
 
     const onValid = async (data: any) => {
