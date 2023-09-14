@@ -1,3 +1,13 @@
+# [0.32.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.31.0...v0.32.0) (2023-09-14)
+
+
+### Features
+
+* incomplete account recovery page ([075d74b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/075d74bd8a2cde2c6dd52a739550bfd1433085dc))
+* updating user information ([a6fdd66](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a6fdd66ad3482b0500fa8f67cd08678242855891))
+
+
+
 # [0.31.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.30.3...v0.31.0) (2023-09-13)
 
 
@@ -31,20 +41,6 @@
 ### Bug Fixes
 
 * spacing between inputs ([119f570](https://github.com/onesoft-sudo/sudobot-dashboard/commit/119f57014b5bd0ebe5539b680536f83963f65e72))
-
-
-
-# [0.30.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.29.0...v0.30.0) (2023-09-12)
-
-
-### Bug Fixes
-
-* input label ([6ed704a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6ed704af5ccd2c09cb0e7fe011b61dbad3c5e355))
-
-
-### Features
-
-* show unsaved changes warning on page unload/reload ([889261b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/889261b6150ae2705f1cb53be5bc13ded901e50e))
 
 
 
