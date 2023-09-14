@@ -1,3 +1,12 @@
+## [0.32.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.32.0...v0.32.1) (2023-09-14)
+
+
+### Bug Fixes
+
+* step two on account recovery page does not show progress bar ([d236594](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d23659493df35f9f54d470fc10e7afbd140f83ca))
+
+
+
 # [0.32.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.31.0...v0.32.0) (2023-09-14)
 
 
@@ -32,15 +41,6 @@
 ### Bug Fixes
 
 * sidebar styles not being applied in some cases on mobile devices ([c4e5e44](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c4e5e446fa2377379d0c3c8fbf6d0b0227a295f1))
-
-
-
-## [0.30.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.30.0...v0.30.1) (2023-09-12)
-
-
-### Bug Fixes
-
-* spacing between inputs ([119f570](https://github.com/onesoft-sudo/sudobot-dashboard/commit/119f57014b5bd0ebe5539b680536f83963f65e72))
 
 
 
