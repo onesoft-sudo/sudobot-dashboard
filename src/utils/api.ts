@@ -12,6 +12,18 @@ export class API {
         return `${API_URL}/auth/login`;
     }
 
+    static recovery() {
+        return `${API_URL}/auth/recovery`;
+    }
+
+    static recoveryToken() {
+        return `${API_URL}/auth/recovery_token`;
+    }
+
+    static reset() {
+        return `${API_URL}/auth/reset`;
+    }
+
     static user(userId: string) {
         return `${API_URL}/users/${encodeURIComponent(userId)}`;
     }

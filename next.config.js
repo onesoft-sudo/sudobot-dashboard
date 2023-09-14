@@ -11,6 +11,10 @@ const nextConfig = {
                 source: "/account",
                 destination: "/dashboard/account",
             },
+            {
+                source: "/account/:path*",
+                destination: "/dashboard/account/:path*",
+            },
         ];
     },
 };

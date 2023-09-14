@@ -149,7 +149,7 @@ const LoginForm: FC = () => {
                             <p className="text-xs md:text-md">Remember me</p>
                         </Checkbox>
                         <Link
-                            href="/login"
+                            href="/account/recovery"
                             className="link ml-3 text-xs md:text-md"
                         >
                             Forgot password?
