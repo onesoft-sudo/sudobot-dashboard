@@ -80,6 +80,13 @@ const LoginForm: FC = () => {
                 boxShadow: "0 0 2px 0 rgba(255, 255, 255, 0.6)",
             }}
         >
+            <style>
+                {`
+                    div:not([data-focus]) > div > label {
+                        color: #999 !important;
+                    }
+                `}
+            </style>
             {user === undefined && (
                 <>
                     <CircularProgress isIndeterminate className="mx-auto" />
