@@ -1,3 +1,17 @@
+# [0.34.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.33.0...v0.34.0) (2023-09-15)
+
+
+### Bug Fixes
+
+* finalize recovery page ([962a30a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/962a30a7f18dc5906a65abbfcb7c682fd933c45d))
+
+
+### Features
+
+* password update page ([509453a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/509453ac7742c6e58ea896abb78f5de3a0e6d00c))
+
+
+
 # [0.33.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.32.2...v0.33.0) (2023-09-15)
 
 
@@ -39,15 +53,6 @@
 
 * incomplete account recovery page ([075d74b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/075d74bd8a2cde2c6dd52a739550bfd1433085dc))
 * updating user information ([a6fdd66](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a6fdd66ad3482b0500fa8f67cd08678242855891))
-
-
-
-# [0.31.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.30.3...v0.31.0) (2023-09-13)
-
-
-### Features
-
-* add account management page ([9820cf4](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9820cf44801301e7a7697d450aec73a958837b55))
 
 
 
