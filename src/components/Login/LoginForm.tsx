@@ -80,7 +80,7 @@ const LoginForm: FC = () => {
                 boxShadow: "0 0 2px 0 rgba(255, 255, 255, 0.6)",
             }}
         >
-            <style>
+            <style jsx global>
                 {`
                     div:not([data-focus]) > div > label {
                         color: #999 !important;
