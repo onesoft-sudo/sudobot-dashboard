@@ -2,15 +2,16 @@
 
 import useIsDesktop from "@/hooks/useIsDesktop";
 import { API } from "@/utils/api";
-import { wait } from "@/utils/utils";
 import { Button, LinearProgress, TextField } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { AnimatePresence, motion } from "framer-motion";
 import { FC, useState } from "react";
+import { HiShieldCheck } from "react-icons/hi2";
 import { MdError } from "react-icons/md";
 import RecoverAccountForm from "./RecoverAccountForm";
 
+// TODO: Error handling
 const RecoverAccount: FC = () => {
     const [step, setStep] = useState(1);
     const stepOneMutation = useMutation({
@@ -20,7 +21,7 @@ const RecoverAccount: FC = () => {
         mutationFn: variables => axios.post(API.recoveryToken(), variables),
     });
     const stepThreeMutation = useMutation({
-        mutationFn: variables => wait(5000), // axios.post(API.recoveryToken(), variables)
+        mutationFn: variables => axios.post(API.reset(), variables),
     });
     const isMutating =
         stepOneMutation.isLoading ||
@@ -34,13 +35,18 @@ const RecoverAccount: FC = () => {
                 await stepOneMutation.mutateAsync(data);
             }
         } else if (step === 2) {
-            await stepTwoMutation.mutateAsync({
+            const response = await stepTwoMutation.mutateAsync({
                 username: (stepOneMutation.variables as any)?.username,
                 ...data,
             });
+
+            console.log(response);
         } else if (step === 3) {
-            await stepThreeMutation.mutateAsync();
-            return;
+            await stepThreeMutation.mutateAsync({
+                username: (stepOneMutation.variables as any)?.username,
+                token: stepTwoMutation.data?.data?.token,
+                ...data,
+            });
         } else {
             return;
         }
@@ -78,8 +84,12 @@ const RecoverAccount: FC = () => {
                 <div className="absolute left-0 md:relative !overflow-x-hidden !max-w-[100vw]">
                     <div
                         className={`mr-2 ${
-                            step === 1 ? "ml-[3px] md:ml-3" : "ml-2"
-                        } my-3 flex items-center justify-start left-0 gap-[10px] w-[300vw] md:min-w-[20vw] md:w-[21vw] md:max-w-[25vw] md:relative md:overflow-x-hidden`}
+                            step === 1
+                                ? "ml-[3px] md:ml-3"
+                                : step === 4
+                                ? "ml-2.5 md:ml-2"
+                                : "ml-2"
+                        } my-3 flex items-center justify-start left-0 gap-[10px] w-[400vw] md:min-w-[20vw] md:w-[21vw] md:max-w-[25vw] md:relative md:overflow-x-hidden`}
                     >
                         <RecoverAccountForm
                             currentStep={step}
@@ -164,14 +174,6 @@ const RecoverAccount: FC = () => {
                                     )}
 
                                     <div className="pt-3 flex justify-end">
-                                        {/* <Button
-                                        type="button"
-                                        onClick={() => {
-                                            setStep(step => step - 1);
-                                        }}
-                                    >
-                                        Back
-                                    </Button> */}
                                         <Button type="submit">Next</Button>
                                     </div>
                                 </>
@@ -189,17 +191,59 @@ const RecoverAccount: FC = () => {
                                     <h2 className="text-xl md:text-2xl text-center pb-[20px]">
                                         Enter new password
                                     </h2>
-                                    <TextField label="New password" fullWidth />
+
+                                    <TextField
+                                        label="New Password"
+                                        fullWidth
+                                        {...register("new_password", {
+                                            required:
+                                                "You must specify the new password to set!",
+                                        })}
+                                        color={
+                                            errors.username?.message
+                                                ? "error"
+                                                : "primary"
+                                        }
+                                    />
+                                    {errors.username?.message && (
+                                        <p className="text-xs text-red-500 pt-1 flex items-center gap-1">
+                                            <MdError size={"1.2em"} />{" "}
+                                            {errors.username?.message.toString()}
+                                        </p>
+                                    )}
+
                                     <div className="pt-3 flex justify-end">
-                                        {/* <Button
-                                        type="button"
-                                        onClick={() => {
-                                            setStep(step => step - 1);
-                                        }}
-                                    >
-                                        Back
-                                    </Button> */}
                                         <Button type="submit">Next</Button>
+                                    </div>
+                                </>
+                            )}
+                        </RecoverAccountForm>
+
+                        <RecoverAccountForm
+                            currentStep={step}
+                            step={4}
+                            isMutating={isMutating}
+                            onValid={onValid}
+                        >
+                            {({ register, formState: { errors } }) => (
+                                <>
+                                    <h2 className="text-xl md:text-2xl text-center pb-[20px] flex items-center justify-center gap-2">
+                                        <HiShieldCheck
+                                            className="text-green-500"
+                                            size={30}
+                                        />{" "}
+                                        <span>Success</span>
+                                    </h2>
+
+                                    <p className="text-[#999]">
+                                        We&rsquo;ve updated your account&rsquo;s
+                                        password.
+                                    </p>
+
+                                    <div className="pt-3 flex justify-end">
+                                        <Button type="button" href="/login">
+                                            Finish
+                                        </Button>
                                     </div>
                                 </>
                             )}
