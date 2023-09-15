@@ -1,3 +1,19 @@
+# [0.33.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.32.2...v0.33.0) (2023-09-15)
+
+
+### Bug Fixes
+
+* page loading animation ([4987480](https://github.com/onesoft-sudo/sudobot-dashboard/commit/49874806a87e199cd11bfaeea789b7ed915da943))
+* server-client rendering error ([c10590c](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c10590c4ad70a3e29182065ef48144af3571bbf5))
+
+
+### Features
+
+* complete account recovery page ([af971c7](https://github.com/onesoft-sudo/sudobot-dashboard/commit/af971c711bd0cfbe7f2a144f07dfb21444ef860e))
+* confirm password field ([0833f2d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0833f2d21ca461bc42fb8f85c6ee8ac36f6926b1))
+
+
+
 ## [0.32.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.32.1...v0.32.2) (2023-09-15)
 
 
@@ -32,15 +48,6 @@
 ### Features
 
 * add account management page ([9820cf4](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9820cf44801301e7a7697d450aec73a958837b55))
-
-
-
-## [0.30.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.30.2...v0.30.3) (2023-09-13)
-
-
-### Bug Fixes
-
-* status card loading skeleton not visible in mobile devices ([0365b79](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0365b79c6d0ddbe44c3a2f2f170d2b68b9fee9be))
 
 
 
