@@ -1,3 +1,12 @@
+## [0.32.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.32.1...v0.32.2) (2023-09-15)
+
+
+### Bug Fixes
+
+* login page label colors ([a466e7e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a466e7e8da92781682e1df1c3a2d9a4e49d80f76))
+
+
+
 ## [0.32.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.32.0...v0.32.1) (2023-09-14)
 
 
@@ -32,15 +41,6 @@
 ### Bug Fixes
 
 * status card loading skeleton not visible in mobile devices ([0365b79](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0365b79c6d0ddbe44c3a2f2f170d2b68b9fee9be))
-
-
-
-## [0.30.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.30.1...v0.30.2) (2023-09-13)
-
-
-### Bug Fixes
-
-* sidebar styles not being applied in some cases on mobile devices ([c4e5e44](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c4e5e446fa2377379d0c3c8fbf6d0b0227a295f1))
 
 
 
