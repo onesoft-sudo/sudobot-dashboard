@@ -5,10 +5,10 @@ import { API } from "@/utils/api";
 import { Button, LinearProgress, TextField } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { AnimatePresence, motion } from "framer-motion";
 import { FC, useState } from "react";
 import { HiShieldCheck } from "react-icons/hi2";
 import { MdError } from "react-icons/md";
+import FormLoading from "./FormLoading";
 import RecoverAccountForm from "./RecoverAccountForm";
 
 // TODO: Error handling
@@ -64,20 +64,7 @@ const RecoverAccount: FC = () => {
                     }}
                 >
                     <LinearProgress />
-                    <AnimatePresence>
-                        {isMutating && (
-                            <motion.div
-                                className="md:absolute top-0 left-0 bg-[rgba(255,255,255,0.2)] h-[100%] w-[100%] z-[1000]"
-                                initial={{ opacity: 0.001 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 1 }}
-                                transition={{
-                                    duration: 0.2,
-                                    bounce: 1,
-                                }}
-                            ></motion.div>
-                        )}
-                    </AnimatePresence>
+                    <FormLoading isLoading={isMutating} />
                 </div>
             )}
             <div className="h-[70vh] md:h-[auto]">
@@ -198,6 +185,7 @@ const RecoverAccount: FC = () => {
 
                                     <TextField
                                         label="New Password"
+                                        type="password"
                                         fullWidth
                                         {...register("new_password", {
                                             required:
@@ -216,10 +204,11 @@ const RecoverAccount: FC = () => {
                                         </p>
                                     )}
 
-                                    <div className="pt-3"></div>
+                                    <div className="pt-4"></div>
 
                                     <TextField
                                         label="Confirm New Password"
+                                        type="password"
                                         fullWidth
                                         {...register("new_password_confirm", {
                                             required:

@@ -164,7 +164,10 @@ const AccountPage: FC = () => {
 
                             <p className="text-[#fff] block text-xs">
                                 Want to change your password?{" "}
-                                <Link href="/account/recovery" className="link">
+                                <Link
+                                    href="/dashboard/account/recovery"
+                                    className="link"
+                                >
                                     Click here
                                 </Link>
                                 .

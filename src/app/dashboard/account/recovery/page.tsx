@@ -10,7 +10,7 @@ const RecoveryPage: FC = () => {
     const [user] = useUser();
     const pathname = usePathname();
 
-    if (!user && pathname !== "/dashboard/account/recovery") {
+    if (!user && pathname === "/dashboard/account/recovery") {
         return <></>;
     }
 

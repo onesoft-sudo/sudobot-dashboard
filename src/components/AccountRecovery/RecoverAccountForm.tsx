@@ -2,7 +2,6 @@
 
 import useIsDesktop from "@/hooks/useIsDesktop";
 import { LinearProgress } from "@mui/material";
-import { AnimatePresence, motion } from "framer-motion";
 import { FC, ReactNode } from "react";
 import {
     FormState,
@@ -10,6 +9,7 @@ import {
     UseFormRegister,
     useForm,
 } from "react-hook-form";
+import FormLoading from "./FormLoading";
 
 interface RecoverAccountFormProps {
     onValid?: (data: any) => any;
@@ -63,20 +63,7 @@ const RecoverAccountForm: FC<RecoverAccountFormProps> = ({
                     }}
                 >
                     <LinearProgress />
-                    <AnimatePresence>
-                        {isMutating && (
-                            <motion.div
-                                className="md:absolute top-0 left-0 bg-[rgba(255,255,255,0.2)] h-[100%] w-[100%] z-[1000]"
-                                initial={{ opacity: 0.001 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 1 }}
-                                transition={{
-                                    duration: 0.2,
-                                    bounce: 1,
-                                }}
-                            ></motion.div>
-                        )}
-                    </AnimatePresence>
+                    <FormLoading isLoading={isMutating} />
                 </div>
             )}
 
