@@ -2,7 +2,7 @@
 
 import useIsDesktop from "@/hooks/useIsDesktop";
 import { API } from "@/utils/api";
-import { Button, LinearProgress, TextField } from "@mui/material";
+import { Alert, Button, LinearProgress, TextField } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { FC, useState } from "react";
@@ -30,28 +30,28 @@ const RecoverAccount: FC = () => {
     const isDesktop = useIsDesktop();
 
     const onValid = async (data: any) => {
-        if (step === 1) {
-            if (!stepOneMutation.isSuccess) {
-                await stepOneMutation.mutateAsync(data);
+        try {
+            if (step === 1) {
+                if (!stepOneMutation.isSuccess) {
+                    await stepOneMutation.mutateAsync(data);
+                }
+            } else if (step === 2) {
+                await stepTwoMutation.mutateAsync({
+                    username: (stepOneMutation.variables as any)?.username,
+                    ...data,
+                });
+            } else if (step === 3) {
+                await stepThreeMutation.mutateAsync({
+                    username: (stepOneMutation.variables as any)?.username,
+                    token: stepTwoMutation.data?.data?.token,
+                    ...data,
+                });
+            } else {
+                return;
             }
-        } else if (step === 2) {
-            const response = await stepTwoMutation.mutateAsync({
-                username: (stepOneMutation.variables as any)?.username,
-                ...data,
-            });
 
-            console.log(response);
-        } else if (step === 3) {
-            await stepThreeMutation.mutateAsync({
-                username: (stepOneMutation.variables as any)?.username,
-                token: stepTwoMutation.data?.data?.token,
-                ...data,
-            });
-        } else {
-            return;
-        }
-
-        setStep(step => step + 1);
+            setStep(step => step + 1);
+        } catch (e) {}
     };
 
     return (
@@ -86,9 +86,32 @@ const RecoverAccount: FC = () => {
                         >
                             {({ register, formState: { errors } }) => (
                                 <>
-                                    <h2 className="text-xl md:text-2xl text-center pb-[50px]">
+                                    <h2 className="text-xl md:text-2xl text-center pb-5">
                                         Enter your username
                                     </h2>
+
+                                    {stepOneMutation.isError && (
+                                        <Alert severity="error">
+                                            {typeof stepOneMutation.error ===
+                                            "string"
+                                                ? stepOneMutation.error
+                                                : (stepOneMutation.error as any)
+                                                      .response?.status === 429
+                                                ? "Too many recovery requests have been receieved for this account, please try again later."
+                                                : (stepOneMutation.error as any)
+                                                      ?.response?.data?.error ??
+                                                  "An internal error has occurred."}
+                                        </Alert>
+                                    )}
+
+                                    <div
+                                        className={
+                                            stepOneMutation.isError
+                                                ? "pb-[35px]"
+                                                : "pb-[45px]"
+                                        }
+                                    ></div>
+
                                     <TextField
                                         label="Username"
                                         fullWidth
@@ -127,6 +150,7 @@ const RecoverAccount: FC = () => {
                                     <h2 className="text-xl md:text-2xl text-center pb-[20px]">
                                         Enter verification code
                                     </h2>
+
                                     <p className="text-[#999] pb-[25px]">
                                         If &ldquo;
                                         {
@@ -153,10 +177,27 @@ const RecoverAccount: FC = () => {
                                                 : "primary"
                                         }
                                     />
-                                    {errors.code?.message && (
+                                    {(errors.code?.message ||
+                                        stepTwoMutation.isError) && (
                                         <p className="text-xs text-red-500 pt-1 flex items-center gap-1">
                                             <MdError size={"1.2em"} />{" "}
-                                            {errors.code?.message.toString()}
+                                            {errors.code?.message?.toString() ??
+                                                (typeof stepTwoMutation.error ===
+                                                "string"
+                                                    ? stepTwoMutation.error
+                                                    : (
+                                                          stepTwoMutation.error as any
+                                                      ).response?.status === 429
+                                                    ? "You are being rate limited."
+                                                    : (
+                                                          stepTwoMutation.error as any
+                                                      ).response?.status === 403
+                                                    ? "Wrong recovery code specified."
+                                                    : (
+                                                          stepTwoMutation.error as any
+                                                      )?.response?.data
+                                                          ?.error ??
+                                                      "An internal error has occurred.")}
                                         </p>
                                     )}
 
