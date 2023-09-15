@@ -70,7 +70,10 @@ const Profile: FC = () => {
                         >
                             Dashboard
                         </DropdownItem>
-                        <DropdownItem key="settings">
+                        <DropdownItem
+                            onClick={() => router?.push("/account")}
+                            key="settings"
+                        >
                             Account Settings
                         </DropdownItem>
                         <DropdownItem

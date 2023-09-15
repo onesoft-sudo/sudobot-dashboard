@@ -3,10 +3,16 @@
 import ChangePassword from "@/components/AccountRecovery/ChangePassword";
 import RecoverAccount from "@/components/AccountRecovery/RecoverAccount";
 import useUser from "@/hooks/useUser";
+import { usePathname } from "next/navigation";
 import { FC } from "react";
 
 const RecoveryPage: FC = () => {
     const [user] = useUser();
+    const pathname = usePathname();
+
+    if (!user && pathname !== "/dashboard/account/recovery") {
+        return <></>;
+    }
 
     return (
         <div className="min-h-[90vh] flex justify-center items-center relative">

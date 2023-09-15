@@ -186,7 +186,11 @@ const RecoverAccount: FC = () => {
                             isMutating={isMutating}
                             onValid={onValid}
                         >
-                            {({ register, formState: { errors } }) => (
+                            {({
+                                register,
+                                formState: { errors },
+                                getValues,
+                            }) => (
                                 <>
                                     <h2 className="text-xl md:text-2xl text-center pb-[20px]">
                                         Enter new password
@@ -200,15 +204,42 @@ const RecoverAccount: FC = () => {
                                                 "You must specify the new password to set!",
                                         })}
                                         color={
-                                            errors.username?.message
+                                            errors.new_password?.message
                                                 ? "error"
                                                 : "primary"
                                         }
                                     />
-                                    {errors.username?.message && (
+                                    {errors.new_password?.message && (
                                         <p className="text-xs text-red-500 pt-1 flex items-center gap-1">
                                             <MdError size={"1.2em"} />{" "}
-                                            {errors.username?.message.toString()}
+                                            {errors.new_password?.message.toString()}
+                                        </p>
+                                    )}
+
+                                    <div className="pt-3"></div>
+
+                                    <TextField
+                                        label="Confirm New Password"
+                                        fullWidth
+                                        {...register("new_password_confirm", {
+                                            required:
+                                                "You must confirm the new password!",
+                                            validate: value =>
+                                                getValues().new_password ===
+                                                value
+                                                    ? undefined
+                                                    : "Passwords do not match!",
+                                        })}
+                                        color={
+                                            errors.new_password_confirm?.message
+                                                ? "error"
+                                                : "primary"
+                                        }
+                                    />
+                                    {errors.new_password_confirm?.message && (
+                                        <p className="text-xs text-red-500 pt-1 flex items-center gap-1">
+                                            <MdError size={"1.2em"} />{" "}
+                                            {errors.new_password_confirm?.message.toString()}
                                         </p>
                                     )}
 

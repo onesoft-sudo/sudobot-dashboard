@@ -4,7 +4,12 @@ import useIsDesktop from "@/hooks/useIsDesktop";
 import { LinearProgress } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import { FC, ReactNode } from "react";
-import { FormState, UseFormRegister, useForm } from "react-hook-form";
+import {
+    FormState,
+    UseFormGetValues,
+    UseFormRegister,
+    useForm,
+} from "react-hook-form";
 
 interface RecoverAccountFormProps {
     onValid?: (data: any) => any;
@@ -15,6 +20,7 @@ interface RecoverAccountFormProps {
     children: (params: {
         register: UseFormRegister<any>;
         formState: FormState<any>;
+        getValues: UseFormGetValues<any>;
     }) => ReactNode;
 }
 
@@ -26,7 +32,7 @@ const RecoverAccountForm: FC<RecoverAccountFormProps> = ({
     children,
     defaultValues = {},
 }) => {
-    const { handleSubmit, formState, register } = useForm({
+    const { handleSubmit, formState, register, getValues } = useForm({
         defaultValues,
     });
     const isDesktop = useIsDesktop();
@@ -74,7 +80,9 @@ const RecoverAccountForm: FC<RecoverAccountFormProps> = ({
                 </div>
             )}
 
-            <div className="p-4">{children({ formState, register })}</div>
+            <div className="p-4">
+                {children({ formState, register, getValues })}
+            </div>
         </form>
     );
 };
