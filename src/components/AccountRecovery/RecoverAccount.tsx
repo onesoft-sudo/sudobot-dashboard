@@ -2,9 +2,11 @@
 
 import useIsDesktop from "@/hooks/useIsDesktop";
 import { API } from "@/utils/api";
+import { wait } from "@/utils/utils";
 import { Button, LinearProgress, TextField } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { AnimatePresence, motion } from "framer-motion";
 import { FC, useState } from "react";
 import { MdError } from "react-icons/md";
 import RecoverAccountForm from "./RecoverAccountForm";
@@ -17,7 +19,13 @@ const RecoverAccount: FC = () => {
     const stepTwoMutation = useMutation({
         mutationFn: variables => axios.post(API.recoveryToken(), variables),
     });
-    const isMutating = stepOneMutation.isLoading || stepTwoMutation.isLoading;
+    const stepThreeMutation = useMutation({
+        mutationFn: variables => wait(5000), // axios.post(API.recoveryToken(), variables)
+    });
+    const isMutating =
+        stepOneMutation.isLoading ||
+        stepTwoMutation.isLoading ||
+        stepThreeMutation.isLoading;
     const isDesktop = useIsDesktop();
 
     const onValid = async (data: any) => {
@@ -30,6 +38,9 @@ const RecoverAccount: FC = () => {
                 username: (stepOneMutation.variables as any)?.username,
                 ...data,
             });
+        } else if (step === 3) {
+            await stepThreeMutation.mutateAsync();
+            return;
         } else {
             return;
         }
@@ -47,12 +58,20 @@ const RecoverAccount: FC = () => {
                     }}
                 >
                     <LinearProgress />
-                    <div
-                        className="md:absolute top-0 left-0 bg-[rgba(255,255,255,0.2)] h-[100%] w-[100%] z-[1000]"
-                        style={{
-                            opacity: isMutating ? 1 : 0,
-                        }}
-                    ></div>
+                    <AnimatePresence>
+                        {isMutating && (
+                            <motion.div
+                                className="md:absolute top-0 left-0 bg-[rgba(255,255,255,0.2)] h-[100%] w-[100%] z-[1000]"
+                                initial={{ opacity: 0.001 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 1 }}
+                                transition={{
+                                    duration: 0.2,
+                                    bounce: 1,
+                                }}
+                            ></motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
             )}
             <div className="h-[70vh] md:h-[auto]">
