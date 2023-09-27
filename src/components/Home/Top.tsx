@@ -4,9 +4,9 @@ import HomeButtons from "./HomeButtons";
 
 const Top: FC = () => {
     return (
-        <div className="min-h-[90vh] px-4 md:px-[10%] pt-[30px] md:pt-3 grid grid-cols-1 md:grid-cols-2 gap-20">
+        <div className="min-h-[90vh] px-4 md:px-[10%] pt-[30px] md:pt-3 grid grid-cols-1 md:grid-cols-2 gap-20 pb-[70px] md:pb-0">
             <div className="md:pt-[15%] relative z-[1]">
-                <div className="flex md:block flex-col justify-between h-[80vh] md:h-[auto]">
+                <div className="flex md:block flex-col justify-between md:h-[auto]">
                     <div>
                         <div
                             style={{
@@ -22,17 +22,27 @@ const Top: FC = () => {
                             }}
                             className="h-[60%] md:h-[80%]"
                         ></div>
-                        <h1 className="[line-height:3.2rem] [font-size:2.9rem] md:text-5xl lg:text-6xl font-bold text-center md:text-left">
+                        <h1 className="[line-height:2rem] md:[line-height:3.2rem] [font-size:2rem] md:text-5xl lg:text-6xl font-light md:font-bold text-center md:text-left">
                             A single Discord Bot for everything you need.
                         </h1>
 
-                        <h1 className="text-5xl md:text-5xl lg:text-6xl font-bold text-center md:text-left text-blue-600 my-10 md:my-5">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium md:font-bold text-center md:text-left text-blue-600 my-5">
                             SudoBot<span className="text-white">.</span>
                         </h1>
 
-                        <h2 className="my-3 md:my-0 text-2xl md:text-4xl font-light text-center md:text-left">
+                        <h2 className="my-3 md:my-0 text-2xl md:text-4xl font-light text-center md:text-left hidden md:block">
                             The ultimate solution for Discord Server Moderation.
                         </h2>
+
+                        <div className="relative flex justify-center items-center pt-3 md:hidden">
+                            <Shield
+                                style={{
+                                    width: "90%",
+                                    background:
+                                        "linear-gradient(rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.1))",
+                                }}
+                            />
+                        </div>
 
                         <br />
 
