@@ -19,7 +19,14 @@ const MessageRuleCard: FC<SettingCardProps> = ({
         <Card>
             <CardHeader>
                 <div className="flex items-center justify-between w-[100%] relative">
-                    <h4 className="font-bold text-large pl-2">Message Rules</h4>
+                    <div className="flex items-center gap-2">
+                        <h4 className="font-bold text-large pl-2">
+                            Message Rules
+                        </h4>
+                        <h4 className="font-bold bg-[#007bff] py-1 px-3 rounded-lg">
+                            BETA
+                        </h4>
+                    </div>
                     <div className="flex items-center gap-3">
                         {state.enabled && (
                             <Button startIcon={<MdAdd />}>Create</Button>
