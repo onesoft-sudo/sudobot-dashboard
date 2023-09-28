@@ -1,3 +1,12 @@
+# [0.37.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.36.2...v0.37.0) (2023-09-28)
+
+
+### Features
+
+* message rules page ([210775e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/210775e9c025e59bb0d3d4d4c35854870e7a3e96))
+
+
+
 ## [0.36.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.36.1...v0.36.2) (2023-09-28)
 
 
@@ -31,20 +40,6 @@
 ### Features
 
 * show banner on mobile home page ([1863d70](https://github.com/onesoft-sudo/sudobot-dashboard/commit/1863d7093b8a04d0dfb49d9d5b7a303bbfa2a4d1))
-
-
-
-# [0.34.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.33.0...v0.34.0) (2023-09-15)
-
-
-### Bug Fixes
-
-* finalize recovery page ([962a30a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/962a30a7f18dc5906a65abbfcb7c682fd933c45d))
-
-
-### Features
-
-* password update page ([509453a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/509453ac7742c6e58ea896abb78f5de3a0e6d00c))
 
 
 
