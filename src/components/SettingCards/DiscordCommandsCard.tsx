@@ -1,12 +1,5 @@
 import { SettingCardProps } from "@/types/SetttingCardProps";
-import {
-    Box,
-    Chip,
-    FormHelperText,
-    ListItemText,
-    MenuItem,
-    TextField,
-} from "@mui/material";
+import { Box, Chip, ListItemText, MenuItem, TextField } from "@mui/material";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import { FC } from "react";
 
@@ -58,13 +51,6 @@ const DiscordCommandsCard: FC<SettingCardProps> = ({
                         </MenuItem>
                     ))}
                 </TextField>
-                {errors.prefix ? (
-                    <FormHelperText>
-                        <span className="text-red-600">
-                            {errors.prefix.message?.toString() ?? ""}
-                        </span>
-                    </FormHelperText>
-                ) : undefined}
             </CardBody>
         </Card>
     );

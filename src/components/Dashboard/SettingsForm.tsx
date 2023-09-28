@@ -35,6 +35,8 @@ const SettingsForm: FC<SettingsFormProps> = ({
         getValues,
         reset,
         setValue,
+        setError,
+        clearErrors,
     } = useForm();
 
     const { currentGuild, user } = useAuthContext();
@@ -47,10 +49,6 @@ const SettingsForm: FC<SettingsFormProps> = ({
     });
 
     useEffect(() => console.log("Data updated", query.data), [query.status]);
-
-    const beforeUnload = useRef((e: Event) => {
-        e.preventDefault();
-    });
 
     useEffect(() => {
         const callback = (e: Event) => {
@@ -71,6 +69,9 @@ const SettingsForm: FC<SettingsFormProps> = ({
             putConfig(currentGuild?.id ?? "", user?.token ?? "", {
                 data,
             }),
+        onSuccess() {
+            reset({}, { keepValues: true });
+        },
     });
 
     const [snackBarOpen, setSnackBarOpen] = useState(false);
@@ -84,7 +85,7 @@ const SettingsForm: FC<SettingsFormProps> = ({
         <form
             noValidate
             onSubmit={handleSubmit(innerOnSubmit)}
-            className={`px-3 md:px-0 ${className}`}
+            className={`px-3 md:px-0 md:mr-[10px] ${className}`}
             ref={formRef}
         >
             {buttons && (
@@ -160,6 +161,8 @@ const SettingsForm: FC<SettingsFormProps> = ({
                     getValues,
                     data: query.data?.data,
                     setValue,
+                    setError,
+                    clearErrors,
                 })}
         </form>
     );
