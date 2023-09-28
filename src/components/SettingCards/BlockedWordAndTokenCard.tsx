@@ -261,7 +261,7 @@ const BlockedWordAndTokenCard: FC<SettingCardProps> = ({
                         <FormHelperText>
                             <span className="text-[#999]">
                                 Don&rsquo;t forget to hit enter when you finish
-                                typing a word!
+                                typing a token!
                             </span>
                         </FormHelperText>
 
