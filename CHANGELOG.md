@@ -1,3 +1,12 @@
+# [0.38.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.37.0...v0.38.0) (2023-09-28)
+
+
+### Features
+
+* add beta badge ([7c32ea6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/7c32ea62802b9b7dea3441cc729538ab740b6093))
+
+
+
 # [0.37.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.36.2...v0.37.0) (2023-09-28)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * **automod:** blocked word and token management ([2d37f0b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/2d37f0b4200e7162ac7814805fac11649b66416d))
-
-
-
-# [0.35.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.34.0...v0.35.0) (2023-09-27)
-
-
-### Features
-
-* show banner on mobile home page ([1863d70](https://github.com/onesoft-sudo/sudobot-dashboard/commit/1863d7093b8a04d0dfb49d9d5b7a303bbfa2a4d1))
 
 
 
