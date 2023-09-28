@@ -1,3 +1,12 @@
+# [0.35.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.34.0...v0.35.0) (2023-09-27)
+
+
+### Features
+
+* show banner on mobile home page ([1863d70](https://github.com/onesoft-sudo/sudobot-dashboard/commit/1863d7093b8a04d0dfb49d9d5b7a303bbfa2a4d1))
+
+
+
 # [0.34.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.33.0...v0.34.0) (2023-09-15)
 
 
@@ -43,16 +52,6 @@
 ### Bug Fixes
 
 * step two on account recovery page does not show progress bar ([d236594](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d23659493df35f9f54d470fc10e7afbd140f83ca))
-
-
-
-# [0.32.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.31.0...v0.32.0) (2023-09-14)
-
-
-### Features
-
-* incomplete account recovery page ([075d74b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/075d74bd8a2cde2c6dd52a739550bfd1433085dc))
-* updating user information ([a6fdd66](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a6fdd66ad3482b0500fa8f67cd08678242855891))
 
 
 
