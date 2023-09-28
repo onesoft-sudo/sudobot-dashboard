@@ -1,3 +1,12 @@
+## [0.36.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.36.1...v0.36.2) (2023-09-28)
+
+
+### Bug Fixes
+
+* invalid config query on mutation ([85fb1fd](https://github.com/onesoft-sudo/sudobot-dashboard/commit/85fb1fd3fe36e2deef97d5f8035aa23a825a39cd))
+
+
+
 ## [0.36.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.36.0...v0.36.1) (2023-09-28)
 
 
@@ -36,22 +45,6 @@
 ### Features
 
 * password update page ([509453a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/509453ac7742c6e58ea896abb78f5de3a0e6d00c))
-
-
-
-# [0.33.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.32.2...v0.33.0) (2023-09-15)
-
-
-### Bug Fixes
-
-* page loading animation ([4987480](https://github.com/onesoft-sudo/sudobot-dashboard/commit/49874806a87e199cd11bfaeea789b7ed915da943))
-* server-client rendering error ([c10590c](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c10590c4ad70a3e29182065ef48144af3571bbf5))
-
-
-### Features
-
-* complete account recovery page ([af971c7](https://github.com/onesoft-sudo/sudobot-dashboard/commit/af971c711bd0cfbe7f2a144f07dfb21444ef860e))
-* confirm password field ([0833f2d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0833f2d21ca461bc42fb8f85c6ee8ac36f6926b1))
 
 
 
