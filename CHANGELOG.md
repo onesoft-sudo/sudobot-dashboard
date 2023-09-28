@@ -1,3 +1,12 @@
+# [0.36.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.35.0...v0.36.0) (2023-09-28)
+
+
+### Features
+
+* **automod:** blocked word and token management ([2d37f0b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/2d37f0b4200e7162ac7814805fac11649b66416d))
+
+
+
 # [0.35.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.34.0...v0.35.0) (2023-09-27)
 
 
@@ -43,15 +52,6 @@
 ### Bug Fixes
 
 * login page label colors ([a466e7e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a466e7e8da92781682e1df1c3a2d9a4e49d80f76))
-
-
-
-## [0.32.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.32.0...v0.32.1) (2023-09-14)
-
-
-### Bug Fixes
-
-* step two on account recovery page does not show progress bar ([d236594](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d23659493df35f9f54d470fc10e7afbd140f83ca))
 
 
 
