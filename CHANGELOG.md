@@ -1,3 +1,12 @@
+## [0.36.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.36.0...v0.36.1) (2023-09-28)
+
+
+### Bug Fixes
+
+* typo ([c283c5e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c283c5e7cf09253844a008882c1e03a487878c89))
+
+
+
 # [0.36.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.35.0...v0.36.0) (2023-09-28)
 
 
@@ -43,15 +52,6 @@
 
 * complete account recovery page ([af971c7](https://github.com/onesoft-sudo/sudobot-dashboard/commit/af971c711bd0cfbe7f2a144f07dfb21444ef860e))
 * confirm password field ([0833f2d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0833f2d21ca461bc42fb8f85c6ee8ac36f6926b1))
-
-
-
-## [0.32.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.32.1...v0.32.2) (2023-09-15)
-
-
-### Bug Fixes
-
-* login page label colors ([a466e7e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a466e7e8da92781682e1df1c3a2d9a4e49d80f76))
 
 
 
