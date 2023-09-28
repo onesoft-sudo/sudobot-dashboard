@@ -1,6 +1,7 @@
 import {
     MdBarChart,
     MdLockOutline,
+    MdRule,
     MdSettings,
     MdShield,
     MdTerminal,
@@ -52,6 +53,11 @@ export const sidebarItems = [
         name: "Auto Moderation",
         url: "/settings/{id}/automod",
         icon: MdShield,
+    },
+    {
+        name: "Message Rules",
+        url: "/settings/{id}/rules",
+        icon: MdRule,
     },
     {
         name: "Permissions",

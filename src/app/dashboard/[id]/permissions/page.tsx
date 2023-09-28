@@ -1,8 +1,8 @@
 "use client";
 
 import SettingsForm from "@/components/Dashboard/SettingsForm";
-import PermissionRoleCreateModal from "@/components/PermissionManaging/PermissionRoleCreateModal";
-import PermissionRoleList from "@/components/PermissionManaging/PermissionRoleList";
+import PermissionRoleCreateModal from "@/components/PermissionManagement/PermissionRoleCreateModal";
+import PermissionRoleList from "@/components/PermissionManagement/PermissionRoleList";
 import PermissionModeCard from "@/components/SettingCards/PermissionModeCard";
 import useAuthWithCheck from "@/hooks/useAuthWithCheck";
 import { Dispatch, FC, SetStateAction, useRef } from "react";
