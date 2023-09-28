@@ -7,11 +7,13 @@ import {
     UseFormGetFieldState,
     UseFormGetValues,
     UseFormRegister,
+    UseFormReset,
     UseFormSetError,
     UseFormSetValue,
 } from "react-hook-form";
 
 export interface SettingCardProps {
+    reset: UseFormReset<FieldValues>;
     clearErrors: UseFormClearErrors<FieldValues>;
     setError: UseFormSetError<FieldValues>;
     register: UseFormRegister<FieldValues>;

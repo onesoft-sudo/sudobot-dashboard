@@ -5,7 +5,7 @@ import { useAuthContext } from "@/contexts/AuthContext";
 import { SettingCardProps } from "@/types/SetttingCardProps";
 import { Alert, Snackbar } from "@mui/material";
 import { Button } from "@nextui-org/react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { MdRestore, MdSave, MdWarning } from "react-icons/md";
@@ -63,6 +63,8 @@ const SettingsForm: FC<SettingsFormProps> = ({
         return () => window.removeEventListener("beforeunload", callback);
     }, [isDirty]);
 
+    const queryClient = useQueryClient();
+
     const mutation = useMutation({
         mutationKey: ["config", currentGuild?.id, user?.token],
         mutationFn: (data: Record<string, any>) =>
@@ -71,6 +73,11 @@ const SettingsForm: FC<SettingsFormProps> = ({
             }),
         onSuccess() {
             reset({}, { keepValues: true });
+            queryClient.invalidateQueries([
+                "config",
+                currentGuild?.id,
+                user?.token,
+            ]);
         },
     });
 
@@ -163,6 +170,7 @@ const SettingsForm: FC<SettingsFormProps> = ({
                     setValue,
                     setError,
                     clearErrors,
+                    reset,
                 })}
         </form>
     );
