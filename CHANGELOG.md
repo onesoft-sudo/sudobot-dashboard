@@ -1,3 +1,12 @@
+## [0.38.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.38.0...v0.38.1) (2023-09-28)
+
+
+### Bug Fixes
+
+* grammatical error ([72b1ab1](https://github.com/onesoft-sudo/sudobot-dashboard/commit/72b1ab1ba414a5de49312410369d98f5d79e5155))
+
+
+
 # [0.38.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.37.0...v0.38.0) (2023-09-28)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * typo ([c283c5e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c283c5e7cf09253844a008882c1e03a487878c89))
-
-
-
-# [0.36.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.35.0...v0.36.0) (2023-09-28)
-
-
-### Features
-
-* **automod:** blocked word and token management ([2d37f0b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/2d37f0b4200e7162ac7814805fac11649b66416d))
 
 
 

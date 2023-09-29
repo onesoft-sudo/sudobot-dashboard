@@ -57,7 +57,7 @@ const BlockedWordAndTokenCard: FC<SettingCardProps> = ({
                         className="link"
                         onClick={() => toggleExplanation()}
                     >
-                        What are the difference between a token and a word?
+                        What are the differences between a token and a word?
                     </a>
                 </p>
                 <div className="relative w-[100%]">
