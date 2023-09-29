@@ -1,3 +1,13 @@
+# [0.39.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.38.1...v0.39.0) (2023-09-29)
+
+
+### Features
+
+* add review support ([fd65b6c](https://github.com/onesoft-sudo/sudobot-dashboard/commit/fd65b6c3150d102ec12491b80b880e8ed7b481e7))
+* complete review system ([afe1040](https://github.com/onesoft-sudo/sudobot-dashboard/commit/afe104086c38fa0b63cc1666223a941b528b29ea))
+
+
+
 ## [0.38.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.38.0...v0.38.1) (2023-09-28)
 
 
@@ -31,15 +41,6 @@
 ### Bug Fixes
 
 * invalid config query on mutation ([85fb1fd](https://github.com/onesoft-sudo/sudobot-dashboard/commit/85fb1fd3fe36e2deef97d5f8035aa23a825a39cd))
-
-
-
-## [0.36.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.36.0...v0.36.1) (2023-09-28)
-
-
-### Bug Fixes
-
-* typo ([c283c5e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c283c5e7cf09253844a008882c1e03a487878c89))
 
 
 
