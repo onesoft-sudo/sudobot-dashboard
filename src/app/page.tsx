@@ -1,4 +1,5 @@
 import Footer from "@/components/Common/Footer";
+import ReviewList from "@/components/Home/ReviewList";
 import FeatureOverview from "../components/Home/FeatureOverview";
 import Top from "../components/Home/Top";
 
@@ -12,6 +13,7 @@ export default function Home() {
                 <br />
                 <br />
                 <br />
+                <ReviewList />
             </main>
 
             <Footer />

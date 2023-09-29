@@ -12,6 +12,12 @@ export class API {
         return `${API_URL}/auth/login`;
     }
 
+    static reviews(id?: string | number) {
+        return `${API_URL}/reviews${
+            id === undefined ? "" : `/${encodeURIComponent(id.toString())}`
+        }`;
+    }
+
     static recovery() {
         return `${API_URL}/auth/recovery`;
     }
