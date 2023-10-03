@@ -116,44 +116,49 @@ const SettingsForm: FC<SettingsFormProps> = ({
                         </Alert>
                     </Snackbar>
 
-                    <div className="justify-end flex pr-2 md:px-5 pt-4 md:pt-[25px] gap-3 items-center">
+                    <div className="justify-end md:flex pr-2 md:px-5 pt-4 md:pt-[25px] gap-3 items-center">
                         {isDirty && (
                             <div className="text-orange-500 flex items-center gap-2 pr-5">
                                 <MdWarning /> You have unsaved changes!
                             </div>
                         )}
 
-                        <Button
-                            type="button"
-                            variant="flat"
-                            color="danger"
-                            startContent={<MdRestore />}
-                            radius="sm"
-                            onClick={() => {
-                                console.log("Reset");
+                        <div className="flex justify-end items-center">
+                            <Button
+                                type="button"
+                                variant="flat"
+                                color="danger"
+                                startContent={<MdRestore />}
+                                radius="sm"
+                                onClick={() => {
+                                    console.log("Reset");
 
-                                formRef.current?.reset();
-                                reset();
+                                    formRef.current?.reset();
+                                    reset();
 
-                                setState(s => ({ ...s, resetting: true }));
+                                    setState(s => ({ ...s, resetting: true }));
 
-                                setTimeout(() => {
-                                    setState(s => ({ ...s, resetting: false }));
-                                }, 200);
-                            }}
-                        >
-                            Reset
-                        </Button>
+                                    setTimeout(() => {
+                                        setState(s => ({
+                                            ...s,
+                                            resetting: false,
+                                        }));
+                                    }, 200);
+                                }}
+                            >
+                                Reset
+                            </Button>
 
-                        <Button
-                            type="submit"
-                            variant="flat"
-                            color="primary"
-                            startContent={<MdSave />}
-                            radius="sm"
-                        >
-                            Save Changes
-                        </Button>
+                            <Button
+                                type="submit"
+                                variant="flat"
+                                color="primary"
+                                startContent={<MdSave />}
+                                radius="sm"
+                            >
+                                Save Changes
+                            </Button>
+                        </div>
                     </div>
                 </>
             )}
