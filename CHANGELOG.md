@@ -1,3 +1,17 @@
+# [0.40.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.39.0...v0.40.0) (2023-10-03)
+
+
+### Bug Fixes
+
+* **mobile:** form modification alert breaks the flexbox ([bc5b2c1](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bc5b2c1c6a576bc52f6a2391b2ed55b7954348ed))
+
+
+### Features
+
+* add gradient colored texts ([a2d1cb0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a2d1cb0ca4c391ee8a47b86af6733628fdf8b786))
+
+
+
 # [0.39.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.38.1...v0.39.0) (2023-09-29)
 
 
@@ -32,15 +46,6 @@
 ### Features
 
 * message rules page ([210775e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/210775e9c025e59bb0d3d4d4c35854870e7a3e96))
-
-
-
-## [0.36.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.36.1...v0.36.2) (2023-09-28)
-
-
-### Bug Fixes
-
-* invalid config query on mutation ([85fb1fd](https://github.com/onesoft-sudo/sudobot-dashboard/commit/85fb1fd3fe36e2deef97d5f8035aa23a825a39cd))
 
 
 
