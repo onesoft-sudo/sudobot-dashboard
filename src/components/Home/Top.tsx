@@ -26,8 +26,19 @@ const Top: FC = () => {
                             A single Discord Bot for everything you need.
                         </h1>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium md:font-bold text-center md:text-left text-blue-600 my-5">
-                            SudoBot<span className="text-white">.</span>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium md:font-bold text-center md:text-left my-5">
+                            <span
+                                style={{
+                                    background:
+                                        "linear-gradient(-45deg, #19dafa, #007bff)",
+                                    backgroundClip: "text",
+                                    WebkitBackgroundClip: "text",
+                                    color: "transparent",
+                                }}
+                            >
+                                SudoBot
+                            </span>
+                            <span className="text-white">.</span>
                         </h1>
 
                         <h2 className="my-3 md:my-0 text-2xl md:text-4xl font-light text-center md:text-left hidden md:block">
