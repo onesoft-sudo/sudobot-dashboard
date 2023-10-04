@@ -1,3 +1,12 @@
+## [0.40.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.40.0...v0.40.1) (2023-10-04)
+
+
+### Bug Fixes
+
+* **mobile:** unsaved changes snackbar ([953a585](https://github.com/onesoft-sudo/sudobot-dashboard/commit/953a5853f9e0d60ac9c55619c40112c4b0aca50c))
+
+
+
 # [0.40.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.39.0...v0.40.0) (2023-10-03)
 
 
@@ -37,15 +46,6 @@
 ### Features
 
 * add beta badge ([7c32ea6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/7c32ea62802b9b7dea3441cc729538ab740b6093))
-
-
-
-# [0.37.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.36.2...v0.37.0) (2023-09-28)
-
-
-### Features
-
-* message rules page ([210775e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/210775e9c025e59bb0d3d4d4c35854870e7a3e96))
 
 
 
