@@ -1,3 +1,12 @@
+## [0.41.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.41.0...v0.41.1) (2023-10-04)
+
+
+### Bug Fixes
+
+* auto logout if the token expires ([e76ecb4](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e76ecb464fbec7739b236335f02b19c7410d91a8))
+
+
+
 # [0.41.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.40.1...v0.41.0) (2023-10-04)
 
 
@@ -37,15 +46,6 @@
 
 * add review support ([fd65b6c](https://github.com/onesoft-sudo/sudobot-dashboard/commit/fd65b6c3150d102ec12491b80b880e8ed7b481e7))
 * complete review system ([afe1040](https://github.com/onesoft-sudo/sudobot-dashboard/commit/afe104086c38fa0b63cc1666223a941b528b29ea))
-
-
-
-## [0.38.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.38.0...v0.38.1) (2023-09-28)
-
-
-### Bug Fixes
-
-* grammatical error ([72b1ab1](https://github.com/onesoft-sudo/sudobot-dashboard/commit/72b1ab1ba414a5de49312410369d98f5d79e5155))
 
 
 
