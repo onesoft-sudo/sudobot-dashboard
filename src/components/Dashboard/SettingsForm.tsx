@@ -2,8 +2,9 @@
 
 import { getConfig, putConfig } from "@/api/config";
 import { useAuthContext } from "@/contexts/AuthContext";
+import useIsDesktop from "@/hooks/useIsDesktop";
 import { SettingCardProps } from "@/types/SetttingCardProps";
-import { Alert, Snackbar } from "@mui/material";
+import { Alert, Button as MUIButton, Snackbar } from "@mui/material";
 import { Button } from "@nextui-org/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
@@ -87,6 +88,23 @@ const SettingsForm: FC<SettingsFormProps> = ({
         onSubmit?.(data);
         mutation.mutate(data);
     };
+    const isDesktop = useIsDesktop();
+
+    const formReset = () => {
+        console.log("Reset");
+
+        formRef.current?.reset();
+        reset();
+
+        setState(s => ({ ...s, resetting: true }));
+
+        setTimeout(() => {
+            setState(s => ({
+                ...s,
+                resetting: false,
+            }));
+        }, 200);
+    };
 
     return (
         <form
@@ -117,11 +135,48 @@ const SettingsForm: FC<SettingsFormProps> = ({
                     </Snackbar>
 
                     <div className="justify-end md:flex pr-2 md:px-5 pt-4 md:pt-[25px] gap-3 items-center">
-                        {isDirty && (
-                            <div className="text-orange-500 flex items-center gap-2 pr-5">
-                                <MdWarning /> You have unsaved changes!
-                            </div>
-                        )}
+                        {isDirty &&
+                            (isDesktop ? (
+                                <div className="text-orange-500 flex items-center gap-2 pr-5">
+                                    <MdWarning /> You have unsaved changes!
+                                </div>
+                            ) : (
+                                <Snackbar open={isDirty}>
+                                    <Alert
+                                        style={{
+                                            width: "100%",
+                                            maxWidth: "100%",
+                                            position: "relative",
+                                        }}
+                                        severity="warning"
+                                        icon={false}
+                                    >
+                                        <div className="flex justify-between items-center w-[100%] max-w-[100%] min-w-[100%]">
+                                            <div className="flex items-center gap-3">
+                                                <MdWarning size={20} />
+
+                                                <span>
+                                                    You have unsaved changes!
+                                                </span>
+                                            </div>
+
+                                            <div>
+                                                <MUIButton
+                                                    color="primary"
+                                                    size="small"
+                                                    onClick={() =>
+                                                        formRef.current?.requestSubmit()
+                                                    }
+                                                    type="button"
+                                                    className="absolute right-[10px] top-[50%] -translate-y-[50%]"
+                                                >
+                                                    SAVE
+                                                </MUIButton>
+                                            </div>
+                                        </div>
+                                    </Alert>
+                                </Snackbar>
+                            ))}
 
                         <div className="flex justify-end items-center">
                             <Button
@@ -130,21 +185,7 @@ const SettingsForm: FC<SettingsFormProps> = ({
                                 color="danger"
                                 startContent={<MdRestore />}
                                 radius="sm"
-                                onClick={() => {
-                                    console.log("Reset");
-
-                                    formRef.current?.reset();
-                                    reset();
-
-                                    setState(s => ({ ...s, resetting: true }));
-
-                                    setTimeout(() => {
-                                        setState(s => ({
-                                            ...s,
-                                            resetting: false,
-                                        }));
-                                    }, 200);
-                                }}
+                                onClick={formReset}
                             >
                                 Reset
                             </Button>
