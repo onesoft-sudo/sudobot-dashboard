@@ -1,3 +1,12 @@
+# [0.41.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.40.1...v0.41.0) (2023-10-04)
+
+
+### Features
+
+* **scripts:** add license comment automation script ([e9c823d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e9c823dcd03295fee4156d75ffaaa5aae16762e6))
+
+
+
 ## [0.40.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.40.0...v0.40.1) (2023-10-04)
 
 
@@ -37,15 +46,6 @@
 ### Bug Fixes
 
 * grammatical error ([72b1ab1](https://github.com/onesoft-sudo/sudobot-dashboard/commit/72b1ab1ba414a5de49312410369d98f5d79e5155))
-
-
-
-# [0.38.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.37.0...v0.38.0) (2023-09-28)
-
-
-### Features
-
-* add beta badge ([7c32ea6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/7c32ea62802b9b7dea3441cc729538ab740b6093))
 
 
 
