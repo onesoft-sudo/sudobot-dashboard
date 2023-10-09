@@ -35,6 +35,7 @@ const HomeButtons: FC = () => {
                 color="primary"
                 href={BOT_INVITE_REQUEST_URL}
                 target="_blank"
+                className="hover:outline-2 hover:outline-blue-600"
             >
                 Invite
             </Button>
@@ -48,6 +49,7 @@ const HomeButtons: FC = () => {
                 color="primary"
                 href={DOCS_SELF_SETUP_URL}
                 target="_blank"
+                className="hover:outline-2 hover:outline-blue-600"
             >
                 Set up yourself
             </Button>
