@@ -1,0 +1,13 @@
+.review::-webkit-scrollbar {
+    width: 5px;
+}
+
+.review::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 5px;
+}
+
+.review {
+    scrollbar-width: 5px;
+    -ms-overflow-style: none;
+}

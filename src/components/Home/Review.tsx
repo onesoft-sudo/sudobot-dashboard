@@ -20,6 +20,7 @@
 import type { APIReview } from "@/types/APIReview";
 import { Progress } from "@nextui-org/react";
 import { FC } from "react";
+import styles from '../../styles/Review.module.css';
 
 interface ReviewProps {
     review: APIReview;
@@ -27,7 +28,7 @@ interface ReviewProps {
 
 const Review: FC<ReviewProps> = ({ review }) => {
     return (
-        <div className="p-2 text-center w-[100%] block">
+        <div className={`p-2 text-center w-[100%] block h-[200px] max-h-[200px] overflow-y-scroll ${styles.review}`}>
             <h3 className="font-bold text-xl lg:text-2xl">
                 {review.reviewer ?? "Anonymous"}
             </h3>
@@ -54,8 +55,8 @@ const Review: FC<ReviewProps> = ({ review }) => {
                 />
             </div>
             <div className="pt-3">
-                <blockquote className=" text-[#999] text-center">
-                    &ldquo;{review.content}&rdquo;
+                <blockquote className="text-[#999] text-center">
+                    &ldquo;{review.content.trim().split('\n').map((str, index, array) => <>{str}{array.length - 1 > index && <br />}</>)}&rdquo;
                 </blockquote>
             </div>
         </div>
