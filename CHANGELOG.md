@@ -1,3 +1,12 @@
+## [0.41.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.41.2...v0.41.3) (2023-10-09)
+
+
+### Bug Fixes
+
+* **buttons:** add missing hover effects to the buttons in home page ([657924f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/657924f2e98a079465d3cc9a2d9c6ab3eff85d96))
+
+
+
 ## [0.41.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.41.1...v0.41.2) (2023-10-09)
 
 
@@ -31,20 +40,6 @@
 ### Bug Fixes
 
 * **mobile:** unsaved changes snackbar ([953a585](https://github.com/onesoft-sudo/sudobot-dashboard/commit/953a5853f9e0d60ac9c55619c40112c4b0aca50c))
-
-
-
-# [0.40.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.39.0...v0.40.0) (2023-10-03)
-
-
-### Bug Fixes
-
-* **mobile:** form modification alert breaks the flexbox ([bc5b2c1](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bc5b2c1c6a576bc52f6a2391b2ed55b7954348ed))
-
-
-### Features
-
-* add gradient colored texts ([a2d1cb0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a2d1cb0ca4c391ee8a47b86af6733628fdf8b786))
 
 
 
