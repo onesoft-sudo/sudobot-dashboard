@@ -1,3 +1,12 @@
+# [0.42.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.41.3...v0.42.0) (2023-10-12)
+
+
+### Features
+
+* auto logout if a request fails with 401 ([34b894a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/34b894a0bd4d86ce5dab958b58f498106c679cd4))
+
+
+
 ## [0.41.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.41.2...v0.41.3) (2023-10-09)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * **scripts:** add license comment automation script ([e9c823d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e9c823dcd03295fee4156d75ffaaa5aae16762e6))
-
-
-
-## [0.40.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.40.0...v0.40.1) (2023-10-04)
-
-
-### Bug Fixes
-
-* **mobile:** unsaved changes snackbar ([953a585](https://github.com/onesoft-sudo/sudobot-dashboard/commit/953a5853f9e0d60ac9c55619c40112c4b0aca50c))
 
 
 
