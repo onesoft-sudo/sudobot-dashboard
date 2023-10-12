@@ -19,7 +19,7 @@
 
 "use client";
 
-import { login } from "@/api/auth";
+import { login } from "@/api/routes/auth";
 import { AuthContextAction, useAuthContext } from "@/contexts/AuthContext";
 import { useRouterContext } from "@/contexts/RouterContext";
 import {

@@ -19,7 +19,7 @@
 
 "use client";
 
-import { getPermissionRoles } from "@/api/permissionRoles";
+import { getPermissionRoles } from "@/api/routes/permissionRoles";
 import { useAuthContext } from "@/contexts/AuthContext";
 import { SettingCardProps } from "@/types/SetttingCardProps";
 import { Button } from "@mui/material";

@@ -19,7 +19,7 @@
 
 "use client";
 
-import { getReviews } from "@/api/reviews";
+import { getReviews } from "@/api/routes/reviews";
 import { LinearProgress } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { FC } from "react";

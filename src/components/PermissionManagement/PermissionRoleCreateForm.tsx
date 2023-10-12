@@ -17,7 +17,7 @@
 * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { createPermissionRole } from "@/api/permissionRoles";
+import { createPermissionRole } from "@/api/routes/permissionRoles";
 import { useAuthContext } from "@/contexts/AuthContext";
 import { Alert } from "@mui/material";
 import { Button, Input, Textarea } from "@nextui-org/react";

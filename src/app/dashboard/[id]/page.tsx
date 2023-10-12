@@ -17,7 +17,7 @@
 * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { getAnnouncements } from "@/api/announcements";
+import { getAnnouncements } from "@/api/routes/announcements";
 import DashboardCards from "@/components/Dashboard/DashboardCards";
 import Welcome from "@/components/Dashboard/Welcome";
 import { Metadata } from "next";

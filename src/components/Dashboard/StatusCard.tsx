@@ -19,7 +19,7 @@
 
 "use client";
 
-import { getStatus } from "@/api/status";
+import { getStatus } from "@/api/routes/status";
 import { APIStatus } from "@/types/APIStatus";
 import { Skeleton } from "@mui/material";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";

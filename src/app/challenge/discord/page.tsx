@@ -19,7 +19,7 @@
 
 "use client";
 
-import { discordLogin } from "@/api/auth";
+import { discordLogin } from "@/api/routes/auth";
 import DiscordLogin from "@/components/Login/DiscordLogin";
 import { AuthContextAction, useAuthContext } from "@/contexts/AuthContext";
 import { useRouterContext } from "@/contexts/RouterContext";

@@ -19,7 +19,7 @@
 
 "use client";
 
-import { createReview } from "@/api/reviews";
+import { createReview } from "@/api/routes/reviews";
 import {
     Alert,
     Box,

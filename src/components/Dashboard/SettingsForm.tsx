@@ -19,7 +19,7 @@
 
 "use client";
 
-import { getConfig, putConfig } from "@/api/config";
+import { getConfig, putConfig } from "@/api/routes/config";
 import { useAuthContext } from "@/contexts/AuthContext";
 import useIsDesktop from "@/hooks/useIsDesktop";
 import { SettingCardProps } from "@/types/SetttingCardProps";

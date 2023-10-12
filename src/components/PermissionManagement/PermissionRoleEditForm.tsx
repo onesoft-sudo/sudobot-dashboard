@@ -17,7 +17,7 @@
 * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { patchPermissionRole } from "@/api/permissionRoles";
+import { patchPermissionRole } from "@/api/routes/permissionRoles";
 import { useAuthContext } from "@/contexts/AuthContext";
 import { APIPermissionRole } from "@/types/APIPermissionRole";
 import { Alert } from "@mui/material";

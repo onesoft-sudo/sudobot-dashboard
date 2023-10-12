@@ -17,7 +17,7 @@
 * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { deletePermissionRole } from "@/api/permissionRoles";
+import { deletePermissionRole } from "@/api/routes/permissionRoles";
 import useAuthWithCheck from "@/hooks/useAuthWithCheck";
 import {
     Button,
