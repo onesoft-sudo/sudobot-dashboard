@@ -1,26 +1,27 @@
 /*
-* This file is part of SudoBot Dashboard.
-*
-* Copyright (C) 2021-2023 OSN Developers.
-*
-* SudoBot Dashboard is free software; you can redistribute it and/or modify it
-* under the terms of the GNU Affero General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* SudoBot Dashboard is distributed in the hope that it will be useful, but
-* WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-* GNU Affero General Public License for more details.
-*
-* You should have received a copy of the GNU Affero General Public License
-* along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
-*/
+ * This file is part of SudoBot Dashboard.
+ *
+ * Copyright (C) 2021-2023 OSN Developers.
+ *
+ * SudoBot Dashboard is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * SudoBot Dashboard is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
+ */
 
 "use client";
 
 import { getConfig, putConfig } from "@/api/routes/config";
 import { useAuthContext } from "@/contexts/AuthContext";
+import useAxios from "@/hooks/useAxios";
 import useIsDesktop from "@/hooks/useIsDesktop";
 import { SettingCardProps } from "@/types/SetttingCardProps";
 import { Alert, Button as MUIButton, Snackbar } from "@mui/material";
@@ -61,10 +62,11 @@ const SettingsForm: FC<SettingsFormProps> = ({
 
     const { currentGuild, user } = useAuthContext();
 
+    const axios = useAxios();
     const query = useQuery({
         queryKey: ["config", currentGuild?.id, user?.token],
         queryFn: () =>
-            getConfig(currentGuild?.id ?? "", user?.token ?? "", true),
+            getConfig(currentGuild?.id ?? "", user?.token ?? "", true, axios),
         enabled: noInitialLoad && !!(currentGuild?.id && user?.token),
     });
 
@@ -88,9 +90,14 @@ const SettingsForm: FC<SettingsFormProps> = ({
     const mutation = useMutation({
         mutationKey: ["config", currentGuild?.id, user?.token],
         mutationFn: (data: Record<string, any>) =>
-            putConfig(currentGuild?.id ?? "", user?.token ?? "", {
-                data,
-            }),
+            putConfig(
+                currentGuild?.id ?? "",
+                user?.token ?? "",
+                {
+                    data,
+                },
+                axios
+            ),
         onSuccess() {
             reset({}, { keepValues: true });
             queryClient.invalidateQueries([

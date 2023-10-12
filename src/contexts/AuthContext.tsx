@@ -19,8 +19,10 @@
 
 "use client";
 
+import { createAxiosInstance } from "@/api/axios";
 import { APIGuild } from "@/types/APIGuild";
 import { APIUser } from "@/types/APIUser";
+import { Axios, AxiosError } from "axios";
 import { useParams, usePathname } from "next/navigation";
 import {
     Dispatch,
@@ -35,6 +37,7 @@ interface AuthContextData {
     user: APIUser | null | undefined;
     currentGuild?: APIGuild | null;
     dispatch?: Dispatch<AuthContextReducerAction>;
+    axios: Axios;
 }
 
 export enum AuthContextAction {
@@ -77,10 +80,51 @@ type AuthContextReducerAction =
 
 export const AuthContext = createContext<AuthContextData>({
     user: undefined,
+    axios: createAxiosInstance(),
 });
 
 export function useAuthContext() {
     return useContext(AuthContext);
+}
+
+function makeAxios(token?: string, onUnauthorized?: Function) {
+    const axios = createAxiosInstance({
+        headers: {
+            Authorization: token
+                ? `Bearer ${encodeURIComponent(token)}`
+                : undefined,
+        },
+    });
+
+    if (onUnauthorized) {
+        console.log("onUnauthorized is present");
+
+        axios.interceptors.response.use(undefined, error => {
+            console.log("Caught error", error);
+
+            if (error instanceof AxiosError && error.response?.status === 401) {
+                console.log("Unauthorized. Logging out");
+                try {
+                    localStorage.removeItem("user");
+                } catch (e) {
+                    console.log(e);
+                }
+
+                try {
+                    sessionStorage.removeItem("user");
+                } catch (e) {
+                    console.log(e);
+                }
+
+                onUnauthorized();
+                location.reload();
+            }
+
+            return error;
+        });
+    }
+
+    return axios;
 }
 
 export const AuthContextReducer = (
@@ -91,6 +135,10 @@ export const AuthContextReducer = (
         case AuthContextAction.Login:
             return {
                 ...state,
+                axios: makeAxios(action.payload.user.token, () => {
+                    console.log("Calling", state.dispatch);
+                    state.dispatch?.({ type: AuthContextAction.Logout });
+                }),
                 user: action.payload.user,
                 currentGuild:
                     (action.payload.guild
@@ -113,7 +161,12 @@ export const AuthContextReducer = (
                     sessionStorage.removeItem("discord_oauth_state");
                 }
             } catch (e) {}
-            return { ...state, user: null, currentGuild: null };
+            return {
+                ...state,
+                user: null,
+                currentGuild: null,
+                axios: createAxiosInstance(),
+            };
         case AuthContextAction.SwitchGuild:
             const guild = state.user?.guilds.find(g => g.id === action.payload);
 
@@ -145,6 +198,9 @@ export const AuthContextReducer = (
             return {
                 ...state,
                 user,
+                axios: makeAxios(user.token, () =>
+                    state.dispatch?.({ type: AuthContextAction.Logout })
+                ),
             };
         case AuthContextAction.Reload:
             try {
@@ -156,7 +212,15 @@ export const AuthContextReducer = (
                     return state;
                 }
 
-                return { ...state, user: JSON.parse(user) };
+                const parsed = JSON.parse(user);
+
+                return {
+                    ...state,
+                    user: parsed,
+                    axios: makeAxios(parsed.token, () =>
+                        state.dispatch?.({ type: AuthContextAction.Logout })
+                    ),
+                };
             } catch (e) {
                 return state;
             }
@@ -169,6 +233,7 @@ export function AuthContextProvider({ children }: PropsWithChildren) {
     const [state, dispatch] = useReducer(AuthContextReducer, {
         user: undefined,
         currentGuild: undefined,
+        axios: createAxiosInstance(),
     });
 
     const pathname = usePathname()!;
