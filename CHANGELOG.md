@@ -1,3 +1,12 @@
+## [0.42.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.0...v0.42.1) (2023-10-13)
+
+
+### Bug Fixes
+
+* button spacing and broken snackbar ([88d9e4e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/88d9e4eef7d7725f5c6b0026e81cff3da7c43edf))
+
+
+
 # [0.42.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.41.3...v0.42.0) (2023-10-12)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * auto logout if the token expires ([e76ecb4](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e76ecb464fbec7739b236335f02b19c7410d91a8))
-
-
-
-# [0.41.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.40.1...v0.41.0) (2023-10-04)
-
-
-### Features
-
-* **scripts:** add license comment automation script ([e9c823d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e9c823dcd03295fee4156d75ffaaa5aae16762e6))
 
 
 
