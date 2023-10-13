@@ -169,42 +169,36 @@ const SettingsForm: FC<SettingsFormProps> = ({
                             ) : (
                                 <Snackbar open={isDirty}>
                                     <Alert
-                                        style={{
-                                            width: "100%",
-                                            maxWidth: "100%",
-                                            position: "relative",
-                                        }}
+                                        className="w-[100%] max-w-[100%] relative sm:w-[calc(100vw-40px)] md:w-[40vw] lg:w-[20vw]"
                                         severity="warning"
                                         icon={false}
                                     >
-                                        <div className="flex justify-between items-center w-[100%] max-w-[100%] min-w-[100%]">
-                                            <div className="flex items-center gap-3">
-                                                <MdWarning size={20} />
+                                        <div className="flex items-center gap-3">
+                                            <MdWarning size={20} />
 
-                                                <span>
-                                                    You have unsaved changes!
-                                                </span>
-                                            </div>
+                                            <span>
+                                                You have unsaved changes!
+                                            </span>
+                                        </div>
 
-                                            <div>
-                                                <MUIButton
-                                                    color="primary"
-                                                    size="small"
-                                                    onClick={() =>
-                                                        formRef.current?.requestSubmit()
-                                                    }
-                                                    type="button"
-                                                    className="absolute right-[10px] top-[50%] -translate-y-[50%]"
-                                                >
-                                                    SAVE
-                                                </MUIButton>
-                                            </div>
+                                        <div>
+                                            <MUIButton
+                                                color="primary"
+                                                size="small"
+                                                onClick={() =>
+                                                    formRef.current?.requestSubmit()
+                                                }
+                                                type="button"
+                                                className="absolute right-[10px] top-[50%] -translate-y-[50%]"
+                                            >
+                                                SAVE
+                                            </MUIButton>
                                         </div>
                                     </Alert>
                                 </Snackbar>
                             ))}
 
-                        <div className="flex justify-end items-center">
+                        <div className="flex justify-end items-center gap-3">
                             <Button
                                 type="button"
                                 variant="flat"
