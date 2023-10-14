@@ -1,3 +1,12 @@
+## [0.42.5](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.4...v0.42.5) (2023-10-14)
+
+
+### Bug Fixes
+
+* message rule card title spacing on mobile ([4078e45](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4078e4541c55e1b5f467636d993dfeb1f6822777))
+
+
+
 ## [0.42.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.3...v0.42.4) (2023-10-14)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * button spacing and broken snackbar ([88d9e4e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/88d9e4eef7d7725f5c6b0026e81cff3da7c43edf))
-
-
-
-# [0.42.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.41.3...v0.42.0) (2023-10-12)
-
-
-### Features
-
-* auto logout if a request fails with 401 ([34b894a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/34b894a0bd4d86ce5dab958b58f498106c679cd4))
 
 
 
