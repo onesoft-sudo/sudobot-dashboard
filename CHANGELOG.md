@@ -1,3 +1,12 @@
+## [0.42.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.2...v0.42.3) (2023-10-14)
+
+
+### Bug Fixes
+
+* broken snackbar on mobile ([0587e3a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0587e3abeb68c96147a3fe0ff1ea037c16727412))
+
+
+
 ## [0.42.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.1...v0.42.2) (2023-10-13)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **buttons:** add missing hover effects to the buttons in home page ([657924f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/657924f2e98a079465d3cc9a2d9c6ab3eff85d96))
-
-
-
-## [0.41.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.41.1...v0.41.2) (2023-10-09)
-
-
-### Bug Fixes
-
-* height changes when going back or next in the community reviews ([4c79261](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4c79261ee20adedc0eb44574cb4835b66dede705))
 
 
 
