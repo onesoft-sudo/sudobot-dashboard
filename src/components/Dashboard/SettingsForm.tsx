@@ -168,11 +168,12 @@ const SettingsForm: FC<SettingsFormProps> = ({
                                 </div>
                             ) : (
                                 <Snackbar open={isDirty}>
-                                    <Alert
+                                    {/* <Alert
                                         className="w-[100%] max-w-[100%] relative sm:w-[calc(100vw-40px)] md:w-[40vw] lg:w-[20vw]"
                                         severity="warning"
                                         icon={false}
-                                    >
+                                    > */}
+                                    <div className="text-orange-300 flex justify-between pl-3 text-sm pr-2 items-center m-3 bg-[#222] w-[100%] py-2 rounded-lg">
                                         <div className="flex items-center gap-3">
                                             <MdWarning size={20} />
 
@@ -189,12 +190,12 @@ const SettingsForm: FC<SettingsFormProps> = ({
                                                     formRef.current?.requestSubmit()
                                                 }
                                                 type="button"
-                                                className="absolute right-[10px] top-[50%] -translate-y-[50%]"
                                             >
                                                 SAVE
                                             </MUIButton>
                                         </div>
-                                    </Alert>
+                                    </div>
+                                    {/* </Alert> */}
                                 </Snackbar>
                             ))}
 
