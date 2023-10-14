@@ -1,3 +1,12 @@
+# [0.43.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.5...v0.43.0) (2023-10-14)
+
+
+### Features
+
+* add message rule create modal ([52da848](https://github.com/onesoft-sudo/sudobot-dashboard/commit/52da848ec69739f81fd31b0cc589dd8253da5b3c))
+
+
+
 ## [0.42.5](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.4...v0.42.5) (2023-10-14)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * import path ([6d9a0d4](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6d9a0d41a68979e27db275f845dbf17c5ac73b6c))
-
-
-
-## [0.42.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.0...v0.42.1) (2023-10-13)
-
-
-### Bug Fixes
-
-* button spacing and broken snackbar ([88d9e4e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/88d9e4eef7d7725f5c6b0026e81cff3da7c43edf))
 
 
 
