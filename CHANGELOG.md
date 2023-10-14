@@ -1,3 +1,12 @@
+## [0.42.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.1...v0.42.2) (2023-10-13)
+
+
+### Bug Fixes
+
+* import path ([6d9a0d4](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6d9a0d41a68979e27db275f845dbf17c5ac73b6c))
+
+
+
 ## [0.42.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.0...v0.42.1) (2023-10-13)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * height changes when going back or next in the community reviews ([4c79261](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4c79261ee20adedc0eb44574cb4835b66dede705))
-
-
-
-## [0.41.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.41.0...v0.41.1) (2023-10-04)
-
-
-### Bug Fixes
-
-* auto logout if the token expires ([e76ecb4](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e76ecb464fbec7739b236335f02b19c7410d91a8))
 
 
 
