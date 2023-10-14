@@ -1,3 +1,12 @@
+## [0.42.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.3...v0.42.4) (2023-10-14)
+
+
+### Bug Fixes
+
+* **types:** environment variable types ([7813a71](https://github.com/onesoft-sudo/sudobot-dashboard/commit/7813a7189bcb5448583dffaeebd7e4454864e986))
+
+
+
 ## [0.42.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.2...v0.42.3) (2023-10-14)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * auto logout if a request fails with 401 ([34b894a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/34b894a0bd4d86ce5dab958b58f498106c679cd4))
-
-
-
-## [0.41.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.41.2...v0.41.3) (2023-10-09)
-
-
-### Bug Fixes
-
-* **buttons:** add missing hover effects to the buttons in home page ([657924f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/657924f2e98a079465d3cc9a2d9c6ab3eff85d96))
 
 
 
