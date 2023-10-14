@@ -35,6 +35,7 @@ const MessageRuleCard: FC<SettingCardProps> = ({
         enabled: !!config?.message_rules?.enabled,
     }));
     const isDesktop = useIsDesktop();
+    const [isCreating, setIsCreating] = useState(false);
 
     return (
         <Card>
@@ -50,7 +51,12 @@ const MessageRuleCard: FC<SettingCardProps> = ({
                     </div>
                     <div className="flex items-center gap-3">
                         {state.enabled && isDesktop && (
-                            <Button startIcon={<MdAdd />}>Create</Button>
+                            <Button
+                                onClick={() => setIsCreating(true)}
+                                startIcon={<MdAdd />}
+                            >
+                                Create
+                            </Button>
                         )}
                         <Switch
                             defaultChecked={!!config?.message_rules?.enabled}
@@ -72,11 +78,19 @@ const MessageRuleCard: FC<SettingCardProps> = ({
                     Control what messages can be sent in your server.
                 </p>
 
-                <MessageRules rules={config?.message_rules?.rules ?? []} />
+                <MessageRules
+                    rules={config?.message_rules?.rules ?? []}
+                    createFormOpenState={[isCreating, setIsCreating]}
+                />
 
                 <div className="flex items-center justify-end mt-3">
                     {state.enabled && !isDesktop && (
-                        <Button startIcon={<MdAdd />}>Create</Button>
+                        <Button
+                            onClick={() => setIsCreating(true)}
+                            startIcon={<MdAdd />}
+                        >
+                            Create
+                        </Button>
                     )}
                 </div>
             </CardBody>
