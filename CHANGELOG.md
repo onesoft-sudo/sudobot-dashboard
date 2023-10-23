@@ -1,3 +1,12 @@
+# [0.44.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.43.0...v0.44.0) (2023-10-23)
+
+
+### Features
+
+* change font ([56c65fc](https://github.com/onesoft-sudo/sudobot-dashboard/commit/56c65fc2ede346d8270b50f8011dc126083aba2f))
+
+
+
 # [0.43.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.5...v0.43.0) (2023-10-14)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * broken snackbar on mobile ([0587e3a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0587e3abeb68c96147a3fe0ff1ea037c16727412))
-
-
-
-## [0.42.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.1...v0.42.2) (2023-10-13)
-
-
-### Bug Fixes
-
-* import path ([6d9a0d4](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6d9a0d41a68979e27db275f845dbf17c5ac73b6c))
 
 
 
