@@ -25,7 +25,7 @@ import Navbar from "../components/Common/Navbar";
 import Script from "next/script";
 import "../styles/globals.css";
 
-const inter = Manrope({ subsets: ["latin"] });
+const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "SudoBot",
@@ -39,7 +39,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="dark">
-            <body className={inter.className}>
+            <body className={manrope.className}>
                 <Script src="https://www.googletagmanager.com/gtag/js?id=G-379PDRZ5H0" />
                 <Script id="google-analytics">
                     {`
