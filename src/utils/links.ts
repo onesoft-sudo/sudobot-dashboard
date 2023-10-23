@@ -28,11 +28,11 @@ import {
 
 export const BOT_INVITE_REQUEST_URL = "https://forms.gle/943kW9q25MpKEwW26";
 export const SUPPORT_EMAIL_ADDRESS = "mailto:rakinar2@onesoftnet.eu.org";
-export const DOCS_URL = "https://docs.sudobot.onesoftnet.eu.org";
+export const DOCS_URL = "http://docs.sudobot.onesoftnet.eu.org";
 export const BOT_TERMS_URL = `${DOCS_URL}/legal/terms`;
 export const BOT_PRIVACY_POLICY_URL = `${DOCS_URL}/legal/privacy`;
 export const BOT_GITHUB_REPO_URL = "https://github.com/onesoft-sudo/sudobot";
-export const BOT_STATUS_PAGE_URL = "https://osn.freshstatus.io/";
+export const BOT_STATUS_PAGE_URL = "http://osn.freshstatus.io/";
 export const SUPPORT_SERVER_INVITE = "https://discord.gg/892GWhTzgs";
 export const DOCS_SELF_SETUP_URL = `${DOCS_URL}/getting-started`;
 export const DOCS_FEATURES_URL = `${DOCS_URL}/features`;
