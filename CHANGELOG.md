@@ -1,3 +1,12 @@
+## [0.44.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.44.1...v0.44.2) (2023-10-23)
+
+
+### Bug Fixes
+
+* update linkd ([45328d3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/45328d3eaa6632a9304236d6d55667e3e4ea3adb))
+
+
+
 ## [0.44.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.44.0...v0.44.1) (2023-10-23)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * message rule card title spacing on mobile ([4078e45](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4078e4541c55e1b5f467636d993dfeb1f6822777))
-
-
-
-## [0.42.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.3...v0.42.4) (2023-10-14)
-
-
-### Bug Fixes
-
-* **types:** environment variable types ([7813a71](https://github.com/onesoft-sudo/sudobot-dashboard/commit/7813a7189bcb5448583dffaeebd7e4454864e986))
 
 
 
