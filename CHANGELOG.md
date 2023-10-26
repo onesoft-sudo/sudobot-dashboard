@@ -1,3 +1,13 @@
+# [0.45.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.44.2...v0.45.0) (2023-10-26)
+
+
+### Features
+
+* announcement ([6e8a328](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6e8a328be25c4cf6a455dbc766494d97ba64cbfc))
+* revamped landing page ([723fada](https://github.com/onesoft-sudo/sudobot-dashboard/commit/723fada3639d2810c205ab9c22912917bdf49522))
+
+
+
 ## [0.44.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.44.1...v0.44.2) (2023-10-23)
 
 
@@ -31,15 +41,6 @@
 ### Features
 
 * add message rule create modal ([52da848](https://github.com/onesoft-sudo/sudobot-dashboard/commit/52da848ec69739f81fd31b0cc589dd8253da5b3c))
-
-
-
-## [0.42.5](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.4...v0.42.5) (2023-10-14)
-
-
-### Bug Fixes
-
-* message rule card title spacing on mobile ([4078e45](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4078e4541c55e1b5f467636d993dfeb1f6822777))
 
 
 
