@@ -39,3 +39,10 @@ body {
     color: #036bd9;
     text-decoration: underline;
 }
+
+.gradient-text {
+    background: linear-gradient(45deg, #19dafa, #007bff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}

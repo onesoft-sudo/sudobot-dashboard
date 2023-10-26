@@ -18,7 +18,6 @@
  */
 
 import { FC } from "react";
-import styles from "../../styles/Top.module.css";
 import Shield from "../Images/Shield";
 import HomeButtons from "./HomeButtons";
 
@@ -30,13 +29,12 @@ const Top: FC = () => {
                 <div className="z-[10]">
                     <h1 className="block z-10 [line-height:2rem] md:[line-height:3.2rem] [font-size:2rem] md:text-5xl lg:text-6xl xl:text-7xl font-light md:font-bold text-center md:text-left">
                         The ultimate{" "}
-                        <span className={styles.gradientText}>Discord Bot</span>
-                        .
+                        <span className="gradient-text">Discord Bot</span>.
                         <span className="hidden md:inline">
                             <br />
                             <span className="block pt-8"></span>
                             With every{" "}
-                            <span className={styles.gradientText}>
+                            <span className="gradient-text">
                                 moderation tool
                             </span>{" "}
                             you&rsquo;ll ever need.
@@ -46,7 +44,7 @@ const Top: FC = () => {
                     <div className="h-[5px] w-[50%] md:w-[20%] bg-[linear-gradient(45deg,#007bff,#19dafa)] rounded-lg mt-8 mx-auto md:mx-0"></div>
 
                     <h1 className="block z-10 pt-8 [line-height:2rem] md:[line-height:3.2rem] [font-size:3rem] md:text-5xl lg:text-6xl xl:text-7xl font-light md:font-bold text-center md:text-left">
-                        <span className={styles.gradientText}>SudoBot.</span>
+                        <span className="gradient-text">SudoBot.</span>
                     </h1>
 
                     <br />
