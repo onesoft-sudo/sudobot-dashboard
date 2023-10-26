@@ -1,101 +1,68 @@
 /*
-* This file is part of SudoBot Dashboard.
-*
-* Copyright (C) 2021-2023 OSN Developers.
-*
-* SudoBot Dashboard is free software; you can redistribute it and/or modify it
-* under the terms of the GNU Affero General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* SudoBot Dashboard is distributed in the hope that it will be useful, but
-* WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-* GNU Affero General Public License for more details.
-*
-* You should have received a copy of the GNU Affero General Public License
-* along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
-*/
+ * This file is part of SudoBot Dashboard.
+ *
+ * Copyright (C) 2021-2023 OSN Developers.
+ *
+ * SudoBot Dashboard is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * SudoBot Dashboard is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
+ */
 
 import { FC } from "react";
+import styles from "../../styles/Top.module.css";
 import Shield from "../Images/Shield";
 import HomeButtons from "./HomeButtons";
 
 const Top: FC = () => {
     return (
-        <div className="min-h-[90vh] px-4 md:px-[10%] pt-[30px] md:pt-3 grid grid-cols-1 md:grid-cols-2 gap-20 pb-[70px] md:pb-0">
-            <div className="md:pt-[15%] relative z-[1]">
-                <div className="flex md:block flex-col justify-between md:h-[auto]">
-                    <div>
-                        <div
-                            style={{
-                                width: "100%",
-                                position: "absolute",
-                                top: 0,
-                                left: 0,
-                                zIndex: -1,
-                                display: "block",
-                                background:
-                                    "linear-gradient(to right, rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.38), rgba(0, 123, 255, 0.05))",
-                                filter: "blur(100px)",
-                            }}
-                            className="h-[60%] md:h-[80%]"
-                        ></div>
-                        <h1 className="[line-height:2rem] md:[line-height:3.2rem] [font-size:2rem] md:text-5xl lg:text-6xl font-light md:font-bold text-center md:text-left">
-                            A single Discord Bot for everything you need.
-                        </h1>
+        <div className="min-h-[calc(100vh-50px)] p-3 md:p-[25px] lg:p-[50px] xl:py-[80px] xl:px-[70px]">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+                <div className="h-[200px] w-[200px] md:h-[600px] md:w-[600px] bg-[linear-gradient(45deg,#007bff,#19dafa)] blur-[100px] md:blur-[350px] top-0 left-[50%] translate-x-[-50%] md:translate-x-0 md:left-0 absolute z-[0]"></div>
+                <div className="z-[10]">
+                    <h1 className="block z-10 [line-height:2rem] md:[line-height:3.2rem] [font-size:2rem] md:text-5xl lg:text-6xl xl:text-7xl font-light md:font-bold text-center md:text-left">
+                        The ultimate{" "}
+                        <span className={styles.gradientText}>Discord Bot</span>
+                        .
+                        <span className="hidden md:inline">
+                            <br />
+                            <span className="block pt-8"></span>
+                            With every{" "}
+                            <span className={styles.gradientText}>
+                                moderation tool
+                            </span>{" "}
+                            you&rsquo;ll ever need.
+                        </span>
+                    </h1>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium md:font-bold text-center md:text-left my-5">
-                            <span
-                                style={{
-                                    background:
-                                        "linear-gradient(-45deg, #19dafa, #007bff)",
-                                    backgroundClip: "text",
-                                    WebkitBackgroundClip: "text",
-                                    color: "transparent",
-                                }}
-                            >
-                                SudoBot
-                            </span>
-                            <span className="text-white">.</span>
-                        </h1>
+                    <div className="h-[5px] w-[50%] md:w-[20%] bg-[linear-gradient(45deg,#007bff,#19dafa)] rounded-lg mt-8 mx-auto md:mx-0"></div>
 
-                        <h2 className="my-3 md:my-0 text-2xl md:text-4xl font-light text-center md:text-left hidden md:block">
-                            The ultimate solution for Discord Server Moderation.
-                        </h2>
+                    <h1 className="block z-10 pt-8 [line-height:2rem] md:[line-height:3.2rem] [font-size:3rem] md:text-5xl lg:text-6xl xl:text-7xl font-light md:font-bold text-center md:text-left">
+                        <span className={styles.gradientText}>SudoBot.</span>
+                    </h1>
 
-                        <div className="relative flex justify-center items-center pt-3 md:hidden">
-                            <Shield
-                                style={{
-                                    width: "90%",
-                                    background:
-                                        "linear-gradient(rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.1))",
-                                }}
-                            />
-                        </div>
-
-                        <br />
-
-                        <div
-                            style={{
-                                height: 5,
-                                width: "100%",
-                                background:
-                                    "linear-gradient(to right, rgba(0, 123, 255, 0.05), rgba(0, 123, 255, 0.6))",
-                                borderRadius: 20,
-                                marginBottom: "20px",
-                            }}
-                            className="mt-[20px] md:mt-10px"
-                        ></div>
+                    <br />
+                    <br />
+                    <div className="md:hidden relative justify-center items-start flex pb-[40px]">
+                        <Shield sizes="100vw" />
                     </div>
+                    <br />
 
-                    <div className="md:mt-[40px]">
-                        <HomeButtons />
+                    <HomeButtons />
+                </div>
+                <div className="hidden md:block">
+                    <div className="relative justify-end items-start flex md:pr-[2vw]">
+                        <Shield sizes="80vw" className="-mt-[40px]" />
                     </div>
                 </div>
-            </div>
-            <div className="relative justify-center items-center hidden md:flex">
-                <Shield />
             </div>
         </div>
     );
