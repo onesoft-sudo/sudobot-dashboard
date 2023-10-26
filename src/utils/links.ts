@@ -1,21 +1,21 @@
 /*
-* This file is part of SudoBot Dashboard.
-*
-* Copyright (C) 2021-2023 OSN Developers.
-*
-* SudoBot Dashboard is free software; you can redistribute it and/or modify it
-* under the terms of the GNU Affero General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* SudoBot Dashboard is distributed in the hope that it will be useful, but
-* WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-* GNU Affero General Public License for more details.
-*
-* You should have received a copy of the GNU Affero General Public License
-* along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
-*/
+ * This file is part of SudoBot Dashboard.
+ *
+ * Copyright (C) 2021-2023 OSN Developers.
+ *
+ * SudoBot Dashboard is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * SudoBot Dashboard is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
+ */
 
 import {
     MdBarChart,
@@ -28,7 +28,7 @@ import {
 
 export const BOT_INVITE_REQUEST_URL = "https://forms.gle/943kW9q25MpKEwW26";
 export const SUPPORT_EMAIL_ADDRESS = "mailto:rakinar2@onesoftnet.eu.org";
-export const DOCS_URL = "http://docs.sudobot.onesoftnet.eu.org";
+export const DOCS_URL = "https://docs.sudobot.org";
 export const BOT_TERMS_URL = `${DOCS_URL}/legal/terms`;
 export const BOT_PRIVACY_POLICY_URL = `${DOCS_URL}/legal/privacy`;
 export const BOT_GITHUB_REPO_URL = "https://github.com/onesoft-sudo/sudobot";
