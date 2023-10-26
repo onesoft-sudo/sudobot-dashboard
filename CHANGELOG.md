@@ -1,3 +1,12 @@
+## [0.46.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.0...v0.46.1) (2023-10-26)
+
+
+### Bug Fixes
+
+* update links ([d88ef2d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d88ef2d2de90f534e32b7a5f1573f7419e3a91ee))
+
+
+
 # [0.46.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.45.0...v0.46.0) (2023-10-26)
 
 
@@ -32,15 +41,6 @@
 ### Bug Fixes
 
 * variable name in layout.tsx ([0574da3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0574da3f022bacb5bdb135b41dc67327d67c1f5d))
-
-
-
-# [0.44.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.43.0...v0.44.0) (2023-10-23)
-
-
-### Features
-
-* change font ([56c65fc](https://github.com/onesoft-sudo/sudobot-dashboard/commit/56c65fc2ede346d8270b50f8011dc126083aba2f))
 
 
 
