@@ -1,3 +1,12 @@
+# [0.46.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.45.0...v0.46.0) (2023-10-26)
+
+
+### Features
+
+* use both inter and manrope fonts ([39f26f0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/39f26f060d8ad7f65edd95378116f75382718a85))
+
+
+
 # [0.45.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.44.2...v0.45.0) (2023-10-26)
 
 
@@ -32,15 +41,6 @@
 ### Features
 
 * change font ([56c65fc](https://github.com/onesoft-sudo/sudobot-dashboard/commit/56c65fc2ede346d8270b50f8011dc126083aba2f))
-
-
-
-# [0.43.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.42.5...v0.43.0) (2023-10-14)
-
-
-### Features
-
-* add message rule create modal ([52da848](https://github.com/onesoft-sudo/sudobot-dashboard/commit/52da848ec69739f81fd31b0cc589dd8253da5b3c))
 
 
 
