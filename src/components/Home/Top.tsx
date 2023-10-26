@@ -17,13 +17,20 @@
  * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { Manrope } from "next/font/google";
 import { FC } from "react";
 import Shield from "../Images/Shield";
 import HomeButtons from "./HomeButtons";
 
+const manrope = Manrope({
+    subsets: ["latin"],
+});
+
 const Top: FC = () => {
     return (
-        <div className="min-h-[calc(100vh-50px)] p-3 md:p-[25px] lg:p-[50px] xl:py-[80px] xl:px-[70px]">
+        <div
+            className={`min-h-[calc(100vh-50px)] p-3 md:p-[25px] lg:p-[50px] xl:py-[80px] xl:px-[70px] ${manrope.className}`}
+        >
             <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="h-[200px] w-[200px] md:h-[600px] md:w-[600px] bg-[linear-gradient(45deg,#007bff,#19dafa)] blur-[100px] md:blur-[350px] top-0 left-[50%] translate-x-[-50%] md:translate-x-0 md:left-0 absolute z-[0]"></div>
                 <div className="z-[10]">
