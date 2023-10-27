@@ -1,3 +1,12 @@
+## [0.46.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.1...v0.46.2) (2023-10-27)
+
+
+### Bug Fixes
+
+* broken announcement bar on mobiles ([6e50704](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6e50704c68d0e25b5b53f4ff3fb28ccd2a0cf84c))
+
+
+
 ## [0.46.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.0...v0.46.1) (2023-10-26)
 
 
@@ -32,15 +41,6 @@
 ### Bug Fixes
 
 * update linkd ([45328d3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/45328d3eaa6632a9304236d6d55667e3e4ea3adb))
-
-
-
-## [0.44.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.44.0...v0.44.1) (2023-10-23)
-
-
-### Bug Fixes
-
-* variable name in layout.tsx ([0574da3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0574da3f022bacb5bdb135b41dc67327d67c1f5d))
 
 
 
