@@ -12,8 +12,8 @@ const Announcement: FC<AnnouncementProps> = ({ show = false }) => {
     }
 
     return (
-        <div className="z-[100000] block bg-[#000]">
-            <div className="bg-[linear-gradient(to_right,#000,rgba(0,123,255,0.3))] py-2">
+        <div className="z-[100000] relative block bg-[linear-gradient(to_right,#000,rgba(0,123,255,0.3))] ">
+            <div className="py-2 px-2">
                 <p className="text-center gradient-text font-bold">
                     <MdTipsAndUpdates
                         className="inline mr-2 text-[#007bff]"
