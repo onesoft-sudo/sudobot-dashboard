@@ -1,3 +1,12 @@
+## [0.46.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.2...v0.46.3) (2023-10-29)
+
+
+### Bug Fixes
+
+* **mobile:** hide glow ([86688fa](https://github.com/onesoft-sudo/sudobot-dashboard/commit/86688fa0e5e820cd1726b02a570f4703b8f679ff))
+
+
+
 ## [0.46.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.1...v0.46.2) (2023-10-27)
 
 
@@ -32,15 +41,6 @@
 
 * announcement ([6e8a328](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6e8a328be25c4cf6a455dbc766494d97ba64cbfc))
 * revamped landing page ([723fada](https://github.com/onesoft-sudo/sudobot-dashboard/commit/723fada3639d2810c205ab9c22912917bdf49522))
-
-
-
-## [0.44.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.44.1...v0.44.2) (2023-10-23)
-
-
-### Bug Fixes
-
-* update linkd ([45328d3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/45328d3eaa6632a9304236d6d55667e3e4ea3adb))
 
 
 
