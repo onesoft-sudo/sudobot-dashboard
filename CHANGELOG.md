@@ -1,3 +1,12 @@
+## [0.46.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.3...v0.46.4) (2023-10-30)
+
+
+### Bug Fixes
+
+* hide announcement ([0f0c59f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0f0c59ff8f4e0fb66481ced81d01f178d6af1ad7))
+
+
+
 ## [0.46.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.2...v0.46.3) (2023-10-29)
 
 
@@ -31,16 +40,6 @@
 ### Features
 
 * use both inter and manrope fonts ([39f26f0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/39f26f060d8ad7f65edd95378116f75382718a85))
-
-
-
-# [0.45.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.44.2...v0.45.0) (2023-10-26)
-
-
-### Features
-
-* announcement ([6e8a328](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6e8a328be25c4cf6a455dbc766494d97ba64cbfc))
-* revamped landing page ([723fada](https://github.com/onesoft-sudo/sudobot-dashboard/commit/723fada3639d2810c205ab9c22912917bdf49522))
 
 
 
