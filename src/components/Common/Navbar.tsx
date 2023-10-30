@@ -57,7 +57,7 @@ const Navbar: FC = () => {
 
     return (
         <div>
-            {pathname === "/" && <Announcement show={true} />}
+            {pathname === "/" && <Announcement show={false} />}
 
             <NextUINavbar
                 shouldHideOnScroll
