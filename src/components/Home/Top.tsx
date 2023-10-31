@@ -32,7 +32,7 @@ const Top: FC = () => {
             className={`min-h-[calc(100vh-50px)] p-3 md:p-[25px] lg:p-[50px] xl:py-[80px] xl:px-[70px] ${manrope.className}`}
         >
             <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="h-[200px] w-[200px] md:h-[600px] md:w-[600px] bg-[linear-gradient(45deg,#007bff,#19dafa)] blur-[130px] md:blur-[350px] top-[100px] md:top-0 left-[50%] translate-x-[-50%] md:translate-x-0 md:left-0 absolute z-[0]"></div>
+                <div className="h-[270px] w-[270px] md:h-[600px] md:w-[600px] bg-[linear-gradient(45deg,#007bff,#19dafa)] blur-[50px] md:blur-[150px] opacity-[0.3] md:opacity-[0.5] top-[100px] md:top-0 left-[50%] translate-x-[-50%] md:translate-x-0 md:left-0 absolute z-[0]"></div>
 
                 <div className="z-[10]">
                     <h1 className="block z-10 [line-height:2rem] md:[line-height:3.2rem] [font-size:2rem] md:text-5xl lg:text-6xl xl:text-7xl font-light md:font-bold text-center md:text-left">
