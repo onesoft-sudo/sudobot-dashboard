@@ -57,8 +57,6 @@ const Navbar: FC = () => {
 
     return (
         <div>
-            {pathname === "/" && <Announcement show={false} />}
-
             <NextUINavbar
                 shouldHideOnScroll
                 isBordered
@@ -125,40 +123,9 @@ const Navbar: FC = () => {
                         <Profile />
                     </NavbarContent>
                 )}
-
-                {/* <NavbarMenu>
-                {links.map((link, index) => (
-                    <NavbarMenuItem
-                        onClick={() => setIsMenuOpen(false)}
-                        key={`${link.name}_${link.url}`}
-                    >
-                        <Link
-                            color={
-                                index === 2
-                                    ? "primary"
-                                    : index === links.length - 1
-                                    ? "danger"
-                                    : "foreground"
-                            }
-                            className="w-full"
-                            href={link.url}
-                        >
-                            {link.name}
-                        </Link>
-                    </NavbarMenuItem>
-                ))}
-
-                {user && (
-                    <NavbarMenuItem className="md:hidden">
-                        <GuildSwitcher
-                            buttonClasses="pl-0 ml-0 min-w-[0]"
-                            onGuildSwitch={() => setIsMenuOpen(false)}
-                        />
-                    </NavbarMenuItem>
-                )}
-            </NavbarMenu> */}
             </NextUINavbar>
             <MobileNavbar isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+            {pathname === "/" && <Announcement show={true} />}
         </div>
     );
 };
