@@ -1,3 +1,12 @@
+## [0.46.6](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.5...v0.46.6) (2023-10-31)
+
+
+### Bug Fixes
+
+* **home:banner:** spacing ([a3762f0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a3762f0b50266d3739a81c5b1922a0398bddf70a))
+
+
+
 ## [0.46.5](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.4...v0.46.5) (2023-10-31)
 
 
@@ -32,15 +41,6 @@
 ### Bug Fixes
 
 * broken announcement bar on mobiles ([6e50704](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6e50704c68d0e25b5b53f4ff3fb28ccd2a0cf84c))
-
-
-
-## [0.46.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.0...v0.46.1) (2023-10-26)
-
-
-### Bug Fixes
-
-* update links ([d88ef2d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d88ef2d2de90f534e32b7a5f1573f7419e3a91ee))
 
 
 
