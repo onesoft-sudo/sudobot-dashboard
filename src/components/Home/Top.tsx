@@ -29,12 +29,13 @@ const manrope = Manrope({
 const Top: FC = () => {
     return (
         <div
-            className={`min-h-[calc(100vh-50px)] p-3 md:p-[25px] lg:p-[50px] xl:py-[80px] xl:px-[70px] ${manrope.className}`}
+            className={`min-h-[calc(100vh-50px)] p-3 md:p-[25px] md:pt-0 lg:p-[50px] lg:pt-0 xl:pb-[80px] xl:px-[70px] ${manrope.className}`}
         >
             <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="h-[270px] w-[270px] md:h-[600px] md:w-[600px] bg-[linear-gradient(45deg,#007bff,#19dafa)] blur-[50px] md:blur-[150px] opacity-[0.3] md:opacity-[0.5] top-[100px] md:top-0 left-[50%] translate-x-[-50%] md:translate-x-0 md:left-0 absolute z-[0]"></div>
 
                 <div className="z-[10]">
+                    <div className="relative md:pt-[25px] lg:mt-[50px]"></div>
                     <h1 className="block z-10 [line-height:2rem] md:[line-height:3.2rem] [font-size:2rem] md:text-5xl lg:text-6xl xl:text-7xl font-light md:font-bold text-center md:text-left">
                         The ultimate{" "}
                         <span className="gradient-text">Discord Bot</span>.
@@ -66,7 +67,7 @@ const Top: FC = () => {
                 </div>
                 <div className="hidden md:block">
                     <div className="relative justify-end items-start flex md:pr-[2vw]">
-                        <Shield sizes="80vw" className="-mt-[40px]" />
+                        <Shield sizes="80vw" />
                     </div>
                 </div>
             </div>
