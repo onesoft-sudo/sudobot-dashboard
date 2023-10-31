@@ -1,3 +1,30 @@
+## [0.46.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.3...v0.46.4) (2023-10-30)
+
+
+### Bug Fixes
+
+* hide announcement ([0f0c59f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0f0c59ff8f4e0fb66481ced81d01f178d6af1ad7))
+
+
+
+## [0.46.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.2...v0.46.3) (2023-10-29)
+
+
+### Bug Fixes
+
+* **mobile:** hide glow ([86688fa](https://github.com/onesoft-sudo/sudobot-dashboard/commit/86688fa0e5e820cd1726b02a570f4703b8f679ff))
+
+
+
+## [0.46.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.1...v0.46.2) (2023-10-27)
+
+
+### Bug Fixes
+
+* broken announcement bar on mobiles ([6e50704](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6e50704c68d0e25b5b53f4ff3fb28ccd2a0cf84c))
+
+
+
 ## [0.46.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.0...v0.46.1) (2023-10-26)
 
 
@@ -13,34 +40,6 @@
 ### Features
 
 * use both inter and manrope fonts ([39f26f0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/39f26f060d8ad7f65edd95378116f75382718a85))
-
-
-
-# [0.45.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.44.2...v0.45.0) (2023-10-26)
-
-
-### Features
-
-* announcement ([6e8a328](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6e8a328be25c4cf6a455dbc766494d97ba64cbfc))
-* revamped landing page ([723fada](https://github.com/onesoft-sudo/sudobot-dashboard/commit/723fada3639d2810c205ab9c22912917bdf49522))
-
-
-
-## [0.44.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.44.1...v0.44.2) (2023-10-23)
-
-
-### Bug Fixes
-
-* update linkd ([45328d3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/45328d3eaa6632a9304236d6d55667e3e4ea3adb))
-
-
-
-## [0.44.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.44.0...v0.44.1) (2023-10-23)
-
-
-### Bug Fixes
-
-* variable name in layout.tsx ([0574da3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0574da3f022bacb5bdb135b41dc67327d67c1f5d))
 
 
 
