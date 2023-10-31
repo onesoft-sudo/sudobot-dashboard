@@ -1,3 +1,13 @@
+## [0.46.5](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.4...v0.46.5) (2023-10-31)
+
+
+### Bug Fixes
+
+* announcement bar ([50c92bf](https://github.com/onesoft-sudo/sudobot-dashboard/commit/50c92bf04a7b08cbf90bddc72dc85fa123f40096))
+* **firefox:** home page blur ([14d07d2](https://github.com/onesoft-sudo/sudobot-dashboard/commit/14d07d2d6ba2f808469152017197f66e6f2dc187))
+
+
+
 ## [0.46.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.3...v0.46.4) (2023-10-30)
 
 
@@ -31,15 +41,6 @@
 ### Bug Fixes
 
 * update links ([d88ef2d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d88ef2d2de90f534e32b7a5f1573f7419e3a91ee))
-
-
-
-# [0.46.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.45.0...v0.46.0) (2023-10-26)
-
-
-### Features
-
-* use both inter and manrope fonts ([39f26f0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/39f26f060d8ad7f65edd95378116f75382718a85))
 
 
 
