@@ -1,3 +1,13 @@
+## [0.46.7](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.6...v0.46.7) (2023-11-05)
+
+
+### Bug Fixes
+
+* **deleted_message_page:** hydration errors ([15f6104](https://github.com/onesoft-sudo/sudobot-dashboard/commit/15f61041e3c670d0f5cb7e1fe5eac14f939d9ed1))
+* **deleted_messages:** text overflow ([d344d6f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d344d6fb6b5432862593eebb5a754057568a0d52))
+
+
+
 ## [0.46.6](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.5...v0.46.6) (2023-10-31)
 
 
@@ -32,15 +42,6 @@
 ### Bug Fixes
 
 * **mobile:** hide glow ([86688fa](https://github.com/onesoft-sudo/sudobot-dashboard/commit/86688fa0e5e820cd1726b02a570f4703b8f679ff))
-
-
-
-## [0.46.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.1...v0.46.2) (2023-10-27)
-
-
-### Bug Fixes
-
-* broken announcement bar on mobiles ([6e50704](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6e50704c68d0e25b5b53f4ff3fb28ccd2a0cf84c))
 
 
 
