@@ -37,22 +37,27 @@ const Message: FC<MessageProps> = ({
     message,
     systemAdmins = builtInSystemAdmins,
 }) => {
+    const authorColorString = message.authorColor?.toString(16);
+    const authorColorHexString = authorColorString
+        ? `#${authorColorString.padStart(6, "0")}`
+        : null;
+
+    console.log(authorColorHexString);
+
     return (
-        <div className="flex p-2 gap-3 md:gap-8 md:p-3 bg-[#222] my-2 rounded-md">
+        <div className="flex p-2 gap-3 md:gap-5 md:p-3 bg-[#222] my-2 rounded-md">
             <div className="w-[40px] md:w-[50px] min-w-[40px] max-w-[110px]">
                 <Avatar
                     url={message.authorAvatarURL.replace(/\.gif$/, ".webp")}
                     animated={/\.gif$/.test(message.authorAvatarURL)}
                 />
             </div>
-            <div className="relative">
+            <div className="relative basis-[99%]">
                 <div className="flex items-baseline gap-3 pb-1">
                     <div
                         className="text-lg md:text-xl flex items-center gap-2"
                         style={{
-                            color: message.authorColor
-                                ? `#${message.authorColor.toString(16)}`
-                                : "#fff",
+                            color: authorColorHexString ?? "#fff",
                         }}
                     >
                         <DisplayName
