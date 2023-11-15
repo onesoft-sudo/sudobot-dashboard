@@ -93,7 +93,7 @@ const PermissionModeCard: FC<SettingCardProps> = ({
                         innerWrapper: "[overflow-wrap:break-word]",
                         value: "[overflow-wrap:break-word]",
                         description: "[overflow-wrap:break-word]",
-                    }}
+                    } as any}
                 >
                     {permissionModes.map(permissionMode => (
                         <SelectItem
