@@ -129,7 +129,7 @@ const MessageRuleCreateForm: FC<MessageRuleCreateFormProps> = ({
                                 innerWrapper: "[overflow-wrap:break-word]",
                                 value: "[overflow-wrap:break-word]",
                                 description: "[overflow-wrap:break-word]",
-                            }}
+                            } as any}
                             renderValue={rules => {
                                 return rules.map((rule, index) => (
                                     <div
