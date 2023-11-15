@@ -18,7 +18,7 @@
  */
 
 import { APIMessageRule } from "@/types/APIMessageRule";
-import { Modal, ModalBody, ModalContent, ModalHeader } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader } from "@nextui-org/react";
 import { Dispatch, FC, SetStateAction } from "react";
 import MessageRule from "./MessageRule";
 import MessageRuleCreateForm from "./MessageRuleCreateForm";
@@ -40,6 +40,8 @@ const MessageRules: FC<MessageRulesProps> = ({
                 backdrop={"blur"}
                 isOpen={modalOpen}
                 onClose={() => setModalOpen(false)}
+                isDismissable={false}
+                scrollBehavior="inside"
             >
                 <ModalContent>
                     {onClose => (
@@ -47,9 +49,11 @@ const MessageRules: FC<MessageRulesProps> = ({
                             <ModalHeader className="flex flex-col gap-1">
                                 Create Message Rule
                             </ModalHeader>
-                            <ModalBody>
-                                <MessageRuleCreateForm onCancel={onClose} />
-                            </ModalBody>
+
+                            <MessageRuleCreateForm
+                                onCancel={onClose}
+                                onDone={onClose}
+                            />
                         </>
                     )}
                 </ModalContent>
