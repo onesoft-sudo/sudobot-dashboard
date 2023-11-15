@@ -1,3 +1,12 @@
+# [0.47.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.7...v0.47.0) (2023-11-15)
+
+
+### Features
+
+* improve message rule add modal ([83a9cbf](https://github.com/onesoft-sudo/sudobot-dashboard/commit/83a9cbfdf4309c4d8c45f97ce5a83be99cf493d1))
+
+
+
 ## [0.46.7](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.6...v0.46.7) (2023-11-05)
 
 
@@ -33,15 +42,6 @@
 ### Bug Fixes
 
 * hide announcement ([0f0c59f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0f0c59ff8f4e0fb66481ced81d01f178d6af1ad7))
-
-
-
-## [0.46.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.2...v0.46.3) (2023-10-29)
-
-
-### Bug Fixes
-
-* **mobile:** hide glow ([86688fa](https://github.com/onesoft-sudo/sudobot-dashboard/commit/86688fa0e5e820cd1726b02a570f4703b8f679ff))
 
 
 
