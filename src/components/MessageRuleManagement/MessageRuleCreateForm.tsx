@@ -9,8 +9,9 @@ import {
     Textarea,
 } from "@nextui-org/react";
 import { useMutation } from "@tanstack/react-query";
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { UseFormReturn, useForm } from "react-hook-form";
+import styles from "../../styles/MessageRuleCreateForm.module.css";
 import MessageRuleCreateFormCommons from "./MessageRuleCreateFormCommons";
 import MessageRuleIcon from "./MessageRuleIcon";
 import MassMentionRuleWizard from "./RuleCreationWizards/MassMentionRuleWizard";
@@ -88,13 +89,15 @@ const MessageRuleCreateForm: FC<MessageRuleCreateFormProps> = ({
         },
     });
 
+    const submitRef = useRef<HTMLButtonElement>(null);
+
     const onSubmit = (data: any) => {
         mutation.mutate(data);
     };
 
     return (
         <>
-            <ModalBody>
+            <ModalBody className={styles.modalBody}>
                 <form
                     noValidate
                     onSubmit={event => {
@@ -163,13 +166,14 @@ const MessageRuleCreateForm: FC<MessageRuleCreateFormProps> = ({
 
                         <div className="pt-4"></div>
 
-                        <MessageRuleCreateFormCommons
-                            {...useFormResult}
-                            noParams={
-                                !ruleType || parameterNames[ruleType] === null
-                            }
-                        >
-                            {ruleType && (
+                        {ruleType && (
+                            <MessageRuleCreateFormCommons
+                                {...useFormResult}
+                                noParams={
+                                    !ruleType ||
+                                    parameterNames[ruleType] === null
+                                }
+                            >
                                 <>
                                     {parameterNames[ruleType] !== null && (
                                         <>
@@ -196,28 +200,16 @@ const MessageRuleCreateForm: FC<MessageRuleCreateFormProps> = ({
                                         </>
                                     )}
                                 </>
-                            )}
-                        </MessageRuleCreateFormCommons>
+                            </MessageRuleCreateFormCommons>
+                        )}
                     </div>
 
                     <div className="flex items-center justify-end gap-2 mt-3 pb-3">
-                        {/* <Button
-                            variant="flat"
-                            type="reset"
-                            color="danger"
-                            onPress={onCancel}
-                            isDisabled={mutation.isLoading}
-                        >
-                            Cancel
-                        </Button>
-                        <Button
-                            variant="flat"
+                        <button
+                            className="hidden"
                             type="submit"
-                            color="primary"
-                            isDisabled={mutation.isLoading}
-                        >
-                            Create
-                        </Button> */}
+                            ref={submitRef}
+                        ></button>
                     </div>
                 </form>
             </ModalBody>
@@ -234,7 +226,7 @@ const MessageRuleCreateForm: FC<MessageRuleCreateFormProps> = ({
                 </Button>
                 <Button
                     variant="flat"
-                    type="submit"
+                    onClick={() => submitRef.current?.click()}
                     color="primary"
                     isDisabled={mutation.isLoading}
                 >

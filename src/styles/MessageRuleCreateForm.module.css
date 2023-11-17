@@ -1,0 +1,12 @@
+.modalBody::-webkit-scrollbar {
+    max-width: 5px;
+}
+
+.modalBody::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+.modalBody {
+    scroll-behavior: smooth;
+}

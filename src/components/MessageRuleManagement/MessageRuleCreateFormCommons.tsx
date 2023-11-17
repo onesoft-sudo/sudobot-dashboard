@@ -1,15 +1,15 @@
-import { FormHelperText, TextField } from "@mui/material";
 import {
     Accordion,
-    AccordionItem,
-    AccordionItemIndicatorProps,
-    Checkbox,
-    CheckboxGroup,
-    Textarea,
-} from "@nextui-org/react";
+    AccordionDetails,
+    AccordionSummary,
+    FormHelperText,
+    TextField,
+    Typography,
+} from "@mui/material";
+import { Checkbox, CheckboxGroup, Textarea } from "@nextui-org/react";
 import { FC, FormEvent, ReactNode, useRef } from "react";
 import { UseFormReturn } from "react-hook-form";
-import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
+import { MdExpandMore } from "react-icons/md";
 import EntitySelect from "../Form/EntitySelect";
 
 interface MessageRuleCreateFormCommonsProps extends UseFormReturn {
@@ -17,11 +17,11 @@ interface MessageRuleCreateFormCommonsProps extends UseFormReturn {
     noParams?: boolean;
 }
 
-const AccorditionCloseIndicator: FC<AccordionItemIndicatorProps> = ({
-    isOpen,
-    isDisabled,
-}) =>
-    isOpen && !isDisabled ? <MdKeyboardArrowRight /> : <MdKeyboardArrowDown />; // MdKeyboardArrowRight since nextui will apply CSS to rotate the icon by 90deg
+// const AccorditionCloseIndicator: FC<AccordionItemIndicatorProps> = ({
+//     isOpen,
+//     isDisabled,
+// }) =>
+//     isOpen && !isDisabled ? <MdKeyboardArrowRight /> : <MdKeyboardArrowDown />; // MdKeyboardArrowRight since nextui will apply CSS to rotate the icon by 90deg
 
 const MessageRuleCreateFormCommons: FC<MessageRuleCreateFormCommonsProps> = ({
     children,
@@ -34,22 +34,26 @@ const MessageRuleCreateFormCommons: FC<MessageRuleCreateFormCommonsProps> = ({
 
     return (
         <div>
-            <Accordion isCompact selectionMode="multiple">
-                <AccordionItem
-                    key="1"
-                    aria-label="Parameters"
-                    title="Parameters"
-                    indicator={AccorditionCloseIndicator}
-                    isDisabled={noParams}
+            <Accordion disabled={noParams}>
+                <AccordionSummary
+                    expandIcon={<MdExpandMore />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
                 >
-                    {children}
-                </AccordionItem>
-                <AccordionItem
-                    key="2"
-                    aria-label="Automatic Actions"
-                    title="Automatic Actions"
-                    indicator={AccorditionCloseIndicator}
+                    <Typography>Parameters</Typography>
+                </AccordionSummary>
+                <AccordionDetails>{children}</AccordionDetails>
+            </Accordion>
+
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<MdExpandMore />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
                 >
+                    <Typography>Automatic Actions</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
                     <CheckboxGroup
                         defaultValue={[]}
                         label="Actions"
@@ -96,13 +100,18 @@ const MessageRuleCreateFormCommons: FC<MessageRuleCreateFormCommonsProps> = ({
                     />
 
                     <div className="pb-3"></div>
-                </AccordionItem>
-                <AccordionItem
-                    key="3"
-                    aria-label="Permissions and Exceptions"
-                    title="Permissions and Exceptions"
-                    indicator={AccorditionCloseIndicator}
+                </AccordionDetails>
+            </Accordion>
+
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<MdExpandMore />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
                 >
+                    <Typography>Permissions and Exceptions</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
                     <div className="pt-2"></div>
                     <EntitySelect
                         entityType="channel"
@@ -142,8 +151,10 @@ const MessageRuleCreateFormCommons: FC<MessageRuleCreateFormCommonsProps> = ({
                         </a>
                         .
                     </FormHelperText>
-                </AccordionItem>
+                </AccordionDetails>
             </Accordion>
+
+            <div className="pb-4"></div>
         </div>
     );
 };
