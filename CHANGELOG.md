@@ -1,3 +1,30 @@
+## [0.47.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.47.1...v0.47.2) (2023-11-15)
+
+
+### Bug Fixes
+
+* type errors ([3ca221f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3ca221f5dcbc780761851d77b92be9fc58d3cbc0))
+
+
+
+## [0.47.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.47.0...v0.47.1) (2023-11-15)
+
+
+### Bug Fixes
+
+* **types:** type errors ([d6cbd2b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d6cbd2b5b9f67f9e0ba01d313554295d41fa3ba0))
+
+
+
+# [0.47.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.7...v0.47.0) (2023-11-15)
+
+
+### Features
+
+* improve message rule add modal ([83a9cbf](https://github.com/onesoft-sudo/sudobot-dashboard/commit/83a9cbfdf4309c4d8c45f97ce5a83be99cf493d1))
+
+
+
 ## [0.46.7](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.6...v0.46.7) (2023-11-05)
 
 
@@ -14,34 +41,6 @@
 ### Bug Fixes
 
 * **home:banner:** spacing ([a3762f0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a3762f0b50266d3739a81c5b1922a0398bddf70a))
-
-
-
-## [0.46.5](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.4...v0.46.5) (2023-10-31)
-
-
-### Bug Fixes
-
-* announcement bar ([50c92bf](https://github.com/onesoft-sudo/sudobot-dashboard/commit/50c92bf04a7b08cbf90bddc72dc85fa123f40096))
-* **firefox:** home page blur ([14d07d2](https://github.com/onesoft-sudo/sudobot-dashboard/commit/14d07d2d6ba2f808469152017197f66e6f2dc187))
-
-
-
-## [0.46.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.3...v0.46.4) (2023-10-30)
-
-
-### Bug Fixes
-
-* hide announcement ([0f0c59f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0f0c59ff8f4e0fb66481ced81d01f178d6af1ad7))
-
-
-
-## [0.46.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.2...v0.46.3) (2023-10-29)
-
-
-### Bug Fixes
-
-* **mobile:** hide glow ([86688fa](https://github.com/onesoft-sudo/sudobot-dashboard/commit/86688fa0e5e820cd1726b02a570f4703b8f679ff))
 
 
 
