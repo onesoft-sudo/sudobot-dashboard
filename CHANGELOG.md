@@ -1,3 +1,12 @@
+# [0.49.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.48.1...v0.49.0) (2023-11-22)
+
+
+### Features
+
+* **deleted_messages:** support attachments ([4a19ba1](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4a19ba15f9ba068084060c49adaad48c9aca27d8))
+
+
+
 ## [0.48.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.48.0...v0.48.1) (2023-11-22)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **types:** type errors ([d6cbd2b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d6cbd2b5b9f67f9e0ba01d313554295d41fa3ba0))
-
-
-
-# [0.47.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.7...v0.47.0) (2023-11-15)
-
-
-### Features
-
-* improve message rule add modal ([83a9cbf](https://github.com/onesoft-sudo/sudobot-dashboard/commit/83a9cbfdf4309c4d8c45f97ce5a83be99cf493d1))
 
 
 
