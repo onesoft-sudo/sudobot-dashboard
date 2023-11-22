@@ -38,11 +38,12 @@ const Message: FC<MessageProps> = ({
     systemAdmins = builtInSystemAdmins,
 }) => {
     const authorColorString = message.authorColor?.toString(16);
-    const authorColorHexString = authorColorString
-        ? `#${authorColorString.padStart(6, "0")}`
-        : null;
-
-    console.log(authorColorHexString);
+    const authorColorHexString =
+        message.authorColor === 0
+            ? "#fff"
+            : authorColorString
+            ? `#${authorColorString.padStart(6, "0")}`
+            : null;
 
     return (
         <div className="flex p-2 gap-3 md:gap-5 md:p-3 bg-[#222] my-2 rounded-md">
@@ -62,7 +63,7 @@ const Message: FC<MessageProps> = ({
                     >
                         <DisplayName
                             username={message.author.username}
-                            nickname={message.member.nickname}
+                            nickname={message.member?.nickname}
                             hasRoleIcon={
                                 !!(
                                     message.authorRoleIcon &&
