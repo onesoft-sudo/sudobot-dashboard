@@ -1,3 +1,12 @@
+# [0.48.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.47.2...v0.48.0) (2023-11-17)
+
+
+### Features
+
+* **message_rules:** better input processing ([025f6f9](https://github.com/onesoft-sudo/sudobot-dashboard/commit/025f6f98f6e4e2367e8fbfc7a1301dcb51a5a6b4))
+
+
+
 ## [0.47.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.47.1...v0.47.2) (2023-11-15)
 
 
@@ -32,15 +41,6 @@
 
 * **deleted_message_page:** hydration errors ([15f6104](https://github.com/onesoft-sudo/sudobot-dashboard/commit/15f61041e3c670d0f5cb7e1fe5eac14f939d9ed1))
 * **deleted_messages:** text overflow ([d344d6f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d344d6fb6b5432862593eebb5a754057568a0d52))
-
-
-
-## [0.46.6](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.5...v0.46.6) (2023-10-31)
-
-
-### Bug Fixes
-
-* **home:banner:** spacing ([a3762f0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a3762f0b50266d3739a81c5b1922a0398bddf70a))
 
 
 
