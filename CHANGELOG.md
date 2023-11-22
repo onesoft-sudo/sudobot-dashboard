@@ -1,3 +1,12 @@
+## [0.48.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.48.0...v0.48.1) (2023-11-22)
+
+
+### Bug Fixes
+
+* **deleted_messages:** errors while viewing messages where authors are no longer server members ([2e81d48](https://github.com/onesoft-sudo/sudobot-dashboard/commit/2e81d48784c05e4dcc6e5cf251c7804ef6e857e2))
+
+
+
 # [0.48.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.47.2...v0.48.0) (2023-11-17)
 
 
@@ -31,16 +40,6 @@
 ### Features
 
 * improve message rule add modal ([83a9cbf](https://github.com/onesoft-sudo/sudobot-dashboard/commit/83a9cbfdf4309c4d8c45f97ce5a83be99cf493d1))
-
-
-
-## [0.46.7](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.46.6...v0.46.7) (2023-11-05)
-
-
-### Bug Fixes
-
-* **deleted_message_page:** hydration errors ([15f6104](https://github.com/onesoft-sudo/sudobot-dashboard/commit/15f61041e3c670d0f5cb7e1fe5eac14f939d9ed1))
-* **deleted_messages:** text overflow ([d344d6f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d344d6fb6b5432862593eebb5a754057568a0d52))
 
 
 
