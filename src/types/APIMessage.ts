@@ -17,6 +17,7 @@
  * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { APIAttachment } from "./APIAttachment";
 import { APIDeletedMessageMentions } from "./APIDeletedMessageMentions";
 
 export interface APIDeletedMessage {
@@ -39,4 +40,5 @@ export interface APIDeletedMessage {
     authorRoleIcon?: string;
     authorRoleName?: string;
     createdTimestamp: string;
+    attachments?: APIAttachment[];
 }

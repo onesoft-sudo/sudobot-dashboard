@@ -20,6 +20,7 @@
 import { APIDeletedMessage } from "@/types/APIMessage";
 import { formatDistance } from "@/utils/utils";
 import { FC } from "react";
+import Attachment from "./Attachment";
 import Avatar from "./Avatar";
 import DisplayName from "./DisplayName";
 import MessageContent from "./MessageContent";
@@ -105,6 +106,10 @@ const Message: FC<MessageProps> = ({
                     mentions={message.mentions}
                     guildId={message.guildId}
                 />
+                {message.content != "" && <div className="pt-2"></div>}
+                {message.attachments?.map(attachment => (
+                    <Attachment attachment={attachment} key={attachment.id} />
+                ))}
             </div>
         </div>
     );
