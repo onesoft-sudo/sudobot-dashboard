@@ -1,3 +1,17 @@
+# [0.50.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.49.0...v0.50.0) (2023-12-06)
+
+
+### Bug Fixes
+
+* spacing on login page ([e89323a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e89323a86c181feb7382d5977dafa7a7e8743c14))
+
+
+### Features
+
+* **ui:** recaptcha page ([8eabd7a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8eabd7a4eff6c55b9810af402ebcf3bffc681550))
+
+
+
 # [0.49.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.48.1...v0.49.0) (2023-11-22)
 
 
@@ -31,15 +45,6 @@
 ### Bug Fixes
 
 * type errors ([3ca221f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3ca221f5dcbc780761851d77b92be9fc58d3cbc0))
-
-
-
-## [0.47.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.47.0...v0.47.1) (2023-11-15)
-
-
-### Bug Fixes
-
-* **types:** type errors ([d6cbd2b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/d6cbd2b5b9f67f9e0ba01d313554295d41fa3ba0))
 
 
 
