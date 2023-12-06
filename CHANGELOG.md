@@ -1,3 +1,12 @@
+## [0.50.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.50.0...v0.50.1) (2023-12-06)
+
+
+### Bug Fixes
+
+* use html entities ([6905d67](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6905d67d7023ac24fe10056a55bc31e9d2394392))
+
+
+
 # [0.50.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.49.0...v0.50.0) (2023-12-06)
 
 
@@ -36,15 +45,6 @@
 ### Features
 
 * **message_rules:** better input processing ([025f6f9](https://github.com/onesoft-sudo/sudobot-dashboard/commit/025f6f98f6e4e2367e8fbfc7a1301dcb51a5a6b4))
-
-
-
-## [0.47.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.47.1...v0.47.2) (2023-11-15)
-
-
-### Bug Fixes
-
-* type errors ([3ca221f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3ca221f5dcbc780761851d77b92be9fc58d3cbc0))
 
 
 
