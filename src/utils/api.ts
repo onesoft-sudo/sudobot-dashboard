@@ -19,6 +19,10 @@
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export class API {
+    static verify(): string {
+        return `${API_URL}/challenge/verify`;
+    }
+
     static announcements(): string {
         return `${API_URL}/announcements`;
     }
