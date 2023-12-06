@@ -85,7 +85,7 @@ const Captcha: FC = () => {
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description">
-                            We've successfully verified that you're not a robot.
+                            We&rsquo;ve successfully verified that you&rsquo;re not a robot.
                             You&rsquo;ll be authorized shortly.
                         </DialogContentText>
                     </DialogContent>
