@@ -175,14 +175,14 @@ const MessageRuleCreateForm: FC<MessageRuleCreateFormProps> = ({
                                 }
                             >
                                 <>
-                                    {parameterNames[ruleType] !== null && (
+                                    {parameterNames[ruleType as keyof typeof parameterNames] !== null && (
                                         <>
                                             <div className="pt-4"></div>
                                             <div>
                                                 <Textarea
                                                     type="text"
                                                     label={
-                                                        parameterNames[ruleType]
+                                                        parameterNames[ruleType as keyof typeof parameterNames]
                                                     }
                                                     variant="flat"
                                                     minRows={2}
