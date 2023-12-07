@@ -1,3 +1,12 @@
+## [0.50.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.50.2...v0.50.3) (2023-12-07)
+
+
+### Bug Fixes
+
+* type errors ([4c40244](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4c402449e59e7764f717c83688f42e523659485c))
+
+
+
 ## [0.50.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.50.1...v0.50.2) (2023-12-07)
 
 
@@ -36,15 +45,6 @@
 ### Features
 
 * **deleted_messages:** support attachments ([4a19ba1](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4a19ba15f9ba068084060c49adaad48c9aca27d8))
-
-
-
-## [0.48.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.48.0...v0.48.1) (2023-11-22)
-
-
-### Bug Fixes
-
-* **deleted_messages:** errors while viewing messages where authors are no longer server members ([2e81d48](https://github.com/onesoft-sudo/sudobot-dashboard/commit/2e81d48784c05e4dcc6e5cf251c7804ef6e857e2))
 
 
 
