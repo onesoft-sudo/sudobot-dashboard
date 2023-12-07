@@ -35,14 +35,15 @@
     "react-remark": "^2.1.0",
     "remark-breaks": "^3.0.3",
     "remark-gfm": "^3.0.1",
+    "sharp": "^0.33.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "^3.3.6",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",
-    "husky": "^8.0.0",
-    "sharp": "^0.32.4"
+    "husky": "^8.0.0"
   }
 }
