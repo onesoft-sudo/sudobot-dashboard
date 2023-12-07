@@ -171,7 +171,7 @@ const MessageRuleCreateForm: FC<MessageRuleCreateFormProps> = ({
                                 {...useFormResult}
                                 noParams={
                                     !ruleType ||
-                                    parameterNames[ruleType] === null
+                                    parameterNames[ruleType as keyof typeof parameterNames] === null
                                 }
                             >
                                 <>
