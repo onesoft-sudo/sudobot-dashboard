@@ -1,17 +1,11 @@
 "use client";
 
 import { validateCaptchaResponse } from "@/api/routes/verify";
-import {
-    Alert,
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-} from "@mui/material";
+import { Alert, CircularProgress } from "@mui/material";
 import { AxiosError } from "axios";
+import { useSearchParams } from "next/navigation";
 import { FC, useEffect, useState } from "react";
+import { MdCheck } from "react-icons/md";
 
 const recaptchaSuccessCallbackName = "recaptchaSuccess";
 
@@ -24,13 +18,20 @@ declare global {
 }
 
 const Captcha: FC = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
-    const [isAlertOpen, setIsAlertOpen] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const params = useSearchParams();
 
     const onSuccess = async (responseToken: string) => {
+        setIsLoading(true);
+
         try {
-            const response = await validateCaptchaResponse(responseToken);
+            const response = await validateCaptchaResponse({
+                responseToken,
+                verificationToken: params?.get("t")!,
+                userId: params?.get("u")!,
+            });
 
             if (!response.data.success) {
                 throw new AxiosError(
@@ -55,6 +56,8 @@ const Captcha: FC = () => {
                     "An internal error has occurred. Please try again later."
                 );
             }
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -74,33 +77,30 @@ const Captcha: FC = () => {
                 </Alert>
             )}
             {isSuccess && (
-                <Dialog
-                    open={isAlertOpen}
-                    onClose={() => setIsAlertOpen(false)}
-                    aria-labelledby="alert-dialog-title"
-                    aria-describedby="alert-dialog-description"
-                >
-                    <DialogTitle id="alert-dialog-title">
-                        {"Verification Completed"}
-                    </DialogTitle>
-                    <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
-                            We&rsquo;ve successfully verified that you&rsquo;re not a robot.
-                            You&rsquo;ll be authorized shortly.
-                        </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={() => setIsAlertOpen(false)}>
-                            OK
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                <div className="text-center flex justify-center items-center flex-col">
+                    <MdCheck size={50} />
+                    <br />
+                    <p>
+                        We&rsquo;ve successfully verified you.
+                        <br />
+                        <span className="text-[#999]">
+                            You can close this tab/window now.
+                        </span>
+                    </p>
+                </div>
             )}
-            <div
-                className="g-recaptcha invert"
-                data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                data-callback="recaptchaSuccess"
-            ></div>
+            {!isSuccess && (
+                <div
+                    className="g-recaptcha invert"
+                    data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                    data-callback="recaptchaSuccess"
+                ></div>
+            )}
+            {isLoading && (
+                <p className="flex items-center justify-center text-center py-2 gap-3">
+                    <CircularProgress size={20} /> Working...
+                </p>
+            )}
         </div>
     );
 };

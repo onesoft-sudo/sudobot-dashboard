@@ -5,8 +5,10 @@ type ValidateCaptchaResponseType = {
     success: boolean;
 };
 
-export function validateCaptchaResponse(response: string) {
-    return axios.post<ValidateCaptchaResponseType>(API.verify(), {
-        responseToken: response,
-    });
+export function validateCaptchaResponse(payload: {
+    verificationToken: string;
+    responseToken: string;
+    userId: string;
+}) {
+    return axios.post<ValidateCaptchaResponseType>(API.verify(), payload);
 }
