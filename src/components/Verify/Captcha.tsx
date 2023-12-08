@@ -89,7 +89,7 @@ const Captcha: FC = () => {
                     </p>
                 </div>
             )}
-            {!isSuccess && (
+            {!isSuccess && !error && (
                 <div
                     className="g-recaptcha invert"
                     data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
