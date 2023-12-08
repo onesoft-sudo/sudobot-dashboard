@@ -1,3 +1,13 @@
+# [0.51.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.50.3...v0.51.0) (2023-12-08)
+
+
+### Features
+
+* support verification system ([438d3e8](https://github.com/onesoft-sudo/sudobot-dashboard/commit/438d3e8529cc6b0ea5b3a37a9ce43d9f39eed1e2))
+* support verification system ([35775eb](https://github.com/onesoft-sudo/sudobot-dashboard/commit/35775eba399ee89bf580e887ffc86855a5937fa4))
+
+
+
 ## [0.50.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.50.2...v0.50.3) (2023-12-07)
 
 
@@ -36,15 +46,6 @@
 ### Features
 
 * **ui:** recaptcha page ([8eabd7a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8eabd7a4eff6c55b9810af402ebcf3bffc681550))
-
-
-
-# [0.49.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.48.1...v0.49.0) (2023-11-22)
-
-
-### Features
-
-* **deleted_messages:** support attachments ([4a19ba1](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4a19ba15f9ba068084060c49adaad48c9aca27d8))
 
 
 
