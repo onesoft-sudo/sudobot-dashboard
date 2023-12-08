@@ -125,7 +125,7 @@ const Navbar: FC = () => {
                 )}
             </NextUINavbar>
             <MobileNavbar isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
-            {pathname === "/" && <Announcement show={true} />}
+            {pathname === "/" && <Announcement show={false} />}
         </div>
     );
 };
