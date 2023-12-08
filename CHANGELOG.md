@@ -1,3 +1,12 @@
+## [0.51.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.51.0...v0.51.1) (2023-12-08)
+
+
+### Bug Fixes
+
+* nextjs build errors ([c4074a2](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c4074a2ea615880a5c43c1c789877ee9ae065e98))
+
+
+
 # [0.51.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.50.3...v0.51.0) (2023-12-08)
 
 
@@ -32,20 +41,6 @@
 ### Bug Fixes
 
 * use html entities ([6905d67](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6905d67d7023ac24fe10056a55bc31e9d2394392))
-
-
-
-# [0.50.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.49.0...v0.50.0) (2023-12-06)
-
-
-### Bug Fixes
-
-* spacing on login page ([e89323a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/e89323a86c181feb7382d5977dafa7a7e8743c14))
-
-
-### Features
-
-* **ui:** recaptcha page ([8eabd7a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8eabd7a4eff6c55b9810af402ebcf3bffc681550))
 
 
 
