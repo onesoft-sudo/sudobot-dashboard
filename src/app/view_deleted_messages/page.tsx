@@ -70,6 +70,7 @@ const ViewDeletedMessages: FC<{
     }
 
     console.log(searchParams);
+    console.log(Messages, Invalid);
 
     return (
         <main className="min-h-[90vh] py-4 px-0 lg:px-[17.3%]">
