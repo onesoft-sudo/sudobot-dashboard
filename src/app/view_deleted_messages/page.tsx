@@ -17,6 +17,8 @@
  * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
  */
 
+"use server";
+
 import { APIDeletedMessage } from "@/types/APIMessage";
 import axios, { AxiosResponse } from "axios";
 import { ComponentProps, FC } from "react";
