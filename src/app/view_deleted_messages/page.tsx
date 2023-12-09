@@ -26,7 +26,7 @@ import Invalid from "./invalid";
 const ViewDeletedMessages: FC<{
     searchParams?: { [key: string]: string | undefined };
 }> = async ({ searchParams = {} }) => {
-    console.log("Debug", Messages(), Invalid());
+    console.log("Debug", Messages.name, Invalid.name);
     let invalidProps: ComponentProps<typeof Invalid> = {
         url: undefined,
         error: undefined,
