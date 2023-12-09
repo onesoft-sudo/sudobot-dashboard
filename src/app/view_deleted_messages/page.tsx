@@ -26,7 +26,6 @@ import Invalid from "./invalid";
 const ViewDeletedMessages: FC<{
     searchParams?: { [key: string]: string | undefined };
 }> = async ({ searchParams = {} }) => {
-    console.log("Debug", Messages.name, Invalid.name);
     let invalidProps: ComponentProps<typeof Invalid> = {
         url: undefined,
         error: undefined,
@@ -69,8 +68,6 @@ const ViewDeletedMessages: FC<{
             invalidProps.error = true;
         }
     }
-
-    console.log(searchParams);
 
     return (
         <main className="min-h-[90vh] py-4 px-0 lg:px-[17.3%]">
