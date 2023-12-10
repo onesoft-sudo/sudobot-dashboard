@@ -1,0 +1,35 @@
+.methods {
+    background: #222;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 0 rgba(255, 255, 255, 0.6);
+}
+
+.methods > a {
+    padding: 10px 2px 10px 10px;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.methods > a:hover {
+    background: #1b1b1b;
+}
+
+.methods > a:not(:first-child) {
+    border-top: 1px solid #333;
+}
+
+.methods > a h2 {
+    font-size: 20px;
+}
+
+.methods > a p {
+    color: #999;
+}
+
+.methods > a svg {
+    color: #999;
+}

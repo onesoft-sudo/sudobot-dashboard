@@ -23,32 +23,31 @@ import { MdError } from "react-icons/md";
 import ErrorButtons from "./error-buttons";
 
 export const metadata: Metadata = {
-    title: "400 Bad Request - SudoBot",
-    description: "Whoops! Looks like you've done something wrong.",
+    title: "500 Internal Server Error - SudoBot",
+    description: "Whoops! Looks like something is broken on our end.",
 };
 
-const BadRequestPage: FC<{ description?: string }> = ({
-    description = "Invalid Request Payload",
-}) => {
+const InternalServerErrorPage: FC = () => {
     return (
         <main className="py-10 px-2 text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl text-red-500 flex justify-center items-center gap-4">
                 <MdError className="text-[1.2em] -mt-1" />
-                400 Bad Request
+                500 Internal Server Error
             </h1>
             <br />
-            <h3 className="text-xl md:text-2xl lg:text-3xl">{description}</h3>
+            <h3 className="text-xl md:text-2xl lg:text-3xl">
+                Something went wrong
+            </h3>
             <br />
             <p>
-                Your browser sent a request that the server could not
-                understand. Are you sure you&rsquo;re accessing the right URL?
-                <br />
-                If you think this should not happen, please contact the
-                webmaster at{" "}
+                The server encountered an internal error or misconfiguration and
+                was unable to complete your request. Please contact the server
+                administrator, at{" "}
                 <a className="link" href="mailto:webmaster@sudobot.org">
                     webmaster@sudobot.org
-                </a>
-                .
+                </a>{" "}
+                to inform them of the time the error occurred, and anything you
+                might have done that may have caused the error.
             </p>
             <br />
             <ErrorButtons />
@@ -56,4 +55,4 @@ const BadRequestPage: FC<{ description?: string }> = ({
     );
 };
 
-export default BadRequestPage;
+export default InternalServerErrorPage;
