@@ -18,7 +18,6 @@
  */
 
 import { Metadata } from "next";
-import Head from "next/head";
 import { FC } from "react";
 import { MdError } from "react-icons/md";
 import ErrorButtons from "./error-buttons";
@@ -33,14 +32,6 @@ const BadRequestPage: FC<{ description?: string }> = ({
 }) => {
     return (
         <main className="py-10 px-2 text-center">
-            <Head>
-                <title key="title">{metadata.title?.toString()}</title>
-                <meta
-                    name="description"
-                    key="description"
-                    content={metadata.description?.toString()}
-                />
-            </Head>
             <h1 className="text-3xl md:text-4xl lg:text-5xl text-red-500 flex justify-center items-center gap-4">
                 <MdError className="text-[1.2em] -mt-1" />
                 400 Bad Request

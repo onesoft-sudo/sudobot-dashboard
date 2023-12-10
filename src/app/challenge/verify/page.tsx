@@ -17,53 +17,71 @@
  * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { getVerificationInfo } from "@/api/routes/verify";
 import BadRequestPage from "@/app/bad-request";
+import InternalServerErrorPage from "@/app/internal-server-error";
+import VerificationMethod from "@/components/Verify/VerificationMethod";
 import { ServerSideComponentProps } from "@/types/ServerSideComponentProps";
 import Image from "next/image";
 import Script from "next/script";
-import { FC } from "react";
-import { MdArrowRight } from "react-icons/md";
+import { FC, cache } from "react";
+import { FaEnvelope, FaGithub, FaGoogle, FaPuzzlePiece } from "react-icons/fa6";
 import { z } from "zod";
 import styles from "../../../styles/VerifyPage.module.css";
 
-export const generateMetadata = ({
+const getInfo = cache(async (token: string) => {
+    try {
+        return await getVerificationInfo(token);
+    } catch (message) {
+        console.error(message);
+        return;
+    }
+});
+
+export const generateMetadata = async ({
     searchParams,
 }: ServerSideComponentProps) => {
     const requestFailed = !paramSchema.safeParse(searchParams).success;
 
+    if (requestFailed) {
+        return {
+            title: "400 Bad Request - SudoBot",
+            description: "Whoops! Looks like you've done something wrong.",
+        };
+    }
+
+    const response = await getInfo(searchParams.token);
+
     return {
-        title: requestFailed ? "400 Bad Request - SudoBot" : "Verify - SudoBot",
-        description: requestFailed
-            ? "Whoops! Looks like you've done something wrong."
-            : "Log into SudoBot's control panel.",
+        title: !response
+            ? "500 Internal Server Error - SudoBot"
+            : "Verify - SudoBot",
+        description: !response
+            ? "Whoops! Looks like something is broken on our end."
+            : undefined,
     };
 };
 
 const paramSchema = z.object({
-    u: z
-        .string({
-            required_error: "Must provide a user ID",
-        })
-        .min(5, "Invalid snowflake")
-        .regex(/^\d+$/, "Invalid snowflake"),
-    t: z.string({
-        required_error: "Must provide a valid verification key",
-    }),
-    g: z
-        .string({
-            required_error: "Must provide a guild ID",
-        })
-        .min(5, "Invalid snowflake")
-        .regex(/^\d+$/, "Invalid snowflake"),
-    n: z.string({
-        required_error: "Must provide a guild name",
-    }),
+    t: z.string(),
+    ic: z.string(),
 });
 
-const VerifyPage: FC<ServerSideComponentProps> = ({ searchParams }) => {
+const VerifyPage: FC<ServerSideComponentProps> = async ({ searchParams }) => {
     if (!paramSchema.safeParse(searchParams).success) {
         return <BadRequestPage />;
     }
+
+    const response = await getInfo(searchParams.t);
+
+    if (!response) {
+        return <InternalServerErrorPage />;
+    }
+
+    const { guildName, guildId } = response.data;
+    const iconURL = `https://cdn.discordapp.com/icons/${encodeURIComponent(
+        guildId
+    )}/${encodeURIComponent(searchParams.ic)}.webp`;
 
     return (
         <main className="min-h-[90vh] flex justify-center items-center">
@@ -84,7 +102,7 @@ const VerifyPage: FC<ServerSideComponentProps> = ({ searchParams }) => {
                         className="no-underline text-[#007bff] font-bold ml-3 inline-flex justify-center items-center gap-2 bg-[rgba(0,123,255,0.25)] px-2 py-1 rounded-lg"
                     >
                         <Image
-                            src="https://cdn.discordapp.com/icons/964969362073198652/72513102a786e607bc8d47ffc342a1f0.webp"
+                            src={iconURL}
                             alt="[icon]"
                             height={20}
                             width={20}
@@ -93,48 +111,32 @@ const VerifyPage: FC<ServerSideComponentProps> = ({ searchParams }) => {
                             }}
                         />
 
-                        <h2>OneSoftNet</h2>
+                        <h2>{guildName}</h2>
                     </a>
                 </div>
 
                 <div className="flex justify-center items-center">
                     <div className={styles.methods}>
-                        <a href="#">
-                            <span>
-                                <h2>Google</h2>
-                                <p>Verify using your Google account.</p>
-                            </span>
-                            <span>
-                                <MdArrowRight size={20} />
-                            </span>
-                        </a>
-                        <a href="#">
-                            <span>
-                                <h2>GitHub</h2>
-                                <p>Verify using your GitHub account.</p>
-                            </span>
-                            <span>
-                                <MdArrowRight size={20} />
-                            </span>
-                        </a>
-                        <a href="#">
-                            <span>
-                                <h2>Email</h2>
-                                <p>Verify using your Email Address.</p>
-                            </span>
-                            <span>
-                                <MdArrowRight size={20} />
-                            </span>
-                        </a>
-                        <a href="#">
-                            <span>
-                                <h2>Captcha</h2>
-                                <p>Verify by solving a Captcha.</p>
-                            </span>
-                            <span>
-                                <MdArrowRight size={20} />
-                            </span>
-                        </a>
+                        <VerificationMethod
+                            name="Google"
+                            description="Verify using your Google account."
+                            icon={FaGoogle}
+                        />
+                        <VerificationMethod
+                            name="GitHub"
+                            description="Verify using your GitHub account."
+                            icon={FaGithub}
+                        />
+                        <VerificationMethod
+                            name="Email"
+                            description="Verify using your Email Address."
+                            icon={FaEnvelope}
+                        />
+                        <VerificationMethod
+                            name="Captcha"
+                            description="Verify by solving a Captcha."
+                            icon={FaPuzzlePiece}
+                        />
                     </div>
                 </div>
             </div>
