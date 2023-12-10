@@ -1,3 +1,17 @@
+# [0.52.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.51.1...v0.52.0) (2023-12-10)
+
+
+### Bug Fixes
+
+* wordings in forbidden.tsx page ([76acd2b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/76acd2baa000408d9d13083a9dbbf166bb89390f))
+
+
+### Features
+
+* add 400 bad request page ([4092660](https://github.com/onesoft-sudo/sudobot-dashboard/commit/409266002dd45a6b48aaae166251ad04f52c5d1b))
+
+
+
 ## [0.51.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.51.0...v0.51.1) (2023-12-08)
 
 
@@ -32,15 +46,6 @@
 ### Bug Fixes
 
 * nextjs v14 migration errors ([9853e3d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9853e3da15f37a8f9b5afdaa7f761f8ddb8f3b46))
-
-
-
-## [0.50.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.50.0...v0.50.1) (2023-12-06)
-
-
-### Bug Fixes
-
-* use html entities ([6905d67](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6905d67d7023ac24fe10056a55bc31e9d2394392))
 
 
 
