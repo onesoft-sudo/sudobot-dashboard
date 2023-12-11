@@ -1,3 +1,14 @@
+# [0.53.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.52.0...v0.53.0) (2023-12-10)
+
+
+### Features
+
+* add 500 error page ([f87f02e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f87f02e33c4829dd7406a6dae101b3f4b3681082))
+* add icons to the verification page ([ecaf3bf](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ecaf3bf7cfc1d244547f6bdcc34bf87c6f05325f))
+* add support for multiple verification options ([f2c3977](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f2c397743b882466f32ab98d751121c705c770b7))
+
+
+
 # [0.52.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.51.1...v0.52.0) (2023-12-10)
 
 
@@ -37,15 +48,6 @@
 ### Bug Fixes
 
 * type errors ([4c40244](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4c402449e59e7764f717c83688f42e523659485c))
-
-
-
-## [0.50.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.50.1...v0.50.2) (2023-12-07)
-
-
-### Bug Fixes
-
-* nextjs v14 migration errors ([9853e3d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9853e3da15f37a8f9b5afdaa7f761f8ddb8f3b46))
 
 
 
