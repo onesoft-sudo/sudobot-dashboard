@@ -10,6 +10,7 @@ export type VerificationInfo = {
     guildId: string;
     guildName: string;
     token: string;
+    icon?: string;
     createdAt: Date;
 };
 
@@ -23,19 +24,12 @@ export function validateCaptchaResponse(payload: {
 
 // FIXME
 export async function getVerificationInfo(
-    token: string
+    token: string,
+    userId: string
 ): Promise<AxiosResponse<VerificationInfo, any>> {
-    return {
-        config: null as any,
-        data: {
-            createdAt: new Date(),
-            guildId: "964969362073198652",
-            guildName: "The Super Place",
-            token,
-            userId: "2482473642578546",
-        },
-        headers: null as any,
-        status: 200,
-        statusText: "OK",
-    };
+    return axios.get(
+        `${API.verify()}?token=${encodeURIComponent(
+            token
+        )}&userId=${encodeURIComponent(userId)}`
+    );
 }

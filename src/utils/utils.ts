@@ -67,3 +67,20 @@ export const formatSize = (size: number) => {
 
     return `${size.toFixed(2)} ${units[unit]}`;
 };
+
+export const classNames = (
+    classes: Record<string, boolean>,
+    base: string[] | string = []
+) => {
+    let classNameString = Array.isArray(base) ? base.join(" ") : base;
+
+    for (const className in classes) {
+        if (classes[className]) {
+            classNameString += ` ${className}`;
+        }
+    }
+
+    return classNameString.trimStart();
+};
+
+export const cx = classNames;

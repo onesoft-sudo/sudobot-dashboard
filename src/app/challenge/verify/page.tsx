@@ -20,18 +20,16 @@
 import { getVerificationInfo } from "@/api/routes/verify";
 import BadRequestPage from "@/app/bad-request";
 import InternalServerErrorPage from "@/app/internal-server-error";
-import VerificationMethod from "@/components/Verify/VerificationMethod";
+import VerificationWizard from "@/components/Verify/VerificationWizard";
+import { VerificationWizardContextProvider } from "@/contexts/VerificationWizardContext";
 import { ServerSideComponentProps } from "@/types/ServerSideComponentProps";
-import Image from "next/image";
 import Script from "next/script";
 import { FC, cache } from "react";
-import { FaEnvelope, FaGithub, FaGoogle, FaPuzzlePiece } from "react-icons/fa6";
 import { z } from "zod";
-import styles from "../../../styles/VerifyPage.module.css";
 
-const getInfo = cache(async (token: string) => {
+const getInfo = cache(async (token: string, userId: string) => {
     try {
-        return await getVerificationInfo(token);
+        return await getVerificationInfo(token, userId);
     } catch (message) {
         console.error(message);
         return;
@@ -50,7 +48,7 @@ export const generateMetadata = async ({
         };
     }
 
-    const response = await getInfo(searchParams.token);
+    const response = await getInfo(searchParams.t, searchParams.u);
 
     return {
         title: !response
@@ -64,7 +62,7 @@ export const generateMetadata = async ({
 
 const paramSchema = z.object({
     t: z.string(),
-    ic: z.string(),
+    u: z.string().regex(/^\d+$/),
 });
 
 const VerifyPage: FC<ServerSideComponentProps> = async ({ searchParams }) => {
@@ -72,16 +70,18 @@ const VerifyPage: FC<ServerSideComponentProps> = async ({ searchParams }) => {
         return <BadRequestPage />;
     }
 
-    const response = await getInfo(searchParams.t);
+    const response = await getInfo(searchParams.t, searchParams.u);
 
     if (!response) {
         return <InternalServerErrorPage />;
     }
 
-    const { guildName, guildId } = response.data;
-    const iconURL = `https://cdn.discordapp.com/icons/${encodeURIComponent(
-        guildId
-    )}/${encodeURIComponent(searchParams.ic)}.webp`;
+    const data = response.data;
+    const iconURL = data.icon
+        ? `https://cdn.discordapp.com/icons/${encodeURIComponent(
+              data.guildId
+          )}/${encodeURIComponent(data.icon)}.webp`
+        : null;
 
     return (
         <main className="min-h-[90vh] flex justify-center items-center">
@@ -91,55 +91,9 @@ const VerifyPage: FC<ServerSideComponentProps> = async ({ searchParams }) => {
                 defer
             ></Script>
 
-            <div>
-                <h1 className="text-3xl md:text-4xl text-center pt-5 md:pt-0">
-                    Choose a verification method
-                </h1>
-                <div className="text-center text-[#999] mt-3 flex items-center justify-center pt-3 pb-[20px] md:pb-[50px]">
-                    <p className="inline-block">to continue to</p>
-                    <a
-                        href="#"
-                        className="no-underline text-[#007bff] font-bold ml-3 inline-flex justify-center items-center gap-2 bg-[rgba(0,123,255,0.25)] px-2 py-1 rounded-lg"
-                    >
-                        <Image
-                            src={iconURL}
-                            alt="[icon]"
-                            height={20}
-                            width={20}
-                            style={{
-                                borderRadius: "50%",
-                            }}
-                        />
-
-                        <h2>{guildName}</h2>
-                    </a>
-                </div>
-
-                <div className="flex justify-center items-center">
-                    <div className={styles.methods}>
-                        <VerificationMethod
-                            name="Google"
-                            description="Verify using your Google account."
-                            icon={FaGoogle}
-                        />
-                        <VerificationMethod
-                            name="GitHub"
-                            description="Verify using your GitHub account."
-                            icon={FaGithub}
-                        />
-                        <VerificationMethod
-                            name="Email"
-                            description="Verify using your Email Address."
-                            icon={FaEnvelope}
-                        />
-                        <VerificationMethod
-                            name="Captcha"
-                            description="Verify by solving a Captcha."
-                            icon={FaPuzzlePiece}
-                        />
-                    </div>
-                </div>
-            </div>
+            <VerificationWizardContextProvider maxSteps={3}>
+                <VerificationWizard info={{ ...data, iconURL }} />
+            </VerificationWizardContextProvider>
         </main>
     );
 };
