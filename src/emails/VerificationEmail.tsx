@@ -11,19 +11,16 @@ import {
     Preview,
     Section,
 } from "@react-email/components";
-import { object, string, type Infer } from "superstruct";
 
 export const TemplateName = "VerificationEmail";
 
-export const TemplateStruct = object({
-    email: string(),
-    guild: string(),
-    ip: string(),
-    address: string(),
-    verificationURL: string(),
-});
-
-export type TemplateProps = Infer<typeof TemplateStruct>;
+interface TemplateProps {
+    email: string;
+    guild: string;
+    ip: string;
+    address: string;
+    verificationURL: string;
+}
 
 export const Template = ({
     email,
