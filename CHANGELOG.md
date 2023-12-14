@@ -1,3 +1,12 @@
+# [0.57.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.56.0...v0.57.0) (2023-12-14)
+
+
+### Features
+
+* add verification card component ([ca20a30](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ca20a305b0415e079bb98d6ec4bd5435f93864a9))
+
+
+
 # [0.56.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.55.0...v0.56.0) (2023-12-14)
 
 
@@ -33,20 +42,6 @@
 * add 500 error page ([f87f02e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f87f02e33c4829dd7406a6dae101b3f4b3681082))
 * add icons to the verification page ([ecaf3bf](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ecaf3bf7cfc1d244547f6bdcc34bf87c6f05325f))
 * add support for multiple verification options ([f2c3977](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f2c397743b882466f32ab98d751121c705c770b7))
-
-
-
-# [0.52.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.51.1...v0.52.0) (2023-12-10)
-
-
-### Bug Fixes
-
-* wordings in forbidden.tsx page ([76acd2b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/76acd2baa000408d9d13083a9dbbf166bb89390f))
-
-
-### Features
-
-* add 400 bad request page ([4092660](https://github.com/onesoft-sudo/sudobot-dashboard/commit/409266002dd45a6b48aaae166251ad04f52c5d1b))
 
 
 
