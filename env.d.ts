@@ -3,5 +3,6 @@ namespace NodeJS {
         NEXT_PUBLIC_API_URL: string;
         NEXT_PUBLIC_DISCORD_OAUTH_URL: string;
         NEXT_PUBLIC_SYSTEM_ADMINS: string;
+        NEXT_PUBLIC_RECAPTCHA_SITE_KEY: string;
     }
 }

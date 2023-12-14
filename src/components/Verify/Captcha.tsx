@@ -1,6 +1,7 @@
 "use client";
 
 import { validateCaptchaResponse } from "@/api/routes/verify";
+import useVerificationContext from "@/hooks/useVerificationContext";
 import { Alert, CircularProgress } from "@mui/material";
 import { AxiosError } from "axios";
 import { useSearchParams } from "next/navigation";
@@ -17,11 +18,14 @@ declare global {
         > {}
 }
 
+let recaptchaRendered = false;
+
 const Captcha: FC = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const params = useSearchParams();
+    const { disableNext, nextDisabled, next } = useVerificationContext();
 
     const onSuccess = async (responseToken: string) => {
         setIsLoading(true);
@@ -44,6 +48,7 @@ const Captcha: FC = () => {
             }
 
             setIsSuccess(true);
+            next();
         } catch (error) {
             if (error instanceof AxiosError) {
                 setError(
@@ -64,8 +69,28 @@ const Captcha: FC = () => {
     useEffect(() => {
         window[recaptchaSuccessCallbackName] = onSuccess;
 
+        if (!recaptchaRendered) {
+            grecaptcha.ready(() => {
+                grecaptcha.render("recaptcha_container", {
+                    sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+                    callback: onSuccess,
+                });
+            });
+
+            recaptchaRendered = true;
+        }
+
+        if (nextDisabled === false) {
+            disableNext(true);
+        }
+
         return () => {
             delete window[recaptchaSuccessCallbackName];
+
+            if (nextDisabled === true) {
+                disableNext(false);
+                recaptchaRendered = false;
+            }
         };
     }, []);
 
@@ -94,6 +119,7 @@ const Captcha: FC = () => {
                     className="g-recaptcha invert"
                     data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                     data-callback="recaptchaSuccess"
+                    id="recaptcha_container"
                 ></div>
             )}
             {isLoading && (

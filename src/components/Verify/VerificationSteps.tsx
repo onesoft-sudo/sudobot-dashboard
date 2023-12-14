@@ -6,12 +6,19 @@ import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { useEffect } from "react";
 import { FaEnvelope, FaGithub, FaGoogle, FaPuzzlePiece } from "react-icons/fa6";
+import { MdCheck } from "react-icons/md";
 import styles from "../../styles/VerificationMethods.module.css";
+import Captcha from "./Captcha";
 import VerificationMethod from "./VerificationMethod";
 import VerificationStep from "./VerificationStep";
 
+declare global {
+    var grecaptcha: any;
+}
+
 export default function VerificationSteps() {
-    const { next, step, lastAction, setMethod } = useVerificationContext();
+    const { next, step, lastAction, setMethod, method } =
+        useVerificationContext();
     const [sliderRef, instanceRef] = useKeenSlider(
         {
             slideChanged() {
@@ -70,13 +77,44 @@ export default function VerificationSteps() {
                 </div>
                 <VerificationStep
                     step={1}
-                    callback={() => (
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Nulla voluptas modi illum ducimus tempore hic
-                            porro odio exercitationem ea voluptatem.
-                        </p>
-                    )}
+                    callback={() =>
+                        method === VerificationMethodEnum.Captcha ? (
+                            <Captcha />
+                        ) : (
+                            <p>Not implemented!</p>
+                        )
+                    }
+                />
+                <VerificationStep
+                    step={2}
+                    callback={() => {
+                        const { disableBack, backDisabled } =
+                            useVerificationContext();
+                        useEffect(() => {
+                            if (!backDisabled) {
+                                disableBack(true);
+                            }
+                        }, []);
+
+                        return (
+                            <div>
+                                <div className="flex justify-center pt-10 pb-3">
+                                    <MdCheck
+                                        size={50}
+                                        className="text-green-500"
+                                    />
+                                </div>
+
+                                <p className="text-center text-xl">
+                                    Verification Successful!
+                                </p>
+
+                                <p className="text-center text-sm text-[#999]">
+                                    You can close this tab/window now.
+                                </p>
+                            </div>
+                        );
+                    }}
                 />
             </div>
         </div>

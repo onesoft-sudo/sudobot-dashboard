@@ -4,6 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
+        "email:dev": "email preview ./src/emails",
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
@@ -14,10 +15,12 @@
         "@emotion/styled": "^11.11.0",
         "@mui/material": "^5.14.4",
         "@nextui-org/react": "^2.1.13",
+        "@react-email/components": "^0.0.12",
         "@tanstack/react-query": "^4.32.6",
         "@types/node": "20.4.8",
         "@types/react": "18.2.18",
         "@types/react-dom": "18.2.7",
+        "@vercel/edge": "^1.1.1",
         "autoprefixer": "10.4.14",
         "axios": "^1.4.0",
         "date-fns": "^2.30.0",
@@ -25,11 +28,14 @@
         "eslint": "8.46.0",
         "eslint-config-next": "^14.0.3",
         "framer-motion": "^10.15.0",
+        "jsx-email": "^1.2.0",
         "keen-slider": "^6.8.6",
         "next": "^14.0.3",
+        "nodemailer": "^6.9.7",
         "postcss": "8.4.31",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-email": "^1.10.0",
         "react-hook-form": "^7.45.4",
         "react-icons": "^4.10.1",
         "react-markdown": "^8.0.7",
@@ -45,6 +51,7 @@
     "devDependencies": {
         "@commitlint/cli": "^17.6.7",
         "@commitlint/config-conventional": "^17.6.7",
+        "@types/nodemailer": "^6.4.14",
         "husky": "^8.0.0"
     }
 }

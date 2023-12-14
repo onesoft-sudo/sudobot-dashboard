@@ -20,9 +20,11 @@
 import { getVerificationInfo } from "@/api/routes/verify";
 import BadRequestPage from "@/app/bad-request";
 import InternalServerErrorPage from "@/app/internal-server-error";
+import NotFoundPage from "@/app/not-found";
 import VerificationWizard from "@/components/Verify/VerificationWizard";
 import { VerificationWizardContextProvider } from "@/contexts/VerificationWizardContext";
 import { ServerSideComponentProps } from "@/types/ServerSideComponentProps";
+import { AxiosError } from "axios";
 import Script from "next/script";
 import { FC, cache } from "react";
 import { z } from "zod";
@@ -30,8 +32,13 @@ import { z } from "zod";
 const getInfo = cache(async (token: string, userId: string) => {
     try {
         return await getVerificationInfo(token, userId);
-    } catch (message) {
-        console.error(message);
+    } catch (error) {
+        console.error(error);
+
+        if (error instanceof AxiosError && error.response?.status === 404) {
+            return null;
+        }
+
         return;
     }
 });
@@ -40,15 +47,20 @@ export const generateMetadata = async ({
     searchParams,
 }: ServerSideComponentProps) => {
     const requestFailed = !paramSchema.safeParse(searchParams).success;
+    const _400 = {
+        title: "400 Bad Request - SudoBot",
+        description: "Whoops! Looks like you've done something wrong.",
+    };
 
     if (requestFailed) {
-        return {
-            title: "400 Bad Request - SudoBot",
-            description: "Whoops! Looks like you've done something wrong.",
-        };
+        return _400;
     }
 
     const response = await getInfo(searchParams.t, searchParams.u);
+
+    if (response === null) {
+        return _400;
+    }
 
     return {
         title: !response
@@ -71,6 +83,10 @@ const VerifyPage: FC<ServerSideComponentProps> = async ({ searchParams }) => {
     }
 
     const response = await getInfo(searchParams.t, searchParams.u);
+
+    if (response === null) {
+        return <NotFoundPage />;
+    }
 
     if (!response) {
         return <InternalServerErrorPage />;

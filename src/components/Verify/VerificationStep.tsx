@@ -17,6 +17,8 @@ export default function VerificationStep({
         step: currentStep,
         maxSteps,
         back,
+        nextDisabled,
+        backDisabled,
     } = useVerificationContext();
 
     return (
@@ -26,20 +28,30 @@ export default function VerificationStep({
                     {step === currentStep && <Callback />}
                 </div>
                 <div className="flex justify-between items-center">
-                    <Button
-                        startIcon={<MdArrowLeft size={27} className="inline" />}
-                        disabled={currentStep === 0}
-                        onClick={back}
-                    >
-                        Back
-                    </Button>
-                    <Button
-                        endIcon={<MdArrowRight size={27} className="inline" />}
-                        disabled={currentStep >= maxSteps}
-                        onClick={next}
-                    >
-                        Next
-                    </Button>
+                    {currentStep === 0 || backDisabled ? (
+                        <div></div>
+                    ) : (
+                        <Button
+                            startIcon={
+                                <MdArrowLeft size={27} className="inline" />
+                            }
+                            onClick={back}
+                        >
+                            Back
+                        </Button>
+                    )}
+                    {currentStep >= maxSteps || nextDisabled ? (
+                        <div></div>
+                    ) : (
+                        <Button
+                            endIcon={
+                                <MdArrowRight size={27} className="inline" />
+                            }
+                            onClick={next}
+                        >
+                            Next
+                        </Button>
+                    )}
                 </div>
             </div>
         </div>

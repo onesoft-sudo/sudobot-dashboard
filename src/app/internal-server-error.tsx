@@ -41,8 +41,8 @@ const InternalServerErrorPage: FC = () => {
             <br />
             <p>
                 The server encountered an internal error or misconfiguration and
-                was unable to complete your request. Please contact the server
-                administrator, at{" "}
+                was unable to complete your request.
+                <br /> Please contact the server administrator, at{" "}
                 <a className="link" href="mailto:webmaster@sudobot.org">
                     webmaster@sudobot.org
                 </a>{" "}

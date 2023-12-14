@@ -19,7 +19,10 @@ export function validateCaptchaResponse(payload: {
     responseToken: string;
     userId: string;
 }) {
-    return axios.post<ValidateCaptchaResponseType>(API.verify(), payload);
+    return axios.post<ValidateCaptchaResponseType>(
+        API.verifyByCaptcha(),
+        payload
+    );
 }
 
 // FIXME
