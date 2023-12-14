@@ -1,3 +1,12 @@
+## [0.57.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.57.0...v0.57.1) (2023-12-14)
+
+
+### Bug Fixes
+
+* remove superstruct usage in emails ([8ac2428](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8ac24281a78030f63e924a04fc7407e957696e2d))
+
+
+
 # [0.57.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.56.0...v0.57.0) (2023-12-14)
 
 
@@ -31,17 +40,6 @@
 ### Features
 
 * sliding verification methods ([09d8d15](https://github.com/onesoft-sudo/sudobot-dashboard/commit/09d8d15b859e2e207646af5a9cc347bc625c65dd))
-
-
-
-# [0.53.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.52.0...v0.53.0) (2023-12-10)
-
-
-### Features
-
-* add 500 error page ([f87f02e](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f87f02e33c4829dd7406a6dae101b3f4b3681082))
-* add icons to the verification page ([ecaf3bf](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ecaf3bf7cfc1d244547f6bdcc34bf87c6f05325f))
-* add support for multiple verification options ([f2c3977](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f2c397743b882466f32ab98d751121c705c770b7))
 
 
 
