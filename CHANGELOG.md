@@ -1,3 +1,12 @@
+# [0.56.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.55.0...v0.56.0) (2023-12-14)
+
+
+### Features
+
+* add verify by email page ([0d4c341](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0d4c3411566a7dfba1b7188e7abf3a273a53d634))
+
+
+
 # [0.55.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.54.0...v0.55.0) (2023-12-14)
 
 
@@ -38,15 +47,6 @@
 ### Features
 
 * add 400 bad request page ([4092660](https://github.com/onesoft-sudo/sudobot-dashboard/commit/409266002dd45a6b48aaae166251ad04f52c5d1b))
-
-
-
-## [0.51.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.51.0...v0.51.1) (2023-12-08)
-
-
-### Bug Fixes
-
-* nextjs build errors ([c4074a2](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c4074a2ea615880a5c43c1c789877ee9ae065e98))
 
 
 
