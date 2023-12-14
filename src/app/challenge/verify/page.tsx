@@ -24,7 +24,7 @@ import NotFoundPage from "@/app/not-found";
 import VerificationWizard from "@/components/Verify/VerificationWizard";
 import { VerificationWizardContextProvider } from "@/contexts/VerificationWizardContext";
 import { ServerSideComponentProps } from "@/types/ServerSideComponentProps";
-import { AxiosError } from "axios";
+import { AxiosError, AxiosResponse } from "axios";
 import Script from "next/script";
 import { FC, cache } from "react";
 import { z } from "zod";
@@ -72,32 +72,48 @@ export const generateMetadata = async ({
     };
 };
 
-const paramSchema = z.object({
+export const paramSchema = z.object({
     t: z.string(),
     u: z.string().regex(/^\d+$/),
 });
 
-const VerifyPage: FC<ServerSideComponentProps> = async ({ searchParams }) => {
+export const fetchInfo = async (
+    searchParams: Record<string, string>
+): Promise<[null, JSX.Element] | [AxiosResponse, null]> => {
     if (!paramSchema.safeParse(searchParams).success) {
-        return <BadRequestPage />;
+        return [null, <BadRequestPage />];
     }
 
     const response = await getInfo(searchParams.t, searchParams.u);
 
     if (response === null) {
-        return <NotFoundPage />;
+        return [null, <NotFoundPage />];
     }
 
     if (!response) {
-        return <InternalServerErrorPage />;
+        return [null, <InternalServerErrorPage />];
     }
 
-    const data = response.data;
-    const iconURL = data.icon
+    return [response, null];
+};
+
+export const getIconURL = (data: any) => {
+    return data.icon
         ? `https://cdn.discordapp.com/icons/${encodeURIComponent(
               data.guildId
           )}/${encodeURIComponent(data.icon)}.webp`
         : null;
+};
+
+const VerifyPage: FC<ServerSideComponentProps> = async ({ searchParams }) => {
+    const [response, error] = await fetchInfo(searchParams);
+
+    if (error) {
+        return error;
+    }
+
+    const data = response.data;
+    const iconURL = getIconURL(data);
 
     return (
         <main className="min-h-[90vh] flex justify-center items-center">

@@ -28,30 +28,18 @@ export default function VerificationStep({
                     {step === currentStep && <Callback />}
                 </div>
                 <div className="flex justify-between items-center">
-                    {currentStep === 0 || backDisabled ? (
-                        <div></div>
-                    ) : (
-                        <Button
-                            startIcon={
-                                <MdArrowLeft size={27} className="inline" />
-                            }
-                            onClick={back}
-                        >
-                            Back
-                        </Button>
-                    )}
-                    {currentStep >= maxSteps || nextDisabled ? (
-                        <div></div>
-                    ) : (
-                        <Button
-                            endIcon={
-                                <MdArrowRight size={27} className="inline" />
-                            }
-                            onClick={next}
-                        >
-                            Next
-                        </Button>
-                    )}
+                    {currentStep === 0 || backDisabled ? <div></div> : <Button
+                        startIcon={<MdArrowLeft size={27} className="inline" />}
+                        onClick={back}
+                    >
+                        Back
+                    </Button>}
+                    {currentStep >= maxSteps || nextDisabled ? <div></div> : <Button
+                        endIcon={<MdArrowRight size={27} className="inline" />}
+                        onClick={next}
+                    >
+                        Next
+                    </Button>}
                 </div>
             </div>
         </div>

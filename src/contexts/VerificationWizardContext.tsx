@@ -7,7 +7,7 @@ type VerificationWizardContextState = {
     maxSteps: number;
     setStep: (step: number) => void;
     back: () => void;
-    next: () => void;
+    next: (() => void) & ((step: number) => void);
     lastAction?: "back" | "next";
     method?: VerificationMethod;
     setMethod: (method: VerificationMethod) => void;
@@ -35,6 +35,7 @@ type VerificationWizardContextAction =
       }
     | {
           type: "STEP_NEXT";
+          payload?: number
       }
     | {
           type: "STEP_BACK";
@@ -68,7 +69,7 @@ const reducer = (
             if (state.step >= state.maxSteps) {
                 return state;
             }
-            return { ...state, step: state.step + 1, lastAction: "next" };
+            return { ...state, step: state.step + (action.payload ?? 1), lastAction: "next" };
         case "SET_NEXT_DISABLED":
             return {
                 ...state,
@@ -101,13 +102,14 @@ export const VerificationWizardContextProvider = ({
                 type: "STEP_BACK",
             });
         },
-        next() {
+        next(step: number = 0) {
             if (state.nextDisabled) {
                 return;
             }
 
             dispatch({
                 type: "STEP_NEXT",
+                payload: step
             });
         },
         setMethod(method: VerificationMethod) {

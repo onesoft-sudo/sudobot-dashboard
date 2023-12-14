@@ -2,7 +2,7 @@
 
 import { VerificationInfo } from "@/api/routes/verify";
 import useVerificationContext from "@/hooks/useVerificationContext";
-import Image from "next/image";
+import VerificationGuild from "./VerificationGuild";
 import VerificationSteps from "./VerificationSteps";
 
 interface VerificationWizardProps {
@@ -23,28 +23,11 @@ export default function VerificationWizard({
             </h1>
             <div className="text-center text-[#999] mt-3 flex items-center justify-center pt-3 pb-[20px] md:pb-[50px]">
                 <p className="inline-block">to continue to</p>
-                <a
-                    href={`https://discord.com/channels/${encodeURIComponent(
-                        guildId
-                    )}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="no-underline text-[#007bff] font-bold ml-3 inline-flex justify-center items-center gap-2 bg-[rgba(0,123,255,0.25)] px-2 py-1 rounded-lg"
-                >
-                    {iconURL && (
-                        <Image
-                            src={iconURL}
-                            alt="[icon]"
-                            height={20}
-                            width={20}
-                            style={{
-                                borderRadius: "50%",
-                            }}
-                        />
-                    )}
-
-                    <h2>{guildName}</h2>
-                </a>
+                <VerificationGuild
+                    guildId={guildId}
+                    guildName={guildName}
+                    iconURL={iconURL}
+                />
             </div>
 
             <div className="flex justify-center items-center">

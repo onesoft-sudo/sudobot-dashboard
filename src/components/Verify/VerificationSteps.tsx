@@ -4,11 +4,13 @@ import { VerificationMethod as VerificationMethodEnum } from "@/contexts/Verific
 import useVerificationContext from "@/hooks/useVerificationContext";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
+import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { FaEnvelope, FaGithub, FaGoogle, FaPuzzlePiece } from "react-icons/fa6";
 import { MdCheck } from "react-icons/md";
 import styles from "../../styles/VerificationMethods.module.css";
 import Captcha from "./Captcha";
+import Card from "./VerificationCard";
 import VerificationMethod from "./VerificationMethod";
 import VerificationStep from "./VerificationStep";
 
@@ -19,6 +21,7 @@ declare global {
 export default function VerificationSteps() {
     const { next, step, lastAction, setMethod, method } =
         useVerificationContext();
+    const searchParams = useSearchParams();
     const [sliderRef, instanceRef] = useKeenSlider(
         {
             slideChanged() {
@@ -42,7 +45,7 @@ export default function VerificationSteps() {
     };
 
     return (
-        <div className="md:mx-0 max-w-[90vw] w-[90vw] md:w-[40vw] lg:w-[25vw] xl:w-[17vw] shadow-[0_0_2px_0_rgba(255,255,255,0.5)] rounded-[10px]">
+        <Card>
             <div ref={sliderRef} className="keen-slider rounded-[10px]">
                 <div className="keen-slider__slide rounded-[10px] w-[90vw] md:w-[40vw] lg:w-[25vw] xl:w-[17vw]">
                     <div className={styles.methods}>
@@ -62,7 +65,7 @@ export default function VerificationSteps() {
                             name="Email"
                             description="Verify using your Email Address."
                             icon={FaEnvelope}
-                            disabled
+                            href={`/challenge/verify/email?${searchParams}`}
                         />
                         <VerificationMethod
                             name="Captcha"
@@ -117,6 +120,6 @@ export default function VerificationSteps() {
                     }}
                 />
             </div>
-        </div>
+        </Card>
     );
 }
