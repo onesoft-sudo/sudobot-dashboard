@@ -1,3 +1,12 @@
+# [0.55.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.54.0...v0.55.0) (2023-12-14)
+
+
+### Features
+
+* support captcha verification ([70eca56](https://github.com/onesoft-sudo/sudobot-dashboard/commit/70eca56866e69b295f436d39bb397d5b2f1645fc))
+
+
+
 # [0.54.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.53.0...v0.54.0) (2023-12-11)
 
 
@@ -38,16 +47,6 @@
 ### Bug Fixes
 
 * nextjs build errors ([c4074a2](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c4074a2ea615880a5c43c1c789877ee9ae065e98))
-
-
-
-# [0.51.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.50.3...v0.51.0) (2023-12-08)
-
-
-### Features
-
-* support verification system ([438d3e8](https://github.com/onesoft-sudo/sudobot-dashboard/commit/438d3e8529cc6b0ea5b3a37a9ce43d9f39eed1e2))
-* support verification system ([35775eb](https://github.com/onesoft-sudo/sudobot-dashboard/commit/35775eba399ee89bf580e887ffc86855a5937fa4))
 
 
 
