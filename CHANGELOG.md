@@ -1,3 +1,12 @@
+# [0.54.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.53.0...v0.54.0) (2023-12-11)
+
+
+### Features
+
+* sliding verification methods ([09d8d15](https://github.com/onesoft-sudo/sudobot-dashboard/commit/09d8d15b859e2e207646af5a9cc347bc625c65dd))
+
+
+
 # [0.53.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.52.0...v0.53.0) (2023-12-10)
 
 
@@ -39,15 +48,6 @@
 
 * support verification system ([438d3e8](https://github.com/onesoft-sudo/sudobot-dashboard/commit/438d3e8529cc6b0ea5b3a37a9ce43d9f39eed1e2))
 * support verification system ([35775eb](https://github.com/onesoft-sudo/sudobot-dashboard/commit/35775eba399ee89bf580e887ffc86855a5937fa4))
-
-
-
-## [0.50.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.50.2...v0.50.3) (2023-12-07)
-
-
-### Bug Fixes
-
-* type errors ([4c40244](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4c402449e59e7764f717c83688f42e523659485c))
 
 
 
