@@ -62,7 +62,7 @@ export const Template = ({
             <Container>
                 <Section
                     style={{
-                        marginTop: 10,
+                        margin: "10px 0",
                         padding: 20,
                         backgroundColor: "#fff",
                         borderRadius: 5,

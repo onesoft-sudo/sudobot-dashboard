@@ -23,6 +23,10 @@ export class API {
         return `${API_URL}/challenge/verify`;
     }
 
+    static initiateEmailVerification(): string {
+        return `${API_URL}/challenge/verify/email/initiate`;
+    }
+
     static verifyByCaptcha(): string {
         return `${API_URL}/challenge/verify/captcha`;
     }

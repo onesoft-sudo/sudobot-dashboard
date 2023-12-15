@@ -25,7 +25,6 @@ export function validateCaptchaResponse(payload: {
     );
 }
 
-// FIXME
 export async function getVerificationInfo(
     token: string,
     userId: string
@@ -34,5 +33,39 @@ export async function getVerificationInfo(
         `${API.verify()}?token=${encodeURIComponent(
             token
         )}&userId=${encodeURIComponent(userId)}`
+    );
+}
+
+export async function initiateEmailVerification(
+    token: string,
+    userId: string,
+    email: string,
+    key: string
+): Promise<
+    AxiosResponse<
+        {
+            success: boolean;
+            data: VerificationInfo & {
+                meta: {
+                    email: string;
+                    emailVerificationToken: string;
+                };
+            };
+        },
+        any
+    >
+> {
+    return axios.put(
+        API.initiateEmailVerification(),
+        {
+            verificationToken: token,
+            email,
+            userId,
+        },
+        {
+            headers: {
+                "x-frontend-key": key,
+            },
+        }
     );
 }

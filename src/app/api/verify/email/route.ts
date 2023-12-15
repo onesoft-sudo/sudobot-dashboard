@@ -1,4 +1,4 @@
-import { getVerificationInfo } from "@/api/routes/verify";
+import { initiateEmailVerification } from "@/api/routes/verify";
 import { Template as VerificationEmail } from "@/emails/VerificationEmail";
 import { render } from "@react-email/render";
 import { geolocation } from "@vercel/edge";
@@ -40,7 +40,12 @@ export async function POST(request: NextRequest) {
     let info;
 
     try {
-        info = await getVerificationInfo(verificationToken, userId);
+        info = await initiateEmailVerification(
+            verificationToken,
+            userId,
+            email,
+            process.env.FRONTEND_AUTH_KEY!
+        );
     } catch (error) {
         console.log(error);
         return NextResponse.json(
@@ -55,8 +60,12 @@ export async function POST(request: NextRequest) {
         );
     }
 
-    const { guildName: guild, guildId, token } = info.data;
-
+    const {
+        guildName: guild,
+        guildId,
+        token,
+        meta: { emailVerificationToken },
+    } = info.data.data;
     const { city, country } = geolocation(request);
 
     const html = render(
@@ -67,7 +76,11 @@ export async function POST(request: NextRequest) {
             ip: request.ip ?? "127.0.0.1",
             verificationURL: `${
                 process.env.NEXT_PUBLIC_API_URL
-            }/verify/email?t=${encodeURIComponent(token)}&g=${guildId}`,
+            }/verify/email?t=${encodeURIComponent(
+                token
+            )}&g=${guildId}&u=${userId}&et=${encodeURIComponent(
+                emailVerificationToken
+            )}`,
         })
     );
 
@@ -86,7 +99,7 @@ export async function POST(request: NextRequest) {
 
     global.transporter ??= transporter;
 
-    const result = await transporter.sendMail({
+    await transporter.sendMail({
         subject: "Verification",
         html,
         from: {
