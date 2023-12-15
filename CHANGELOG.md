@@ -1,3 +1,12 @@
+# [0.59.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.58.0...v0.59.0) (2023-12-15)
+
+
+### Features
+
+* complete /api/verify/email route ([1ba7f0b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/1ba7f0b502d5e6dc9a058bf26fc59ac07a51519f))
+
+
+
 # [0.58.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.57.1...v0.58.0) (2023-12-15)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * add verify by email page ([0d4c341](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0d4c3411566a7dfba1b7188e7abf3a273a53d634))
-
-
-
-# [0.55.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.54.0...v0.55.0) (2023-12-14)
-
-
-### Features
-
-* support captcha verification ([70eca56](https://github.com/onesoft-sudo/sudobot-dashboard/commit/70eca56866e69b295f436d39bb397d5b2f1645fc))
 
 
 
