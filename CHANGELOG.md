@@ -1,3 +1,12 @@
+# [0.58.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.57.1...v0.58.0) (2023-12-15)
+
+
+### Features
+
+* complete designing email verification page ([03d0eea](https://github.com/onesoft-sudo/sudobot-dashboard/commit/03d0eea67e2455412dee925db0205bb43e069109))
+
+
+
 ## [0.57.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.57.0...v0.57.1) (2023-12-14)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * support captcha verification ([70eca56](https://github.com/onesoft-sudo/sudobot-dashboard/commit/70eca56866e69b295f436d39bb397d5b2f1645fc))
-
-
-
-# [0.54.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.53.0...v0.54.0) (2023-12-11)
-
-
-### Features
-
-* sliding verification methods ([09d8d15](https://github.com/onesoft-sudo/sudobot-dashboard/commit/09d8d15b859e2e207646af5a9cc347bc625c65dd))
 
 
 
