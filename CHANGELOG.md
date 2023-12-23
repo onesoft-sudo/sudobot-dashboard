@@ -1,3 +1,12 @@
+## [0.59.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.59.0...v0.59.1) (2023-12-23)
+
+
+### Bug Fixes
+
+* build errors ([0062b95](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0062b9504b38a6399fbbf400bf644aaec03f6e93))
+
+
+
 # [0.59.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.58.0...v0.59.0) (2023-12-15)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * add verification card component ([ca20a30](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ca20a305b0415e079bb98d6ec4bd5435f93864a9))
-
-
-
-# [0.56.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.55.0...v0.56.0) (2023-12-14)
-
-
-### Features
-
-* add verify by email page ([0d4c341](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0d4c3411566a7dfba1b7188e7abf3a273a53d634))
 
 
 
