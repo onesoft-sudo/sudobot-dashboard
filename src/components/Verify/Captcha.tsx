@@ -20,6 +20,7 @@ declare global {
 
 let recaptchaRendered = false;
 
+// TODO: use this component in a dedicated page
 const Captcha: FC = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);

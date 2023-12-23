@@ -1,7 +1,8 @@
 import { initiateEmailVerification } from "@/api/routes/verify";
 import { Template as VerificationEmail } from "@/emails/VerificationEmail";
+import rateLimit from "@/utils/ratelimiting";
 import { render } from "@react-email/render";
-import { geolocation } from "@vercel/edge";
+import { geolocation as vercelGeolocation } from "@vercel/edge";
 import { AxiosError } from "axios";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer, { TransportOptions } from "nodemailer";
@@ -9,6 +10,17 @@ import SMTPTransport from "nodemailer/lib/smtp-transport";
 import { z } from "zod";
 
 export const dynamic = true;
+
+const geolocation = (request: NextRequest) => {
+    if (process.env.NEXT_PUBLIC_ENV === "dev") {
+        return {
+            city: "Dhaka",
+            country: "Bangladesh",
+        };
+    }
+
+    return vercelGeolocation(request);
+};
 
 declare global {
     var transporter: nodemailer.Transporter<SMTPTransport.SentMessageInfo>;
@@ -20,7 +32,30 @@ const schema = z.object({
     userId: z.string().regex(/^\d+$/),
 });
 
-export async function POST(request: NextRequest) {
+const rateLimiter = rateLimit({
+    interval: 30 * 60 * 1000,
+    limit: 3,
+    maxToken: 3,
+});
+
+export async function POST(request: NextRequest, response: NextResponse) {
+    try {
+        await rateLimiter.check("CACHE_TOKEN");
+    } catch (error) {
+        console.log(error);
+
+        if (error instanceof NextResponse) {
+            return error;
+        }
+
+        return new NextResponse(
+            JSON.stringify({ error: "Rate limit exceeded" }),
+            {
+                status: 429,
+            }
+        );
+    }
+
     const json: z.infer<typeof schema> = await request
         .json()
         .catch(console.log);

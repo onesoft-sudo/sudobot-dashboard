@@ -1,4 +1,4 @@
-import axios, { Axios, AxiosRequestConfig } from "axios";
+import axios, { Axios, AxiosHeaders, AxiosRequestConfig } from "axios";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL!;
 let axiosInstance: Axios | null = null;
@@ -11,7 +11,26 @@ export function createAxiosInstance(config?: AxiosRequestConfig) {
 }
 
 export function createAxiosSingletonInstance(config?: AxiosRequestConfig) {
-    return (axiosInstance = createAxiosInstance(config));
+    axiosInstance = createAxiosInstance(config);
+    let token: string | undefined;
+
+    try {
+        token = JSON.parse(localStorage.getItem("user")!)?.token;
+    } catch (error) {}
+
+    axiosInstance.interceptors.request.use(request => ({
+        ...request,
+        headers: new AxiosHeaders({
+            ...(token
+                ? {
+                      Authorization:
+                          request.headers.Authorization ?? `Bearer ${token}`,
+                  }
+                : {}),
+            ...request.headers,
+        }),
+    }));
+    return axiosInstance;
 }
 
 export function axiosSingletonInstance(config?: AxiosRequestConfig) {
@@ -21,4 +40,8 @@ export function axiosSingletonInstance(config?: AxiosRequestConfig) {
     }
 
     return createAxiosSingletonInstance(config);
+}
+
+export function axiosClient() {
+    return axiosSingletonInstance();
 }
