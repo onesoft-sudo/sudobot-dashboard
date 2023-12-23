@@ -1,3 +1,12 @@
+## [0.60.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.60.0...v0.60.1) (2023-12-23)
+
+
+### Bug Fixes
+
+* **error:types:** invalid value of `dynamic` property ([b61129f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/b61129fbbf82cb66392dfab228c0f70879a347ba))
+
+
+
 # [0.60.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.59.1...v0.60.0) (2023-12-23)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * complete designing email verification page ([03d0eea](https://github.com/onesoft-sudo/sudobot-dashboard/commit/03d0eea67e2455412dee925db0205bb43e069109))
-
-
-
-## [0.57.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.57.0...v0.57.1) (2023-12-14)
-
-
-### Bug Fixes
-
-* remove superstruct usage in emails ([8ac2428](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8ac24281a78030f63e924a04fc7407e957696e2d))
 
 
 
