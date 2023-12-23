@@ -1,3 +1,12 @@
+# [0.60.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.59.1...v0.60.0) (2023-12-23)
+
+
+### Features
+
+* **verification:email:** send email on step 1 ([bef37fd](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bef37fdf16dc6be9f53e5cb9e69ebc7f59030616))
+
+
+
 ## [0.59.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.59.0...v0.59.1) (2023-12-23)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * remove superstruct usage in emails ([8ac2428](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8ac24281a78030f63e924a04fc7407e957696e2d))
-
-
-
-# [0.57.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.56.0...v0.57.0) (2023-12-14)
-
-
-### Features
-
-* add verification card component ([ca20a30](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ca20a305b0415e079bb98d6ec4bd5435f93864a9))
 
 
 
