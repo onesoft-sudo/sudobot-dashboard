@@ -9,7 +9,7 @@ import nodemailer, { TransportOptions } from "nodemailer";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 import { z } from "zod";
 
-export const dynamic = true;
+export const dynamic = "force-dynamic";
 
 const geolocation = (request: NextRequest) => {
     if (process.env.NEXT_PUBLIC_ENV === "dev") {
