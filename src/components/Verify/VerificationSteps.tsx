@@ -44,6 +44,32 @@ export default function VerificationSteps() {
         next();
     };
 
+    const Step2 = () => {
+        "use client";
+
+        const { disableBack, backDisabled } = useVerificationContext();
+
+        useEffect(() => {
+            if (!backDisabled) {
+                disableBack(true);
+            }
+        }, []);
+
+        return (
+            <div>
+                <div className="flex justify-center pt-10 pb-3">
+                    <MdCheck size={50} className="text-green-500" />
+                </div>
+
+                <p className="text-center text-xl">Verification Successful!</p>
+
+                <p className="text-center text-sm text-[#999]">
+                    You can close this tab/window now.
+                </p>
+            </div>
+        );
+    };
+
     return (
         <Card>
             <div ref={sliderRef} className="keen-slider rounded-[10px]">
@@ -88,37 +114,7 @@ export default function VerificationSteps() {
                         )
                     }
                 />
-                <VerificationStep
-                    step={2}
-                    callback={() => {
-                        const { disableBack, backDisabled } =
-                            useVerificationContext();
-                        useEffect(() => {
-                            if (!backDisabled) {
-                                disableBack(true);
-                            }
-                        }, []);
-
-                        return (
-                            <div>
-                                <div className="flex justify-center pt-10 pb-3">
-                                    <MdCheck
-                                        size={50}
-                                        className="text-green-500"
-                                    />
-                                </div>
-
-                                <p className="text-center text-xl">
-                                    Verification Successful!
-                                </p>
-
-                                <p className="text-center text-sm text-[#999]">
-                                    You can close this tab/window now.
-                                </p>
-                            </div>
-                        );
-                    }}
-                />
+                <VerificationStep step={2} callback={Step2} />
             </div>
         </Card>
     );

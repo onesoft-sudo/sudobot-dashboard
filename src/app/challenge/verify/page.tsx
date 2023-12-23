@@ -81,17 +81,17 @@ export const fetchInfo = async (
     searchParams: Record<string, string>
 ): Promise<[null, JSX.Element] | [AxiosResponse, null]> => {
     if (!paramSchema.safeParse(searchParams).success) {
-        return [null, <BadRequestPage />];
+        return [null, <BadRequestPage key={1} />];
     }
 
     const response = await getInfo(searchParams.t, searchParams.u);
 
     if (response === null) {
-        return [null, <NotFoundPage />];
+        return [null, <NotFoundPage key={1} />];
     }
 
     if (!response) {
-        return [null, <InternalServerErrorPage />];
+        return [null, <InternalServerErrorPage key={1} />];
     }
 
     return [response, null];
