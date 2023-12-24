@@ -2,6 +2,7 @@ import EmailVerification from "@/components/Verify/EmailVerification";
 import VerificationHeading from "@/components/Verify/VerificationHeading";
 import { ServerSideComponentProps } from "@/types/ServerSideComponentProps";
 import { fetchInfo, getIconURL } from "../page";
+
 export { generateMetadata } from "../page";
 
 export default async function VerifyByEmailPage({

@@ -109,9 +109,9 @@ export async function POST(request: NextRequest, response: NextResponse) {
             email,
             guild,
             ip: request.ip ?? "127.0.0.1",
-            verificationURL: `${
-                process.env.NEXT_PUBLIC_API_URL
-            }/verify/email?t=${encodeURIComponent(
+            verificationURL: `https://${request.headers.get(
+                "Host"
+            )}/challenge/verify/email/finish?t=${encodeURIComponent(
                 token
             )}&g=${guildId}&u=${userId}&et=${encodeURIComponent(
                 emailVerificationToken

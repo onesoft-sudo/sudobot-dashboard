@@ -1,7 +1,10 @@
 "use client";
 
 import { axiosClient } from "@/api/axios";
-import useStepper, { UseStepperOptions } from "@/hooks/useStepper";
+import useStepper, {
+    UseStepperOptions,
+    useStepperFromContext,
+} from "@/hooks/useStepper";
 import { Alert, TextField } from "@mui/material";
 import { AxiosError } from "axios";
 import { useSearchParams } from "next/navigation";
@@ -30,6 +33,8 @@ const FirstStep = ({
     const searchParams = useSearchParams();
 
     const isLoading = state === "loading";
+
+    const { next: goNext } = useStepperFromContext(false);
 
     const validate = () =>
         inputRef.current?.value?.trim() &&
@@ -71,22 +76,21 @@ const FirstStep = ({
         }
     };
 
+    const handleSubmit = () => {
+        if (!validate()) {
+            triggerError();
+            return false;
+        }
+
+        if (savedEmail === inputRef.current?.value) {
+            return true;
+        }
+
+        return onSubmit();
+    };
+
     return (
-        <Step
-            onNext={() => {
-                if (!validate()) {
-                    triggerError();
-                    return false;
-                }
-
-                if (savedEmail === inputRef.current?.value) {
-                    return true;
-                }
-
-                return onSubmit();
-            }}
-            isLoading={isLoading}
-        >
+        <Step onNext={handleSubmit} isLoading={isLoading}>
             <h3 className="text-center md:text-xl pb-4">Enter your email</h3>
             {state === "error" && (
                 <Alert severity="error" className="mb-3">
@@ -109,9 +113,11 @@ const FirstStep = ({
                         return;
                     }
                 }}
-                onKeyUp={event => {
+                onKeyUp={async event => {
                     if (event.key === "Enter") {
-                        onSubmit();
+                        if ((await handleSubmit()) !== false) {
+                            goNext();
+                        }
                     }
                 }}
             />
