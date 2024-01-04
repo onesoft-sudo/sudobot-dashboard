@@ -17,6 +17,8 @@
 * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
 */
 
+"use client";
+
 import { LinearProgress } from "@mui/material";
 import { FC } from "react";
 

@@ -17,8 +17,6 @@
  * along with SudoBot Dashboard. If not, see <https://www.gnu.org/licenses/>.
  */
 
-"use server";
-
 import { APIDeletedMessage } from "@/types/APIMessage";
 import axios, { AxiosResponse } from "axios";
 import { ComponentProps, FC } from "react";
@@ -59,7 +57,7 @@ const ViewDeletedMessages: FC<{
         invalidProps.url = searchParams?.url;
     } else {
         try {
-            console.log(searchParams.url);
+            console.log("searchParams.url", searchParams.url);
 
             response = await axios.get(searchParams?.url, {
                 headers: {
@@ -71,7 +69,7 @@ const ViewDeletedMessages: FC<{
         }
     }
 
-    console.log(searchParams);
+    console.log("searchParams", searchParams);
 
     return (
         <main className="min-h-[90vh] py-4 px-0 lg:px-[17.3%]">
