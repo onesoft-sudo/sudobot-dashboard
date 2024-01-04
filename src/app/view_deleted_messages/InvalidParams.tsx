@@ -21,13 +21,13 @@ import { Button } from "@mui/material";
 import { FC } from "react";
 import { MdError } from "react-icons/md";
 
-interface InvalidParamsrops {
+interface InvalidParamsProps {
     url?: string | string[];
     error?: boolean;
     as?: "div" | "main";
 }
 
-const InvalidParams: FC<InvalidParamsrops> = ({ url, error, as = "main" }) => {
+const InvalidParams: FC<InvalidParamsProps> = ({ url, error, as = "main" }) => {
     const Component = as;
 
     return (
