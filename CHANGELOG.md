@@ -1,3 +1,12 @@
+## [0.61.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.61.0...v0.61.1) (2024-01-04)
+
+
+### Bug Fixes
+
+* **build:** errors in `/view_deleted_messages` page ([7db807b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/7db807bc50f8d672d1fb9f49606df3552d922cb1))
+
+
+
 # [0.61.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.60.1...v0.61.0) (2023-12-24)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * build errors ([0062b95](https://github.com/onesoft-sudo/sudobot-dashboard/commit/0062b9504b38a6399fbbf400bf644aaec03f6e93))
-
-
-
-# [0.59.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.58.0...v0.59.0) (2023-12-15)
-
-
-### Features
-
-* complete /api/verify/email route ([1ba7f0b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/1ba7f0b502d5e6dc9a058bf26fc59ac07a51519f))
 
 
 
