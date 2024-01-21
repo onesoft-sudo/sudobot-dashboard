@@ -1,9 +1,0 @@
-{
-    "arrowParens": "avoid",
-    "editorconfig": true,
-    "endOfLine": "lf",
-    "tabWidth": 4,
-    "importOrderSeparation": true,
-    "importOrderSortSpecifiers": true,
-    "semi": true
-}

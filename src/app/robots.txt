@@ -1,7 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /dashboard
-Disallow: /settings
-Disallow: /account
-
-Sitemap: https://www.sudobot.org/sitemap.xml
