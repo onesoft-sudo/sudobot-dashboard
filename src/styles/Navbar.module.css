@@ -1,0 +1,52 @@
+.navbar {
+    padding-inline: 10px;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    align-items: center;
+    place-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    justify-self: start;
+}
+
+.brandName {
+    font-size: 1.2rem;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+}
+
+.linkAnchor {
+    padding: 0 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .linkAnchor {
+        color: #ddd;
+    }
+
+    .linkAnchor:hover {
+        color: #fff;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .navbar {
+        background: rgb(240, 240, 240);
+    }
+
+    .linkAnchor {
+        color: #aaa;
+    }
+
+    .linkAnchor:hover {
+        color: #000;
+    }
+}
