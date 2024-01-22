@@ -1,9 +1,10 @@
 .navbar {
-    padding-inline: 10px;
+    padding: 0.6rem 1rem;
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
     align-items: center;
     place-items: center;
+    border-bottom: 1px solid rgb(45, 45, 45);
 }
 
 .brand {
@@ -16,6 +17,7 @@
 
 .brandName {
     font-size: 1.2rem;
+    margin-left: 10px;
 }
 
 .links {
@@ -23,30 +25,16 @@
     align-items: center;
 }
 
-.linkAnchor {
-    padding: 0 10px;
-}
-
-@media (prefers-color-scheme: dark) {
-    .linkAnchor {
-        color: #ddd;
-    }
-
-    .linkAnchor:hover {
-        color: #fff;
-    }
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    justify-self: end;
 }
 
 @media (prefers-color-scheme: light) {
     .navbar {
         background: rgb(240, 240, 240);
-    }
-
-    .linkAnchor {
-        color: #aaa;
-    }
-
-    .linkAnchor:hover {
-        color: #000;
     }
 }

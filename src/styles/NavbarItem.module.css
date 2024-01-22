@@ -1,0 +1,37 @@
+.linkAnchor {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.linkAnchorExpandable {
+    margin-right: 2px;
+    position: relative;
+}
+
+.icon {
+    margin: 0;
+    padding: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .linkAnchor {
+        color: #ddd;
+    }
+
+    .linkAnchor:hover {
+        color: #fff;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .linkAnchor {
+        color: #aaa;
+    }
+
+    .linkAnchor:hover {
+        color: #000;
+    }
+}

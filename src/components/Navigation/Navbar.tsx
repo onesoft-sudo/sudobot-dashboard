@@ -1,47 +1,26 @@
 import { FC } from 'react';
 import styles from '@/styles/Navbar.module.css'
 import Image from "next/image";
-import logo from '@/images/logo.ico'
+import logo from '@/images/logo.png'
 import Link from "next/link";
-
-const links = [
-    {
-        name: 'Home',
-        url: '/'
-    },
-    {
-        name: 'Features',
-        url: '/features'
-    },
-    {
-        name: 'Contact',
-        url: '/contact'
-    },
-    {
-        name: 'Documentation',
-        url: '/docs'
-    }
-];
+import Button from "@/components/Button/Button";
+import Links from "@/components/Navigation/Links";
 
 const Navbar: FC = () => {
     return (
         <nav className={styles.navbar}>
             <Link href="/" className={styles.brand}>
-                <Image src={logo.src} alt="Logo" height={50} width={50} />
+                <Image src={logo.src} alt="Logo" height={35} width={35} />
                 <span className={styles.brandName}>SudoBot</span>
             </Link>
 
             <ul className={styles.links}>
-                {links.map(link => (
-                    <li key={link.url} className={styles.link}>
-                        <Link href={link.url} title={link.name} className={styles.linkAnchor}>
-                            {link.name}
-                        </Link>
-                    </li>
-                ))}
+                <Links />
             </ul>
 
-            <div></div>
+            <div className={styles.buttons}>
+                <Button>Login</Button>
+            </div>
         </nav>
     );
 };
