@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "@/styles/globals.css";
 import { PropsWithChildren } from "react";
 import Navbar from "@/components/Navigation/Navbar";
 import Providers from "./providers";
@@ -17,9 +17,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <html lang="en">
             <body className={inter.className}>
                 <Providers>
-                    <header>
-                        <Navbar />
-                    </header>
+                    <Navbar />
 
                     {children}
                 </Providers>

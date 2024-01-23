@@ -4,6 +4,13 @@
     grid-template-columns: 1fr 5fr 1fr;
     align-items: center;
     place-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(30px);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    width: 100svw;
 }
 
 .brand {
@@ -44,7 +51,7 @@
 
 @media (prefers-color-scheme: light) {
     .navbar {
-        background: rgb(240, 240, 240);
+        background: rgba(240, 240, 240, 0.5);
         box-shadow: 0 0 2px 0 rgb(200, 200, 200);
     }
 }
