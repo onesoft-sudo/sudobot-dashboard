@@ -6,6 +6,7 @@ import Link from "next/link";
 import { MdExpandMore } from "react-icons/md";
 import ExpandableMenu from "@/components/Navigation/ExpandableMenu";
 import { IconType } from "react-icons";
+import { usePathname } from "next/navigation";
 
 type LinkInfo = {
     name: string;
@@ -31,11 +32,12 @@ type Props = {
 
 const NavbarItem: FC<Props> = ({ link }) => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const pathname = usePathname()
 
     return (
         <li className={styles.link}>
             {"url" in link ? (
-                <Link href={link.url} title={link.name} className={styles.linkAnchor}>
+                <Link href={link.url} title={link.name} className={styles.linkAnchor} data-active={(pathname === link.url).toString()}>
                     {link.name}
                 </Link>
             ) : (

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { PropsWithChildren } from "react";
 import Navbar from "@/components/Navigation/Navbar";
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,17 +12,17 @@ export const metadata: Metadata = {
     description: "The ultimate Discord Moderation Bot.",
 };
 
-export default function RootLayout({
-    children,
-}: PropsWithChildren) {
+export default function RootLayout({ children }: PropsWithChildren) {
     return (
         <html lang="en">
             <body className={inter.className}>
-                <header>
-                    <Navbar />
-                </header>
+                <Providers>
+                    <header>
+                        <Navbar />
+                    </header>
 
-                {children}
+                    {children}
+                </Providers>
             </body>
         </html>
     );

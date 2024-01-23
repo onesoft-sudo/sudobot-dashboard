@@ -21,6 +21,7 @@
         color: #ddd;
     }
 
+    .linkAnchor[data-active="true"],
     .linkAnchor:hover {
         color: #fff;
     }
@@ -28,9 +29,10 @@
 
 @media (prefers-color-scheme: light) {
     .linkAnchor {
-        color: #aaa;
+        color: #555;
     }
 
+    .linkAnchor[data-active="true"], 
     .linkAnchor:hover {
         color: #000;
     }

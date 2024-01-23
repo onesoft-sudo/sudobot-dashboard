@@ -4,7 +4,6 @@
     grid-template-columns: 1fr 5fr 1fr;
     align-items: center;
     place-items: center;
-    border-bottom: 1px solid rgb(45, 45, 45);
 }
 
 .brand {
@@ -33,8 +32,27 @@
     justify-self: end;
 }
 
+.logoImage {
+    border-radius: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .navbar {
+        border-bottom: 1px solid rgb(45, 45, 45);
+    }
+}
+
 @media (prefers-color-scheme: light) {
     .navbar {
         background: rgb(240, 240, 240);
+        box-shadow: 0 0 2px 0 rgb(200, 200, 200);
+    }
+}
+
+@media (max-width: 970px) {
+    .navbar {
+        padding: 0.6rem 15px;
+        display: flex;
+        justify-content: space-between;
     }
 }
