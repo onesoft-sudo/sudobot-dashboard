@@ -2,7 +2,7 @@
   "type": "object",
   "properties": {
     "$schema": {
-      "type: "string"
+      "type": "string"
     },
     "main": {
       "type": "string"
@@ -27,7 +27,7 @@
       "type": "string"
     },
     "build_command": {
-      "type": "string"
+      "type": ["string", "null"]
     },
     "resources": {
       "type": "string"
