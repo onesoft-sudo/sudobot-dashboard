@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "main": {
+      "type": "string"
+    },
+    "commands": {
+      "type": "string"
+    },
+    "services": {
+      "type": "string"
+    },
+    "events": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "typescript",
+        "javascript"
+      ]
+    },
+    "main_directory": {
+      "type": "string"
+    },
+    "build_command": {
+      "type": "string"
+    },
+    "resources": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "readmeFileName": {
+      "type": "string",
+      "default": "README.md"
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
