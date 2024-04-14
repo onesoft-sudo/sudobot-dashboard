@@ -50,7 +50,7 @@ export default function RootLayout({
                         gtag('config', 'G-379PDRZ5H0');
                     `}
                 </Script>
-                <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7605999007195732" async crossorigin="anonymous" />
+                <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7605999007195732" async crossOrigin="anonymous" />
 
                 <MainProvider>
                     <PageLoadingProgress />
