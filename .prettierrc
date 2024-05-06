@@ -1,4 +1,5 @@
 {
     "editorconfig": true,
-    "semi": true
+    "semi": true,
+    "tabWidth": 4
 }
