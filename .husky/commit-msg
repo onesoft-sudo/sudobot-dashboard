@@ -1,0 +1,15 @@
+has_bunx=$(command -v bunx)
+has_npx=$(command -v npx)
+
+if [ -z "$has_bunx" ] && [ -z "$has_npx" ]; then
+  echo "Please install bunx or npx to run commitlint checks!"
+  exit 1
+fi
+
+cmd="bunx"
+
+if [ -z "$has_bunx" ]; then
+  cmd="npx"
+fi
+
+command $cmd --no -- commitlint --edit $1
