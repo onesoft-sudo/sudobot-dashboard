@@ -3,5 +3,10 @@
         "commitlint",
         "sudobot",
         "tailwindcss"
-    ]
+    ],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit"
+    },
 }

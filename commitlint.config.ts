@@ -1,6 +1,6 @@
-import {type UserConfig,RuleConfigSeverity} from '@commitlint/types';
+import { type UserConfig, RuleConfigSeverity } from "@commitlint/types";
 
-const configuration: UserConfig = { 
+const configuration: UserConfig = {
     extends: ["@commitlint/config-conventional"],
     rules: {
         "type-enum": [
@@ -20,10 +20,10 @@ const configuration: UserConfig = {
                 "revert",
                 "wip",
                 "release",
-                "deploy"
-            ]
-        ]
-    }
+                "deploy",
+            ],
+        ],
+    },
 };
 
 export default configuration;
