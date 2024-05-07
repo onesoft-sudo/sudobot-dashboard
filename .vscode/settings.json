@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
         "commitlint",
+        "nextui",
+        "reduxjs",
         "sudobot",
         "tailwindcss"
     ],
@@ -9,4 +11,11 @@
         "source.fixAll": "explicit",
         "source.organizeImports": "explicit"
     },
+    "material-icon-theme.folders.associations": {
+        "reducers": "redux-reducer",
+        "actions": "redux-actions",
+        "store": "redux-store",
+        "redux": "Stack"
+    },
+    "typescript.tsdk": "node_modules/typescript/lib"
 }
