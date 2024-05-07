@@ -11,10 +11,11 @@
     left: 0;
     max-width: 100svw;
     width: 100%;
+    z-index: 10000;
 }
 
 .navbar ul {
-    display: flex;
+    display: none;
     list-style: none;
     align-items: center;
 }
@@ -32,10 +33,14 @@
     color: #000;
 }
 
+.activeLink {
+    font-weight: 600;
+}
+
 @media (prefers-color-scheme: dark) {
     .navbar {
-        background-color: rgba(0, 0, 0, 0.4);
-        box-shadow: 0 0 2px 4px rgba(255, 255, 255, 0.12);
+        background-color: rgba(0, 0, 0, 0.6);
+        box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.12);
     }
 
     .navbar ul li a {
@@ -44,5 +49,11 @@
 
     .navbar ul li a:hover {
         color: #ccc;
+    }
+}
+
+@media (min-width: 972px) {
+    .navbar ul {
+        display: flex;
     }
 }
