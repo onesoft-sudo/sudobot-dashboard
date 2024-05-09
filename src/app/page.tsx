@@ -20,7 +20,7 @@ export default function Home() {
     return (
         <main>
             <div
-                className="relative max-h-[100svh] min-h-[95svh] max-w-[100svw]"
+                className="relative max-h-svh min-h-[95svh] max-w-[100svw]"
                 style={{
                     backgroundImage: `url(${background.src})`,
                     backgroundSize: "cover",
@@ -29,14 +29,14 @@ export default function Home() {
                     backgroundOrigin: "border-box",
                 }}
             >
-                <div className="pt-4 md:pt-6 lg:pt-10 xl:pt-[6rem] relative min-h-[95svh] px-3 md:px-0 flex flex-col md:block justify-between pb-7 md:pb-0">
+                <div className="relative flex min-h-[95svh] flex-col justify-between px-3 pb-7 pt-4 md:block md:px-0 md:pb-0 md:pt-6 lg:pt-10 xl:pt-24">
                     <div>
                         <h1
-                            className="text-5xl lg:text-6xl xl:text-7xl font-bold text-center block xl:leading-[5rem] relative z-1"
+                            className="relative block text-center text-5xl font-bold lg:text-6xl xl:text-7xl xl:leading-[5rem]"
                             style={manrope.style}
                         >
                             The new way to{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
+                            <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                                 moderate
                             </span>{" "}
                             your
@@ -46,21 +46,21 @@ export default function Home() {
                         <HeadingDivider />
 
                         <h1
-                            className="text-4xl lg:text-5xl xl:text-6xl font-bold text-center block xl:leading-[5rem] relative z-1 py-5 pt-[3rem] lg:pt-10"
+                            className="relative block py-5 pt-12 text-center text-4xl font-bold lg:pt-10 lg:text-5xl xl:text-6xl xl:leading-[5rem]"
                             style={manrope.style}
                         >
                             <span className="text-gray-400">Meet</span>{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">
+                            <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
                                 SudoBot.
                             </span>
                         </h1>
 
-                        <h4 className="text-center text-gray-400 pb-3 text-sm md:text-medium">
+                        <h4 className="pb-3 text-center text-sm text-gray-400 md:text-medium">
                             Now celebrating the latest 9.0 beta release!
                         </h4>
                     </div>
 
-                    <div className="md:flex items-center justify-center pb-5 pt-5 md:pt-10 lg:pt-20 gap-2">
+                    <div className="items-center justify-center gap-2 py-5 md:flex md:pt-10 lg:pt-20">
                         <Button
                             startContent={<MdLink size={20} />}
                             size="lg"
@@ -76,7 +76,7 @@ export default function Home() {
                             size="lg"
                             color="primary"
                             variant="flat"
-                            className="w-full md:w-auto mt-3 md:mt-0"
+                            className="mt-3 w-full md:mt-0 md:w-auto"
                         >
                             Set up manually
                         </Button>
@@ -84,18 +84,18 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="max-w-[100svw] mx-auto py-4 md:py-6 lg:py-10 px-3 md:px-7 lg:px-10 xl:px-16">
-                <h2 className="text-2xl lg:text-3xl xl:text-4xl text-center block relative z-1">Why SudoBot?</h2>
+            <div className="mx-auto max-w-[100svw] px-3 py-4 md:px-7 md:py-6 lg:p-10 xl:px-16">
+                <h2 className="relative block text-center text-2xl lg:text-3xl xl:text-4xl">Why SudoBot?</h2>
 
-                <HeadingDivider size={4} className="[background-image:none] bg-[#007bff] h-[2px] mt-4" />
+                <HeadingDivider size={4} className="mt-4 h-[2px] bg-[#007bff] [background-image:none]" />
                 <Box pt="2rem" />
 
                 <div className="grid grid-cols-1 gap-5">
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] 2xl:grid-cols-[1fr_2fr_1fr_1fr] gap-5">
+                    <div className="grid grid-cols-1 gap-5 md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] 2xl:grid-cols-[1fr_2fr_1fr_1fr]">
                         <FeatureCard className="relative grid grid-rows-2 gap-5">
-                            <div className="text-center p-3 flex justify-center items-center flex-col">
-                                <HiOutlineBolt size="2rem" className="block mx-auto text-[#007bff] mb-3" />
-                                <h4 className="text-black dark:text-white text-lg lg:text-xl my-2">
+                            <div className="flex flex-col items-center justify-center p-3 text-center">
+                                <HiOutlineBolt size="2rem" className="mx-auto mb-3 block text-[#007bff]" />
+                                <h4 className="my-2 text-lg text-black lg:text-xl dark:text-white">
                                     Manual Moderation
                                 </h4>
                                 <p className="text-[#444] dark:text-[#999]">
@@ -103,16 +103,16 @@ export default function Home() {
                                     and secure.
                                 </p>
                             </div>
-                            <div className="bg-black flex flex-col justify-center items-center min-h-max">
+                            <div className="flex min-h-max flex-col items-center justify-center bg-black">
                                 <Image src={chatModeration} alt="Moderation" />
                             </div>
                         </FeatureCard>
 
                         <FeatureCard className="relative grid grid-cols-1 2xl:grid-cols-2">
-                            <div className="py-6 pr-4 pl-6 flex flex-col justify-between">
+                            <div className="flex flex-col justify-between py-6 pl-6 pr-4">
                                 <div>
-                                    <HiOutlineShieldCheck size="2rem" className="block text-[#007bff] mb-3" />
-                                    <h4 className="text-black dark:text-white text-lg lg:text-xl mb-2 mt-6">
+                                    <HiOutlineShieldCheck size="2rem" className="mb-3 block text-[#007bff]" />
+                                    <h4 className="mb-2 mt-6 text-lg text-black lg:text-xl dark:text-white">
                                         Auto Moderation
                                     </h4>
                                     <p className="text-[#444] dark:text-[#999]">
@@ -122,7 +122,7 @@ export default function Home() {
                                     </p>
                                 </div>
                                 <div>
-                                    <ul className="list-none text-[#444] dark:text-[#999] mt-4 text-sm">
+                                    <ul className="mt-4 list-none text-sm text-[#444] dark:text-[#999]">
                                         {[
                                             "Spam Protection",
                                             "Raid Protection",
@@ -137,15 +137,15 @@ export default function Home() {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="bg-black flex flex-col justify-center items-center min-h-max">
+                            <div className="flex min-h-max flex-col items-center justify-center bg-black">
                                 <Image src={autoModeration} alt="Auto Moderation" />
                             </div>
                         </FeatureCard>
 
                         <FeatureCard className="relative grid grid-rows-2 gap-5">
-                            <div className="text-center p-3 flex justify-center items-center flex-col">
-                                <HiCode size="2rem" className="block mx-auto text-[#007bff] mb-3" />
-                                <h4 className="text-black dark:text-white text-lg lg:text-xl my-2">
+                            <div className="flex flex-col items-center justify-center p-3 text-center">
+                                <HiCode size="2rem" className="mx-auto mb-3 block text-[#007bff]" />
+                                <h4 className="my-2 text-lg text-black lg:text-xl dark:text-white">
                                     Free &amp; Open Source
                                 </h4>
                                 <p className="text-[#444] dark:text-[#999]">
@@ -156,15 +156,15 @@ export default function Home() {
                                     .
                                 </p>
                             </div>
-                            <div className="bg-black flex flex-col justify-center items-center min-h-max">
+                            <div className="flex min-h-max flex-col items-center justify-center bg-black">
                                 <Image src={licensing} alt="Auto Moderation" />
                             </div>
                         </FeatureCard>
 
                         <FeatureCard className="relative grid grid-rows-2 gap-5">
-                            <div className="text-center p-3 flex justify-center items-center flex-col">
-                                <HiOutlineWrenchScrewdriver size="2rem" className="block mx-auto text-[#007bff] mb-3" />
-                                <h4 className="text-black dark:text-white text-lg lg:text-xl my-2">
+                            <div className="flex flex-col items-center justify-center p-3 text-center">
+                                <HiOutlineWrenchScrewdriver size="2rem" className="mx-auto mb-3 block text-[#007bff]" />
+                                <h4 className="my-2 text-lg text-black lg:text-xl dark:text-white">
                                     Active Development
                                 </h4>
                                 <p className="text-[#444] dark:text-[#999]">
@@ -172,7 +172,7 @@ export default function Home() {
                                     requests or improvement ideas.
                                 </p>
                             </div>
-                            <div className="bg-black flex flex-col justify-center items-center min-h-max">
+                            <div className="flex min-h-max flex-col items-center justify-center bg-black">
                                 <Image src={activeDevelopment} alt="Active Development" />
                             </div>
                         </FeatureCard>

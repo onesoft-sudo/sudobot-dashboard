@@ -10,11 +10,11 @@ const Brand: FC = () => {
 
     return (
         <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex cursor-pointer items-center gap-2"
             onClick={() => (pathname !== "/" ? router.push("/") : undefined)}
         >
             <BrandLogo />
-            <span className="text-xl font-medium bg-gradient-to-tr from-[#999] to-[#000] bg-clip-text text-transparent dark:text-white">
+            <span className="bg-gradient-to-tr from-[#999] to-[#000] bg-clip-text text-xl font-medium text-transparent dark:text-white">
                 SudoBot
             </span>
         </div>
