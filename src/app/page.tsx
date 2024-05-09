@@ -28,11 +28,11 @@ import { MdArrowForward, MdLink } from "react-icons/md";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
-export default function Home() {
+export default function HomePage() {
     return (
         <main>
             <div
-                className="relative max-h-svh min-h-[95svh] max-w-[100svw]"
+                className="relative min-h-[95svh] max-w-[100svw]"
                 style={{
                     backgroundImage: `url(${backgroundImage.src})`,
                     backgroundSize: "cover",
@@ -72,7 +72,7 @@ export default function Home() {
                         </h4>
                     </div>
 
-                    <div className="items-center justify-center gap-2 py-5 md:flex md:pt-10 lg:pt-20">
+                    <div className="items-center justify-center gap-2 py-5 md:flex md:pt-10 lg:py-20">
                         <Button
                             startContent={<MdLink size={20} />}
                             size="lg"

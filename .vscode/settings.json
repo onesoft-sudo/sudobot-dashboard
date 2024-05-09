@@ -2,9 +2,11 @@
     "cSpell.words": [
         "commitlint",
         "nextui",
+        "Rakin",
         "reduxjs",
         "sudobot",
-        "tailwindcss"
+        "tailwindcss",
+        "Tanstack"
     ],
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {

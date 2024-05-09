@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { AnalyticsSliceReducer } from "../slice/AnalyticsSlice";
+import { UserSliceReducer } from "../slice/UserSlice";
 
 export const makeStore = () => {
     return configureStore({
         reducer: {
             analytics: AnalyticsSliceReducer,
+            user: UserSliceReducer,
         },
     });
 };

@@ -2,6 +2,7 @@
 
 import { links } from "@/config/navbar";
 import { Button } from "@nextui-org/button";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type FC } from "react";
 import Brand from "../Branding/Brand";
@@ -25,7 +26,7 @@ const Navbar: FC = () => {
             </ul>
 
             <div>
-                <Button color="primary" variant="flat">
+                <Button color="primary" variant="flat" as={Link} href="/login">
                     Login
                 </Button>
             </div>
