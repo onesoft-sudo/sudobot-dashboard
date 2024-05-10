@@ -2,14 +2,10 @@ import { SliceInitializer } from "@/types/SliceInitializer";
 import { User } from "@/types/User";
 import { createSlice } from "@reduxjs/toolkit";
 
-type UserSliceState =
-    | {
-          available: false;
-      }
-    | {
-          available: true;
-          user: User;
-      };
+type UserSliceState = {
+    available: boolean;
+    user?: User;
+};
 
 const initialState: UserSliceState = {
     available: false,
@@ -33,7 +29,7 @@ export const userSliceInitializer: SliceInitializer = (store) => {
 
 const setUserReducer = (state: UserSliceState, action: { payload: User }) => {
     state.available = true;
-    (state as Extract<UserSliceState, { available: true }>).user = action.payload;
+    state.user = action.payload;
     console.info("LOGIN", action.payload);
 };
 

@@ -3,9 +3,9 @@ import { NextUIProvider } from "@nextui-org/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import AppBody from "@/components/Layout/AppBody";
 import MainLayout from "@/layouts/MainLayout";
 import AppStoreInitializerProvider from "@/providers/AppStoreInitializationProvider";
-import AppThemeProvider from "@/providers/AppThemeProvider";
 import TanstackQueryProvider from "@/providers/TanstackQueryProvider";
 import "@/styles/globals.css";
 
@@ -23,19 +23,17 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <AppBody className={inter.className}>
                 <TanstackQueryProvider>
-                    <AppThemeProvider>
-                        <NextUIProvider>
-                            <AppStoreProvider>
-                                <AppStoreInitializerProvider>
-                                    <MainLayout>{children}</MainLayout>
-                                </AppStoreInitializerProvider>
-                            </AppStoreProvider>
-                        </NextUIProvider>
-                    </AppThemeProvider>
+                    <NextUIProvider>
+                        <AppStoreProvider>
+                            <AppStoreInitializerProvider>
+                                <MainLayout>{children}</MainLayout>
+                            </AppStoreInitializerProvider>
+                        </AppStoreProvider>
+                    </NextUIProvider>
                 </TanstackQueryProvider>
-            </body>
+            </AppBody>
         </html>
     );
 }

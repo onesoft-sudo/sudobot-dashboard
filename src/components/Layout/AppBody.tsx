@@ -1,8 +1,9 @@
 "use client";
 
-import { PropsWithChildren, useEffect, useState, type FC } from "react";
+import clsx from "clsx";
+import { ComponentProps, PropsWithChildren, useEffect, useState, type FC } from "react";
 
-const AppThemeProvider: FC<PropsWithChildren> = ({ children }) => {
+const AppBody: FC<PropsWithChildren<ComponentProps<"body">>> = ({ children, className, ...props }) => {
     const [isDark, setIsDark] = useState(true);
 
     useEffect(() => {
@@ -18,7 +19,16 @@ const AppThemeProvider: FC<PropsWithChildren> = ({ children }) => {
         return () => media.removeEventListener("change", onChange);
     }, []);
 
-    return <div className={isDark ? "dark" : ""}>{children}</div>;
+    return (
+        <body
+            className={clsx(className, {
+                dark: isDark,
+            })}
+            {...props}
+        >
+            {children}
+        </body>
+    );
 };
 
-export default AppThemeProvider;
+export default AppBody;

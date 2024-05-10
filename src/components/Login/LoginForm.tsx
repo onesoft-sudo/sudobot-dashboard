@@ -1,6 +1,7 @@
 "use client";
 
 import { requestLogin } from "@/api/auth/login";
+import { useIsLoggedIn } from "@/hooks/user";
 import { useAppDispatch } from "@/redux/hooks/AppStoreHooks";
 import { login } from "@/redux/slice/UserSlice";
 import { Alert } from "@mui/material";
@@ -9,7 +10,7 @@ import { Checkbox, Divider, Input } from "@nextui-org/react";
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { type FC } from "react";
+import { useEffect, type FC } from "react";
 import { useForm } from "react-hook-form";
 import { FaDiscord } from "react-icons/fa6";
 import { MdCheck, MdError } from "react-icons/md";
@@ -30,11 +31,18 @@ const LoginForm: FC = () => {
             remember: true,
         },
     });
+    const isLoggedIn = useIsLoggedIn();
     const router = useRouter();
     const dispatch = useAppDispatch();
     const loginMutation = useMutation({
         mutationFn: requestLogin,
     });
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            router.push("/");
+        }
+    }, [isLoggedIn]);
 
     const onSubmit = (data: LoginFormFields) => {
         console.log(data);

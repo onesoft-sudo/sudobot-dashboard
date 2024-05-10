@@ -120,10 +120,13 @@ export default function HomePage() {
                             </div>
                         </FeatureCard>
 
-                        <FeatureCard className="relative grid grid-cols-1 2xl:col-span-2 2xl:grid-cols-2">
-                            <div className="flex flex-col justify-between py-6 pl-6 pr-4">
+                        <FeatureCard className="relative grid grid-rows-[49%_51%] gap-5 lg:col-span-2 lg:grid-cols-2 lg:grid-rows-1">
+                            <div className="flex flex-col justify-center py-6 pl-6 pr-4 text-center lg:justify-between lg:text-left">
                                 <div>
-                                    <HiOutlineShieldCheck size="2rem" className="mb-3 block text-[rgb(0,100,255)]" />
+                                    <HiOutlineShieldCheck
+                                        size="2rem"
+                                        className="mx-auto mb-3 block text-[rgb(0,100,255)] lg:mx-0"
+                                    />
                                     <h4 className="mb-2 mt-6 text-lg text-black lg:text-xl dark:text-white">
                                         Smart Auto Moderation
                                     </h4>
@@ -133,7 +136,7 @@ export default function HomePage() {
                                         focus on other things.
                                     </p>
                                 </div>
-                                <div>
+                                <div className="hidden lg:block">
                                     <ul className="mt-4 list-none text-sm text-[#444] dark:text-[#999]">
                                         {[
                                             "Spam Protection",
@@ -150,7 +153,11 @@ export default function HomePage() {
                                 </div>
                             </div>
                             <div className="flex min-h-max flex-col items-center justify-center bg-black">
-                                <Image src={autoModerationImage} alt="Smart Auto Moderation" />
+                                <Image
+                                    src={autoModerationImage}
+                                    alt="Smart Auto Moderation"
+                                    className="scale-50 lg:scale-100"
+                                />
                             </div>
                         </FeatureCard>
 
@@ -169,11 +176,11 @@ export default function HomePage() {
                                 </p>
                             </div>
                             <div className="flex min-h-max flex-col items-center justify-center bg-black">
-                                <Image src={licensingImage} alt="Auto Moderation" />
+                                <Image src={licensingImage} alt="Free and Open Source" />
                             </div>
                         </FeatureCard>
 
-                        <FeatureCard className="relative grid grid-rows-2 gap-5">
+                        <FeatureCard className="relative grid grid-rows-2 gap-5 xl:hidden 2xl:grid">
                             <div className="flex flex-col items-center justify-center p-3 text-center">
                                 <HiOutlineWrenchScrewdriver
                                     size="2rem"
@@ -221,10 +228,13 @@ export default function HomePage() {
                             </div>
                         </FeatureCard>
 
-                        <FeatureCard className="relative col-span-2 grid grid-cols-2 gap-5">
-                            <div className="flex flex-col justify-between py-6 pl-6 pr-4">
+                        <FeatureCard className="relative grid grid-rows-[49%_51%] gap-5 lg:col-span-2 lg:grid-cols-2 lg:grid-rows-1">
+                            <div className="flex flex-col justify-center py-6 pl-6 pr-4 text-center lg:justify-between lg:text-left">
                                 <div>
-                                    <BsShieldLock size="2rem" className="mb-3 block text-[rgb(0,100,255)]" />
+                                    <BsShieldLock
+                                        size="2rem"
+                                        className="mx-auto mb-3 block text-[rgb(0,100,255)] lg:mx-0"
+                                    />
                                     <h4 className="mb-2 mt-6 text-lg text-black lg:text-xl dark:text-white">
                                         Robust Permission System
                                     </h4>
@@ -233,7 +243,7 @@ export default function HomePage() {
                                         possible modes. By default, it relies on Discord’s permission system.
                                     </p>
                                 </div>
-                                <div>
+                                <div className="hidden lg:block">
                                     <ul className="mt-4 list-none text-sm text-[#444] dark:text-[#999]">
                                         {[
                                             "Discord-based Permission System",
@@ -249,7 +259,11 @@ export default function HomePage() {
                                 </div>
                             </div>
                             <div className="flex min-h-max flex-col items-center justify-center bg-black">
-                                <Image src={hybridPermissionSystemImage} alt="Robust Permission System" />
+                                <Image
+                                    src={hybridPermissionSystemImage}
+                                    alt="Robust Permission System"
+                                    className="scale-50 lg:scale-100"
+                                />
                             </div>
                         </FeatureCard>
 

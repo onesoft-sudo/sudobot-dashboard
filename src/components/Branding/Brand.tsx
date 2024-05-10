@@ -10,7 +10,7 @@ const Brand: FC = () => {
 
     return (
         <div
-            className="flex cursor-pointer items-center gap-2"
+            className="flex cursor-pointer items-center gap-3"
             onClick={() => (pathname !== "/" ? router.push("/") : undefined)}
         >
             <BrandLogo />

@@ -9,8 +9,8 @@ const BrandLogo: FC<BrandLogoProps> = ({ style, ...props }) => {
         <Image
             alt="Logo"
             src={logo}
-            height={50}
-            width={50}
+            height={40}
+            width={40}
             style={{
                 cursor: "pointer",
                 borderRadius: "10px",
