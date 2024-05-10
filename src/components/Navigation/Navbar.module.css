@@ -11,7 +11,7 @@
     left: 0;
     max-width: 100svw;
     width: 100%;
-    z-index: 10000;
+    z-index: 100;
 }
 
 .navbar ul {

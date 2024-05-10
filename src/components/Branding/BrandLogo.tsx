@@ -1,10 +1,11 @@
 import logo from "@/images/sudobot-shield.png";
 import Image from "next/image";
 import { ComponentProps, type FC } from "react";
+import { twMerge } from "tailwind-merge";
 
 type BrandLogoProps = Partial<Omit<ComponentProps<typeof Image>, "src">>;
 
-const BrandLogo: FC<BrandLogoProps> = ({ style, ...props }) => {
+const BrandLogo: FC<BrandLogoProps> = ({ style, className, ...props }) => {
     return (
         <Image
             alt="Logo"
@@ -16,7 +17,10 @@ const BrandLogo: FC<BrandLogoProps> = ({ style, ...props }) => {
                 borderRadius: "10px",
                 ...style,
             }}
-            className="bg-[linear-gradient(145deg,rgba(0,0,0,0.1),rgba(0,0,0,0.05))] dark:bg-[linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.12))]"
+            className={twMerge(
+                "bg-[linear-gradient(145deg,rgba(0,0,0,0.1),rgba(0,0,0,0.05))] dark:bg-[linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.12))]",
+                className,
+            )}
             {...props}
         />
     );

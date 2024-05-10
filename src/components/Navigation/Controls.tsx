@@ -13,10 +13,12 @@ const Controls: FC<ComponentProps<"div">> = (props) => {
     return (
         <div {...props}>
             {!user && (
-                <Button color="primary" variant="flat" as={Link} href="/login">
+                <Button color="primary" variant="flat" as={Link} href="/login" className="hidden md:flex">
                     Login
                 </Button>
             )}
+
+            {!user && <div className="w-10 md:hidden" />}
 
             {user && (
                 <Dropdown placement="bottom-end">
