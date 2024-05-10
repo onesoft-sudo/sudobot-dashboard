@@ -15,5 +15,6 @@ export const requestLogin = async (data: LoginRequest) => {
             name: "Ar Rakin",
             avatar: "https://cdn.discordapp.com/avatars/774553653394538506/122a9dba34f636cb35e19a963e8e42f6.webp",
         },
+        guilds: ["911987536379912193", "964969362073198652"],
     };
 };

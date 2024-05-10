@@ -15,7 +15,7 @@
 }
 
 .navbar ul {
-    display: none;
+    display: flex;
     list-style: none;
     align-items: center;
 }
@@ -37,6 +37,11 @@
     font-weight: 600;
 }
 
+.menuButton {
+    display: none;
+    --color: black;
+}
+
 @media (prefers-color-scheme: dark) {
     .navbar {
         background-color: rgba(0, 0, 0, 0.6);
@@ -50,11 +55,9 @@
     .navbar ul li a:hover {
         color: #ccc;
     }
-}
 
-@media (min-width: 972px) {
-    .navbar ul {
-        display: flex;
+    .menuButton {
+        --color: white;
     }
 }
 
@@ -63,5 +66,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+
+    .menuButton {
+        display: block;
+        color: var(--color);
     }
 }

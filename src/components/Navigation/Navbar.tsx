@@ -1,6 +1,7 @@
 "use client";
 
 import { links } from "@/config/navbar";
+import { useAppInitialized } from "@/hooks/utils";
 import { Button } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -14,18 +15,18 @@ import NavbarMobile from "./NavbarMobile";
 const Navbar: FC = () => {
     const pathname = usePathname();
     const [open, setOpen] = useState(false);
+    const initialized = useAppInitialized();
 
     return (
         <>
             <NavbarMobile open={open} setOpen={setOpen} />
+
             <nav className={styles.navbar}>
-                <Button
-                    sx={{ minWidth: 0 }}
-                    className="text-black dark:text-white md:hidden"
-                    onClick={() => setOpen(true)}
-                >
-                    <MdMenu size="1.5rem" />
-                </Button>
+                {initialized && (
+                    <Button sx={{ minWidth: 0 }} className={styles.menuButton} onClick={() => setOpen(true)}>
+                        <MdMenu size="1.5rem" />
+                    </Button>
+                )}
 
                 <Brand />
 

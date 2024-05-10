@@ -40,7 +40,7 @@ const LoginForm: FC = () => {
 
     useEffect(() => {
         if (isLoggedIn) {
-            router.push("/");
+            router.push("/dashboard");
         }
     }, [isLoggedIn]);
 
@@ -51,11 +51,15 @@ const LoginForm: FC = () => {
                 dispatch(
                     login({
                         user: responseData.user,
+                        token: responseData.token,
+                        expires: responseData.expires,
                         storage: data.remember ? "local" : "session",
+                        guildIds: responseData.guilds,
+                        currentGuildId: responseData.guilds[0],
                     }),
                 );
 
-                router.push("/");
+                router.push("/dashboard");
             },
         });
     };

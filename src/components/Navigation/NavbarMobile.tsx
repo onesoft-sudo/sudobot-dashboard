@@ -1,10 +1,12 @@
 import { links } from "@/config/navbar";
+import { useIsLoggedIn } from "@/hooks/user";
 import { Button } from "@mui/material";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MdClose } from "react-icons/md";
 import Brand from "../Branding/Brand";
+import GuildSwitcher from "./GuildSwitcher";
 
 type NavbarMobileProps = {
     open: boolean;
@@ -13,6 +15,7 @@ type NavbarMobileProps = {
 
 export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
     const pathname = usePathname();
+    const isLoggedIn = useIsLoggedIn();
 
     return (
         <>
@@ -43,6 +46,17 @@ export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
                         <MdClose size="1.2rem" />
                     </Button>
                 </div>
+
+                {isLoggedIn && (
+                    <>
+                        <hr className="[border-top:1px_solid_#aaa] dark:[border-top:1px_solid_#333]" />
+
+                        <div className="p-2">
+                            <GuildSwitcher buttonProps={{ fullWidth: true, disableRipple: false }} />
+                        </div>
+                    </>
+                )}
+
                 <hr className="[border-top:1px_solid_#aaa] dark:[border-top:1px_solid_#333]" />
 
                 <ul className="flex list-none flex-col gap-1 p-4">
@@ -58,6 +72,11 @@ export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
                                     },
                                     "hover:bg-[rgba(255,255,255,0.12)] dark:hover:bg-[rgba(255,255,255,0.09)]",
                                 )}
+                                onClick={() => {
+                                    if (pathname !== value.href) {
+                                        setOpen(false);
+                                    }
+                                }}
                             >
                                 {value.title}
                             </Link>

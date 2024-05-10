@@ -1,5 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { AnalyticsSliceReducer } from "../slice/AnalyticsSlice";
+import { GuildCacheReducer } from "../slice/GuildCacheSlice";
+import { InitializationSliceReducer } from "../slice/InitializationSlice";
 import { UserSliceReducer } from "../slice/UserSlice";
 
 export const makeStore = () => {
@@ -7,6 +9,8 @@ export const makeStore = () => {
         reducer: {
             analytics: AnalyticsSliceReducer,
             user: UserSliceReducer,
+            initialization: InitializationSliceReducer,
+            guildCache: GuildCacheReducer,
         },
     });
 };

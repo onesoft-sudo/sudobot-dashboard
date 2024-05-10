@@ -44,7 +44,7 @@ export default function HomePage() {
                 <div className="relative flex min-h-[95svh] flex-col justify-between px-3 pb-7 pt-4 md:block md:px-0 md:pb-0 md:pt-6 lg:pt-10 xl:pt-24">
                     <div>
                         <h1
-                            className="relative block text-center text-5xl font-bold lg:text-6xl xl:text-7xl xl:leading-[5rem]"
+                            className="relative block text-center text-5xl font-bold leading-[3.8rem] lg:text-6xl xl:text-7xl xl:leading-[5rem]"
                             style={manrope.style}
                         >
                             The new way to{" "}
