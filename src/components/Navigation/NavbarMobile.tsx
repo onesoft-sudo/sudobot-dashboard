@@ -25,14 +25,14 @@ export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
 
             <aside
                 className={clsx(
-                    "fixed top-0 z-[200] block h-screen max-h-screen w-[75vw] overflow-y-scroll bg-[rgba(0,0,0,0.1)] shadow-[0_0_1px_rgba(255,255,255,0.1)] backdrop-blur-[50px] transition-[2s_ease] scrollbar-hide md:hidden",
+                    "fixed top-0 z-[200] block h-screen max-h-screen w-[75vw] overflow-y-scroll bg-[rgba(0,0,0,0.04)] shadow-[0_0_1px_rgba(255,255,255,0.1)] backdrop-blur-[50px] transition-[2s_ease] scrollbar-hide dark:bg-[rgba(0,0,0,0.1)] md:hidden",
                     {
                         "left-0": open,
                         "left-[-80vw]": !open,
                     },
                 )}
             >
-                <div className="flex items-center justify-between bg-[rgba(0,0,0,0.2)] p-4">
+                <div className="flex items-center justify-between bg-[rgba(255,255,255,0.3)] px-4 py-[0.57rem] dark:bg-[rgba(0,0,0,0.2)]">
                     <Brand
                         classNames={{
                             image: "h-8 w-8",
@@ -43,16 +43,21 @@ export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
                         <MdClose size="1.2rem" />
                     </Button>
                 </div>
-                <hr className="[border-top:1px_solid_#777] dark:[border-top:1px_solid_#333]" />
+                <hr className="[border-top:1px_solid_#aaa] dark:[border-top:1px_solid_#333]" />
 
                 <ul className="flex list-none flex-col gap-1 p-4">
                     {Object.entries(links).map(([key, value]) => (
                         <li key={key}>
                             <Link
                                 href={value.href}
-                                className={clsx("block rounded px-3 py-[0.35rem] hover:bg-[rgba(255,255,255,0.09)]", {
-                                    "!bg-[rgba(255,255,255,0.11)]": pathname === value.href,
-                                })}
+                                className={clsx(
+                                    "block rounded px-3 py-[0.35rem]",
+                                    {
+                                        "bg-[rgba(255,255,255,0.2)] dark:bg-[rgba(255,255,255,0.11)]":
+                                            pathname === value.href,
+                                    },
+                                    "hover:bg-[rgba(255,255,255,0.12)] dark:hover:bg-[rgba(255,255,255,0.09)]",
+                                )}
                             >
                                 {value.title}
                             </Link>

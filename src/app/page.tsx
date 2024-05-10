@@ -107,7 +107,7 @@ export default function HomePage() {
                         <FeatureCard className="relative grid grid-rows-2 gap-5">
                             <div className="flex flex-col items-center justify-center p-3 text-center">
                                 <HiOutlineBolt size="2rem" className="mx-auto mb-3 block text-[rgb(0,100,255)]" />
-                                <h4 className="my-2 text-lg text-black lg:text-xl dark:text-white">
+                                <h4 className="my-2 text-lg text-black dark:text-white lg:text-xl">
                                     Manual Moderation
                                 </h4>
                                 <p className="text-[#444] dark:text-[#999]">
@@ -115,8 +115,12 @@ export default function HomePage() {
                                     and secure.
                                 </p>
                             </div>
-                            <div className="flex min-h-max flex-col items-center justify-center bg-black">
-                                <Image src={chatModerationImage} alt="Moderation" />
+                            <div className="flex min-h-max flex-col items-center justify-center bg-white dark:bg-black">
+                                <Image
+                                    src={chatModerationImage}
+                                    alt="Moderation"
+                                    className="hue-rotate-180 invert dark:hue-rotate-0 dark:invert-0"
+                                />
                             </div>
                         </FeatureCard>
 
@@ -127,7 +131,7 @@ export default function HomePage() {
                                         size="2rem"
                                         className="mx-auto mb-3 block text-[rgb(0,100,255)] lg:mx-0"
                                     />
-                                    <h4 className="mb-2 mt-6 text-lg text-black lg:text-xl dark:text-white">
+                                    <h4 className="mb-2 mt-6 text-lg text-black dark:text-white lg:text-xl">
                                         Smart Auto Moderation
                                     </h4>
                                     <p className="text-[#444] dark:text-[#999]">
@@ -152,11 +156,11 @@ export default function HomePage() {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="flex min-h-max flex-col items-center justify-center bg-black">
+                            <div className="flex min-h-max flex-col items-center justify-center bg-white dark:bg-black">
                                 <Image
                                     src={autoModerationImage}
                                     alt="Smart Auto Moderation"
-                                    className="scale-50 lg:scale-100"
+                                    className="scale-50 hue-rotate-180 invert dark:hue-rotate-0 dark:invert-0 lg:scale-100"
                                 />
                             </div>
                         </FeatureCard>
@@ -164,7 +168,7 @@ export default function HomePage() {
                         <FeatureCard className="relative grid grid-rows-2 gap-5">
                             <div className="flex flex-col items-center justify-center p-3 text-center">
                                 <HiCode size="2rem" className="mx-auto mb-3 block text-[rgb(0,100,255)]" />
-                                <h4 className="my-2 text-lg text-black lg:text-xl dark:text-white">
+                                <h4 className="my-2 text-lg text-black dark:text-white lg:text-xl">
                                     Free &amp; Open Source
                                 </h4>
                                 <p className="text-[#444] dark:text-[#999]">
@@ -175,8 +179,12 @@ export default function HomePage() {
                                     .
                                 </p>
                             </div>
-                            <div className="flex min-h-max flex-col items-center justify-center bg-black">
-                                <Image src={licensingImage} alt="Free and Open Source" />
+                            <div className="flex min-h-max flex-col items-center justify-center bg-white dark:bg-black">
+                                <Image
+                                    src={licensingImage}
+                                    alt="Free and Open Source"
+                                    className="hue-rotate-180 invert dark:hue-rotate-0 dark:invert-0"
+                                />
                             </div>
                         </FeatureCard>
 
@@ -186,7 +194,7 @@ export default function HomePage() {
                                     size="2rem"
                                     className="mx-auto mb-3 block text-[rgb(0,100,255)]"
                                 />
-                                <h4 className="my-2 text-lg text-black lg:text-xl dark:text-white">
+                                <h4 className="my-2 text-lg text-black dark:text-white lg:text-xl">
                                     Active Development
                                 </h4>
                                 <p className="text-[#444] dark:text-[#999]">
@@ -194,28 +202,36 @@ export default function HomePage() {
                                     requests or improvement ideas.
                                 </p>
                             </div>
-                            <div className="flex min-h-max flex-col items-center justify-center bg-black">
-                                <Image src={activeDevelopmentImage} alt="Active Development" />
+                            <div className="flex min-h-max flex-col items-center justify-center bg-white dark:bg-black">
+                                <Image
+                                    src={activeDevelopmentImage}
+                                    alt="Active Development"
+                                    className="hue-rotate-180 invert dark:hue-rotate-0 dark:invert-0"
+                                />
                             </div>
                         </FeatureCard>
                         <FeatureCard className="relative grid grid-rows-2 gap-5">
                             <div className="flex flex-col items-center justify-center p-3 text-center">
                                 <HiOutlineCpuChip size="2rem" className="mx-auto mb-3 block text-[rgb(0,100,255)]" />
-                                <h4 className="my-2 text-lg text-black lg:text-xl dark:text-white">Self-Hosted</h4>
+                                <h4 className="my-2 text-lg text-black dark:text-white lg:text-xl">Self-Hosted</h4>
                                 <p className="text-[#444] dark:text-[#999]">
                                     Don&rsquo;t want to host the bot yourself? We have a solution for that as well
                                     &mdash; you can invite our self-hosted instance!
                                 </p>
                             </div>
-                            <div className="flex min-h-max flex-col items-center justify-center bg-black">
-                                <Image src={selfHostedImage} alt="Self-Hosted" />
+                            <div className="flex min-h-max flex-col items-center justify-center bg-white dark:bg-black">
+                                <Image
+                                    src={selfHostedImage}
+                                    alt="Self-Hosted"
+                                    className="hue-rotate-180 invert dark:hue-rotate-0 dark:invert-0"
+                                />
                             </div>
                         </FeatureCard>
 
                         <FeatureCard className="relative grid grid-rows-2 gap-5">
                             <div className="flex flex-col items-center justify-center p-3 text-center">
                                 <HiOutlineCube size="2rem" className="mx-auto mb-3 block text-[rgb(0,100,255)]" />
-                                <h4 className="my-2 text-lg text-black lg:text-xl dark:text-white">
+                                <h4 className="my-2 text-lg text-black dark:text-white lg:text-xl">
                                     Highly Customizable
                                 </h4>
                                 <p className="text-[#444] dark:text-[#999]">
@@ -223,8 +239,12 @@ export default function HomePage() {
                                     almost everything the bot does.
                                 </p>
                             </div>
-                            <div className="flex min-h-max flex-col items-center justify-center bg-black">
-                                <Image src={customizableImage} alt="Highly Customizable" />
+                            <div className="flex min-h-max flex-col items-center justify-center bg-white dark:bg-black">
+                                <Image
+                                    src={customizableImage}
+                                    alt="Highly Customizable"
+                                    className="hue-rotate-180 invert dark:hue-rotate-0 dark:invert-0"
+                                />
                             </div>
                         </FeatureCard>
 
@@ -235,7 +255,7 @@ export default function HomePage() {
                                         size="2rem"
                                         className="mx-auto mb-3 block text-[rgb(0,100,255)] lg:mx-0"
                                     />
-                                    <h4 className="mb-2 mt-6 text-lg text-black lg:text-xl dark:text-white">
+                                    <h4 className="mb-2 mt-6 text-lg text-black dark:text-white lg:text-xl">
                                         Robust Permission System
                                     </h4>
                                     <p className="text-[#444] dark:text-[#999]">
@@ -258,11 +278,11 @@ export default function HomePage() {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="flex min-h-max flex-col items-center justify-center bg-black">
+                            <div className="flex min-h-max flex-col items-center justify-center bg-white dark:bg-black">
                                 <Image
                                     src={hybridPermissionSystemImage}
                                     alt="Robust Permission System"
-                                    className="scale-50 lg:scale-100"
+                                    className="scale-50 hue-rotate-180 invert dark:hue-rotate-0 dark:invert-0 lg:scale-100"
                                 />
                             </div>
                         </FeatureCard>
@@ -270,14 +290,18 @@ export default function HomePage() {
                         <FeatureCard className="relative grid grid-rows-2 gap-5">
                             <div className="flex flex-col items-center justify-center p-3 text-center">
                                 <HiOutlineLockClosed size="2rem" className="mx-auto mb-3 block text-[rgb(0,100,255)]" />
-                                <h4 className="my-2 text-lg text-black lg:text-xl dark:text-white">Secure</h4>
+                                <h4 className="my-2 text-lg text-black dark:text-white lg:text-xl">Secure</h4>
                                 <p className="text-[#444] dark:text-[#999]">
                                     SudoBot is designed with security in mind. We take security seriously and are
                                     committed to protecting your data. Open Source always means more secure.
                                 </p>
                             </div>
-                            <div className="flex min-h-max flex-col items-center justify-center bg-black">
-                                <Image src={secureImage} alt="Secure" />
+                            <div className="flex min-h-max flex-col items-center justify-center bg-white dark:bg-black">
+                                <Image
+                                    src={secureImage}
+                                    alt="Secure"
+                                    className="hue-rotate-180 invert dark:hue-rotate-0 dark:invert-0"
+                                />
                             </div>
                         </FeatureCard>
                     </div>
