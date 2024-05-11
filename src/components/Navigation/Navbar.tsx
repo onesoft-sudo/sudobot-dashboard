@@ -2,7 +2,9 @@
 
 import { links } from "@/config/navbar";
 import { useAppInitialized } from "@/hooks/utils";
+import { isDashboardPath } from "@/utils/utils";
 import { Button } from "@mui/material";
+import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, type FC } from "react";
@@ -21,7 +23,11 @@ const Navbar: FC = () => {
         <>
             <NavbarMobile open={open} setOpen={setOpen} />
 
-            <nav className={styles.navbar}>
+            <nav
+                className={clsx(styles.navbar, {
+                    [styles.onDashboard]: isDashboardPath(pathname),
+                })}
+            >
                 {initialized && (
                     <Button sx={{ minWidth: 0 }} className={styles.menuButton} onClick={() => setOpen(true)}>
                         <MdMenu size="1.5rem" />

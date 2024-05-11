@@ -11,16 +11,16 @@ const Controls: FC<ComponentProps<"div">> = (props) => {
     return (
         <div {...props}>
             {!user && (
-                <Button color="primary" variant="flat" as={Link} href="/login" className="hidden md:flex">
+                <Button color="primary" variant="flat" as={Link} href="/login" className="hidden lg:flex">
                     Login
                 </Button>
             )}
 
-            {!user && <div className="w-10 md:hidden" />}
+            {!user && <div className="w-10 lg:hidden" />}
 
             {user && (
                 <div className="flex items-center gap-3">
-                    <div className="hidden md:block">
+                    <div className="hidden lg:block">
                         <GuildSwitcher />
                     </div>
                     <div>

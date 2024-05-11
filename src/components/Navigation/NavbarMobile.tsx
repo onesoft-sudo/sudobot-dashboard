@@ -1,6 +1,7 @@
 import { links } from "@/config/navbar";
+import { items } from "@/config/sidebar";
 import { useIsLoggedIn } from "@/hooks/user";
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -54,6 +55,37 @@ export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
                         <div className="p-2">
                             <GuildSwitcher buttonProps={{ fullWidth: true, disableRipple: false }} />
                         </div>
+
+                        <hr className="[border-top:1px_solid_#aaa] dark:[border-top:1px_solid_#333]" />
+
+                        <ul className="flex list-none flex-col gap-1 p-4">
+                            {items.map((item) => (
+                                <li key={`${item.href}_${item.title}`}>
+                                    <Link
+                                        href={item.href}
+                                        title={item.title}
+                                        className={clsx(
+                                            "block rounded px-3 py-[0.35rem]",
+                                            {
+                                                "bg-[rgba(255,255,255,0.2)] dark:bg-[rgba(255,255,255,0.11)]":
+                                                    pathname === item.href,
+                                            },
+                                            "hover:bg-[rgba(255,255,255,0.12)] dark:hover:bg-[rgba(255,255,255,0.09)]",
+                                        )}
+                                        onClick={() => {
+                                            if (pathname !== item.href) {
+                                                setOpen(false);
+                                            }
+                                        }}
+                                    >
+                                        <Box component="span" display="flex" alignItems="center" gap={2}>
+                                            <item.icon />
+                                            {item.title}
+                                        </Box>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
                     </>
                 )}
 
@@ -64,6 +96,7 @@ export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
                         <li key={key}>
                             <Link
                                 href={value.href}
+                                title={value.title}
                                 className={clsx(
                                     "block rounded px-3 py-[0.35rem]",
                                     {

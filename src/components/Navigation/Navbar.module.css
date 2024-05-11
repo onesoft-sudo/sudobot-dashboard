@@ -42,6 +42,21 @@
     --color: black;
 }
 
+@media (min-width: 972px) {
+    .navbar.onDashboard {
+        place-items: start;
+        padding-inline: 1.2rem;
+    }
+
+    .navbar.onDashboard > ul {
+        place-self: center;
+    }
+
+    .navbar.onDashboard > :last-child {
+        place-self: end;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     .navbar {
         background-color: rgba(0, 0, 0, 0.6);

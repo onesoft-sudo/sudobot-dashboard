@@ -36,7 +36,7 @@ export default function Profile() {
                     <span className="ml-2 hidden lg:inline-block">{user.name ?? user.username}</span>
                 </Button>
             </DropdownTrigger>
-            <DropdownMenu aria-label="Static Actions">
+            <DropdownMenu aria-label="Static Actions" variant="flat">
                 <DropdownItem as={Link} href="/dashboard" key="dashboard" className="h-14 gap-2" showDivider>
                     <p className="font-semibold">Signed in as</p>
                     <p className="font-semibold">

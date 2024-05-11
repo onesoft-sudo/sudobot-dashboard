@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { AnalyticsSliceReducer } from "../slice/AnalyticsSlice";
 import { GuildCacheReducer } from "../slice/GuildCacheSlice";
 import { InitializationSliceReducer } from "../slice/InitializationSlice";
+import { ThemeSliceReducer } from "../slice/ThemeSlice";
 import { UserSliceReducer } from "../slice/UserSlice";
 
 export const makeStore = () => {
@@ -11,6 +12,7 @@ export const makeStore = () => {
             user: UserSliceReducer,
             initialization: InitializationSliceReducer,
             guildCache: GuildCacheReducer,
+            theme: ThemeSliceReducer,
         },
     });
 };
