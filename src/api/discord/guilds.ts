@@ -1,23 +1,26 @@
+import { getAxiosClient } from "@/client/axios";
 import { Guild } from "@/types/Guild";
+import { AxiosError } from "axios";
 
 export const getGuild = async (id: string): Promise<Guild | null> => {
-    if (id === "911987536379912193") {
-        return {
-            id: "911987536379912193",
-            name: "Private Server",
-            icon: "83b86b717d62c70a3d98715788259404",
-        };
-    }
+    try {
+        const response = await getAxiosClient().get<Guild>(`/guilds/${encodeURIComponent(id)}`);
+        return response.data;
+    } catch (error) {
+        if (error instanceof AxiosError) {
+            if (error.response?.status === 404) {
+                return null;
+            }
 
-    if (id === "964969362073198652") {
-        return {
-            id: "964969362073198652",
-            name: "OSN's Official Server",
-            icon: "72513102a786e607bc8d47ffc342a1f0",
-        };
-    }
+            throw new Error("Failed to fetch guild", {
+                cause: {
+                    code: error.response?.data.code ?? undefined,
+                },
+            });
+        }
 
-    return null;
+        throw error;
+    }
 };
 
 export const getGuilds = async (ids: string[]): Promise<Guild[]> => {
@@ -25,23 +28,18 @@ export const getGuilds = async (ids: string[]): Promise<Guild[]> => {
         return [];
     }
 
-    const result = [];
+    try {
+        const response = await getAxiosClient().get<Guild[]>(`/guilds`);
+        return response.data;
+    } catch (error) {
+        if (error instanceof AxiosError) {
+            throw new Error("Failed to fetch guilds", {
+                cause: {
+                    code: error.response?.data.code ?? undefined,
+                },
+            });
+        }
 
-    if (ids.includes("911987536379912193")) {
-        result.push({
-            id: "911987536379912193",
-            name: "Private Server",
-            icon: "83b86b717d62c70a3d98715788259404",
-        });
+        throw error;
     }
-
-    if (ids.includes("964969362073198652")) {
-        result.push({
-            id: "964969362073198652",
-            name: "OSN's Official Server",
-            icon: "72513102a786e607bc8d47ffc342a1f0",
-        });
-    }
-
-    return result;
 };

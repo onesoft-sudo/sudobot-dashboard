@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from "@/redux/hooks/AppStoreHooks";
+import { clearCachedGuilds } from "@/redux/slice/GuildCacheSlice";
 import { logout } from "@/redux/slice/UserSlice";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -37,6 +38,7 @@ export const useLogout = () => {
 
     return () => {
         dispatch(logout());
+        dispatch(clearCachedGuilds());
 
         if (pathname !== "/login") {
             router.push("/login");

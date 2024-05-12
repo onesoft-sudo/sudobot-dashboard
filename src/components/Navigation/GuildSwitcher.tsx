@@ -67,11 +67,7 @@ export default function GuildSwitcher({ classNames, buttonProps }: GuildSwitcher
                     >
                         {guild.name}
                     </DropdownItem>
-                )) ?? (
-                    <>
-                        <DropdownItem key="0">{`[Network Error]`}</DropdownItem>
-                    </>
-                )}
+                )) ?? <DropdownItem key="0">{`[Network Error]`}</DropdownItem>}
             </DropdownMenu>
         </Dropdown>
     );

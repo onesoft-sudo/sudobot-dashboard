@@ -1,10 +1,9 @@
+import { setToken } from "@/client/axios";
 import { SliceInitializer } from "@/types/SliceInitializer";
+import { StorageKeys } from "@/types/StorageKeys";
 import { User } from "@/types/User";
 import { createSlice } from "@reduxjs/toolkit";
-
-enum StorageKeys {
-    User = "sb_user",
-}
+import { clearCachedGuilds } from "./GuildCacheSlice";
 
 type UserSliceState = {
     available: boolean;
@@ -52,7 +51,9 @@ export const userSliceInitializer: SliceInitializer = (store) => {
             }),
         );
     } else {
+        console.log(info);
         store.dispatch(logout());
+        store.dispatch(clearCachedGuilds());
     }
 };
 
@@ -64,6 +65,7 @@ const setUserReducer = (state: UserSliceState, action: { payload: SetUserReducer
     state.guildIds = action.payload.guildIds;
     state.currentGuildId = action.payload.currentGuildId;
 
+    setToken(state.token);
     console.info("LOGIN", action.payload);
 };
 
@@ -75,6 +77,7 @@ const clearUserReducer = (state: Partial<UserSliceState>) => {
     state.guildIds = undefined;
     state.currentGuildId = undefined;
 
+    setToken(undefined);
     console.info("LOGOUT");
 };
 
@@ -100,9 +103,9 @@ const slice = createSlice({
                 JSON.stringify({
                     user: action.payload.user,
                     token: action.payload.token,
-                    expires: action.payload.expires,
                     guildIds: action.payload.guildIds,
                     currentGuildId: action.payload.currentGuildId,
+                    expires: action.payload.expires,
                 }),
             );
         },

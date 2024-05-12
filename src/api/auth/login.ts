@@ -1,20 +1,51 @@
+import { getAxiosClient } from "@/client/axios";
+import { APIErrorCode } from "@/types/APIErrorCode";
+import { Guild } from "@/types/Guild";
+import { User } from "@/types/User";
+import { AxiosError } from "axios";
+import { Routes } from "../Routes";
+
 export type LoginRequest = {
     username: string;
     password: string;
 };
 
-export const requestLogin = async (data: LoginRequest) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+export type LoginResponse = {
+    token: string;
+    expires: number;
+    user: User;
+    guilds: Guild[];
+};
 
-    return {
-        token: "fake-token",
-        expires: new Date().getTime() + 1000 * 60 * 60 * 24 * 7,
-        user: {
-            id: 0,
-            username: data.username,
-            name: "Ar Rakin",
-            avatar: "https://cdn.discordapp.com/avatars/774553653394538506/122a9dba34f636cb35e19a963e8e42f6.webp",
-        },
-        guilds: ["911987536379912193", "964969362073198652"],
-    };
+export const requestLogin = async (data: LoginRequest): Promise<LoginResponse> => {
+    try {
+        const response = await getAxiosClient().post<LoginResponse>(Routes.AUTH_LOGIN, data);
+        return response.data;
+    } catch (error) {
+        if (error instanceof AxiosError) {
+            if (error.response?.data?.code === APIErrorCode.InvalidCredentials) {
+                throw new Error("Invalid credentials", {
+                    cause: {
+                        code: error.response.data.code,
+                    },
+                });
+            }
+
+            if (error.response?.data?.code === APIErrorCode.AccountDisabled) {
+                throw new Error("Account disabled", {
+                    cause: {
+                        code: error.response.data.code,
+                    },
+                });
+            }
+
+            throw new Error("Authentication failed", {
+                cause: {
+                    code: error.response?.data?.code ?? undefined,
+                },
+            });
+        }
+
+        throw error;
+    }
 };

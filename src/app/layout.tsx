@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 
 import AppBody from "@/components/Layout/AppBody";
 import AppStoreInitializerProvider from "@/providers/AppStoreInitializationProvider";
+import MUIThemeProvider from "@/providers/MUIThemeProvider";
 import TanstackQueryProvider from "@/providers/TanstackQueryProvider";
 import "@/styles/globals.css";
 
@@ -26,7 +27,9 @@ export default function RootLayout({
                 <AppBody className={inter.className}>
                     <TanstackQueryProvider>
                         <NextUIProvider>
-                            <AppStoreInitializerProvider>{children}</AppStoreInitializerProvider>
+                            <MUIThemeProvider>
+                                <AppStoreInitializerProvider>{children}</AppStoreInitializerProvider>
+                            </MUIThemeProvider>
                         </NextUIProvider>
                     </TanstackQueryProvider>
                 </AppBody>

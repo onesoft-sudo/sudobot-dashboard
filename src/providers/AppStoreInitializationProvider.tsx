@@ -1,11 +1,12 @@
 "use client";
 
 import { useAppDispatch, useAppStore } from "@/redux/hooks/AppStoreHooks";
+import { guildCacheSliceInitializer } from "@/redux/slice/GuildCacheSlice";
 import { initialize } from "@/redux/slice/InitializationSlice";
 import { userSliceInitializer } from "@/redux/slice/UserSlice";
 import { PropsWithChildren, useEffect } from "react";
 
-const initializers = [userSliceInitializer];
+const initializers = [guildCacheSliceInitializer, userSliceInitializer];
 
 export default function AppStoreInitializerProvider({ children }: PropsWithChildren) {
     const store = useAppStore();

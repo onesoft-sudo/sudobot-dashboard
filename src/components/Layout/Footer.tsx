@@ -1,7 +1,7 @@
 import { iconLinks, links } from "@/config/footer";
+import { OSN_GITHUB_URL } from "@/constants/links";
 import Link from "next/link";
 import Brand from "../Branding/Brand";
-import { OSN_GITHUB_URL } from "../constants/links";
 
 export default function Footer() {
     return (

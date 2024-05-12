@@ -3,6 +3,7 @@
 import { requestLogin } from "@/api/auth/login";
 import { useIsLoggedIn } from "@/hooks/user";
 import { useAppDispatch } from "@/redux/hooks/AppStoreHooks";
+import { addGuilds } from "@/redux/slice/GuildCacheSlice";
 import { login } from "@/redux/slice/UserSlice";
 import { Alert } from "@mui/material";
 import { Button } from "@nextui-org/button";
@@ -54,8 +55,16 @@ const LoginForm: FC = () => {
                         token: responseData.token,
                         expires: responseData.expires,
                         storage: data.remember ? "local" : "session",
-                        guildIds: responseData.guilds,
-                        currentGuildId: responseData.guilds[0],
+                        guildIds: responseData.guilds.map((guild) => guild.id),
+                        currentGuildId: responseData.guilds[0]?.id,
+                    }),
+                );
+
+                dispatch(
+                    addGuilds({
+                        guilds: responseData.guilds,
+                        save: true,
+                        storage: data.remember ? "local" : "session",
                     }),
                 );
 

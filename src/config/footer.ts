@@ -7,7 +7,7 @@ import {
     STATUS_PAGE_URL,
     SUPPORT_EMAIL_ADDRESS,
     TERMS_OF_SERVICE_URL,
-} from "@/components/constants/links";
+} from "@/constants/links";
 import { FaDiscord, FaEnvelope, FaGithub, FaGlobe } from "react-icons/fa6";
 
 export const links = {
