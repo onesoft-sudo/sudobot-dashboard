@@ -2,6 +2,7 @@
 
 import { requestLogin } from "@/api/auth/login";
 import { useIsLoggedIn } from "@/hooks/user";
+import { logger } from "@/logging/logger";
 import { useAppDispatch } from "@/redux/hooks/AppStoreHooks";
 import { addGuilds } from "@/redux/slice/GuildCacheSlice";
 import { login } from "@/redux/slice/UserSlice";
@@ -46,7 +47,8 @@ const LoginForm: FC = () => {
     }, [isLoggedIn]);
 
     const onSubmit = (data: LoginFormFields) => {
-        console.log(data);
+        logger.debug("LoginForm", data);
+
         loginMutation.mutate(data, {
             onSuccess(responseData) {
                 dispatch(

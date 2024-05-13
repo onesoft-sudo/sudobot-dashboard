@@ -37,13 +37,15 @@ const Navbar: FC = () => {
                 <Brand />
 
                 <ul>
-                    {Object.entries(links).map(([key, value]) => (
-                        <li key={key}>
-                            <Link href={value.href} className={pathname === value.href ? styles.activeLink : ""}>
-                                {value.title}
-                            </Link>
-                        </li>
-                    ))}
+                    {links.map((value) =>
+                        value.mobileOnly ? null : (
+                            <li key={`${value.href}_${value.title}`}>
+                                <Link href={value.href} className={pathname === value.href ? styles.activeLink : ""}>
+                                    {value.title}
+                                </Link>
+                            </li>
+                        ),
+                    )}
                 </ul>
 
                 <Controls />

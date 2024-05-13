@@ -3,6 +3,7 @@
 import { useTheme } from "@/hooks/theme";
 import { Line } from "react-chartjs-2";
 
+// TODO: This component contains dummy data and should be replaced with real data.
 export default function InfractionChart() {
     const isDark = useTheme().mode === "dark";
     const labels = [];

@@ -3,7 +3,7 @@ import { APIErrorCode } from "@/types/APIErrorCode";
 import { Guild } from "@/types/Guild";
 import { User } from "@/types/User";
 import { AxiosError } from "axios";
-import { Routes } from "../Routes";
+import { Route } from "../Routes";
 
 export type LoginRequest = {
     username: string;
@@ -19,7 +19,7 @@ export type LoginResponse = {
 
 export const requestLogin = async (data: LoginRequest): Promise<LoginResponse> => {
     try {
-        const response = await getAxiosClient().post<LoginResponse>(Routes.AUTH_LOGIN, data);
+        const response = await getAxiosClient().post<LoginResponse>(Route.AUTH_LOGIN, data);
         return response.data;
     } catch (error) {
         if (error instanceof AxiosError) {

@@ -1,4 +1,5 @@
 import { setToken } from "@/client/axios";
+import { logger } from "@/logging/logger";
 import { SliceInitializer } from "@/types/SliceInitializer";
 import { StorageKeys } from "@/types/StorageKeys";
 import { User } from "@/types/User";
@@ -51,7 +52,7 @@ export const userSliceInitializer: SliceInitializer = (store) => {
             }),
         );
     } else {
-        console.log(info);
+        logger.debug("userSliceInitializer", info);
         store.dispatch(logout());
         store.dispatch(clearCachedGuilds());
     }
@@ -66,7 +67,7 @@ const setUserReducer = (state: UserSliceState, action: { payload: SetUserReducer
     state.currentGuildId = action.payload.currentGuildId;
 
     setToken(state.token);
-    console.info("LOGIN", action.payload);
+    logger.debug("setUserReducer", "LOGIN", action.payload);
 };
 
 const clearUserReducer = (state: Partial<UserSliceState>) => {
@@ -78,7 +79,7 @@ const clearUserReducer = (state: Partial<UserSliceState>) => {
     state.currentGuildId = undefined;
 
     setToken(undefined);
-    console.info("LOGOUT");
+    logger.debug("clearUserReducer", "LOGOUT");
 };
 
 const slice = createSlice({

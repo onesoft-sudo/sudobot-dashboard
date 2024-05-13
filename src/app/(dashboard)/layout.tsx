@@ -6,9 +6,9 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
     return (
         <>
             <Navbar />
-            <div className="h-[calc(100svh-3.2rem)] lg:grid lg:grid-cols-[minmax(250px,20%)_auto] lg:gap-5">
-                <Sidebar className="hidden lg:block" />
-                <div>{children}</div>
+            <div className="lg:grid lg:h-[calc(100svh-3.2rem)] lg:grid-cols-[minmax(250px,20%)_auto] lg:gap-5">
+                <Sidebar className="z-[100] hidden lg:block" />
+                <div className="lg:h-[calc(100svh-3.2rem)] lg:overflow-y-scroll">{children}</div>
             </div>
         </>
     );

@@ -7,7 +7,7 @@ export function createAxiosClient() {
     return axios.create({
         baseURL: process.env.NEXT_PUBLIC_API_URL,
         headers: {
-            Authorization: localStorage ? "Bearer " + localStorage.getItem("token") : undefined,
+            Authorization: token ? "Bearer " + token : undefined,
         },
     });
 }

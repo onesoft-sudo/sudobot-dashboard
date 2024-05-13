@@ -1,18 +1,23 @@
-export const links = {
-    home: {
+export const links = [
+    {
         title: "Home",
         href: "/",
     },
-    commands: {
+    {
         title: "Commands",
         href: "/commands",
     },
-    support: {
+    {
         title: "Support",
         href: "#",
     },
-    invite: {
+    {
         title: "Invite",
         href: "#",
     },
-};
+    {
+        title: "Login",
+        href: "/login",
+        mobileOnly: true,
+    },
+];

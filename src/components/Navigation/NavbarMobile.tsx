@@ -92,8 +92,8 @@ export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
                 <hr className="[border-top:1px_solid_#aaa] dark:[border-top:1px_solid_#333]" />
 
                 <ul className="flex list-none flex-col gap-1 p-4">
-                    {Object.entries(links).map(([key, value]) => (
-                        <li key={key}>
+                    {links.map((value) => (
+                        <li key={`${value.href}_${value.title}`}>
                             <Link
                                 href={value.href}
                                 title={value.title}
