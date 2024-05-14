@@ -1,6 +1,7 @@
 "use client";
 
 import { useCurrentUser } from "@/hooks/user";
+import Heading from "./Heading";
 
 export default function WelcomeHeading() {
     const user = useCurrentUser();
@@ -9,5 +10,5 @@ export default function WelcomeHeading() {
         return null;
     }
 
-    return <h1 className="text-3xl font-semibold">Welcome back, {user.name ?? user.username}!</h1>;
+    return <Heading>Welcome back, {user.name ?? user.username}!</Heading>;
 }

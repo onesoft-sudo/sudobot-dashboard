@@ -2,9 +2,9 @@
 
 import { items } from "@/config/sidebar";
 import clsx from "clsx";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { twMerge } from "tailwind-merge";
+import Link from "../Navigation/Link";
 
 type SidebarProps = {
     className?: string;

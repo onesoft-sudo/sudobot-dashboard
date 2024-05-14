@@ -1,8 +1,16 @@
+import MessageRuleManagementCard from "@/components/Dashboard/AutoMod/MessageRuleManagementCard";
+import CardGrid from "@/components/Dashboard/CardGrid";
+import Container from "@/components/Dashboard/Container";
+import Heading from "@/components/Dashboard/Heading";
+
 export default function AutoModPage() {
     return (
-        <div className="px-3 py-4 lg:pl-1 lg:pr-4">
-            <h1>AutoMod</h1>
-            <p>Coming soon!</p>
-        </div>
+        <Container>
+            <Heading>Auto Moderation Settings</Heading>
+
+            <CardGrid>
+                <MessageRuleManagementCard />
+            </CardGrid>
+        </Container>
     );
 }
