@@ -1,3 +1,5 @@
+"use client";
+
 import InfractionChart from "@/components/Charts/InfractionChart";
 import { Card, CardBody, CardFooter, CardHeader, Divider } from "@nextui-org/react";
 import { MdGavel } from "react-icons/md";

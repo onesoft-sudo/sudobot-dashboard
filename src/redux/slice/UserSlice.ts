@@ -8,6 +8,7 @@ import { clearCachedGuilds } from "./GuildCacheSlice";
 
 type UserSliceState = {
     available: boolean;
+    resolving: boolean;
     user?: User;
     token?: string;
     expires?: number;
@@ -34,6 +35,7 @@ type SetUserReducerPayload = {
 
 const initialState: UserSliceState = {
     available: false,
+    resolving: true,
 };
 
 export const userSliceInitializer: SliceInitializer = (store) => {
@@ -51,10 +53,13 @@ export const userSliceInitializer: SliceInitializer = (store) => {
                 currentGuildId: info.currentGuildId,
             }),
         );
+
+        store.dispatch(setResolving(false));
     } else {
         logger.debug("userSliceInitializer", info);
         store.dispatch(logout());
         store.dispatch(clearCachedGuilds());
+        store.dispatch(setResolving(false));
     }
 };
 
@@ -112,6 +117,9 @@ const slice = createSlice({
         },
         setUser: setUserReducer,
         clearUser: clearUserReducer,
+        setResolving: (state, action: { payload: boolean }) => {
+            state.resolving = action.payload;
+        },
         logout: (state) => {
             clearUserReducer(state);
 
@@ -129,5 +137,5 @@ const slice = createSlice({
     },
 });
 
-export const { logout, login, setUser, clearUser, setCurrentGuildId } = slice.actions;
+export const { logout, login, setUser, clearUser, setCurrentGuildId, setResolving } = slice.actions;
 export const UserSliceReducer = slice.reducer;
