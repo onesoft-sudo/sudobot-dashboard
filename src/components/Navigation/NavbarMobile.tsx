@@ -3,11 +3,11 @@ import { items } from "@/config/sidebar";
 import { useIsLoggedIn } from "@/hooks/user";
 import { Box, Button } from "@mui/material";
 import clsx from "clsx";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MdClose } from "react-icons/md";
 import Brand from "../Branding/Brand";
 import GuildSwitcher from "./GuildSwitcher";
+import Link from "./Link";
 
 type NavbarMobileProps = {
     open: boolean;

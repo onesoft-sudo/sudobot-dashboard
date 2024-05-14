@@ -1,5 +1,6 @@
 "use client";
 
+import NavbarLoadingProgressProvider from "@/components/Navigation/NavbarLoadingProgressProvider";
 import AppStoreInitializerProvider from "@/providers/AppStoreInitializationProvider";
 import MUIThemeProvider from "@/providers/MUIThemeProvider";
 import TanstackQueryProvider from "@/providers/TanstackQueryProvider";
@@ -11,7 +12,9 @@ export default function Providers({ children }: PropsWithChildren) {
         <TanstackQueryProvider>
             <NextUIProvider>
                 <MUIThemeProvider>
-                    <AppStoreInitializerProvider>{children}</AppStoreInitializerProvider>
+                    <AppStoreInitializerProvider>
+                        <NavbarLoadingProgressProvider>{children}</NavbarLoadingProgressProvider>
+                    </AppStoreInitializerProvider>
                 </MUIThemeProvider>
             </NextUIProvider>
         </TanstackQueryProvider>

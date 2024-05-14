@@ -5,13 +5,14 @@ import { useAppInitialized } from "@/hooks/utils";
 import { isDashboardPath } from "@/utils/utils";
 import { Button } from "@mui/material";
 import clsx from "clsx";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, type FC } from "react";
 import { MdMenu } from "react-icons/md";
 import Brand from "../Branding/Brand";
 import Controls from "./Controls";
+import Link from "./Link";
 import styles from "./Navbar.module.css";
+import NavbarLoadingProgress from "./NavbarLoadingProgress";
 import NavbarMobile from "./NavbarMobile";
 
 const Navbar: FC = () => {
@@ -21,6 +22,7 @@ const Navbar: FC = () => {
 
     return (
         <>
+            <NavbarLoadingProgress />
             <NavbarMobile open={open} setOpen={setOpen} />
 
             <nav

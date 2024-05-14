@@ -1,6 +1,7 @@
 "use client";
 
 import { requestLogin } from "@/api/auth/login";
+import { useRouter } from "@/hooks/router";
 import { useIsLoggedIn } from "@/hooks/user";
 import { logger } from "@/logging/logger";
 import { useAppDispatch } from "@/redux/hooks/AppStoreHooks";
@@ -11,7 +12,6 @@ import { Button } from "@nextui-org/button";
 import { Checkbox, Divider, Input } from "@nextui-org/react";
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect, type FC } from "react";
 import { useForm } from "react-hook-form";
 import { FaDiscord } from "react-icons/fa6";

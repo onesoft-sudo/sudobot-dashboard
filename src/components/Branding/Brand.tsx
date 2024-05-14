@@ -1,6 +1,7 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "@/hooks/router";
+import { usePathname } from "next/navigation";
 import { type FC } from "react";
 import { twMerge } from "tailwind-merge";
 import BrandLogo from "./BrandLogo";

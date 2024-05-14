@@ -1,9 +1,9 @@
 import { useCurrentUser, useLogout } from "@/hooks/user";
 import { Button } from "@nextui-org/button";
 import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
-import Link from "next/link";
 import { FaChevronDown } from "react-icons/fa6";
 import { MdContactSupport, MdDashboard, MdOutlineLogout, MdSettings } from "react-icons/md";
+import Link from "./Link";
 
 export default function Profile() {
     const user = useCurrentUser();
