@@ -9,16 +9,16 @@ export const items = [
     {
         title: "Commands",
         icon: MdTerminal,
-        href: "/commands",
+        href: "/settings/commands",
     },
     {
         title: "Auto Moderation",
         icon: MdOutlineShield,
-        href: "/automod",
+        href: "/settings/automod",
     },
     {
         title: "Settings",
         icon: MdSettings,
-        href: "/settings",
+        href: "/account/settings",
     },
 ];
