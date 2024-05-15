@@ -6,7 +6,7 @@ import { MdContactSupport, MdDashboard, MdOutlineLogout, MdSettings } from "reac
 import Link from "./Link";
 
 export default function Profile() {
-    const user = useCurrentUser();
+    const user = useCurrentUser(false);
     const logout = useLogout();
 
     if (!user) {

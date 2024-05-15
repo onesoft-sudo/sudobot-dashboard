@@ -1,8 +1,16 @@
 import Navbar from "@/components/Navigation/Navbar";
 import Sidebar from "@/components/Sidebar/Sidebar";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { PropsWithChildren } from "react";
 
 export default function DashboardLayout({ children }: PropsWithChildren) {
+    const cookieStore = cookies();
+
+    if (!cookieStore.get("logged_in")) {
+        redirect("/login");
+    }
+
     return (
         <>
             <Navbar />

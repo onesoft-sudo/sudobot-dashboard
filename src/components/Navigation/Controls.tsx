@@ -6,7 +6,7 @@ import GuildSwitcher from "./GuildSwitcher";
 import Profile from "./Profile";
 
 const Controls: FC<ComponentProps<"div">> = (props) => {
-    const user = useCurrentUser();
+    const user = useCurrentUser(false);
 
     return (
         <div {...props}>

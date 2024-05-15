@@ -4,6 +4,7 @@ import { SliceInitializer } from "@/types/SliceInitializer";
 import { StorageKeys } from "@/types/StorageKeys";
 import { User } from "@/types/User";
 import { createSlice } from "@reduxjs/toolkit";
+import Cookies from "js-cookie";
 import { clearCachedGuilds } from "./GuildCacheSlice";
 
 type UserSliceState = {
@@ -114,6 +115,22 @@ const slice = createSlice({
                     expires: action.payload.expires,
                 }),
             );
+
+            if (Cookies.get("logged_in") !== "true") {
+                Cookies.set("logged_in", "true", {
+                    expires: action.payload.storage === "local" ? new Date(action.payload.expires) : undefined,
+                    sameSite: "strict",
+                    domain: process.env.NEXT_PUBLIC_FRONTEND_DOMAIN,
+                    secure: true,
+                });
+
+                logger.debug(
+                    "login",
+                    "Cookie set, isSession: ",
+                    action.payload.storage === "session",
+                    Math.floor((action.payload.expires - Date.now()) / 1000),
+                );
+            }
         },
         setUser: setUserReducer,
         clearUser: clearUserReducer,
@@ -130,6 +147,8 @@ const slice = createSlice({
             if (sessionStorage.getItem(StorageKeys.User)) {
                 sessionStorage.removeItem(StorageKeys.User);
             }
+
+            Cookies.remove("logged_in");
         },
         setCurrentGuildId: (state, action: { payload: string }) => {
             state.currentGuildId = action.payload;

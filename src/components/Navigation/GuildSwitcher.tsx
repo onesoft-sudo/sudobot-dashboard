@@ -16,7 +16,7 @@ type GuildSwitcherProps = {
 };
 
 export default function GuildSwitcher({ classNames, buttonProps }: GuildSwitcherProps) {
-    const { currentGuildId, guildIds, user } = useCurrentUserInfo();
+    const { currentGuildId, guildIds, user } = useCurrentUserInfo(false);
     const guilds = useGuilds(guildIds ?? [], !!guildIds?.length);
     const switchGuild = useSwitchGuild();
 
