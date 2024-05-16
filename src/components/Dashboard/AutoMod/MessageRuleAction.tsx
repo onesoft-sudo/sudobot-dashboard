@@ -4,12 +4,12 @@ import { type FC } from "react";
 import { IconType } from "react-icons/lib";
 import {
     MdClearAll,
-    MdDelete,
     MdEdit,
     MdExitToApp,
     MdGavel,
     MdLockClock,
     MdOutlineGavel,
+    MdRemoveCircle,
     MdWarning,
 } from "react-icons/md";
 
@@ -18,7 +18,7 @@ type MessageRuleActionProps = {
 };
 
 const icons: Record<APIModerationAction, IconType> = {
-    [APIModerationAction.DeleteMessage]: MdDelete,
+    [APIModerationAction.DeleteMessage]: MdRemoveCircle,
     [APIModerationAction.Warn]: MdWarning,
     [APIModerationAction.Kick]: MdExitToApp,
     [APIModerationAction.Ban]: MdGavel,

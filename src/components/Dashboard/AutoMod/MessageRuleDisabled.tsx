@@ -12,7 +12,7 @@ export default function MessageRuleDisabled() {
                 }}
             >
                 <MdClose />
-                Disabled
+                <span className="hidden md:block">Disabled</span>
             </Chip>
         </Tooltip>
     );

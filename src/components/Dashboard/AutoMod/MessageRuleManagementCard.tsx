@@ -19,33 +19,33 @@ export default function MessageRuleManagementCard() {
                 <Switch />
             </CardHeader>
             <Divider />
-            <CardBody>
+            <CardBody className="overflow-y-hidden">
                 <MessageRuleList
                     rules={[
                         {
                             enabled: true,
-                            id: "1",
+                            id: "1n",
                             type: APIMessageRuleType.Regex,
                             mode: "normal",
                             actions: [APIModerationAction.DeleteMessage],
                         },
                         {
                             enabled: true,
-                            id: "2",
+                            id: "2n",
                             type: APIMessageRuleType.Embed,
                             mode: "normal",
                             actions: [APIModerationAction.DeleteMessage],
                         },
                         {
                             enabled: false,
-                            id: "3",
+                            id: "3n",
                             type: APIMessageRuleType.Invite,
                             mode: "normal",
                             actions: [APIModerationAction.DeleteMessage, APIModerationAction.Kick],
                         },
                         {
                             enabled: true,
-                            id: "4",
+                            id: "4n",
                             type: APIMessageRuleType.Word,
                             mode: "invert",
                             actions: [
@@ -56,14 +56,14 @@ export default function MessageRuleManagementCard() {
                         },
                         {
                             enabled: true,
-                            id: "5",
+                            id: "5n",
                             type: APIMessageRuleType.File,
                             mode: "normal",
                             actions: [APIModerationAction.DeleteMessage],
                         },
                         {
                             enabled: true,
-                            id: "6",
+                            id: "6n",
                             type: APIMessageRuleType.Domain,
                             mode: "normal",
                             actions: [APIModerationAction.DeleteMessage],

@@ -1,21 +1,39 @@
 import { APIMessageRule } from "@/types/APIMessageRule";
-import { Fragment, type FC } from "react";
-import MessageRuleEntry from "./MessageRuleEntry";
-import MessageRuleIndex from "./MessageRuleIndex";
+import { Reorder } from "framer-motion";
+import { useMemo, useState, type FC } from "react";
+import MessageRuleItem from "./MessageRuleItem";
 
 type MessageRuleListProps = {
     rules: APIMessageRule[];
 };
 
 const MessageRuleList: FC<MessageRuleListProps> = ({ rules }) => {
+    const [sortOrderIds, setSortOrderIds] = useState<string[]>(() => rules.map((rule) => rule.id));
+    const sortedRules = useMemo(() => {
+        return [...rules].sort((a, b) => sortOrderIds.indexOf(a.id) - sortOrderIds.indexOf(b.id));
+    }, [rules, sortOrderIds]);
+
+    let index = 0;
+
     return (
-        <div className="grid grid-cols-[50px_auto] gap-2">
-            {rules.map((rule, index) => (
-                <Fragment key={rule.id}>
-                    <MessageRuleIndex index={index + 1} />
-                    <MessageRuleEntry rule={rule} />
-                </Fragment>
-            ))}
+        <div className="">
+            <Reorder.Group
+                axis="y"
+                values={sortOrderIds}
+                onReorder={setSortOrderIds}
+                className="grid grid-cols-1 gap-2"
+                as="ul"
+            >
+                {sortedRules.map((rule, index) => (
+                    <MessageRuleItem
+                        key={rule.id}
+                        rule={rule}
+                        index={index}
+                        sortOrderIds={sortOrderIds}
+                        setSortOrderIds={setSortOrderIds}
+                    />
+                ))}
+            </Reorder.Group>
         </div>
     );
 };

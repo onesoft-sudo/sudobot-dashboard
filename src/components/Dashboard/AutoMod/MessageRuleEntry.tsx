@@ -1,13 +1,19 @@
+"use client";
+
+import { useIsDesktop } from "@/hooks/viewport";
 import { APIMessageRule, APIMessageRuleType } from "@/types/APIMessageRule";
-import { useMemo, type FC } from "react";
+import { Button } from "@mui/material";
+import { useEffect, useMemo, useRef, type FC } from "react";
 import { IconType } from "react-icons/lib";
-import { MdDomain, MdFilePresent, MdLink, MdPattern, MdTableRows, MdTextSnippet } from "react-icons/md";
+import { MdDomain, MdDragHandle, MdFilePresent, MdLink, MdPattern, MdTableRows, MdTextSnippet } from "react-icons/md";
 import MessageRuleAction from "./MessageRuleAction";
 import MessageRuleDisabled from "./MessageRuleDisabled";
 import MessageRuleModeInverted from "./MessageRuleModeInverted";
 
 type MessageRuleEntryProps = {
     rule: APIMessageRule;
+    index: number;
+    onPointerDown: (event: React.PointerEvent) => void;
 };
 
 const messageRuleNames: Record<APIMessageRuleType, string> = {
@@ -39,37 +45,62 @@ const computeColor = (type: APIMessageRuleType) => {
     return "#" + "00000".substring(0, 6 - c.length) + c;
 };
 
-const MessageRuleEntry: FC<MessageRuleEntryProps> = ({ rule }) => {
+const MessageRuleEntry: FC<MessageRuleEntryProps> = ({ rule, onPointerDown }) => {
     const Icon = messageRuleIcons[rule.type];
     const name = messageRuleNames[rule.type];
     const color = useMemo(() => computeColor(rule.type), [rule.type]);
+    const isDesktop = useIsDesktop();
+    const moveButtonRef = useRef<HTMLButtonElement>(null);
+
+    useEffect(() => {
+        const touchHandler: (e: Event) => void = (e) => e.preventDefault();
+        const button = moveButtonRef.current;
+
+        if (button) {
+            button.addEventListener("touchstart", touchHandler, { passive: false });
+
+            return () => {
+                button.removeEventListener("touchstart", touchHandler, {
+                    passive: false,
+                } as EventListenerOptions);
+            };
+        }
+    }, []);
 
     return (
-        <div
-            draggable
-            className="flex cursor-pointer items-center justify-between rounded-lg bg-gray-100 py-3 pl-3 pr-4 hover:bg-gray-200 dark:bg-[rgb(35,35,35)] dark:hover:bg-[rgb(50,50,50)]"
-        >
-            <div className="flex items-center gap-3">
-                <Icon
-                    className="rounded-lg p-1"
-                    size="2rem"
-                    style={{
-                        color,
-                        border: `1px solid ${color}`,
-                    }}
-                />
-                <span className="text-sm font-semibold">{name}</span>
+        <>
+            <div className="flex cursor-pointer items-center justify-between rounded-lg bg-gray-100 p-3 hover:bg-gray-200 dark:bg-[rgb(35,35,35)] dark:hover:bg-[rgb(50,50,50)] lg:pr-4">
+                <div className="flex items-center gap-3">
+                    <Icon
+                        className="rounded-lg p-1"
+                        size="2rem"
+                        style={{
+                            color,
+                            border: `1px solid ${color}`,
+                        }}
+                    />
+                    <span className="text-sm font-semibold">{name}</span>
 
-                {!rule.enabled && <MessageRuleDisabled />}
-                {rule.mode === "invert" && <MessageRuleModeInverted />}
-            </div>
+                    {!rule.enabled && <MessageRuleDisabled />}
+                    {rule.mode === "invert" && <MessageRuleModeInverted />}
+                </div>
 
-            <div className="flex items-center gap-3">
-                {rule.actions.map((action) => (
-                    <MessageRuleAction key={action} action={action} />
-                ))}
+                <div className="flex items-center gap-3">
+                    {isDesktop && rule.actions.map((action) => <MessageRuleAction key={action} action={action} />)}
+
+                    <div className="ml-4">
+                        <Button
+                            ref={moveButtonRef}
+                            sx={{ minWidth: 0, cursor: "move" }}
+                            onPointerDown={onPointerDown}
+                            disableTouchRipple
+                        >
+                            <MdDragHandle size="1.5rem" className="text-default-500" />
+                        </Button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

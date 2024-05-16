@@ -1,5 +1,6 @@
 import { useAppSelector } from "@/redux/hooks/AppStoreHooks";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const useAppInitialized = () => {
     return useAppSelector((state) => state.initialization.initialized);
@@ -35,4 +36,8 @@ export const useTimedState = <T>(value: T, timeout: number): [T, (value: T) => v
     };
 
     return [state, update];
+};
+
+export const useRandomUUID = () => {
+    return useMemo(() => uuidv4(), []);
 };

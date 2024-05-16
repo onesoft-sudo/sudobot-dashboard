@@ -19,7 +19,7 @@ export default function MessageRuleModeInverted() {
                 }}
             >
                 <MdOutlineInvertColors />
-                Inverted
+                <span className="hidden md:block">Inverted</span>
             </Chip>
         </Tooltip>
     );

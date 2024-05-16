@@ -1,7 +1,7 @@
 import { type FC } from "react";
 
 type MessageRuleIndexProps = {
-    index: number;
+    index: number | null;
 };
 
 const MessageRuleIndex: FC<MessageRuleIndexProps> = ({ index }) => {
