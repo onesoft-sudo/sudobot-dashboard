@@ -1,4 +1,4 @@
-import { APIModerationAction } from "@/types/APIModerationAction";
+import { APIModerationActionType } from "@/types/APIModerationAction";
 import { type FC } from "react";
 import { IconType } from "react-icons/lib";
 import {
@@ -13,43 +13,43 @@ import {
 } from "react-icons/md";
 
 type MessageRuleActionNameProps = {
-    action: APIModerationAction;
+    action: APIModerationActionType;
 };
 
-export const actionNames: Record<APIModerationAction, string> = {
-    [APIModerationAction.Ban]: "Ban Member",
-    [APIModerationAction.Kick]: "Kick Member",
-    [APIModerationAction.Mute]: "Mute Member",
-    [APIModerationAction.Warn]: "Warn Member",
-    [APIModerationAction.DeleteMessage]: "Delete Message",
-    [APIModerationAction.Softban]: "Soft Ban Member",
-    [APIModerationAction.ClearMessages]: "Clear Recent Messages from Member",
-    [APIModerationAction.ModifyRoles]: "Modify Member Roles",
-    [APIModerationAction.TemporaryBan]: "Temporarily Ban Member",
+export const actionNames: Record<APIModerationActionType, string> = {
+    [APIModerationActionType.Ban]: "Ban Member",
+    [APIModerationActionType.Kick]: "Kick Member",
+    [APIModerationActionType.Mute]: "Mute Member",
+    [APIModerationActionType.Warn]: "Warn Member",
+    [APIModerationActionType.DeleteMessage]: "Delete Message",
+    [APIModerationActionType.Softban]: "Soft Ban Member",
+    [APIModerationActionType.ClearMessages]: "Clear Recent Messages from Member",
+    [APIModerationActionType.ModifyRoles]: "Modify Member Roles",
+    [APIModerationActionType.TemporaryBan]: "Temporarily Ban Member",
 };
 
-export const actionIcons: Record<APIModerationAction, IconType> = {
-    [APIModerationAction.DeleteMessage]: MdRemoveCircle,
-    [APIModerationAction.Warn]: MdWarning,
-    [APIModerationAction.Kick]: MdExitToApp,
-    [APIModerationAction.Ban]: MdGavel,
-    [APIModerationAction.Mute]: MdLockClock,
-    [APIModerationAction.Softban]: MdOutlineGavel,
-    [APIModerationAction.ModifyRoles]: MdEdit,
-    [APIModerationAction.ClearMessages]: MdCleaningServices,
-    [APIModerationAction.TemporaryBan]: MdOutlineGavel,
+export const actionIcons: Record<APIModerationActionType, IconType> = {
+    [APIModerationActionType.DeleteMessage]: MdRemoveCircle,
+    [APIModerationActionType.Warn]: MdWarning,
+    [APIModerationActionType.Kick]: MdExitToApp,
+    [APIModerationActionType.Ban]: MdGavel,
+    [APIModerationActionType.Mute]: MdLockClock,
+    [APIModerationActionType.Softban]: MdOutlineGavel,
+    [APIModerationActionType.ModifyRoles]: MdEdit,
+    [APIModerationActionType.ClearMessages]: MdCleaningServices,
+    [APIModerationActionType.TemporaryBan]: MdOutlineGavel,
 };
 
-export const actionClasses: Record<APIModerationAction, string> = {
-    [APIModerationAction.DeleteMessage]: "text-red-500",
-    [APIModerationAction.Warn]: "text-yellow-500",
-    [APIModerationAction.Kick]: "text-yellow-500",
-    [APIModerationAction.Ban]: "text-red-500",
-    [APIModerationAction.Mute]: "text-yellow-500",
-    [APIModerationAction.Softban]: "text-yellow-500",
-    [APIModerationAction.ModifyRoles]: "text-blue-500",
-    [APIModerationAction.ClearMessages]: "text-blue-500",
-    [APIModerationAction.TemporaryBan]: "text-orange-500",
+export const actionClasses: Record<APIModerationActionType, string> = {
+    [APIModerationActionType.DeleteMessage]: "text-red-500",
+    [APIModerationActionType.Warn]: "text-yellow-500",
+    [APIModerationActionType.Kick]: "text-yellow-500",
+    [APIModerationActionType.Ban]: "text-red-500",
+    [APIModerationActionType.Mute]: "text-yellow-500",
+    [APIModerationActionType.Softban]: "text-yellow-500",
+    [APIModerationActionType.ModifyRoles]: "text-blue-500",
+    [APIModerationActionType.ClearMessages]: "text-blue-500",
+    [APIModerationActionType.TemporaryBan]: "text-orange-500",
 };
 
 const MessageRuleActionName: FC<MessageRuleActionNameProps> = ({ action }) => {

@@ -103,7 +103,10 @@ const MessageRuleEntry: FC<MessageRuleEntryProps> = ({ rule, onPointerDown }) =>
             </div>
 
             <div className="flex items-center gap-3">
-                {isDesktop && rule.actions.map((action) => <MessageRuleActionIcon key={action} action={action} />)}
+                {isDesktop &&
+                    rule.actions.map((action) =>
+                        action.enabled ? <MessageRuleActionIcon key={action.type} action={action.type} /> : null,
+                    )}
 
                 <div className="ml-4">
                     <Button

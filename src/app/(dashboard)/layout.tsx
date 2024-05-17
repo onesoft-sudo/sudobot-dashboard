@@ -1,3 +1,4 @@
+import UnsavedChangesAlert from "@/components/Dashboard/UnsavedChangesAlert";
 import Navbar from "@/components/Navigation/Navbar";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import { cookies } from "next/headers";
@@ -18,6 +19,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
                 <Sidebar className="z-[100] hidden lg:block" />
                 <div className="lg:h-[calc(100svh-3.2rem)] lg:overflow-y-scroll">{children}</div>
             </div>
+            <UnsavedChangesAlert />
         </>
     );
 }
