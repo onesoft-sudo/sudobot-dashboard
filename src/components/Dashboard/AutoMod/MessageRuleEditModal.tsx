@@ -1,3 +1,4 @@
+import { logger } from "@/logging/logger";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks/AppStoreHooks";
 import { setEditModalState } from "@/redux/slice/MessageRuleListSlice";
 import { APIMessageRule } from "@/types/APIMessageRule";
@@ -28,7 +29,11 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
                         <ModalBody>
                             <form>
                                 <label className="mb-2 block font-semibold">Actions</label>
-                                <MessageRuleActionList />
+                                <MessageRuleActionList
+                                    onChange={(changes) =>
+                                        logger.debug("MessageRuleEditModal", "Changed Actions", changes)
+                                    }
+                                />
                             </form>
                         </ModalBody>
                         <ModalFooter>

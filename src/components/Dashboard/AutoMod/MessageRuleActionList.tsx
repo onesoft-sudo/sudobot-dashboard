@@ -1,12 +1,21 @@
 import { useAppSelector } from "@/redux/hooks/AppStoreHooks";
 import { APIModerationAction } from "@/types/APIModerationAction";
 import { Reorder } from "framer-motion";
-import { useMemo, useState, type FC } from "react";
+import { useEffect, useMemo, useRef, useState, type FC } from "react";
 import MessageRuleActionItem from "./MessageRuleActionItem";
+
+type ActionObject = {
+    type: APIModerationAction;
+    enabled: boolean;
+};
+
+type MessageRuleActionListProps = {
+    onChange?(actions: ActionObject[]): void;
+};
 
 const allActions = Object.values(APIModerationAction).filter((action) => action[0].toLowerCase() === action[0]);
 
-const MessageRuleActionList: FC = () => {
+const MessageRuleActionList: FC<MessageRuleActionListProps> = ({ onChange }) => {
     const rule = useAppSelector((state) => state.messageRuleList.editingRule);
     const [actions, setActions] = useState<APIModerationAction[]>();
     const [enabledActions, setEnabledActions] = useState<APIModerationAction[]>([]);
@@ -21,6 +30,30 @@ const MessageRuleActionList: FC = () => {
 
         return actions;
     }, [rule]);
+    const firstRenderRef = useRef(true);
+
+    useEffect(() => {
+        if (firstRenderRef.current) {
+            firstRenderRef.current = false;
+            return;
+        }
+
+        if (!onChange) {
+            return;
+        }
+
+        const finalActions = actions ?? finalRuleActions;
+        const actionArray = [];
+
+        for (const action of finalActions) {
+            actionArray.push({
+                type: action,
+                enabled: enabledActions.includes(action) || !!rule?.actions.includes(action),
+            });
+        }
+
+        onChange(actionArray);
+    }, [enabledActions, actions, finalRuleActions]);
 
     if (!rule) {
         return null;

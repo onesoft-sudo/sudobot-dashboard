@@ -111,6 +111,8 @@ const MessageRuleEntry: FC<MessageRuleEntryProps> = ({ rule, onPointerDown }) =>
                         sx={{ minWidth: 0, cursor: "move" }}
                         onPointerDown={onPointerDown}
                         disableTouchRipple
+                        onClick={(e) => e.stopPropagation()}
+                        onKeyDown={(e) => e.stopPropagation()}
                     >
                         <MdDragIndicator size="1.5rem" className="text-default-500" />
                     </Button>

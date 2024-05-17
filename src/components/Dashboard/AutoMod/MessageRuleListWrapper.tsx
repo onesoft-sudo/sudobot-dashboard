@@ -5,13 +5,14 @@ import MessageRuleList from "./MessageRuleList";
 
 type MessageRuleListWrapperProps = {
     rules: APIMessageRule[];
+    onChange?(rules: APIMessageRule[]): void;
 };
 
-const MessageRuleListWrapper: FC<MessageRuleListWrapperProps> = ({ rules }) => {
+const MessageRuleListWrapper: FC<MessageRuleListWrapperProps> = ({ rules, onChange }) => {
     return (
         <>
             <MessageRuleEditModal rules={rules} />
-            <MessageRuleList rules={rules} />
+            <MessageRuleList rules={rules} onChange={onChange} />
         </>
     );
 };

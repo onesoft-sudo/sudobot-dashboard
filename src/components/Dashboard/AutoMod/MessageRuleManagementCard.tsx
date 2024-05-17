@@ -1,5 +1,6 @@
 "use client";
 
+import { logger } from "@/logging/logger";
 import { APIMessageRuleType } from "@/types/APIMessageRule";
 import { APIModerationAction } from "@/types/APIModerationAction";
 import { Card, CardBody, CardHeader, Divider, Switch } from "@nextui-org/react";
@@ -69,6 +70,9 @@ export default function MessageRuleManagementCard() {
                             actions: [APIModerationAction.DeleteMessage],
                         },
                     ]}
+                    onChange={(rules) => {
+                        logger.debug("MessageRuleManagementCard", "Changed Rules", rules);
+                    }}
                 />
             </CardBody>
         </Card>
