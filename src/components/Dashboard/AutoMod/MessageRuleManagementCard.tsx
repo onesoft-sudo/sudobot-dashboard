@@ -4,7 +4,7 @@ import { APIMessageRuleType } from "@/types/APIMessageRule";
 import { APIModerationAction } from "@/types/APIModerationAction";
 import { Card, CardBody, CardHeader, Divider, Switch } from "@nextui-org/react";
 import { MdRule } from "react-icons/md";
-import MessageRuleList from "./MessageRuleList";
+import MessageRuleListWrapper from "./MessageRuleListWrapper";
 
 export default function MessageRuleManagementCard() {
     return (
@@ -20,7 +20,7 @@ export default function MessageRuleManagementCard() {
             </CardHeader>
             <Divider />
             <CardBody className="overflow-y-hidden">
-                <MessageRuleList
+                <MessageRuleListWrapper
                     rules={[
                         {
                             enabled: true,

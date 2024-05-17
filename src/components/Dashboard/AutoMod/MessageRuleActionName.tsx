@@ -1,9 +1,8 @@
 import { APIModerationAction } from "@/types/APIModerationAction";
-import { Tooltip } from "@nextui-org/react";
 import { type FC } from "react";
 import { IconType } from "react-icons/lib";
 import {
-    MdClearAll,
+    MdCleaningServices,
     MdEdit,
     MdExitToApp,
     MdGavel,
@@ -13,11 +12,23 @@ import {
     MdWarning,
 } from "react-icons/md";
 
-type MessageRuleActionProps = {
+type MessageRuleActionNameProps = {
     action: APIModerationAction;
 };
 
-const icons: Record<APIModerationAction, IconType> = {
+export const actionNames: Record<APIModerationAction, string> = {
+    [APIModerationAction.Ban]: "Ban Member",
+    [APIModerationAction.Kick]: "Kick Member",
+    [APIModerationAction.Mute]: "Mute Member",
+    [APIModerationAction.Warn]: "Warn Member",
+    [APIModerationAction.DeleteMessage]: "Delete Message",
+    [APIModerationAction.Softban]: "Soft Ban Member",
+    [APIModerationAction.ClearMessages]: "Clear Recent Messages from Member",
+    [APIModerationAction.ModifyRoles]: "Modify Member Roles",
+    [APIModerationAction.TemporaryBan]: "Temporarily Ban Member",
+};
+
+export const actionIcons: Record<APIModerationAction, IconType> = {
     [APIModerationAction.DeleteMessage]: MdRemoveCircle,
     [APIModerationAction.Warn]: MdWarning,
     [APIModerationAction.Kick]: MdExitToApp,
@@ -25,11 +36,11 @@ const icons: Record<APIModerationAction, IconType> = {
     [APIModerationAction.Mute]: MdLockClock,
     [APIModerationAction.Softban]: MdOutlineGavel,
     [APIModerationAction.ModifyRoles]: MdEdit,
-    [APIModerationAction.ClearMessages]: MdClearAll,
+    [APIModerationAction.ClearMessages]: MdCleaningServices,
     [APIModerationAction.TemporaryBan]: MdOutlineGavel,
 };
 
-const classes = {
+export const actionClasses: Record<APIModerationAction, string> = {
     [APIModerationAction.DeleteMessage]: "text-red-500",
     [APIModerationAction.Warn]: "text-yellow-500",
     [APIModerationAction.Kick]: "text-yellow-500",
@@ -41,30 +52,16 @@ const classes = {
     [APIModerationAction.TemporaryBan]: "text-orange-500",
 };
 
-const descriptions = {
-    [APIModerationAction.DeleteMessage]: "Delete Message",
-    [APIModerationAction.Warn]: "Warn",
-    [APIModerationAction.Kick]: "Kick",
-    [APIModerationAction.Ban]: "Ban",
-    [APIModerationAction.Mute]: "Mute",
-    [APIModerationAction.Softban]: "Soft Ban",
-    [APIModerationAction.ModifyRoles]: "Modify Roles",
-    [APIModerationAction.ClearMessages]: "Clear Messages",
-    [APIModerationAction.TemporaryBan]: "Temporary Ban",
-};
-
-const MessageRuleAction: FC<MessageRuleActionProps> = ({ action }) => {
-    const Icon = icons[action];
-    const className = classes[action];
-    const description = descriptions[action];
+const MessageRuleActionName: FC<MessageRuleActionNameProps> = ({ action }) => {
+    const name = actionNames[action];
+    const Icon = actionIcons[action];
 
     return (
-        <Tooltip content={description}>
-            <div>
-                <Icon size="1rem" className={className} />
-            </div>
-        </Tooltip>
+        <div className="flex items-center gap-2">
+            <Icon size="1.5rem" className={actionClasses[action]} />
+            <span>{name}</span>
+        </div>
     );
 };
 
-export default MessageRuleAction;
+export default MessageRuleActionName;

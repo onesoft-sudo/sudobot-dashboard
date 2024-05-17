@@ -13,10 +13,8 @@ const MessageRuleList: FC<MessageRuleListProps> = ({ rules }) => {
         return [...rules].sort((a, b) => sortOrderIds.indexOf(a.id) - sortOrderIds.indexOf(b.id));
     }, [rules, sortOrderIds]);
 
-    let index = 0;
-
     return (
-        <div className="">
+        <div>
             <Reorder.Group
                 axis="y"
                 values={sortOrderIds}

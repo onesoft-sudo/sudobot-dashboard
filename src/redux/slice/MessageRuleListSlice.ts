@@ -1,38 +1,26 @@
+import { APIMessageRule } from "@/types/APIMessageRule";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type MessageRuleListSliceState = {
-    data: Record<
-        string,
-        | {
-              draggingId: string | null;
-              draggingIndex: number | null;
-              currentTargetId: string | null;
-              currentTargetIndex: number | null;
-          }
-        | undefined
-    >;
+    editModalOpen: boolean;
+    editingRule: APIMessageRule | null;
 };
 
 const initialState: MessageRuleListSliceState = {
-    data: {},
+    editingRule: null,
+    editModalOpen: false,
 };
 
 const messageRuleListSlice = createSlice({
     name: "messageRuleList",
     initialState,
     reducers: {
-        setDraggingState: (
-            state,
-            action: PayloadAction<{ componentId: string; draggingIndex: number | null; draggingId: string | null }>,
-        ) => {
-            state.data[action.payload.componentId] = {
-                ...state.data[action.payload.componentId]!,
-                draggingId: action.payload.draggingId,
-                draggingIndex: action.payload.draggingIndex,
-            };
+        setEditModalState: (state, action: PayloadAction<{ isOpen: boolean; rule: APIMessageRule | null }>) => {
+            state.editModalOpen = action.payload.isOpen;
+            state.editingRule = action.payload.rule;
         },
     },
 });
 
-export const { setDraggingState } = messageRuleListSlice.actions;
+export const { setEditModalState } = messageRuleListSlice.actions;
 export const messageRuleListReducer = messageRuleListSlice.reducer;
