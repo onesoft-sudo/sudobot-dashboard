@@ -7,11 +7,9 @@ import MessageRuleIndex from "./MessageRuleIndex";
 type MessageRuleItemProps = {
     rule: APIMessageRule;
     index: number;
-    sortOrderIds: string[];
-    setSortOrderIds: (sortOrderIds: string[] | ((old: string[]) => string[])) => void;
 };
 
-const MessageRuleItem: FC<MessageRuleItemProps> = ({ rule, index, setSortOrderIds, sortOrderIds }) => {
+const MessageRuleItem: FC<MessageRuleItemProps> = ({ rule, index }) => {
     const controls = useDragControls();
 
     return (

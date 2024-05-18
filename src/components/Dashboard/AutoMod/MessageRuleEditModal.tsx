@@ -1,6 +1,7 @@
+import { useConfigMutationHandlers } from "@/contexts/ConfigMutationProvider";
+import { useRuleModerationConfigUpdate } from "@/hooks/config";
 import { logger } from "@/logging/logger";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks/AppStoreHooks";
-import { updateRuleModerationConfig } from "@/redux/slice/ConfigSlice";
 import { setEditModalState } from "@/redux/slice/MessageRuleListSlice";
 import { APIMessageRule } from "@/types/APIMessageRule";
 import { APIModerationAction } from "@/types/APIModerationAction";
@@ -20,11 +21,13 @@ type MessageRuleEditFormFields = {
 export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProps) {
     const { editModalOpen, editingRule } = useAppSelector((state) => state.messageRuleList);
     const dispatch = useAppDispatch();
-    const { control, formState, handleSubmit, setValue } = useForm({
+    const { update, setHasUnsavedChanges } = useRuleModerationConfigUpdate();
+    const { control, handleSubmit, setValue } = useForm<MessageRuleEditFormFields>({
         defaultValues: {
-            actions: [] as APIModerationAction[],
+            actions: [],
         },
     });
+    const { emitter } = useConfigMutationHandlers();
 
     useEffect(() => {
         if (!editingRule) {
@@ -33,6 +36,16 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
 
         setValue("actions", editingRule.actions);
         console.log("Editing Rule", editingRule);
+
+        const handler = () => {
+            dispatch(setEditModalState({ isOpen: false, rule: null }));
+        };
+
+        emitter.on("reset", handler);
+
+        return () => {
+            emitter.off("reset", handler);
+        };
     }, [editingRule]);
 
     const handleClose = (isOpen: boolean) => {
@@ -47,11 +60,10 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
         logger.debug("MessageRuleEditModal", "Form Submit", data);
 
         dispatch(setEditModalState({ isOpen: false, rule: null }));
-        dispatch(
-            updateRuleModerationConfig({
-                rules: rules.map((rule) => (rule.id === editingRule?.id ? { ...rule, actions: data.actions } : rule)),
-            }),
-        );
+        update({
+            rules: rules.map((rule) => (rule.id === editingRule?.id ? { ...rule, actions: data.actions } : rule)),
+        });
+        setHasUnsavedChanges();
     };
 
     return (

@@ -1,16 +1,20 @@
 import { APIMessageRule, APIMessageRuleType } from "@/types/APIMessageRule";
 import { APIModerationActionType } from "@/types/APIModerationAction";
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type ConfigSliceState = {
-    rule_moderation?: {
-        enabled?: boolean;
-        rules?: Array<APIMessageRule>;
+type RuleModerationConfigSliceState = {
+    data: {
+        enabled: boolean;
+        rules: APIMessageRule[];
+    };
+    previousData?: {
+        enabled: boolean;
+        rules: APIMessageRule[];
     };
 };
 
-const initialState: ConfigSliceState = {
-    rule_moderation: {
+const initialState: RuleModerationConfigSliceState = {
+    data: {
         enabled: true,
         rules: [
             {
@@ -81,28 +85,25 @@ const initialState: ConfigSliceState = {
     },
 };
 
-const configSlice = createSlice({
-    name: "config",
+const RuleModerationConfigSlice = createSlice({
+    name: "ruleModerationConfig",
     initialState,
     reducers: {
-        updateRuleModerationConfig: (
-            state,
-            action: PayloadAction<{
-                enabled?: boolean;
-                rules?: Array<APIMessageRule>;
-            } | null>,
-        ) => {
-            if (action.payload === null) {
-                state.rule_moderation = undefined;
-                return;
+        updateRuleModerationConfig(state, action: PayloadAction<Partial<RuleModerationConfigSliceState["data"]>>) {
+            if (!state.previousData) {
+                state.previousData = { ...state.data };
             }
 
-            state.rule_moderation ??= {};
-            state.rule_moderation.enabled = action.payload?.enabled ?? state.rule_moderation?.enabled;
-            state.rule_moderation.rules = action.payload?.rules ?? state.rule_moderation?.rules;
+            state.data = { ...state.data, ...action.payload };
+        },
+        resetRuleModerationConfig(state) {
+            if (state.previousData) {
+                state.data = state.previousData;
+                state.previousData = undefined;
+            }
         },
     },
 });
 
-export const { updateRuleModerationConfig } = configSlice.actions;
-export const ConfigSliceReducer = configSlice.reducer;
+export const { updateRuleModerationConfig, resetRuleModerationConfig } = RuleModerationConfigSlice.actions;
+export const RuleModerationConfigSliceReducer = RuleModerationConfigSlice.reducer;

@@ -8,17 +8,6 @@ const initialState: UnsavedChangesSliceState = {
     hasChanges: false,
 };
 
-let saveHandlers = new Map<string, () => void>();
-
-export const addSaveHandler = (name: string, handler: () => void) => {
-    saveHandlers.set(name, handler);
-};
-
-export const runSaveHandlers = () => {
-    saveHandlers.forEach((handler) => handler());
-    saveHandlers.clear();
-};
-
 const unsavedChangesSlice = createSlice({
     name: "unsavedChanges",
     initialState,

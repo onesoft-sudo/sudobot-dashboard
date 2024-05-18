@@ -1,17 +1,30 @@
 "use client";
 
+import { useConfigMutationHandlers } from "@/contexts/ConfigMutationProvider";
+import { useRuleModerationConfigUpdate } from "@/hooks/config";
 import { logger } from "@/logging/logger";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks/AppStoreHooks";
-import { updateRuleModerationConfig } from "@/redux/slice/ConfigSlice";
-import { addSaveHandler, setUnsavedChanges } from "@/redux/slice/UnsavedChangesSlice";
+import { useAppSelector } from "@/redux/hooks/AppStoreHooks";
 import { Card, CardBody, CardHeader, Divider, Switch } from "@nextui-org/react";
+import { useEffect } from "react";
 import { MdRule } from "react-icons/md";
 import MessageRuleListWrapper from "./MessageRuleListWrapper";
 
 export default function MessageRuleManagementCard() {
-    const state = useAppSelector((state) => state.config.rule_moderation);
-    const hasChanges = useAppSelector((state) => state.unsavedChanges.hasChanges);
-    const dispatch = useAppDispatch();
+    const state = useAppSelector((state) => state.ruleModerationConfig.data);
+    const { queueUpdate, update, setHasUnsavedChanges, reset } = useRuleModerationConfigUpdate();
+    const { emitter } = useConfigMutationHandlers();
+
+    useEffect(() => {
+        const handler = () => {
+            reset();
+        };
+
+        emitter.on("reset", handler);
+
+        return () => {
+            emitter.off("reset", handler);
+        };
+    }, []);
 
     return (
         <Card shadow="sm" className="md:col-span-2">
@@ -24,13 +37,12 @@ export default function MessageRuleManagementCard() {
                 </div>
                 <Switch
                     isSelected={state?.enabled ?? false}
-                    onValueChange={(enabled) =>
-                        dispatch(
-                            updateRuleModerationConfig({
-                                enabled,
-                            }),
-                        )
-                    }
+                    onValueChange={(enabled) => {
+                        update({
+                            enabled,
+                        });
+                        setHasUnsavedChanges();
+                    }}
                 />
             </CardHeader>
             <Divider />
@@ -41,21 +53,9 @@ export default function MessageRuleManagementCard() {
                         onChange={(rules) => {
                             logger.debug("MessageRuleManagementCard", "Changed Rules", rules);
 
-                            addSaveHandler(MessageRuleManagementCard.name, () => {
-                                dispatch(
-                                    updateRuleModerationConfig({
-                                        rules,
-                                    }),
-                                );
+                            queueUpdate(1, {
+                                rules,
                             });
-
-                            if (!hasChanges) {
-                                dispatch(
-                                    setUnsavedChanges({
-                                        hasChanges: true,
-                                    }),
-                                );
-                            }
                         }}
                     />
                 ) : (

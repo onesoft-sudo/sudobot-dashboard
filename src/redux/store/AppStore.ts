@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { AnalyticsSliceReducer } from "../slice/AnalyticsSlice";
-import { ConfigSliceReducer } from "../slice/ConfigSlice";
 import { GuildCacheReducer } from "../slice/GuildCacheSlice";
 import { InitializationSliceReducer } from "../slice/InitializationSlice";
 import { messageRuleListReducer } from "../slice/MessageRuleListSlice";
 import { NavigationSliceReducer } from "../slice/NavigationSlice";
+import { RuleModerationConfigSliceReducer } from "../slice/RuleModerationConfigSlice";
 import { ThemeSliceReducer } from "../slice/ThemeSlice";
 import { UnsavedChangesSliceReducer } from "../slice/UnsavedChangesSlice";
 import { UserSliceReducer } from "../slice/UserSlice";
@@ -19,8 +19,8 @@ export const makeStore = () => {
             theme: ThemeSliceReducer,
             navigation: NavigationSliceReducer,
             messageRuleList: messageRuleListReducer,
-            config: ConfigSliceReducer,
             unsavedChanges: UnsavedChangesSliceReducer,
+            ruleModerationConfig: RuleModerationConfigSliceReducer,
         },
     });
 };
