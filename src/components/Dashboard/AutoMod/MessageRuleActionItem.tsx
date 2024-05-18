@@ -1,5 +1,5 @@
 import { useDragControlsWithRef } from "@/hooks/dragging";
-import { APIModerationAction } from "@/types/APIModerationAction";
+import { APIModerationActionType } from "@/types/APIModerationAction";
 import { Button } from "@mui/material";
 import { Checkbox } from "@nextui-org/react";
 import { Reorder } from "framer-motion";
@@ -8,7 +8,7 @@ import { MdDragIndicator } from "react-icons/md";
 import MessageRuleActionName from "./MessageRuleActionName";
 
 type MessageRuleActionItemProps = {
-    action: APIModerationAction;
+    action: APIModerationActionType;
     enabled: boolean;
     onChange?: (enabled: boolean) => void;
 };

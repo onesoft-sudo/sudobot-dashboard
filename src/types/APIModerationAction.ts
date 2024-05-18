@@ -1,4 +1,4 @@
-export enum APIModerationAction {
+export enum APIModerationActionType {
     Warn = "warn",
     Mute = "mute",
     Kick = "kick",
@@ -9,3 +9,8 @@ export enum APIModerationAction {
     DeleteMessage = "delete",
     ClearMessages = "clear",
 }
+
+export type APIModerationAction = {
+    type: APIModerationActionType;
+    enabled: boolean;
+};

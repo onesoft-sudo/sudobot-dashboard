@@ -1,10 +1,10 @@
-import { APIModerationAction } from "@/types/APIModerationAction";
+import { APIModerationActionType } from "@/types/APIModerationAction";
 import { Tooltip } from "@nextui-org/react";
 import { type FC } from "react";
 import { actionClasses, actionIcons, actionNames } from "./MessageRuleActionName";
 
 type MessageRuleActionProps = {
-    action: APIModerationAction;
+    action: APIModerationActionType;
 };
 
 const MessageRuleActionIcon: FC<MessageRuleActionProps> = ({ action }) => {
