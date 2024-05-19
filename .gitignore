@@ -38,3 +38,5 @@ next-env.d.ts
 
 # Sentry Config File
 .sentryclirc
+
+/src/app/(dashboard)/test
