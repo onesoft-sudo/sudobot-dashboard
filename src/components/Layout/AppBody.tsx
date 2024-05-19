@@ -17,7 +17,7 @@ const AppBody: FC<PropsWithChildren<ComponentProps<"body">>> = ({ children, clas
 
         media.addEventListener("change", onChange);
         return () => media.removeEventListener("change", onChange);
-    }, []);
+    }, [setMode]);
 
     return (
         <body

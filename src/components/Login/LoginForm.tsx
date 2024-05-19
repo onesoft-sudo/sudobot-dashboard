@@ -45,7 +45,7 @@ const LoginForm: FC = () => {
         if (isLoggedIn) {
             router.push("/dashboard");
         }
-    }, [isLoggedIn]);
+    }, [isLoggedIn, router]);
 
     const onSubmit = (data: LoginFormFields) => {
         logger.debug("LoginForm", data);

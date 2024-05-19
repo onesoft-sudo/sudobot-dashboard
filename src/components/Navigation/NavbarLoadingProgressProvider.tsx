@@ -13,7 +13,7 @@ export default function NavbarLoadingProgressProvider({ children }: PropsWithChi
     useEffect(() => {
         dispatch(setLoading(false));
         logger.debug("NavbarLoadingProgressProvider", "LOADED", pathname);
-    }, [pathname]);
+    }, [pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => logger.debug("NavbarLoadingProgressProvider", "Rendering"));
 

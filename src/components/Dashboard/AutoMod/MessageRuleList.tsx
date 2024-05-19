@@ -25,7 +25,7 @@ const MessageRuleList: FC<MessageRuleListProps> = ({ rules, onChange }) => {
         return () => {
             emitter.off("reset::untilSave", handler);
         };
-    }, []);
+    }, [emitter, handler]);
 
     return (
         <div>

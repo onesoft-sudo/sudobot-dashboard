@@ -80,7 +80,7 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
         return () => {
             emitter.off("reset", handler);
         };
-    }, [editingRule]);
+    }, [editingRule, dispatch, setValue, emitter]);
 
     useEffect(() => {
         if (!editModalOpen) {

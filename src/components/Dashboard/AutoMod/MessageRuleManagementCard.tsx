@@ -22,17 +22,16 @@ export default function MessageRuleManagementCard() {
         const saveHandler = () => {
             logger.debug("MessageRuleManagementCard", "Saving Changes");
             commit();
-        }
+        };
 
         emitter.on("reset", resetHandler);
-        emitter.on('save', saveHandler)
+        emitter.on("save", saveHandler);
 
         return () => {
             emitter.off("reset", resetHandler);
-            emitter.off('save', saveHandler)
-
+            emitter.off("save", saveHandler);
         };
-    }, []);
+    }, [commit, emitter, reset]);
 
     return (
         <Card shadow="sm" className="md:col-span-2">

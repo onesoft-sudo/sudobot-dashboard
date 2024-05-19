@@ -15,7 +15,7 @@ export default function AppStoreInitializerProvider({ children }: PropsWithChild
     useEffect(() => {
         initializers.forEach((initializer) => initializer(store));
         dispatch(initialize());
-    }, []);
+    }, [dispatch, store]);
 
     return children;
 }

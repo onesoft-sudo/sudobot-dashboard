@@ -6,7 +6,7 @@ import {
     updateRuleModerationConfig,
 } from "@/redux/slice/RuleModerationConfigSlice";
 import { setUnsavedChanges } from "@/redux/slice/UnsavedChangesSlice";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 export const useRuleModerationConfigUpdate = () => {
     const hasChanges = useAppSelector((state) => state.unsavedChanges.hasChanges);
@@ -22,9 +22,9 @@ export const useRuleModerationConfigUpdate = () => {
                 emitter.off("save", current[id]);
             }
         };
-    }, []);
+    }, [emitter]);
 
-    const setHasUnsavedChanges = () => {
+    const setHasUnsavedChanges = useCallback(() => {
         if (!hasChanges) {
             dispatch(
                 setUnsavedChanges({
@@ -32,33 +32,39 @@ export const useRuleModerationConfigUpdate = () => {
                 }),
             );
         }
-    };
+    }, [dispatch, hasChanges]);
 
-    const update = (data: Parameters<typeof updateRuleModerationConfig>[0]) => {
-        dispatch(updateRuleModerationConfig(data));
-    };
+    const update = useCallback(
+        (data: Parameters<typeof updateRuleModerationConfig>[0]) => {
+            dispatch(updateRuleModerationConfig(data));
+        },
+        [dispatch],
+    );
 
-    const reset = () => {
+    const reset = useCallback(() => {
         dispatch(resetRuleModerationConfig());
-    };
+    }, [dispatch]);
 
-    const commit = () => {
+    const commit = useCallback(() => {
         dispatch(commitRuleModerationConfig());
-    };
+    }, [dispatch]);
 
-    const queueUpdate = (queueId: number, data: Parameters<typeof updateRuleModerationConfig>[0]) => {
-        if (ref.current[queueId]) {
-            emitter.off("save", ref.current[queueId]);
-        }
+    const queueUpdate = useCallback(
+        (queueId: number, data: Parameters<typeof updateRuleModerationConfig>[0]) => {
+            if (ref.current[queueId]) {
+                emitter.off("save", ref.current[queueId]);
+            }
 
-        ref.current[queueId] = () => {
-            update(data);
-            console.log("save");
-        };
+            ref.current[queueId] = () => {
+                update(data);
+                console.log("save");
+            };
 
-        emitter.once("save", ref.current[queueId]);
-        setHasUnsavedChanges();
-    };
+            emitter.once("save", ref.current[queueId]);
+            setHasUnsavedChanges();
+        },
+        [emitter, setHasUnsavedChanges, update],
+    );
 
     return { reset, update, queueUpdate, setHasUnsavedChanges, commit };
 };
