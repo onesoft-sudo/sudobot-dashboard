@@ -36,6 +36,7 @@ type MessageRuleEditFormFields = {
     type: APIMessageRuleType;
     enabled: boolean;
     bail?: boolean;
+    mode: "normal" | "invert";
     for_users?: string[];
     for_roles?: string[];
     for_channels?: string[];
@@ -59,6 +60,7 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
             actions: [],
             enabled: false,
             bail: false,
+            mode: "normal",
         },
     });
     const { emitter } = useConfigMutationHandlers();
@@ -69,6 +71,10 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
         }
 
         setValue("actions", editingRule.actions);
+        setValue("bail", editingRule.bail ?? false);
+        setValue("enabled", editingRule.enabled);
+        setValue("mode", editingRule.mode);
+
         console.log("Editing Rule", editingRule);
 
         const handler = () => {
@@ -98,13 +104,13 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
 
     const onSubmit = (data: MessageRuleEditFormFields) => {
         logger.debug("MessageRuleEditModal", "Form Submit", data);
-        const { actions, type, name, enabled, bail } = data;
+        const { actions, type, name, enabled, bail, mode } = data;
 
         dispatch(setEditModalState({ isOpen: false, rule: null }));
         update({
             rules: rules.map((rule) =>
                 rule.id === editingRule?.id
-                    ? { ...rule, actions, type, name: name || rule.name, enabled, bail: bail ?? rule.bail }
+                    ? { ...rule, actions, type, name: name || rule.name, enabled, bail: bail ?? rule.bail, mode }
                     : rule,
             ),
         });
@@ -207,6 +213,22 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
                                 {...register("bail")}
                                 control={control}
                             />
+
+                            <Controller
+                                name="mode"
+                                control={control}
+                                render={({ field }) => (
+                                    <CardSwitch
+                                        title="Invert Rule"
+                                        description="If this rule matches, it will be considered a failure."
+                                        defaultSelected={editingRule.mode === "invert"}
+                                        onValueChange={(value) => {
+                                            field.onChange(value ? "invert" : "normal");
+                                        }}
+                                    />
+                                )}
+                            />
+
                             <label className="mb-2 mt-3 block font-semibold">Triggers &amp; Exceptions</label>
 
                             <Accordion

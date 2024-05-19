@@ -21,7 +21,7 @@ export default function UnsavedChangesAlert() {
         >
             <div className="flex items-center justify-between rounded-md bg-zinc-300 py-2 pl-4 pr-3 dark:bg-[rgb(45,45,45)]">
                 <p className="flex items-center gap-2">
-                    <MdWarning size="1.3rem" /> You have unsaved changes.
+                    <MdWarning size="1.3rem" className="text-yellow-500" /> You have unsaved changes.
                 </p>
 
                 <div className="flex items-center gap-1">
@@ -31,7 +31,7 @@ export default function UnsavedChangesAlert() {
                             emitter.emit("reset::untilSave");
                             dispatch(setUnsavedChanges({ hasChanges: false }));
                         }}
-                        color="error"
+                        color="warning"
                     >
                         Reset
                     </Button>

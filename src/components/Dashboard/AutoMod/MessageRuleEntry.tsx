@@ -18,6 +18,7 @@ import {
     MdTextSnippet,
 } from "react-icons/md";
 import MessageRuleActionIcon from "./MessageRuleActionIcon";
+import MessageRuleBail from "./MessageRuleBail";
 import MessageRuleDisabled from "./MessageRuleDisabled";
 import MessageRuleModeInverted from "./MessageRuleModeInverted";
 
@@ -106,8 +107,14 @@ const MessageRuleEntry: FC<MessageRuleEntryProps> = ({ rule, onPointerDown }) =>
                 />
                 <span className="text-sm font-semibold">{name}</span>
 
-                {!rule.enabled && <MessageRuleDisabled />}
-                {rule.mode === "invert" && <MessageRuleModeInverted />}
+                {rule.enabled ? (
+                    <>
+                        {rule.mode === "invert" && <MessageRuleModeInverted />}
+                        {rule.bail && <MessageRuleBail />}
+                    </>
+                ) : (
+                    <MessageRuleDisabled />
+                )}
             </div>
 
             <div className="flex items-center gap-3">

@@ -113,6 +113,7 @@ const LoginForm: FC = () => {
                     labelPlacement="inside"
                     color="primary"
                     variant="bordered"
+                    autoComplete="current-password"
                     description={
                         errors.password && (
                             <p className="mt-0.5 text-xs text-red-500">
