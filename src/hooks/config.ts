@@ -1,6 +1,10 @@
 import { useConfigMutationHandlers } from "@/contexts/ConfigMutationProvider";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks/AppStoreHooks";
-import { resetRuleModerationConfig, updateRuleModerationConfig } from "@/redux/slice/RuleModerationConfigSlice";
+import {
+    commitRuleModerationConfig,
+    resetRuleModerationConfig,
+    updateRuleModerationConfig,
+} from "@/redux/slice/RuleModerationConfigSlice";
 import { setUnsavedChanges } from "@/redux/slice/UnsavedChangesSlice";
 import { useEffect, useRef } from "react";
 
@@ -38,6 +42,10 @@ export const useRuleModerationConfigUpdate = () => {
         dispatch(resetRuleModerationConfig());
     };
 
+    const commit = () => {
+        dispatch(commitRuleModerationConfig());
+    };
+
     const queueUpdate = (queueId: number, data: Parameters<typeof updateRuleModerationConfig>[0]) => {
         if (ref.current[queueId]) {
             emitter.off("save", ref.current[queueId]);
@@ -52,5 +60,5 @@ export const useRuleModerationConfigUpdate = () => {
         setHasUnsavedChanges();
     };
 
-    return { reset, update, queueUpdate, setHasUnsavedChanges };
+    return { reset, update, queueUpdate, setHasUnsavedChanges, commit };
 };

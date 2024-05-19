@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/redux/hooks/AppStoreHooks";
 import { setEditModalState } from "@/redux/slice/MessageRuleListSlice";
 import { APIMessageRule, APIMessageRuleType } from "@/types/APIMessageRule";
 import { Button } from "@mui/material";
-import { useEffect, useMemo, useRef, type FC } from "react";
+import { useEffect, useRef, type FC } from "react";
 import { IconType } from "react-icons/lib";
 import {
     MdDomain,
@@ -27,7 +27,7 @@ type MessageRuleEntryProps = {
     onPointerDown: (event: React.PointerEvent) => void;
 };
 
-const messageRuleNames: Record<APIMessageRuleType, string> = {
+export const messageRuleNames: Record<APIMessageRuleType, string> = {
     [APIMessageRuleType.Regex]: "Regex Filter",
     [APIMessageRuleType.Invite]: "Invite Filter",
     [APIMessageRuleType.Word]: "Word Filter",
@@ -36,7 +36,7 @@ const messageRuleNames: Record<APIMessageRuleType, string> = {
     [APIMessageRuleType.Domain]: "Domain Filter",
 };
 
-const messageRuleIcons: Record<APIMessageRuleType, IconType> = {
+export const messageRuleIcons: Record<APIMessageRuleType, IconType> = {
     [APIMessageRuleType.Regex]: MdPattern,
     [APIMessageRuleType.Invite]: MdLink,
     [APIMessageRuleType.Word]: MdTextSnippet,
@@ -45,7 +45,13 @@ const messageRuleIcons: Record<APIMessageRuleType, IconType> = {
     [APIMessageRuleType.Domain]: MdDomain,
 };
 
-const computeColor = (type: APIMessageRuleType) => {
+const colorCache = new Map<APIMessageRuleType, string>();
+
+export const computeColor = (type: APIMessageRuleType) => {
+    if (colorCache.has(type)) {
+        return colorCache.get(type);
+    }
+
     let hash = 0;
 
     for (let i = 0; i < type.length; i++) {
@@ -53,13 +59,15 @@ const computeColor = (type: APIMessageRuleType) => {
     }
 
     const c = (hash & 0x00ffffff).toString(16).toUpperCase();
-    return "#" + "00000".substring(0, 6 - c.length) + c;
+    const color = "#" + "00000".substring(0, 6 - c.length) + c;
+    colorCache.set(type, color);
+    return color;
 };
 
 const MessageRuleEntry: FC<MessageRuleEntryProps> = ({ rule, onPointerDown }) => {
     const Icon = messageRuleIcons[rule.type];
     const name = messageRuleNames[rule.type];
-    const color = useMemo(() => computeColor(rule.type), [rule.type]);
+    const color = computeColor(rule.type);
     const isDesktop = useIsDesktop();
     const moveButtonRef = useRef<HTMLButtonElement>(null);
     const dispatch = useAppDispatch();

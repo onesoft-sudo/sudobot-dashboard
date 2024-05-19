@@ -11,18 +11,26 @@ import MessageRuleListWrapper from "./MessageRuleListWrapper";
 
 export default function MessageRuleManagementCard() {
     const state = useAppSelector((state) => state.ruleModerationConfig.data);
-    const { queueUpdate, update, setHasUnsavedChanges, reset } = useRuleModerationConfigUpdate();
+    const { queueUpdate, update, setHasUnsavedChanges, reset, commit } = useRuleModerationConfigUpdate();
     const { emitter } = useConfigMutationHandlers();
 
     useEffect(() => {
-        const handler = () => {
+        const resetHandler = () => {
             reset();
         };
 
-        emitter.on("reset", handler);
+        const saveHandler = () => {
+            logger.debug("MessageRuleManagementCard", "Saving Changes");
+            commit();
+        }
+
+        emitter.on("reset", resetHandler);
+        emitter.on('save', saveHandler)
 
         return () => {
-            emitter.off("reset", handler);
+            emitter.off("reset", resetHandler);
+            emitter.off('save', saveHandler)
+
         };
     }, []);
 

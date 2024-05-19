@@ -16,6 +16,7 @@ import { useEffect, type FC } from "react";
 import { useForm } from "react-hook-form";
 import { FaDiscord } from "react-icons/fa6";
 import { MdCheck, MdError } from "react-icons/md";
+import NextUITextFieldStyleReset from "../Utils/NextUITextFieldStyleReset";
 
 type LoginFormFields = {
     username: string;
@@ -77,15 +78,7 @@ const LoginForm: FC = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <style
-                dangerouslySetInnerHTML={{
-                    __html: `
-                        form div:not([data-focus]) > div > label {
-                            color: #999 !important;
-                        }
-                    `,
-                }}
-            />
+            <NextUITextFieldStyleReset />
 
             {loginMutation.isError && (
                 <Alert severity="error" className="mb-4">

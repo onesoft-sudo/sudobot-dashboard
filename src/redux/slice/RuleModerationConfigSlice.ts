@@ -102,8 +102,12 @@ const RuleModerationConfigSlice = createSlice({
                 state.previousData = undefined;
             }
         },
+        commitRuleModerationConfig(state) {
+            state.previousData = undefined;
+        },
     },
 });
 
-export const { updateRuleModerationConfig, resetRuleModerationConfig } = RuleModerationConfigSlice.actions;
+export const { updateRuleModerationConfig, resetRuleModerationConfig, commitRuleModerationConfig } =
+    RuleModerationConfigSlice.actions;
 export const RuleModerationConfigSliceReducer = RuleModerationConfigSlice.reducer;
