@@ -37,12 +37,12 @@ type MessageRuleEditFormFields = {
     enabled: boolean;
     bail?: boolean;
     mode: "normal" | "invert";
-    for_users?: string[];
-    for_roles?: string[];
-    for_channels?: string[];
-    excluded_users?: string[];
-    excluded_roles?: string[];
-    excluded_channels?: string[];
+    for_users?: string;
+    for_roles?: string;
+    for_channels?: string;
+    excluded_users?: string;
+    excluded_roles?: string;
+    excluded_channels?: string;
 };
 
 const ruleTypes = Object.values(APIMessageRuleType).filter((type) => type[0].toLowerCase() === type[0]);
@@ -77,8 +77,15 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
         setValue("bail", editingRule.bail ?? false);
         setValue("enabled", editingRule.enabled);
         setValue("mode", editingRule.mode);
+        setValue("name", editingRule.name);
+        setValue("excluded_channels", editingRule.exceptions?.channels?.join("\n"));
+        setValue("excluded_roles", editingRule.exceptions?.roles?.join("\n"));
+        setValue("excluded_users", editingRule.exceptions?.users?.join("\n"));
+        setValue("for_channels", editingRule.for?.channels?.join("\n"));
+        setValue("for_roles", editingRule.for?.roles?.join("\n"));
+        setValue("for_users", editingRule.for?.users?.join("\n"));
 
-        console.log("Editing Rule", editingRule);
+        logger.debug("MessageRuleEditModal", "Editing Rule", editingRule);
 
         const handler = () => {
             dispatch(setEditModalState({ isOpen: false, rule: null }));
@@ -107,13 +114,50 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
 
     const onSubmit = (data: MessageRuleEditFormFields) => {
         logger.debug("MessageRuleEditModal", "Form Submit", data);
-        const { actions, type, name, enabled, bail, mode } = data;
+        const {
+            actions,
+            type,
+            name,
+            enabled,
+            bail,
+            mode,
+            excluded_channels,
+            excluded_roles,
+            excluded_users,
+            for_channels,
+            for_roles,
+            for_users,
+        } = data;
 
         dispatch(setEditModalState({ isOpen: false, rule: null }));
         update({
             rules: rules.map((rule) =>
                 rule.id === editingRule?.id
-                    ? { ...rule, actions, type, name: name || rule.name, enabled, bail: bail ?? rule.bail, mode }
+                    ? {
+                          ...rule,
+                          actions,
+                          type,
+                          name: name || rule.name,
+                          enabled,
+                          bail: bail ?? rule.bail,
+                          mode,
+                          for:
+                              for_users || for_roles || for_channels
+                                  ? {
+                                        channels: for_channels?.split(/ *\n */) ?? rule.for?.channels,
+                                        roles: for_roles?.split(/ *\n */) ?? rule.for?.roles,
+                                        users: for_users?.split(/ *\n */) ?? rule.for?.users,
+                                    }
+                                  : undefined,
+                          exceptions:
+                              excluded_users || excluded_roles || excluded_channels
+                                  ? {
+                                        channels: excluded_channels?.split(/ *\n */) ?? rule.exceptions?.channels,
+                                        roles: excluded_roles?.split(/ *\n */) ?? rule.exceptions?.roles,
+                                        users: excluded_users?.split(/ *\n */) ?? rule.exceptions?.users,
+                                    }
+                                  : undefined,
+                      }
                     : rule,
             ),
         });
@@ -236,54 +280,87 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
 
                             <Accordion>
                                 <AccordionItem key="applies_to" aria-label="Applies to" title="Applies to">
-                                    <Textarea
-                                        {...register("for_users", {
+                                    <Controller
+                                        name="for_users"
+                                        control={control}
+                                        defaultValue={editingRule?.for?.users?.join("\n")}
+                                        rules={{
                                             pattern: {
                                                 value: /^([0-9\n])+$/,
                                                 message: "Invalid User IDs provided!",
                                             },
-                                        })}
-                                        maxRows={2}
-                                        label="User IDs"
-                                        fullWidth
-                                        isInvalid={!!errors?.for_users?.message}
-                                        errorMessage={errors?.for_users?.message}
+                                        }}
+                                        render={({ field, fieldState }) => (
+                                            <Textarea
+                                                defaultValue={editingRule?.for?.users?.join("\n")}
+                                                maxRows={2}
+                                                label="User IDs"
+                                                fullWidth
+                                                isInvalid={!!fieldState.error?.message}
+                                                errorMessage={fieldState?.error?.message}
+                                                ref={field.ref}
+                                                onChange={field.onChange}
+                                                onBlur={field.onBlur}
+                                            />
+                                        )}
                                     />
                                     <span className="mt-2 block pb-5 text-xs leading-3 text-zinc-600 dark:text-[#999]">
                                         Enter a list of user IDs separated by new lines. This rule will affect these
                                         users.
                                     </span>
 
-                                    <Textarea
-                                        {...register("for_roles", {
+                                    <Controller
+                                        name="for_roles"
+                                        control={control}
+                                        defaultValue={editingRule?.for?.roles?.join("\n")}
+                                        rules={{
                                             pattern: {
                                                 value: /^([0-9\n])+$/,
                                                 message: "Invalid Role IDs provided!",
                                             },
-                                        })}
-                                        maxRows={2}
-                                        label="Role IDs"
-                                        fullWidth
-                                        isInvalid={!!errors?.for_roles?.message}
-                                        errorMessage={errors?.for_roles?.message}
+                                        }}
+                                        render={({ field, fieldState }) => (
+                                            <Textarea
+                                                defaultValue={editingRule?.for?.roles?.join("\n")}
+                                                maxRows={2}
+                                                label="Role IDs"
+                                                fullWidth
+                                                isInvalid={!!fieldState.error?.message}
+                                                errorMessage={fieldState?.error?.message}
+                                                ref={field.ref}
+                                                onChange={field.onChange}
+                                                onBlur={field.onBlur}
+                                            />
+                                        )}
                                     />
                                     <span className="mt-2 block pb-5 text-xs leading-3 text-zinc-600 dark:text-[#999]">
                                         Enter a list of role IDs separated by new lines. This rule will affect users
                                         having one of these roles.
                                     </span>
 
-                                    <Textarea
-                                        {...register("for_channels", {
+                                    <Controller
+                                        name="for_channels"
+                                        control={control}
+                                        defaultValue={editingRule?.for?.channels?.join("\n")}
+                                        rules={{
                                             pattern: {
                                                 value: /^([0-9\n])+$/,
                                                 message: "Invalid Channel IDs provided!",
                                             },
-                                        })}
-                                        maxRows={2}
-                                        label="Channel IDs"
-                                        fullWidth
-                                        isInvalid={!!errors?.for_channels?.message}
-                                        errorMessage={errors?.for_channels?.message}
+                                        }}
+                                        render={({ field, fieldState }) => (
+                                            <Textarea
+                                                defaultValue={editingRule?.for?.channels?.join("\n")}
+                                                maxRows={2}
+                                                label="Channel IDs"
+                                                fullWidth
+                                                isInvalid={!!fieldState.error?.message}
+                                                errorMessage={fieldState?.error?.message}
+                                                ref={field.ref}
+                                                onChange={field.onChange}
+                                                onBlur={field.onBlur}
+                                            />
+                                        )}
                                     />
                                     <span className="mt-2 block pb-4 text-xs leading-3 text-zinc-600 dark:text-[#999]">
                                         Enter a list of channel IDs separated by new lines. This rule will affect users
@@ -300,54 +377,87 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
                                     aria-label="Does not apply to"
                                     title="Does not apply to"
                                 >
-                                    <Textarea
-                                        {...register("excluded_users", {
+                                    <Controller
+                                        name="excluded_users"
+                                        control={control}
+                                        defaultValue={editingRule?.exceptions?.users?.join("\n")}
+                                        rules={{
                                             pattern: {
                                                 value: /^([0-9\n])+$/,
                                                 message: "Invalid User IDs provided!",
                                             },
-                                        })}
-                                        maxRows={2}
-                                        label="User IDs"
-                                        fullWidth
-                                        isInvalid={!!errors?.excluded_users?.message}
-                                        errorMessage={errors?.excluded_users?.message}
+                                        }}
+                                        render={({ field, fieldState }) => (
+                                            <Textarea
+                                                defaultValue={editingRule?.exceptions?.users?.join("\n")}
+                                                maxRows={2}
+                                                label="User IDs"
+                                                fullWidth
+                                                isInvalid={!!fieldState.error?.message}
+                                                errorMessage={fieldState?.error?.message}
+                                                ref={field.ref}
+                                                onChange={field.onChange}
+                                                onBlur={field.onBlur}
+                                            />
+                                        )}
                                     />
                                     <span className="mt-2 block pb-5 text-xs leading-3 text-zinc-600 dark:text-[#999]">
                                         Enter a list of user IDs separated by new lines. This rule will not affect these
                                         users.
                                     </span>
 
-                                    <Textarea
-                                        {...register("excluded_roles", {
+                                    <Controller
+                                        name="excluded_roles"
+                                        control={control}
+                                        defaultValue={editingRule?.exceptions?.roles?.join("\n")}
+                                        rules={{
                                             pattern: {
                                                 value: /^([0-9\n])+$/,
                                                 message: "Invalid Role IDs provided!",
                                             },
-                                        })}
-                                        maxRows={2}
-                                        label="Role IDs"
-                                        fullWidth
-                                        isInvalid={!!errors?.excluded_roles?.message}
-                                        errorMessage={errors?.excluded_roles?.message}
+                                        }}
+                                        render={({ field, fieldState }) => (
+                                            <Textarea
+                                                defaultValue={editingRule?.exceptions?.roles?.join("\n")}
+                                                maxRows={2}
+                                                label="Role IDs"
+                                                fullWidth
+                                                isInvalid={!!fieldState.error?.message}
+                                                errorMessage={fieldState?.error?.message}
+                                                ref={field.ref}
+                                                onChange={field.onChange}
+                                                onBlur={field.onBlur}
+                                            />
+                                        )}
                                     />
                                     <span className="mt-2 block pb-5 text-xs leading-3 text-zinc-600 dark:text-[#999]">
                                         Enter a list of role IDs separated by new lines. This rule will not affect users
                                         having one of these roles.
                                     </span>
 
-                                    <Textarea
-                                        {...register("excluded_channels", {
+                                    <Controller
+                                        name="excluded_channels"
+                                        control={control}
+                                        defaultValue={editingRule?.exceptions?.channels?.join("\n")}
+                                        rules={{
                                             pattern: {
                                                 value: /^([0-9\n])+$/,
                                                 message: "Invalid Channel IDs provided!",
                                             },
-                                        })}
-                                        maxRows={2}
-                                        label="Channel IDs"
-                                        fullWidth
-                                        isInvalid={!!errors?.excluded_channels?.message}
-                                        errorMessage={errors?.excluded_channels?.message}
+                                        }}
+                                        render={({ field, fieldState }) => (
+                                            <Textarea
+                                                defaultValue={editingRule?.exceptions?.channels?.join("\n")}
+                                                maxRows={2}
+                                                label="Channel IDs"
+                                                fullWidth
+                                                isInvalid={!!fieldState.error?.message}
+                                                errorMessage={fieldState?.error?.message}
+                                                ref={field.ref}
+                                                onChange={field.onChange}
+                                                onBlur={field.onBlur}
+                                            />
+                                        )}
                                     />
                                     <span className="mt-2 block pb-4 text-xs leading-3 text-zinc-600 dark:text-[#999]">
                                         Enter a list of channel IDs separated by new lines. This rule will not affect
