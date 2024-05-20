@@ -120,8 +120,6 @@ const slice = createSlice({
                 Cookies.set("logged_in", "true", {
                     expires: action.payload.storage === "local" ? new Date(action.payload.expires) : undefined,
                     sameSite: "strict",
-                    domain: process.env.NEXT_PUBLIC_FRONTEND_DOMAIN,
-                    secure: true,
                 });
 
                 logger.debug(
@@ -148,7 +146,10 @@ const slice = createSlice({
                 sessionStorage.removeItem(StorageKeys.User);
             }
 
-            Cookies.remove("logged_in");
+            Cookies.remove("logged_in", {
+                path: "/",
+                expires: new Date(0),
+            });
         },
         setCurrentGuildId: (state, action: { payload: string }) => {
             state.currentGuildId = action.payload;

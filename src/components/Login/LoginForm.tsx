@@ -1,6 +1,6 @@
 "use client";
 
-import { requestLogin } from "@/api/auth/login";
+import { LoginResponse, requestLogin } from "@/api/auth/login";
 import { useRouter } from "@/hooks/router";
 import { useIsLoggedIn } from "@/hooks/user";
 import { logger } from "@/logging/logger";
@@ -12,7 +12,8 @@ import { Button } from "@nextui-org/button";
 import { Checkbox, Divider, Input } from "@nextui-org/react";
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
-import { useEffect, type FC } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useMemo, type FC } from "react";
 import { useForm } from "react-hook-form";
 import { FaDiscord } from "react-icons/fa6";
 import { MdCheck, MdError } from "react-icons/md";
@@ -40,10 +41,20 @@ const LoginForm: FC = () => {
     const loginMutation = useMutation({
         mutationFn: requestLogin,
     });
+    const searchParams = useSearchParams();
+    const continueTo = useMemo(() => {
+        let value = searchParams.get("ct");
+
+        if (!value?.startsWith("/") || value.startsWith("http")) {
+            value = null;
+        }
+
+        return value;
+    }, [searchParams]);
 
     useEffect(() => {
         if (isLoggedIn) {
-            router.push("/dashboard");
+            router.push(continueTo ?? "/dashboard");
         }
     }, [isLoggedIn, router]);
 
@@ -51,7 +62,7 @@ const LoginForm: FC = () => {
         logger.debug("LoginForm", data);
 
         loginMutation.mutate(data, {
-            onSuccess(responseData) {
+            onSuccess(responseData: LoginResponse) {
                 dispatch(
                     login({
                         user: responseData.user,

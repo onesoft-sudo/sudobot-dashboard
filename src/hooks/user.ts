@@ -23,7 +23,7 @@ export const useCurrentUserInfo = (force: boolean = true) => {
 
     useEffect(() => {
         if (force && !state.available && !state.resolving && pathname !== "/login") {
-            router.push("/login");
+            router.push(`/login?ct=${encodeURIComponent(pathname)}`);
         }
     }, [state.available, state.resolving, force, router, pathname]);
 
