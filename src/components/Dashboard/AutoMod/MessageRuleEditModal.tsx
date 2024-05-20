@@ -169,7 +169,16 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
     }
 
     return (
-        <Modal isOpen={editModalOpen} onOpenChange={handleClose} scrollBehavior="inside" size="lg">
+        <Modal
+            isOpen={editModalOpen}
+            onOpenChange={handleClose}
+            scrollBehavior="inside"
+            size="lg"
+            classNames={{
+                backdrop: "z-[5000000]",
+                wrapper: "z-[5000001]",
+            }}
+        >
             <NextUITextFieldStyleReset />
 
             <ModalContent as="form" onSubmit={handleSubmit(onSubmit)}>
