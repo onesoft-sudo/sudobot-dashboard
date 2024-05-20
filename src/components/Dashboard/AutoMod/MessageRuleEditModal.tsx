@@ -266,7 +266,7 @@ export default function MessageRuleEditModal({ rules }: MessageRuleEditModalProp
                                 control={control}
                                 render={({ field }) => (
                                     <CardSwitch
-                                        title="Invert Rule"
+                                        title="Invert rule"
                                         description="If this rule matches, it will be considered a failure."
                                         defaultSelected={editingRule.mode === "invert"}
                                         onValueChange={(value) => {
