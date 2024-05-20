@@ -57,7 +57,6 @@ export const useRuleModerationConfigUpdate = () => {
 
             ref.current[queueId] = () => {
                 update(data);
-                console.log("save");
             };
 
             emitter.once("save", ref.current[queueId]);

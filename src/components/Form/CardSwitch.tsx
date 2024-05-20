@@ -52,7 +52,6 @@ const CardSwitch = <T extends FieldValues>(
                     onValueChange={(value) => {
                         field.onChange(value);
                         finalSwitchProps.onValueChange?.(value);
-                        console.log("onValueChange", value);
                     }}
                 >
                     {finalChildren}
