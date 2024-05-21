@@ -22,14 +22,14 @@ export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
         <>
             {open && (
                 <div
-                    className="fixed left-0 top-0 z-50 h-screen w-screen bg-[rgba(0,0,0,0.08)] backdrop-blur-[2px] md:hidden"
+                    className="fixed left-0 top-0 z-[51] h-screen w-screen bg-[rgba(0,0,0,0.08)] backdrop-blur-[2px] md:hidden"
                     onClick={() => setOpen(false)}
                 />
             )}
 
             <aside
                 className={clsx(
-                    "fixed top-0 z-[200] block h-screen max-h-screen w-[75vw] overflow-y-scroll bg-[rgba(0,0,0,0.04)] shadow-[0_0_1px_rgba(255,255,255,0.1)] backdrop-blur-[50px] transition-[2s_ease] scrollbar-hide dark:bg-[rgba(0,0,0,0.1)] md:hidden",
+                    "fixed top-0 z-[51] block h-screen max-h-screen w-[75vw] overflow-y-scroll bg-[rgba(0,0,0,0.04)] shadow-[0_0_1px_rgba(255,255,255,0.1)] backdrop-blur-[50px] transition-[2s_ease] scrollbar-hide dark:bg-[rgba(0,0,0,0.1)] md:hidden",
                     {
                         "left-0": open,
                         "left-[-80vw]": !open,

@@ -12,6 +12,7 @@ const BrandLogo: FC<BrandLogoProps> = ({ style, className, ...props }) => {
             src={logo}
             height={40}
             width={40}
+            placeholder="blur"
             style={{
                 cursor: "pointer",
                 borderRadius: "10px",
