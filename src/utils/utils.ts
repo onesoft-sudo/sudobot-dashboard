@@ -5,3 +5,13 @@ export function isDashboardPath(pathname: string) {
 export const unreachable = (): never => {
     throw new Error("Unreachable code");
 };
+
+export const loop = <T>(times: number, callback: (index: number) => T): T[] => {
+    const result: T[] = [];
+
+    for (let i = 0; i < times; i++) {
+        result.push(callback(i));
+    }
+
+    return result;
+};
