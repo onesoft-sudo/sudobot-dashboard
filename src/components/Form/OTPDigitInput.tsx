@@ -11,6 +11,8 @@ type OTPDigitInputProps = {
     selected: boolean;
     invalid?: boolean;
     value: string;
+    autoFocus?: boolean;
+    disabled?: boolean;
 };
 
 const OTPDigitInput: FC<OTPDigitInputProps> = ({
@@ -19,10 +21,12 @@ const OTPDigitInput: FC<OTPDigitInputProps> = ({
     selected,
     onBack,
     onSelectAll,
-    invalid = false,
-    value,
     onPaste,
     onDelete,
+    invalid = false,
+    autoFocus = false,
+    disabled = false,
+    value,
 }) => {
     const ref = useRef<HTMLInputElement>(null);
 
@@ -37,39 +41,41 @@ const OTPDigitInput: FC<OTPDigitInputProps> = ({
             type="text"
             inputMode="numeric"
             pattern="[0-9]*"
+            autoFocus={autoFocus}
+            maxLength={1}
+            onFocus={onSelect}
+            ref={ref}
+            placeholder={invalid ? "!" : ""}
+            value={value}
             className={clsx(
-                "size-12 border-y-1 border-r-1 text-center text-xl placeholder:text-orange-700 first:rounded-l-md first:border-l-1 last:rounded-r-md last:border-r-1 focus:border-2 focus:outline-none focus:placeholder:text-transparent",
+                "size-12 border-y-1 border-r-1 text-center text-xl placeholder:text-orange-700 first:rounded-l-md first:border-l-1 last:rounded-r-md last:border-r-1 read-only:bg-[rgba(0,0,0,0.04)] focus:border-2 focus:outline-none focus:placeholder:text-transparent dark:read-only:bg-[rgba(255,255,255,0.15)]",
                 {
                     "border-orange-700 focus:border-red-500 border-l": invalid,
                     "border-zinc-300/80 dark:border-zinc-700 focus:border-zinc-700 dark:focus:border-zinc-200":
                         !invalid,
                 },
             )}
-            maxLength={1}
-            onFocus={onSelect}
-            ref={ref}
-            placeholder={invalid ? "!" : ""}
-            value={value}
+            readOnly={disabled}
             onChange={() => void 0}
             onKeyUp={(event) => {
                 if (!ref.current) {
                     return;
                 }
 
-                if (event.key === "Backspace") {
+                if (event.key === "Backspace" && !disabled) {
                     ref.current.value = "";
                     onBack?.(true);
-                } else if (event.key === "Delete") {
+                } else if (event.key === "Delete" && !disabled) {
                     onDelete?.();
-                } else if (event.key === "Enter") {
+                } else if (event.key === "Enter" && !disabled) {
                     onNext?.(ref.current, true);
                 } else if (event.key === "ArrowLeft") {
                     onBack?.();
                 } else if (event.key === "ArrowRight") {
                     onNext?.(ref.current, false);
-                } else if (event.ctrlKey && (event.key === "A" || event.key === "a")) {
+                } else if (event.ctrlKey && (event.key === "A" || event.key === "a") && !disabled) {
                     onSelectAll?.();
-                } else if (/^\d$/.test(event.key)) {
+                } else if (/^\d$/.test(event.key) && !disabled) {
                     ref.current.value = event.key;
                     onNext?.(ref.current, true, event.key);
                 }
@@ -77,7 +83,7 @@ const OTPDigitInput: FC<OTPDigitInputProps> = ({
             onPaste={(event) => {
                 event.preventDefault();
 
-                if (!ref.current) {
+                if (!ref.current || disabled) {
                     return;
                 }
 

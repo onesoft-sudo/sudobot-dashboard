@@ -6,10 +6,12 @@ import OTPDigitInput from "./OTPDigitInput";
 
 type OTPInputProps = {
     digits: number;
-    onDone?: (value: string) => void;
+    onDone?: (value: string) => unknown;
+    autoFocus?: boolean;
+    disabled?: boolean;
 };
 
-const OTPInput: FC<OTPInputProps> = ({ digits, onDone }) => {
+const OTPInput: FC<OTPInputProps> = ({ digits, onDone, autoFocus, disabled }) => {
     const [selectedInput, setSelectedInput] = useState(0);
     const [value, setValue] = useState<string[]>(new Array(digits).fill("")) as [
         readonly string[],
@@ -28,6 +30,8 @@ const OTPInput: FC<OTPInputProps> = ({ digits, onDone }) => {
                 {(index: number) => (
                     <OTPDigitInput
                         key={index}
+                        disabled={disabled}
+                        autoFocus={autoFocus && index === 0}
                         value={value[index] ?? ""}
                         selected={selectedInput === index}
                         onSelect={() => setSelectedInput(index)}
