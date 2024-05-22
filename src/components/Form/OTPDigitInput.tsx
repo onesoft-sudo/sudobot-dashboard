@@ -38,15 +38,17 @@ const OTPDigitInput: FC<OTPDigitInputProps> = ({
             inputMode="numeric"
             pattern="[0-9]*"
             className={clsx(
-                "size-12 border-y-1 border-r-1 border-zinc-700 text-center text-xl first:rounded-l-md first:border-l-1 last:rounded-r-md last:border-r-1 focus:border-2 focus:border-zinc-200 focus:outline-none",
+                "size-12 border-y-1 border-r-1 text-center text-xl placeholder:text-orange-700 first:rounded-l-md first:border-l-1 last:rounded-r-md last:border-r-1 focus:border-2 focus:outline-none focus:placeholder:text-transparent",
                 {
-                    "border-red-500": invalid,
+                    "border-orange-700 focus:border-red-500 border-l": invalid,
+                    "border-zinc-300/80 dark:border-zinc-700 focus:border-zinc-700 dark:focus:border-zinc-200":
+                        !invalid,
                 },
             )}
             maxLength={1}
             onFocus={onSelect}
             ref={ref}
-            placeholder={invalid ? "?" : ""}
+            placeholder={invalid ? "!" : ""}
             value={value}
             onChange={() => void 0}
             onKeyUp={(event) => {
@@ -69,7 +71,7 @@ const OTPDigitInput: FC<OTPDigitInputProps> = ({
                     onSelectAll?.();
                 } else if (/^\d$/.test(event.key)) {
                     ref.current.value = event.key;
-                    onNext?.(ref.current, true, ref.current.value);
+                    onNext?.(ref.current, true, event.key);
                 }
             }}
             onPaste={(event) => {
