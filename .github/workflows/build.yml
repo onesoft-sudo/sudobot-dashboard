@@ -20,6 +20,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Create .env
+        run: echo "NEXT_PUBLIC_API_URL=https://sudobot-dummy-api.onrender.com" >> .env
+
       - name: Build
         run: npm run build
 
@@ -39,5 +42,8 @@ jobs:
       - name: Lint
         run: bun lint
 
+      - name: Create .env
+        run: echo "NEXT_PUBLIC_API_URL=https://sudobot-dummy-api.onrender.com" >> .env
+        
       - name: Build
         run: bun run build
