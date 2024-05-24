@@ -3,6 +3,7 @@ import { AnalyticsSliceReducer } from "../slice/AnalyticsSlice";
 import { GuildCacheReducer } from "../slice/GuildCacheSlice";
 import { InitializationSliceReducer } from "../slice/InitializationSlice";
 import { messageRuleListReducer } from "../slice/MessageRuleListSlice";
+import { ModalSliceReducer } from "../slice/ModalSlice";
 import { NavigationSliceReducer } from "../slice/NavigationSlice";
 import { RuleModerationConfigSliceReducer } from "../slice/RuleModerationConfigSlice";
 import { ThemeSliceReducer } from "../slice/ThemeSlice";
@@ -21,6 +22,7 @@ export const makeStore = () => {
             messageRuleList: messageRuleListReducer,
             unsavedChanges: UnsavedChangesSliceReducer,
             ruleModerationConfig: RuleModerationConfigSliceReducer,
+            modals: ModalSliceReducer,
         },
     });
 };

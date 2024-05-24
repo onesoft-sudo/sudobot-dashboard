@@ -17,7 +17,7 @@ export const items = [
         href: "/settings/automod",
     },
     {
-        title: "Settings",
+        title: "Account Settings",
         icon: MdSettings,
         href: "/account/settings",
     },

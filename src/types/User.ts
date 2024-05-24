@@ -3,4 +3,5 @@ export type User = {
     username: string;
     name?: string;
     avatar?: string;
+    discordId?: string;
 };
