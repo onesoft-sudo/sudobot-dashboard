@@ -3,6 +3,7 @@ import { clearCachedGuilds } from "@/redux/slice/GuildCacheSlice";
 import { logout } from "@/redux/slice/UserSlice";
 import { User } from "@/types/User";
 import { usePathname, useRouter } from "next/navigation";
+import posthog from "posthog-js";
 import { useEffect } from "react";
 
 export const useCurrentUser = (force = true) => {
@@ -50,6 +51,8 @@ export const useLogout = () => {
     return () => {
         dispatch(logout());
         dispatch(clearCachedGuilds());
+
+        posthog.reset();
 
         if (pathname !== "/login") {
             router.push("/login");

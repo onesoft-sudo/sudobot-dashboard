@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import AppBody from "@/components/Layout/AppBody";
+import ClientSidePostHogProvider from "@/providers/ClientSidePosthogProvider";
 import "@/styles/globals.css";
 import Providers from "./providers";
 
@@ -21,9 +22,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <AppStoreProvider>
-                <AppBody className={inter.className}>
-                    <Providers>{children}</Providers>
-                </AppBody>
+                <ClientSidePostHogProvider>
+                    <AppBody className={inter.className}>
+                        <Providers>{children}</Providers>
+                    </AppBody>
+                </ClientSidePostHogProvider>
             </AppStoreProvider>
         </html>
     );

@@ -1,8 +1,8 @@
 import { useCurrentUser } from "@/hooks/user";
 import { Button } from "@nextui-org/button";
-import Link from "next/link";
 import { ComponentProps, type FC } from "react";
 import GuildSwitcher from "./GuildSwitcher";
+import Link from "./Link";
 import Profile from "./Profile";
 
 const Controls: FC<ComponentProps<"div">> = (props) => {

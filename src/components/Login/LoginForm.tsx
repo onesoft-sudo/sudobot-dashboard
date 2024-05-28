@@ -7,12 +7,14 @@ import { logger } from "@/logging/logger";
 import { useAppDispatch } from "@/redux/hooks/AppStoreHooks";
 import { addGuilds } from "@/redux/slice/GuildCacheSlice";
 import { login } from "@/redux/slice/UserSlice";
+import { PostHogEvents } from "@/utils/analytics";
 import { Alert } from "@mui/material";
 import { Button } from "@nextui-org/button";
 import { Checkbox, Divider, Input } from "@nextui-org/react";
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import posthog from "posthog-js";
 import { useEffect, useMemo, type FC } from "react";
 import { useForm } from "react-hook-form";
 import { FaDiscord } from "react-icons/fa6";
@@ -82,7 +84,24 @@ const LoginForm: FC = () => {
                     }),
                 );
 
+                posthog.identify(responseData.user.id.toString(), {
+                    username: responseData.user.username,
+                    name: responseData.user.name,
+                    discordId: responseData.user.discordId,
+                    avatar: responseData.user.avatar,
+                });
+
+                posthog.capture(PostHogEvents.LoginSuccess, {
+                    type: "credentials",
+                });
+
                 router.push("/dashboard");
+            },
+            onError(error) {
+                posthog.capture(PostHogEvents.LoginFailed, {
+                    type: "credentials",
+                    error,
+                });
             },
         });
     };
