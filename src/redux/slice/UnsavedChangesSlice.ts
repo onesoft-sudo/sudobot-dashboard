@@ -8,7 +8,7 @@ const initialState: UnsavedChangesSliceState = {
     hasChanges: false,
 };
 
-const unsavedChangesSlice = createSlice({
+const UnsavedChangesSlice = createSlice({
     name: "unsavedChanges",
     initialState,
     reducers: {
@@ -23,5 +23,5 @@ const unsavedChangesSlice = createSlice({
     },
 });
 
-export const { setUnsavedChanges } = unsavedChangesSlice.actions;
-export const UnsavedChangesSliceReducer = unsavedChangesSlice.reducer;
+export const { setUnsavedChanges } = UnsavedChangesSlice.actions;
+export default UnsavedChangesSlice.reducer;

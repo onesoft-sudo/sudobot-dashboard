@@ -8,7 +8,7 @@ const initialState: InitializationSliceState = {
     initialized: false,
 };
 
-const initializationSlice = createSlice({
+const InitializationSlice = createSlice({
     name: "initialization",
     initialState,
     reducers: {
@@ -18,5 +18,5 @@ const initializationSlice = createSlice({
     },
 });
 
-export const { initialize } = initializationSlice.actions;
-export const InitializationSliceReducer = initializationSlice.reducer;
+export const { initialize } = InitializationSlice.actions;
+export default InitializationSlice.reducer;

@@ -11,7 +11,7 @@ const initialState: MessageRuleListSliceState = {
     editModalOpen: false,
 };
 
-const messageRuleListSlice = createSlice({
+const MessageRuleListSlice = createSlice({
     name: "messageRuleList",
     initialState,
     reducers: {
@@ -22,5 +22,5 @@ const messageRuleListSlice = createSlice({
     },
 });
 
-export const { setEditModalState } = messageRuleListSlice.actions;
-export const messageRuleListReducer = messageRuleListSlice.reducer;
+export const { setEditModalState } = MessageRuleListSlice.actions;
+export default MessageRuleListSlice.reducer;

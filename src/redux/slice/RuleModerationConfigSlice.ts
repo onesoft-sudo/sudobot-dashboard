@@ -1,6 +1,6 @@
 import { APIMessageRule, APIMessageRuleType } from "@/types/APIMessageRule";
 import { APIModerationActionType } from "@/types/APIModerationAction";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type RuleModerationConfigSliceState = {
     data: {
@@ -110,4 +110,4 @@ const RuleModerationConfigSlice = createSlice({
 
 export const { updateRuleModerationConfig, resetRuleModerationConfig, commitRuleModerationConfig } =
     RuleModerationConfigSlice.actions;
-export const RuleModerationConfigSliceReducer = RuleModerationConfigSlice.reducer;
+export default RuleModerationConfigSlice.reducer;

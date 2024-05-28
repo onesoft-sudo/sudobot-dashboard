@@ -10,7 +10,7 @@ import { MdWarning } from "react-icons/md";
 export default function UnsavedChangesAlert() {
     const state = useAppSelector((state) => state.unsavedChanges.hasChanges);
     const dispatch = useAppDispatch();
-    const { emitter } = useConfigMutationHandlers();
+    const { emitter, queueUpdate } = useConfigMutationHandlers();
 
     return (
         <div
@@ -19,7 +19,7 @@ export default function UnsavedChangesAlert() {
                 "bottom-[-100%]": !state,
             })}
         >
-            <div className="flex items-center justify-between rounded-md bg-zinc-300 py-2 pl-4 pr-3 dark:bg-[rgb(45,45,45)]">
+            <div className="flex items-center justify-between rounded-md bg-zinc-300 py-2 pl-4 pr-3 dark:bg-[rgb(35,35,35)]">
                 <p className="flex items-center gap-2">
                     <MdWarning size="1.3rem" className="text-yellow-500" /> You have unsaved changes.
                 </p>
@@ -37,9 +37,8 @@ export default function UnsavedChangesAlert() {
                     </Button>
                     <Button
                         onClick={() => {
-                            emitter.removeAllListeners("reset::untilSave");
-                            emitter.emit("save");
                             dispatch(setUnsavedChanges({ hasChanges: false }));
+                            queueUpdate();
                         }}
                     >
                         Save

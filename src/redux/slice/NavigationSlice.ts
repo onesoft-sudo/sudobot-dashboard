@@ -8,7 +8,7 @@ const initialState: NavigationSliceState = {
     isLoading: false,
 };
 
-const navigationSlice = createSlice({
+const NavigationSlice = createSlice({
     name: "navigation",
     initialState,
     reducers: {
@@ -18,5 +18,5 @@ const navigationSlice = createSlice({
     },
 });
 
-export const { setLoading } = navigationSlice.actions;
-export const NavigationSliceReducer = navigationSlice.reducer;
+export const { setLoading } = NavigationSlice.actions;
+export default NavigationSlice.reducer;

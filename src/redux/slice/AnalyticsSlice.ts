@@ -12,7 +12,7 @@ const initialState: AnalyticsState = {
     error: null,
 };
 
-const slice = createSlice({
+const AnalyticsSlice = createSlice({
     name: "analytics",
     initialState,
     reducers: {
@@ -24,7 +24,7 @@ const slice = createSlice({
             action: {
                 payload: string[];
                 type: string;
-            }
+            },
         ) => {
             state.data = action.payload;
             state.loading = false;
@@ -35,7 +35,7 @@ const slice = createSlice({
             action: {
                 payload: string;
                 type: string;
-            }
+            },
         ) => {
             state.loading = false;
             state.error = action.payload;
@@ -43,5 +43,5 @@ const slice = createSlice({
     },
 });
 
-export const { fetchAnalytics, fetchAnalyticsSuccess, fetchAnalyticsError } = slice.actions;
-export const AnalyticsSliceReducer = slice.reducer;
+export const { fetchAnalytics, fetchAnalyticsSuccess, fetchAnalyticsError } = AnalyticsSlice.actions;
+export default AnalyticsSlice.reducer;

@@ -54,4 +54,4 @@ const GuildCacheSlice = createSlice({
 });
 
 export const { addGuild, addGuilds, clearCachedGuilds } = GuildCacheSlice.actions;
-export const GuildCacheReducer = GuildCacheSlice.reducer;
+export default GuildCacheSlice.reducer;

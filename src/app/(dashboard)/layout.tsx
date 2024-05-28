@@ -2,6 +2,7 @@ import EnsureAuthenticated from "@/components/Auth/EnsureAuthenticated";
 import UnsavedChangesAlert from "@/components/Dashboard/UnsavedChangesAlert";
 import Navbar from "@/components/Navigation/Navbar";
 import Sidebar from "@/components/Sidebar/Sidebar";
+import ToastView from "@/components/Toast/ToastView";
 import { ConfigMutationProvider } from "@/contexts/ConfigMutationProvider";
 import { getAppRouterURL } from "@/utils/routing";
 import { cookies } from "next/headers";
@@ -25,6 +26,7 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
                 <div className="lg:h-[calc(100svh-3.2rem)] lg:overflow-y-scroll">{children}</div>
             </div>
             <UnsavedChangesAlert />
+            <ToastView />
         </ConfigMutationProvider>
     );
 }

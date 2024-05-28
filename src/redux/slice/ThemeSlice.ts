@@ -8,7 +8,7 @@ const initialState: ThemeSliceState = {
     mode: "dark",
 };
 
-const themeSlice = createSlice({
+const ThemeSlice = createSlice({
     name: "initialization",
     initialState,
     reducers: {
@@ -21,5 +21,5 @@ const themeSlice = createSlice({
     },
 });
 
-export const { setMode, toggle } = themeSlice.actions;
-export const ThemeSliceReducer = themeSlice.reducer;
+export const { setMode, toggle } = ThemeSlice.actions;
+export default ThemeSlice.reducer;

@@ -1,14 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { AnalyticsSliceReducer } from "../slice/AnalyticsSlice";
-import { GuildCacheReducer } from "../slice/GuildCacheSlice";
-import { InitializationSliceReducer } from "../slice/InitializationSlice";
-import { messageRuleListReducer } from "../slice/MessageRuleListSlice";
-import { ModalSliceReducer } from "../slice/ModalSlice";
-import { NavigationSliceReducer } from "../slice/NavigationSlice";
-import { RuleModerationConfigSliceReducer } from "../slice/RuleModerationConfigSlice";
-import { ThemeSliceReducer } from "../slice/ThemeSlice";
-import { UnsavedChangesSliceReducer } from "../slice/UnsavedChangesSlice";
-import { UserSliceReducer } from "../slice/UserSlice";
+import AnalyticsSliceReducer from "../slice/AnalyticsSlice";
+import GuildCacheReducer from "../slice/GuildCacheSlice";
+import InitializationSliceReducer from "../slice/InitializationSlice";
+import MessageRuleListReducer from "../slice/MessageRuleListSlice";
+import ModalSliceReducer from "../slice/ModalSlice";
+import NavigationSliceReducer from "../slice/NavigationSlice";
+import RuleModerationConfigSliceReducer from "../slice/RuleModerationConfigSlice";
+import ThemeSliceReducer from "../slice/ThemeSlice";
+import ToastManagerReducer from "../slice/ToastManagerSlice";
+import UnsavedChangesSliceReducer from "../slice/UnsavedChangesSlice";
+import UserSliceReducer from "../slice/UserSlice";
 
 export const makeStore = () => {
     return configureStore({
@@ -19,10 +20,11 @@ export const makeStore = () => {
             guildCache: GuildCacheReducer,
             theme: ThemeSliceReducer,
             navigation: NavigationSliceReducer,
-            messageRuleList: messageRuleListReducer,
+            messageRuleList: MessageRuleListReducer,
             unsavedChanges: UnsavedChangesSliceReducer,
             ruleModerationConfig: RuleModerationConfigSliceReducer,
             modals: ModalSliceReducer,
+            toastManager: ToastManagerReducer,
         },
     });
 };

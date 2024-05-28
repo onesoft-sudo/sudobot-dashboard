@@ -88,7 +88,7 @@ const clearUserReducer = (state: Partial<UserSliceState>) => {
     logger.debug("clearUserReducer", "LOGOUT");
 };
 
-const slice = createSlice({
+const UserSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
@@ -157,5 +157,5 @@ const slice = createSlice({
     },
 });
 
-export const { logout, login, setUser, clearUser, setCurrentGuildId, setResolving } = slice.actions;
-export const UserSliceReducer = slice.reducer;
+export const { logout, login, setUser, clearUser, setCurrentGuildId, setResolving } = UserSlice.actions;
+export default UserSlice.reducer;
