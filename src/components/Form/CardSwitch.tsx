@@ -10,7 +10,7 @@ type CardSwitchProps<T extends FieldValues> = ComponentProps<typeof Switch> & {
 
 const CardSwitch = <T extends FieldValues>(
     { classNames, children, title, description, control, ...props }: CardSwitchProps<T>,
-    ref: Ref<HTMLElement>,
+    ref: Ref<HTMLInputElement>,
 ) => {
     const finalSwitchProps = {
         classNames: {
