@@ -61,7 +61,6 @@ export default function AntiRaidCard() {
 
     const onSubmit = form.handleSubmit((data: Partial<typeof state>) => {
         console.log(data);
-        update(data);
     });
 
     return (
@@ -167,7 +166,7 @@ export default function AntiRaidCard() {
             <CardFooter className="flex justify-end">
                 {form.formState.isDirty && (
                     <Button type="button" variant="flat" onClick={onSubmit}>
-                        Save
+                        Done
                     </Button>
                 )}
             </CardFooter>

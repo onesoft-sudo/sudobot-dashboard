@@ -5,6 +5,8 @@ import { useToast } from "@/hooks/toast";
 import { logger } from "@/logging/logger";
 import { useAppStore } from "@/redux/hooks/AppStoreHooks";
 import { commitAntiRaidConfig, resetAntiRaidConfig } from "@/redux/slice/AntiRaidConfigSlice";
+import { commitCommandConfig, resetCommandConfig } from "@/redux/slice/CommandConfigSlice";
+import { commitRootConfig, resetRootConfig } from "@/redux/slice/RootConfigSlice";
 import { AppStore } from "@/redux/store/AppStore";
 import { unreachable } from "@/utils/utils";
 import { PayloadAction } from "@reduxjs/toolkit";
@@ -43,18 +45,25 @@ const configMutationSlices: {
     [K in keyof ReturnType<AppStore["getState"]>]?: () => string;
 } = {
     ruleModerationConfig: () => "rule_moderation",
+    antiRaidConfig: () => "anti_raid",
+    rootConfig: () => "",
+    commandConfig: () => "commands",
 };
 
 const resetHandlers: {
     [K in keyof ReturnType<AppStore["getState"]>]?: () => PayloadAction;
 } = {
     antiRaidConfig: () => resetAntiRaidConfig(),
+    rootConfig: () => resetRootConfig(),
+    commandConfig: () => resetCommandConfig(),
 };
 
 const commitHandlers: {
     [K in keyof ReturnType<AppStore["getState"]>]?: () => PayloadAction;
 } = {
     antiRaidConfig: () => commitAntiRaidConfig(),
+    rootConfig: () => commitRootConfig(),
+    commandConfig: () => commitCommandConfig(),
 };
 
 export const useConfigMutationHandlers = () => {
@@ -93,7 +102,7 @@ export const useConfigMutationHandlers = () => {
             updateQueueTimeoutRef.current = undefined;
             emitter.emit("push");
             const state = store.getState();
-            const payload: Record<string, unknown> = {};
+            let payload: Record<string, unknown> = {};
 
             for (const slice in configMutationSlices) {
                 const config = state[slice as keyof typeof state];
@@ -104,11 +113,18 @@ export const useConfigMutationHandlers = () => {
 
                 const key = configMutationSlices[slice as keyof typeof configMutationSlices]?.();
 
-                if (!key) {
+                if (typeof key !== "string") {
                     continue;
                 }
 
-                payload[key] = config.data;
+                if (key) {
+                    payload[key] = config.data;
+                } else {
+                    payload = {
+                        ...payload,
+                        ...config.data,
+                    };
+                }
             }
 
             if (!state.user.currentGuildId) {
