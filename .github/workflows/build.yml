@@ -20,8 +20,15 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Setup API server
+        run: |
+          git clone https://github.com/virtual-designer/sudobot-dummy-api;
+          cd sudobot-dummy-api;
+          npm install;
+          npm start &
+
       - name: Create .env
-        run: echo "NEXT_PUBLIC_API_URL=https://sudobot-dummy-api.onrender.com" >> .env
+        run: echo "NEXT_PUBLIC_API_URL=https://localhost:5060" >> .env
 
       - name: Build
         run: npm run build
@@ -42,8 +49,15 @@ jobs:
       - name: Lint
         run: bun lint
 
+      - name: Setup API server
+        run: |
+          git clone https://github.com/virtual-designer/sudobot-dummy-api;
+          cd sudobot-dummy-api;
+          npm install;
+          npm start &
+
       - name: Create .env
-        run: echo "NEXT_PUBLIC_API_URL=https://sudobot-dummy-api.onrender.com" >> .env
-        
+        run: echo "NEXT_PUBLIC_API_URL=https://localhost:5060" >> .env
+
       - name: Build
         run: bun run build
