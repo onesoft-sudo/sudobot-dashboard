@@ -3,6 +3,7 @@
         "automod",
         "clsx",
         "commitlint",
+        "hookform",
         "nextjs",
         "nextui",
         "POSTHOG",
@@ -13,7 +14,8 @@
         "stylelint",
         "sudobot",
         "tailwindcss",
-        "Tanstack"
+        "Tanstack",
+        "Timeframe"
     ],
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {

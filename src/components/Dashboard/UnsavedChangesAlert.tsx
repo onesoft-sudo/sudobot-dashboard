@@ -10,7 +10,7 @@ import { MdWarning } from "react-icons/md";
 export default function UnsavedChangesAlert() {
     const state = useAppSelector((state) => state.unsavedChanges.hasChanges);
     const dispatch = useAppDispatch();
-    const { emitter, queueUpdate } = useConfigMutationHandlers();
+    const { emitter, queueUpdate, doReset } = useConfigMutationHandlers();
 
     return (
         <div
@@ -29,6 +29,7 @@ export default function UnsavedChangesAlert() {
                         onClick={() => {
                             emitter.emit("reset");
                             emitter.emit("reset::untilSave");
+                            doReset();
                             dispatch(setUnsavedChanges({ hasChanges: false }));
                         }}
                         color="warning"

@@ -4,10 +4,12 @@ import { updateConfig } from "@/api/config/config";
 import { useToast } from "@/hooks/toast";
 import { logger } from "@/logging/logger";
 import { useAppStore } from "@/redux/hooks/AppStoreHooks";
+import { commitAntiRaidConfig, resetAntiRaidConfig } from "@/redux/slice/AntiRaidConfigSlice";
 import { AppStore } from "@/redux/store/AppStore";
 import { unreachable } from "@/utils/utils";
+import { PayloadAction } from "@reduxjs/toolkit";
 import EventEmitter from "events";
-import { createContext, FC, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useRef } from "react";
+import { FC, PropsWithChildren, createContext, useCallback, useContext, useEffect, useMemo, useRef } from "react";
 
 type ConfigMutationContextType = {
     emitter: EventEmitter;
@@ -43,12 +45,44 @@ const configMutationSlices: {
     ruleModerationConfig: () => "rule_moderation",
 };
 
+const resetHandlers: {
+    [K in keyof ReturnType<AppStore["getState"]>]?: () => PayloadAction;
+} = {
+    antiRaidConfig: () => resetAntiRaidConfig(),
+};
+
+const commitHandlers: {
+    [K in keyof ReturnType<AppStore["getState"]>]?: () => PayloadAction;
+} = {
+    antiRaidConfig: () => commitAntiRaidConfig(),
+};
+
 export const useConfigMutationHandlers = () => {
     const { emitter } = useContext(ConfigMutationContext);
     const updateQueueTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
     const lastToastIdRef = useRef<string>();
     const store = useAppStore();
     const { addToast, removeToast } = useToast();
+
+    const doReset = useCallback(() => {
+        for (const slice in resetHandlers) {
+            const action = resetHandlers[slice as keyof typeof resetHandlers]?.();
+
+            if (action) {
+                store.dispatch(action);
+            }
+        }
+    }, [store]);
+
+    const doCommit = useCallback(() => {
+        for (const slice in commitHandlers) {
+            const action = commitHandlers[slice as keyof typeof commitHandlers]?.();
+
+            if (action) {
+                store.dispatch(action);
+            }
+        }
+    }, [store]);
 
     const queueUpdate = useCallback(() => {
         if (updateQueueTimeoutRef.current) {
@@ -90,11 +124,13 @@ export const useConfigMutationHandlers = () => {
                     emitter.emit("push::success");
                     emitter.removeAllListeners("reset::untilSave");
                     emitter.emit("save");
+                    doCommit();
                 })
                 .catch((error: unknown) => {
                     emitter.emit("push::error");
                     emitter.emit("reset");
                     emitter.emit("reset::untilSave");
+                    doReset();
                     logger.error("useConfigMutationHandlers", "Failed to update configuration", error);
 
                     if (lastToastIdRef.current) {
@@ -111,7 +147,7 @@ export const useConfigMutationHandlers = () => {
         }, 500);
     }, [emitter, store]);
 
-    return { emitter, queueUpdate };
+    return { emitter, queueUpdate, doReset, doCommit };
 };
 
 export default ConfigMutationContext;

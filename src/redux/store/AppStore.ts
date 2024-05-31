@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import AnalyticsSliceReducer from "../slice/AnalyticsSlice";
+import AntiRaidConfigSliceReducer from "../slice/AntiRaidConfigSlice";
 import GuildCacheReducer from "../slice/GuildCacheSlice";
 import InitializationSliceReducer from "../slice/InitializationSlice";
 import MessageRuleListReducer from "../slice/MessageRuleListSlice";
@@ -25,6 +26,7 @@ export const makeStore = () => {
             ruleModerationConfig: RuleModerationConfigSliceReducer,
             modals: ModalSliceReducer,
             toastManager: ToastManagerReducer,
+            antiRaidConfig: AntiRaidConfigSliceReducer,
         },
     });
 };
