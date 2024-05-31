@@ -131,6 +131,13 @@ export const useConfigMutationHandlers = () => {
                 throw new Error("No current guild ID is set!");
             }
 
+            logger.debug(
+                "useConfigMutationHandlers",
+                "queueUpdate",
+                "Update of Guild: " + state.user.currentGuildId,
+                payload,
+            );
+
             updateConfig(state.user.currentGuildId, payload)
                 .then((success) => {
                     if (!success) {
@@ -161,7 +168,7 @@ export const useConfigMutationHandlers = () => {
                     });
                 });
         }, 500);
-    }, [emitter, store]);
+    }, [emitter, store]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return { emitter, queueUpdate, doReset, doCommit };
 };
