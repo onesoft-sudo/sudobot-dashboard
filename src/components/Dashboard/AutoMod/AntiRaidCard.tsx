@@ -1,5 +1,6 @@
 "use client";
 
+import Select from "@/components/Form/Select";
 import { useConfig, useConfigUpdate } from "@/hooks/config";
 import { updateAntiRaidConfig } from "@/redux/slice/AntiRaidConfigSlice";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,12 +12,11 @@ import {
     CardHeader,
     Divider,
     Input,
-    Select,
     SelectItem,
     Spacer,
     Switch,
 } from "@nextui-org/react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { z } from "zod";
 
@@ -119,64 +119,47 @@ export default function AntiRaidCard() {
 
                     <Spacer y={3} />
 
-                    <Controller
-                        name="actions"
-                        control={form.control}
-                        render={({ field }) => (
-                            <Select
-                                label="Action"
-                                selectionMode="multiple"
-                                selectedKeys={field.value}
-                                onSelectionChange={(selectedKeys) => field.onChange(Array.from(selectedKeys))}
-                            >
-                                {[
-                                    {
-                                        label: "Lock",
-                                        value: "lock",
-                                    },
-                                    {
-                                        label: "Kick Member",
-                                        value: "kick",
-                                    },
-                                ].map(({ label, value }) => (
-                                    <SelectItem key={value} value={value}>
-                                        {label}
-                                    </SelectItem>
-                                ))}
-                            </Select>
-                        )}
-                    />
+                    <Select name="actions" control={form.control} label="Action" selectionMode="multiple">
+                        {[
+                            {
+                                label: "Lock",
+                                value: "lock",
+                            },
+                            {
+                                label: "Kick Member",
+                                value: "kick",
+                            },
+                        ].map(({ label, value }) => (
+                            <SelectItem key={value} value={value}>
+                                {label}
+                            </SelectItem>
+                        ))}
+                    </Select>
 
                     {form.watch("actions").includes("lock") && (
                         <>
                             <Spacer y={3} />
-                            <Controller
+                            <Select
                                 name="channels_to_lock"
                                 control={form.control}
-                                render={({ field }) => (
-                                    <Select
-                                        label="Channels To Lock"
-                                        selectionMode="multiple"
-                                        selectedKeys={field.value}
-                                        onSelectionChange={(selectedKeys) => field.onChange(Array.from(selectedKeys))}
-                                    >
-                                        {[
-                                            {
-                                                label: "Channel 1",
-                                                value: "channel1",
-                                            },
-                                            {
-                                                label: "Channel 2",
-                                                value: "channel2",
-                                            },
-                                        ].map(({ label, value }) => (
-                                            <SelectItem key={value} value={value}>
-                                                {`#${label}`}
-                                            </SelectItem>
-                                        ))}
-                                    </Select>
-                                )}
-                            />
+                                label="Channels To Lock"
+                                selectionMode="multiple"
+                            >
+                                {[
+                                    {
+                                        label: "Channel 1",
+                                        value: "channel1",
+                                    },
+                                    {
+                                        label: "Channel 2",
+                                        value: "channel2",
+                                    },
+                                ].map(({ label, value }) => (
+                                    <SelectItem key={value} value={value}>
+                                        {`#${label}`}
+                                    </SelectItem>
+                                ))}
+                            </Select>
                         </>
                     )}
                 </form>
