@@ -57,7 +57,7 @@ const LoginForm: FC = () => {
         if (isLoggedIn) {
             router.push(continueTo ?? "/dashboard");
         }
-    }, [isLoggedIn, router]);
+    }, [isLoggedIn, router]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const onSubmit = (data: LoginFormFields) => {
         logger.debug("LoginForm", data);
