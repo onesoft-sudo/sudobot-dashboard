@@ -28,7 +28,7 @@ jobs:
           npm start &
 
       - name: Create .env
-        run: echo "NEXT_PUBLIC_API_URL=https://localhost:5060" >> .env
+        run: echo "NEXT_PUBLIC_API_URL=http://localhost:5060" >> .env
 
       - name: Build
         run: npm run build
