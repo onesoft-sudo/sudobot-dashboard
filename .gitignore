@@ -40,3 +40,4 @@ next-env.d.ts
 .sentryclirc
 
 /src/app/(dashboard)/test
+/tmp
