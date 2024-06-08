@@ -16,7 +16,7 @@ const methods = [
         name: "Google",
         description: "Verify with your Google account",
         id: "google" satisfies VerificationMethod,
-        href: "#",
+        href: process.env.NEXT_PUBLIC_GOOGLE_OAUTH_URL,
     },
     {
         name: "GitHub",
@@ -28,6 +28,7 @@ const methods = [
         name: "Email",
         description: "Verify with your Email address",
         id: "email" satisfies VerificationMethod,
+        href: "#",
     },
 ] as const;
 
@@ -40,7 +41,7 @@ export default function VerificationMethods({ token }: { token: string }) {
                     key={method.id}
                     href={
                         "href" in method
-                            ? method.id === "discord" || method.id === "github"
+                            ? method.id === "discord" || method.id === "github" || method.id === "google"
                                 ? `${method.href}&state=${encodeURIComponent(token)}`
                                 : method.href
                             : undefined

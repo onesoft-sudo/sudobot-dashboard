@@ -3,6 +3,7 @@ export enum Route {
     LATEST_ANNOUNCEMENT = "/announcements/latest",
     VERIFY_BY_GITHUB = "/challenge/github",
     VERIFY_BY_DISCORD = "/challenge/discord",
+    VERIFY_BY_GOOGLE = "/challenge/google",
     VERIFICATION_GUILD = "/verification/guild",
 }
 
