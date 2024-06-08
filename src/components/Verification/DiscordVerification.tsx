@@ -25,7 +25,7 @@ const DiscordVerification: FC<DiscordVerificationProps> = ({ code, token }) => {
     console.log(mutation.error);
 
     return (
-        <div className="shadow-[0_0_2px_0_rgba(0,0,0,0.2)]dark:shadow-[0_0_2px_0_rgba(255,255,255,0.6)] flex flex-col items-center justify-center rounded-lg bg-white/70 p-3 dark:[background:linear-gradient(to_right,rgba(45,45,45,0.5),rgba(45,45,45,0.6))] sm:w-80 md:w-96">
+        <div className="flex flex-col items-center justify-center rounded-lg bg-white/70 p-3 shadow-[0_0_2px_0_rgba(0,0,0,0.2)] sm:w-80 md:w-96 dark:shadow-[0_0_2px_0_rgba(255,255,255,0.6)] dark:[background:linear-gradient(to_right,rgba(45,45,45,0.5),rgba(45,45,45,0.6))]">
             {mutation.isPending && <CircularProgress />}
             {mutation.isSuccess && <MdCheck className="text-green-500" size="2.5rem" />}
             {mutation.isError && <MdError className="text-red-500" size="2.5rem" />}

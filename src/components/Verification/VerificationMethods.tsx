@@ -28,7 +28,7 @@ const methods = [
         name: "Email",
         description: "Verify with your Email address",
         id: "email" satisfies VerificationMethod,
-        href: "#",
+        href: "/challenge/email?access_type=online&utm_source=website&utm_medium=button&utm_campaign=verify_email&scope=email",
     },
 ] as const;
 
@@ -39,13 +39,7 @@ export default function VerificationMethods({ token }: { token: string }) {
                 <Box
                     component={"href" in method ? Link : "div"}
                     key={method.id}
-                    href={
-                        "href" in method
-                            ? method.id === "discord" || method.id === "github" || method.id === "google"
-                                ? `${method.href}&state=${encodeURIComponent(token)}`
-                                : method.href
-                            : undefined
-                    }
+                    href={"href" in method ? `${method.href}&state=${encodeURIComponent(token)}` : undefined}
                     className="flex cursor-pointer items-center justify-between rounded-lg bg-white/70 p-3 shadow-[0_0_2px_0_rgba(0,0,0,0.2)] hover:bg-white/30 dark:shadow-[0_0_2px_0_rgba(255,255,255,0.6)] dark:[background:linear-gradient(to_right,rgba(45,45,45,0.5),rgba(45,45,45,0.6))] hover:dark:[background:rgba(45,45,45,0.7)]"
                 >
                     <div>
