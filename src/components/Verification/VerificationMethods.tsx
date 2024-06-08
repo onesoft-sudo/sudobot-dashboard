@@ -10,7 +10,7 @@ const methods = [
         name: "Discord",
         description: "Verify with your Discord account",
         id: "discord" satisfies VerificationMethod,
-        href: "https://discord.com/oauth2/authorize?client_id=970612477685534721&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fchallenge%2Fdiscord&scope=identify+guilds",
+        href: process.env.NEXT_PUBLIC_DISCORD_OAUTH_URL,
     },
     {
         name: "Google",
@@ -22,6 +22,7 @@ const methods = [
         name: "GitHub",
         description: "Verify with your GitHub account",
         id: "github" satisfies VerificationMethod,
+        href: process.env.NEXT_PUBLIC_GITHUB_OAUTH_URL,
     },
     {
         name: "Email",
@@ -39,7 +40,7 @@ export default function VerificationMethods({ token }: { token: string }) {
                     key={method.id}
                     href={
                         "href" in method
-                            ? method.id === "discord"
+                            ? method.id === "discord" || method.id === "github"
                                 ? `${method.href}&state=${encodeURIComponent(token)}`
                                 : method.href
                             : undefined
