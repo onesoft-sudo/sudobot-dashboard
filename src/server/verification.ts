@@ -49,6 +49,12 @@ export const initiateEmailVerification = async (token: string, email: string) =>
 
     const ip = headers().get("x-internal-ip");
 
+    headers().forEach((value, key) => {
+        console.log(key + ": " + value);
+    });
+
+    console.log("ip: " + ip);
+
     if (!ip) {
         return {
             success: false,
