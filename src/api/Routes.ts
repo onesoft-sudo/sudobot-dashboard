@@ -6,6 +6,7 @@ export enum Route {
     VERIFY_BY_GOOGLE = "/challenge/google",
     VERIFICATION_GUILD = "/verification/guild",
     VERIFICATION_INITIATE_EMAIL = "/start-challenge/email",
+    VERIFICATION_FINISH_EMAIL = "/challenge/email",
 }
 
 export const resolveRoute = (route: Route) => {

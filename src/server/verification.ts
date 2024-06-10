@@ -8,6 +8,7 @@ import GuildEmailVerificationMail from "@/mails/GuildEmailVerificationMail";
 import env from "@/utils/env";
 import { render } from "@react-email/render";
 import { AxiosError } from "axios";
+import { headers } from "next/headers";
 import nodemailer from "nodemailer";
 
 const rateLimitCache = new Map<string, number>();
@@ -46,6 +47,28 @@ export const initiateEmailVerification = async (token: string, email: string) =>
         };
     }
 
+    const ip = headers().get("x-internal-ip");
+
+    if (!ip) {
+        return {
+            success: false,
+            error: "Internal server error occurred. Please try again later.",
+        };
+    }
+
+    const geoCountry = headers().get("x-internal-geo-country");
+    const geoRegion = headers().get("x-internal-geo-region");
+    const geoCity = headers().get("x-internal-geo-city");
+
+    const geo =
+        geoCountry && (geoRegion || geoCity)
+            ? {
+                  country: geoCountry,
+                  region: !geoRegion ? undefined : geoRegion,
+                  city: !geoCity ? undefined : geoCity,
+              }
+            : undefined;
+
     try {
         const response = await getAxiosClient().post(
             Route.VERIFICATION_INITIATE_EMAIL,
@@ -74,8 +97,11 @@ export const initiateEmailVerification = async (token: string, email: string) =>
             const emailHtml = render(
                 GuildEmailVerificationMail({
                     emailToken: response.data.emailToken,
-                    email,
                     guildName: response.data.guild.name,
+                    email,
+                    token,
+                    ipAddress: ip,
+                    geo,
                 }),
             );
 
@@ -88,7 +114,7 @@ export const initiateEmailVerification = async (token: string, email: string) =>
                     {
                         cid: "logo",
                         contentType: "image/png",
-                        path: baseUrl + "/logo.png",
+                        path: baseUrl + "/logo-email.png",
                     },
                 ],
             });
