@@ -31,7 +31,11 @@ const Navbar: FC = () => {
                 })}
             >
                 {initialized && (
-                    <Button sx={{ minWidth: 0 }} className={styles.menuButton} onClick={() => setOpen(true)}>
+                    <Button
+                        sx={{ minWidth: 0 }}
+                        className="block text-black dark:text-white lg:!hidden"
+                        onClick={() => setOpen(true)}
+                    >
                         <MdMenu size="1.5rem" />
                     </Button>
                 )}

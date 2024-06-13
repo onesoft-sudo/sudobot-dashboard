@@ -37,11 +37,6 @@
     font-weight: 600;
 }
 
-.menuButton {
-    display: none;
-    --color: black;
-}
-
 @media (min-width: 972px) {
     .navbar.onDashboard {
         place-items: start;
@@ -70,10 +65,6 @@
     .navbar ul li a:hover {
         color: #ccc;
     }
-
-    .menuButton {
-        --color: white;
-    }
 }
 
 @media (max-width: 971px) {
@@ -85,10 +76,5 @@
 
     .navbar ul {
         display: none;
-    }
-
-    .menuButton {
-        display: block;
-        color: var(--color);
     }
 }

@@ -32,25 +32,33 @@ const methods = [
     },
 ] as const;
 
-export default function VerificationMethods({ token }: { token: string }) {
+export default function VerificationMethods({
+    token,
+    allowedMethods,
+}: {
+    token: string;
+    allowedMethods: VerificationMethod[];
+}) {
     return (
         <Box className="flex flex-col gap-3 sm:w-80 md:w-96">
-            {methods.map((method) => (
-                <Box
-                    component={"href" in method ? Link : "div"}
-                    key={method.id}
-                    href={"href" in method ? `${method.href}&state=${encodeURIComponent(token)}` : undefined}
-                    className="flex cursor-pointer items-center justify-between rounded-lg bg-white/70 p-3 shadow-[0_0_2px_0_rgba(0,0,0,0.2)] hover:bg-white/30 dark:shadow-[0_0_2px_0_rgba(255,255,255,0.6)] dark:[background:linear-gradient(to_right,rgba(45,45,45,0.5),rgba(45,45,45,0.6))] hover:dark:[background:rgba(45,45,45,0.7)]"
-                >
-                    <div>
-                        <h3 className="text-lg font-semibold">{method.name}</h3>
-                        <p className="text-[#999]">{method.description}</p>
-                    </div>
-                    <div>
-                        <MdArrowForwardIos className="text-[#999] hover:text-black dark:hover:text-white" />
-                    </div>
-                </Box>
-            ))}
+            {methods.map((method) =>
+                allowedMethods.includes(method.id) ? (
+                    <Box
+                        component={"href" in method ? Link : "div"}
+                        key={method.id}
+                        href={"href" in method ? `${method.href}&state=${encodeURIComponent(token)}` : undefined}
+                        className="flex cursor-pointer items-center justify-between rounded-lg bg-white/70 p-3 shadow-[0_0_2px_0_rgba(0,0,0,0.2)] hover:bg-white/30 dark:shadow-[0_0_2px_0_rgba(255,255,255,0.6)] dark:[background:linear-gradient(to_right,rgba(45,45,45,0.5),rgba(45,45,45,0.6))] hover:dark:[background:rgba(45,45,45,0.7)]"
+                    >
+                        <div>
+                            <h3 className="text-lg font-semibold">{method.name}</h3>
+                            <p className="text-[#999]">{method.description}</p>
+                        </div>
+                        <div>
+                            <MdArrowForwardIos className="text-[#999] hover:text-black dark:hover:text-white" />
+                        </div>
+                    </Box>
+                ) : null,
+            )}
         </Box>
     );
 }
