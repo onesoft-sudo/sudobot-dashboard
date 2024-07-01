@@ -18,17 +18,15 @@ const formSchema = z.object({
 export default function BasicSettingsCard() {
     const state = useConfig("commandConfig");
     const {
-        formState: { errors, isDirty },
-        register,
+        formState: { isDirty },
         control,
         handleSubmit,
         reset,
-        watch,
     } = useForm<typeof state>({
         defaultValues: state,
         resolver: zodResolver(formSchema),
     });
-    const { update } = useConfigUpdate<"commandConfig">(state, updateCommandConfig, reset);
+    const { update, hasUnsavedChanges } = useConfigUpdate<"commandConfig">(state, updateCommandConfig, reset);
     const onValidSubmit = handleSubmit((data) => {
         logger.debug("BasicSettingsCard", "onValidSubmit", data);
         update(data);
@@ -99,7 +97,7 @@ export default function BasicSettingsCard() {
                 </form>
             </CardBody>
 
-            {isDirty && (
+            {isDirty && !hasUnsavedChanges && (
                 <CardFooter>
                     <Button variant="flat" type="button" onClick={onValidSubmit}>
                         Done
