@@ -40,18 +40,30 @@ function Dialog({ isOpen, onClose, children }: DialogProps) {
         };
     }, [isOpen]);
 
+    useEffect(() => {
+        if (!isOpen) {
+            return;
+        }
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                onClose?.();
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [isOpen, onClose]);
+
     return (
         <DialogContext.Provider value={{ onClose }}>
-            <AnimatePresence
-                initial={false}
-                onExitComplete={() => {
-                    if (onClose) {
-                        onClose();
-                    }
-                }}
-            >
+            <AnimatePresence initial={false} onExitComplete={() => void onClose?.()}>
                 {isOpen && (
                     <motion.div
+                        key="backdrop"
                         initial={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
                         animate={{ backgroundColor: mode === "dark" ? "rgba(0, 0, 0, 0.3)" : "rgba(0, 0, 0, 0.5)" }}
                         exit={{ backgroundColor: "rgba(0, 0, 0, 0)" }}
