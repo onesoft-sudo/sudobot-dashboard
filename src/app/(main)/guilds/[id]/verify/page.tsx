@@ -52,8 +52,6 @@ export default async function Page({
 }) {
     const { isValid, response } = await fetchVerificationInfo(params.id, searchParams.token);
 
-    console.log(response?.data);
-
     if (isValid && !response?.data.needs_captcha) {
         redirect(
             `/guilds/${encodeURIComponent(params.id)}/verify/next?token=${encodeURIComponent(searchParams.token)}&utm_medium=web&utm_source=sudobot&utm_campaign=verification`,

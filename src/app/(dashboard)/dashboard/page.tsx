@@ -1,6 +1,6 @@
 import ChartJSInitializer from "@/components/Charts/ChartJSInitializer";
-import CardGrid from "@/components/Dashboard/CardGrid";
 import Container from "@/components/Dashboard/Container";
+import CardGrid from "@/components/Dashboard/Layout/CardGrid";
 import AnnouncementCard from "@/components/Dashboard/Overview/AnnouncementCard";
 import GuildListCard from "@/components/Dashboard/Overview/GuildListCard";
 import InfractionStatisticsCard from "@/components/Dashboard/Overview/InfractionStatisticsCard";

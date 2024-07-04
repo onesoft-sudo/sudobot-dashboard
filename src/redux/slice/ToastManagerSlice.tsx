@@ -7,6 +7,7 @@ export type ToastDetails = {
     createdAt?: number;
     icon?: string;
     closeIn?: number;
+    progress?: boolean;
 };
 
 type ToastManagerSliceType = {

@@ -15,3 +15,5 @@ export const loop = <T>(times: number, callback: (index: number) => T): T[] => {
 
     return result;
 };
+
+export const isDevMode = () => process.env.NEXT_PUBLIC_NODE_ENV === "development";

@@ -1,4 +1,7 @@
+import { updateConfig } from "@/api/config/config";
 import { useConfigMutationHandlers } from "@/contexts/ConfigMutationProvider";
+import { useGuildConfiguration } from "@/contexts/GuildConfigurationContext";
+import { logger } from "@/logging/logger";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks/AppStoreHooks";
 import {
     commitRuleModerationConfig,
@@ -7,8 +10,14 @@ import {
 } from "@/redux/slice/RuleModerationConfigSlice";
 import { setUnsavedChanges } from "@/redux/slice/UnsavedChangesSlice";
 import { RootState } from "@/redux/store/AppStore";
+import { GuildConfiguration } from "@/types/GuildConfiguration";
+import { isDevMode } from "@/utils/utils";
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
+import { useQueryClient } from "@tanstack/react-query";
+import * as dot from "dot-object";
 import { useCallback, useEffect, useRef } from "react";
+import { useToast } from "./toast";
+import { useCurrentUserInfo } from "./user";
 
 export const useRuleModerationConfigUpdate = () => {
     const hasChanges = useAppSelector((state) => state.unsavedChanges.hasChanges);
@@ -110,4 +119,62 @@ export const useConfigUpdate = <K extends FilteredSliceKeysWithData>(
     }, [emitter, onReset]);
 
     return { state, update, hasUnsavedChanges };
+};
+
+export const useGuildConfigurationUpdate = () => {
+    const { currentGuildId } = useCurrentUserInfo();
+    const config = useGuildConfiguration();
+    const queryClient = useQueryClient();
+    const { addToast, removeToast } = useToast();
+
+    const update = useCallback(
+        async (newConfig: Partial<GuildConfiguration>) => {
+            if (!currentGuildId) {
+                return;
+            }
+
+            logger.debug("useGuildConfigurationUpdate", "Updating guild configuration", newConfig);
+
+            const id = addToast({
+                contents: "Saving configuration changes...",
+                title: "Saving Changes",
+                progress: true,
+                icon: "MdSource",
+            });
+
+            try {
+                const result = await updateConfig(
+                    currentGuildId,
+                    dot.object({
+                        ...config,
+                        ...newConfig,
+                    }) as Record<string, unknown>,
+                );
+
+                if (!result) {
+                    throw new Error("Failed to update configuration");
+                }
+
+                if (isDevMode()) {
+                    await new Promise((resolve) => setTimeout(resolve, 2500));
+                }
+
+                queryClient.invalidateQueries({
+                    queryKey: ["guildConfiguration", currentGuildId],
+                });
+
+                window.dispatchEvent(new CustomEvent("sb:guild-config-save"));
+                removeToast(id);
+                return true;
+            } catch (error) {
+                logger.error("useGuildConfigurationUpdate", "Failed to update guild configuration", error);
+                removeToast(id);
+            }
+
+            return false;
+        },
+        [currentGuildId, queryClient, config, addToast, removeToast],
+    );
+
+    return update;
 };

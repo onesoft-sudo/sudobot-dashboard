@@ -1,71 +1,83 @@
 "use client";
 
-import { useConfig, useConfigUpdate } from "@/hooks/config";
+import { useGuildConfiguration } from "@/contexts/GuildConfigurationContext";
+import { useGuildConfigurationUpdate } from "@/hooks/config";
 import { logger } from "@/logging/logger";
-import { updateRootConfig } from "@/redux/slice/RootConfigSlice";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, Card, CardBody, CardFooter, CardHeader, Divider, Input } from "@nextui-org/react";
+import { Tooltip } from "@mui/material";
+import { Checkbox, Input, Spacer } from "@nextui-org/react";
+import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { BsDashCircle } from "react-icons/bs";
-import { z } from "zod";
-
-const formSchema = z.object({
-    prefix: z
-        .string({
-            required_error: "Prefix is required",
-        })
-        .min(1, "Prefix cannot be empty!"),
-});
+import { MdQuestionMark } from "react-icons/md";
+import Card from "../Layout/Card";
 
 export default function PrefixCard() {
-    const state = useConfig("rootConfig");
-    const {
-        formState: { errors, isDirty },
-        register,
-        handleSubmit,
-        reset,
-        watch,
-    } = useForm<typeof state>({
-        defaultValues: state,
-        resolver: zodResolver(formSchema),
+    const configuration = useGuildConfiguration();
+    const { prefix } = configuration;
+    const update = useGuildConfigurationUpdate();
+    const { register, formState, handleSubmit, reset } = useForm({
+        defaultValues: {
+            prefix,
+            commands: {
+                mention_prefix: configuration.commands?.mention_prefix ?? false,
+            },
+        },
     });
-    const { update } = useConfigUpdate<"rootConfig">(state, updateRootConfig, reset);
-    const onValidSubmit = handleSubmit((data) => {
-        logger.debug("PrefixCard", "onValidSubmit", data);
-        update(data);
-    });
+    const initialRenderRef = useRef(true);
+
+    useEffect(() => {
+        if (initialRenderRef.current) {
+            initialRenderRef.current = false;
+            return;
+        }
+
+        reset(configuration as unknown as Parameters<typeof reset>[0]);
+        logger.debug("PrefixCard:useEffect", "Reset form");
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [configuration]);
 
     return (
-        <Card shadow="sm">
-            <CardHeader className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-3">
-                    <BsDashCircle size="2rem" />
-                    <div className="flex flex-col">
-                        <p className="text-base">Command Prefix</p>
+        <Card>
+            <Card.Header icon={BsDashCircle} title="Prefix" />
+            <Card.Form formState={formState} onSubmit={handleSubmit(update)}>
+                <Input
+                    label="Prefix"
+                    {...register("prefix", {
+                        required: "Prefix is required!",
+                        validate: (value) => (value.includes(" ") ? "Prefix cannot contain spaces!" : undefined),
+                    })}
+                    errorMessage={formState.errors.prefix?.message}
+                    isInvalid={!!formState.errors.prefix?.message}
+                />
+                <Spacer y={2} />
+                <Checkbox {...register("commands.mention_prefix")}>
+                    <div className="flex items-center gap-2">
+                        <span>Use mention prefix</span>{" "}
+                        <Tooltip
+                            classes={{
+                                tooltip: "dark:bg-[#222] text-sm",
+                            }}
+                            title="Allows you to run commands by using the bot's mention as prefix."
+                        >
+                            <div>
+                                <MdQuestionMark
+                                    size="1.3rem"
+                                    className="rounded-full border-1.5 border-black p-0.5 dark:border-white"
+                                />
+                            </div>
+                        </Tooltip>
                     </div>
-                </div>
-            </CardHeader>
-            <Divider />
-            <CardBody>
-                <form onSubmit={onValidSubmit}>
-                    <Input
-                        label="Prefix"
-                        value={watch("prefix")}
-                        {...register("prefix", {
-                            required: "Prefix is required",
-                        })}
-                    />
-                    <p className="mt-1 text-xs text-red-500">{errors.prefix?.message}</p>
-                </form>
-            </CardBody>
+                </Checkbox>
 
-            {isDirty && (
-                <CardFooter>
-                    <Button variant="flat" type="button" onClick={onValidSubmit}>
-                        Done
-                    </Button>
-                </CardFooter>
-            )}
+                <p className="mt-3 text-sm text-[#999]">
+                    Legacy command prefix is now set to <code className="text-black dark:text-white">{prefix}</code>.
+                    <br />
+                    Use this prefix
+                    {configuration.commands?.mention_prefix && " or tag the bot at the beginning of your message"} to
+                    run a legacy command.
+                </p>
+                <Card.FormSubmit className="mt-4" />
+            </Card.Form>
         </Card>
     );
 }

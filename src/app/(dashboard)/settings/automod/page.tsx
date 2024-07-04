@@ -1,8 +1,7 @@
 import AntiRaidCard from "@/components/Dashboard/AutoMod/AntiRaidCard";
-import MessageRuleManagementCard from "@/components/Dashboard/AutoMod/MessageRuleManagementCard";
-import CardGrid from "@/components/Dashboard/CardGrid";
 import Container from "@/components/Dashboard/Container";
 import Heading from "@/components/Dashboard/Heading";
+import CardGrid from "@/components/Dashboard/Layout/CardGrid";
 
 export default function AutoModPage() {
     return (
@@ -10,7 +9,6 @@ export default function AutoModPage() {
             <Heading>Auto Moderation Settings</Heading>
 
             <CardGrid>
-                <MessageRuleManagementCard />
                 <AntiRaidCard />
             </CardGrid>
         </Container>
