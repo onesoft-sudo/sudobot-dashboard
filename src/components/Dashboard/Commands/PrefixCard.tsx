@@ -1,45 +1,30 @@
 "use client";
 
-import { useGuildConfiguration } from "@/contexts/GuildConfigurationContext";
 import { useGuildConfigurationUpdate } from "@/hooks/config";
-import { logger } from "@/logging/logger";
+import { useConfigForm } from "@/hooks/forms";
 import { Tooltip } from "@mui/material";
 import { Checkbox, Input, Spacer } from "@nextui-org/react";
-import { useEffect, useRef } from "react";
-import { useForm } from "react-hook-form";
 import { BsDashCircle } from "react-icons/bs";
 import { MdQuestionMark } from "react-icons/md";
 import Card from "../Layout/Card";
 
 export default function PrefixCard() {
-    const configuration = useGuildConfiguration();
-    const { prefix } = configuration;
     const update = useGuildConfigurationUpdate();
-    const { register, formState, handleSubmit, reset } = useForm({
+    const { form, configuration } = useConfigForm((configuration) => ({
         defaultValues: {
-            prefix,
+            prefix: configuration.prefix,
             commands: {
                 mention_prefix: configuration.commands?.mention_prefix ?? false,
             },
         },
-    });
-    const initialRenderRef = useRef(true);
-
-    useEffect(() => {
-        if (initialRenderRef.current) {
-            initialRenderRef.current = false;
-            return;
-        }
-
-        reset(configuration as unknown as Parameters<typeof reset>[0]);
-        logger.debug("PrefixCard:useEffect", "Reset form");
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [configuration]);
+    }));
+    const { register, formState, handleSubmit } = form;
+    const { prefix } = configuration;
 
     return (
-        <Card>
+        <Card form={form} onSubmit={handleSubmit(update)}>
             <Card.Header icon={BsDashCircle} title="Prefix" />
-            <Card.Form formState={formState} onSubmit={handleSubmit(update)}>
+            <Card.FormBody>
                 <Input
                     label="Prefix"
                     {...register("prefix", {
@@ -77,7 +62,7 @@ export default function PrefixCard() {
                     run a legacy command.
                 </p>
                 <Card.FormSubmit className="mt-4" />
-            </Card.Form>
+            </Card.FormBody>
         </Card>
     );
 }

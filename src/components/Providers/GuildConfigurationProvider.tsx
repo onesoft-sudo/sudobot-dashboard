@@ -6,7 +6,7 @@ import { useCurrentUserInfo } from "@/hooks/user";
 import { logger } from "@/logging/logger";
 import { CircularProgress } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
-import { PropsWithChildren, useEffect } from "react";
+import { PropsWithChildren, useCallback, useEffect } from "react";
 
 export default function GuildConfigurationProvider({ children }: PropsWithChildren) {
     const { currentGuildId } = useCurrentUserInfo();
@@ -16,15 +16,19 @@ export default function GuildConfigurationProvider({ children }: PropsWithChildr
         queryFn: () => (currentGuildId ? fetchConfig(currentGuildId) : Promise.resolve(null)),
     });
 
+    const isRefetching = useCallback(() => query.isRefetching, [query]);
+
     useEffect(() => {
         const handler = () => {
             logger.debug("GuildConfigurationProvider:useEffect:handler", "Refreshing guild configuration query");
-            query.refetch();
+            query.refetch().then(() => logger.debug("GuildConfigurationProvider:useEffect:handler", "Query refreshed"));
         };
 
         window.addEventListener("sb:guild-config-save", handler);
         return () => window.removeEventListener("sb:guild-config-save", handler);
     }, [currentGuildId, query]);
+
+    useEffect(() => logger.debug(GuildConfigurationProvider.name, "Re-rendered"));
 
     if (!currentGuildId) {
         return null;
@@ -55,7 +59,7 @@ export default function GuildConfigurationProvider({ children }: PropsWithChildr
     }
 
     return (
-        <GuildConfigurationContext.Provider value={{ configuration: query.data }}>
+        <GuildConfigurationContext.Provider value={{ configuration: query.data, isRefetching }}>
             {children}
         </GuildConfigurationContext.Provider>
     );

@@ -3,6 +3,7 @@ import { createContext, useContext } from "react";
 
 type GuildConfigurationContextType = {
     configuration: GuildConfiguration;
+    isRefetching: () => boolean;
 };
 
 export const GuildConfigurationContext = createContext<GuildConfigurationContextType | undefined>(undefined);

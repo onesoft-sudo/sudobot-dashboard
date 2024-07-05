@@ -14,9 +14,12 @@ const Select = <T extends FieldValues>({ control, name, children, ...props }: Se
             control={control}
             render={({ field }) => (
                 <NextUISelect
-                    selectedKeys={field.value}
+                    selectedKeys={props.selectionMode === "single" ? new Set([field.value]) : field.value}
                     name={name}
-                    onSelectionChange={(selectedKeys) => field.onChange(Array.from(selectedKeys))}
+                    onSelectionChange={(selectedKeys) => {
+                        const keys = Array.from(selectedKeys);
+                        field.onChange(props.selectionMode === "single" ? keys[0] : keys);
+                    }}
                     {...props}
                 >
                     {children}

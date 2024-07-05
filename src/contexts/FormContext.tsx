@@ -1,9 +1,8 @@
 import { createContext, useContext } from "react";
-import { Control, FieldValues, FormState } from "react-hook-form";
+import { UseFormReturn } from "react-hook-form";
 
 type FormContextType = {
-    control?: Control<FieldValues>;
-    formState?: FormState<FieldValues>;
+    form?: UseFormReturn<any>;
 };
 
 export const FormContext = createContext<FormContextType | undefined>(undefined);

@@ -1,6 +1,8 @@
 "use client";
 
+import Select from "@/components/Form/Select";
 import { FormContext, useFormContext } from "@/contexts/FormContext";
+import { GuildConfigurationContext } from "@/contexts/GuildConfigurationContext";
 import {
     Button,
     CircularProgress,
@@ -8,35 +10,49 @@ import {
     Card as NextUICard,
     CardBody as NextUICardBody,
     CardHeader as NextUICardHeader,
+    Switch,
 } from "@nextui-org/react";
-import { ComponentProps } from "react";
-import { Control, FieldValues, FormState } from "react-hook-form";
+import React, { ComponentProps, FC, ForwardedRef, ReactNode, forwardRef, useContext } from "react";
+import { Control, Controller, FieldValues, UseFormReturn } from "react-hook-form";
 import { IconType } from "react-icons/lib";
 
-function Card({ children, ...props }: ComponentProps<typeof NextUICard>) {
+type CardProps = {
+    nextUiCardProps?: ComponentProps<typeof NextUICard>;
+    children: React.ReactNode;
+    form: UseFormReturn<any>;
+} & ComponentProps<"form">;
+
+function Card({ children, form, nextUiCardProps, ...props }: CardProps) {
     return (
-        <NextUICard shadow="sm" {...props}>
-            {children}
-        </NextUICard>
+        <FormContext.Provider value={{ form }}>
+            <form {...props}>
+                <NextUICard shadow="sm" {...nextUiCardProps}>
+                    {children}
+                </NextUICard>
+            </form>
+        </FormContext.Provider>
     );
 }
 
 type CardHeaderProps = {
     icon: IconType;
     title: string;
+    switchName?: string;
 };
 
 type CardBodyProps = {
     children: React.ReactNode;
 };
 
-type CardFormProps = ComponentProps<"form"> & {
+type CardFormProps = {
     children: React.ReactNode;
-    control?: Control<FieldValues>;
-    formState?: FormState<FieldValues>;
 };
 
-Card.Header = function CardHeader({ icon: Icon, title }: CardHeaderProps) {
+Card.Header = function CardHeader({ icon: Icon, title, switchName }: CardHeaderProps) {
+    const { isRefetching } = useContext(GuildConfigurationContext) ?? {};
+    const { form } = useFormContext();
+    const refreshing = !!isRefetching?.();
+
     return (
         <NextUICardHeader className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-3">
@@ -45,6 +61,16 @@ Card.Header = function CardHeader({ icon: Icon, title }: CardHeaderProps) {
                     <div className="text-base">{title}</div>
                 </div>
             </div>
+            {switchName && (
+                <Controller
+                    control={form?.control}
+                    name={switchName}
+                    disabled={refreshing}
+                    render={({ field }) => (
+                        <Switch isSelected={!!field.value} onValueChange={field.onChange} isDisabled={refreshing} />
+                    )}
+                />
+            )}
         </NextUICardHeader>
     );
 };
@@ -58,18 +84,18 @@ Card.Body = function CardBody({ children }: CardBodyProps) {
     );
 };
 
-Card.Form = function CardForm({ children, control, formState, ...props }: CardFormProps) {
+Card.FormBody = function CardFormBody({ children }: CardFormProps) {
+    const { isRefetching } = useContext(GuildConfigurationContext) ?? {};
+
     return (
         <Card.Body>
-            <FormContext.Provider value={{ control, formState }}>
-                {formState?.isSubmitSuccessful ? (
-                    <div className="flex items-center justify-center">
-                        <CircularProgress />
-                    </div>
-                ) : (
-                    <form {...props}>{children}</form>
-                )}
-            </FormContext.Provider>
+            {isRefetching?.() ? (
+                <div className="flex items-center justify-center">
+                    <CircularProgress />
+                </div>
+            ) : (
+                children
+            )}
         </Card.Body>
     );
 };
@@ -79,17 +105,86 @@ Card.FormSubmit = function CardFormSubmit({
     type = "submit",
     ...props
 }: ComponentProps<typeof Button>) {
-    const { formState } = useFormContext();
+    const { form } = useFormContext();
 
-    if (!formState?.isDirty || formState.isSubmitSuccessful) {
+    if (!form?.formState?.isDirty || form.formState.isSubmitSuccessful) {
         return null;
     }
 
     return (
-        <Button type={type} {...props} isLoading={formState?.isSubmitting}>
+        <Button type={type} fullWidth isLoading={form?.formState?.isSubmitting} {...props}>
             {children}
         </Button>
     );
 };
+
+function CardFormControl<T extends FC | keyof JSX.IntrinsicElements>(
+    { component, children, ...props }: ComponentProps<T> & { component: T; children?: ReactNode; name?: string },
+    ref: ForwardedRef<any>,
+) {
+    const { form } = useFormContext();
+    const Component = component as unknown as FC<ComponentProps<T>>;
+    let error: unknown = form?.formState?.errors;
+
+    if (error) {
+        for (const key of props.name?.split(".") ?? []) {
+            error = (error as Record<string, string>)?.[key];
+        }
+    }
+
+    return (
+        <Component
+            ref={ref}
+            errorMessage={
+                props.name
+                    ? ((error as unknown as { message?: string } | undefined)?.message as unknown as string)
+                    : undefined
+            }
+            isInvalid={props.name ? !!(error as unknown as { message?: string } | undefined)?.message : undefined}
+            {...(props as ComponentProps<typeof Component>)}
+        >
+            {children}
+        </Component>
+    );
+}
+
+Card.FormControl = forwardRef(CardFormControl) as typeof CardFormControl;
+
+Card.FormSelect = forwardRef(function CardFormSelect<T extends FieldValues>(
+    {
+        children,
+        control,
+        ...props
+    }: Omit<ComponentProps<typeof Select<T>>, "control"> & {
+        control: Control<any>;
+    },
+    ref: ForwardedRef<any>,
+) {
+    const { form } = useFormContext();
+
+    let error: unknown = form?.formState?.errors;
+
+    if (error) {
+        for (const key of props.name?.split(".") ?? []) {
+            error = (error as Record<string, string>)?.[key];
+        }
+    }
+
+    return (
+        <Select<T>
+            ref={ref}
+            control={control as Control<T>}
+            errorMessage={
+                props.name
+                    ? ((error as unknown as { message?: string } | undefined)?.message as unknown as string)
+                    : undefined
+            }
+            isInvalid={props.name ? !!(error as unknown as { message?: string } | undefined)?.message : undefined}
+            {...props}
+        >
+            {children}
+        </Select>
+    );
+});
 
 export default Card;

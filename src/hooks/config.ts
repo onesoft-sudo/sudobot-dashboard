@@ -121,7 +121,7 @@ export const useConfigUpdate = <K extends FilteredSliceKeysWithData>(
     return { state, update, hasUnsavedChanges };
 };
 
-export const useGuildConfigurationUpdate = () => {
+export const useGuildConfigurationUpdate = (reset?: () => void) => {
     const { currentGuildId } = useCurrentUserInfo();
     const config = useGuildConfiguration();
     const queryClient = useQueryClient();
@@ -167,13 +167,14 @@ export const useGuildConfigurationUpdate = () => {
                 removeToast(id);
                 return true;
             } catch (error) {
+                reset?.();
                 logger.error("useGuildConfigurationUpdate", "Failed to update guild configuration", error);
                 removeToast(id);
             }
 
             return false;
         },
-        [currentGuildId, queryClient, config, addToast, removeToast],
+        [currentGuildId, queryClient, config, addToast, removeToast, reset],
     );
 
     return update;
