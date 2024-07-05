@@ -11,12 +11,12 @@ type InputProps = ComponentProps<typeof NextUIInput> & {
 };
 
 export default function Input({ name, rules, ...props }: InputProps) {
-    const { control } = useFormContext();
+    const { form } = useFormContext();
 
     return (
         <Controller
             name={name}
-            control={control}
+            control={form?.control}
             defaultValue={props.defaultValue}
             disabled={props.disabled}
             render={({ field: { name, onChange, value } }) => {
