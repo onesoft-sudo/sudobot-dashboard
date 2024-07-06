@@ -43,9 +43,9 @@ export const useDialog = (factory: (close: () => void) => DialogCreateOptions) =
         const emitter = getDialogEventEmitter(id);
         emitter?.emit("close");
         dispatch(setDialogState({ id, isOpen: false }));
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const dialogOptions = useMemo(() => factory(close), []);
+    const dialogOptions = useMemo(() => factory(close), []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const open = useCallback(() => {
         dispatch(setDialogState({ id, isOpen: true }));
@@ -71,7 +71,7 @@ export const useDialog = (factory: (close: () => void) => DialogCreateOptions) =
                     reject(new Error("Dialog closed"));
                 });
             });
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
         icons.set(id, dialogOptions.icon);
@@ -109,7 +109,7 @@ export const useDialog = (factory: (close: () => void) => DialogCreateOptions) =
             dialogEventEmitters.delete(id);
             dispatch(removeDialog(id));
         };
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return { open, close };
 };
