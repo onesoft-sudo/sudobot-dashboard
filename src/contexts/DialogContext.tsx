@@ -8,6 +8,6 @@ export const DialogContext = createContext<DialogContextType>({
     onClose: undefined,
 });
 
-export const useDialog = () => {
+export const useDialogContext = () => {
     return useContext(DialogContext);
 };

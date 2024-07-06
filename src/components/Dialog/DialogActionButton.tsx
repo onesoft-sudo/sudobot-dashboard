@@ -1,6 +1,6 @@
 "use client";
 
-import { useDialog } from "@/contexts/DialogContext";
+import { useDialogContext } from "@/contexts/DialogContext";
 import { useTheme } from "@/hooks/theme";
 import { Button } from "@nextui-org/react";
 import { ComponentProps, type FC } from "react";
@@ -12,7 +12,7 @@ type DialogActionButtonProps = ComponentProps<typeof Button> & {
 };
 
 const DialogActionButton: FC<DialogActionButtonProps> = (props) => {
-    const { onClose } = useDialog();
+    const { onClose } = useDialogContext();
     const { mode } = useTheme();
 
     return (

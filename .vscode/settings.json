@@ -1,8 +1,10 @@
 {
     "cSpell.words": [
+        "antijoin",
         "automod",
         "clsx",
         "commitlint",
+        "dont",
         "grecaptcha",
         "hookform",
         "nextjs",
@@ -18,7 +20,8 @@
         "sudobot",
         "tailwindcss",
         "Tanstack",
-        "Timeframe"
+        "Timeframe",
+        "uuidv"
     ],
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {

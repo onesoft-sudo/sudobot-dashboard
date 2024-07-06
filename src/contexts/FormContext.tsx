@@ -3,6 +3,7 @@ import { UseFormReturn } from "react-hook-form";
 
 type FormContextType = {
     form?: UseFormReturn<any>;
+    showSubmitButton?: boolean;
 };
 
 export const FormContext = createContext<FormContextType | undefined>(undefined);

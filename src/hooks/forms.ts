@@ -24,7 +24,19 @@ export const useConfigForm = <
             return;
         }
 
-        form.reset(configuration as unknown as Parameters<typeof form.reset>[0]);
+        form.reset(configuration as unknown as Parameters<typeof form.reset>[0], {
+            keepDirty: false,
+            keepDefaultValues: false,
+            keepIsSubmitSuccessful: false,
+            keepDirtyValues: false,
+            keepErrors: false,
+            keepTouched: false,
+            keepIsValid: false,
+            keepSubmitCount: false,
+            keepIsValidating: false,
+            keepIsSubmitted: false,
+            keepValues: false,
+        });
         logger.debug(useConfigForm.name, "Reset form");
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [configuration]);

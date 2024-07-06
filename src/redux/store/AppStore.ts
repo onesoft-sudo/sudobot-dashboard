@@ -2,8 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import AnalyticsSliceReducer from "../slice/AnalyticsSlice";
 import AntiRaidConfigSliceReducer from "../slice/AntiRaidConfigSlice";
 import CommandConfigSliceReducer from "../slice/CommandConfigSlice";
+import DialogManagerSlice from "../slice/DialogManagerSlice";
 import GuildCacheReducer from "../slice/GuildCacheSlice";
-import GuildConfigurationSlice from "../slice/GuildConfigurationSlice";
 import InitializationSliceReducer from "../slice/InitializationSlice";
 import MessageRuleListReducer from "../slice/MessageRuleListSlice";
 import ModalSliceReducer from "../slice/ModalSlice";
@@ -29,10 +29,10 @@ export const makeStore = () => {
             ruleModerationConfig: RuleModerationConfigSliceReducer,
             modals: ModalSliceReducer,
             toastManager: ToastManagerReducer,
+            dialogManager: DialogManagerSlice,
             antiRaidConfig: AntiRaidConfigSliceReducer,
             rootConfig: RootConfigSliceReducer,
             commandConfig: CommandConfigSliceReducer,
-            guildConfigurationSlice: GuildConfigurationSlice,
         },
     });
 };

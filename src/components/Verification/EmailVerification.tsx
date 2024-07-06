@@ -29,14 +29,13 @@ const EmailVerification: FC<EmailVerificationProps> = ({ token }) => {
     });
 
     const onSubmit = async (data: FormData) => {
-        console.log(data);
         mutation.mutate(data);
     };
 
     return (
         <form
             action={onSubmit}
-            className="rounded-lg bg-white/70 p-3 text-left shadow-[0_0_2px_0_rgba(0,0,0,0.2)] sm:w-80 md:w-96 dark:shadow-[0_0_2px_0_rgba(255,255,255,0.6)] dark:[background:linear-gradient(to_right,rgba(45,45,45,0.5),rgba(45,45,45,0.6))]"
+            className="rounded-lg bg-white/70 p-3 text-left shadow-[0_0_2px_0_rgba(0,0,0,0.2)] dark:shadow-[0_0_2px_0_rgba(255,255,255,0.6)] dark:[background:linear-gradient(to_right,rgba(45,45,45,0.5),rgba(45,45,45,0.6))] sm:w-80 md:w-96"
         >
             {mutation.isError && (
                 <Alert severity="error" title="Error" className="mb-3">

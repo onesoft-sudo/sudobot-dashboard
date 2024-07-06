@@ -2,6 +2,7 @@ import AppStoreProvider from "@/providers/AppStoreProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import DialogContainer from "@/components/Dialog/DialogContainer";
 import AppBody from "@/components/Layout/AppBody";
 import ClientSidePostHogProvider from "@/providers/ClientSidePosthogProvider";
 import "@/styles/globals.css";
@@ -24,6 +25,7 @@ export default function RootLayout({
             <AppStoreProvider>
                 <ClientSidePostHogProvider>
                     <AppBody className={inter.className}>
+                        <DialogContainer />
                         <Providers>{children}</Providers>
                     </AppBody>
                 </ClientSidePostHogProvider>

@@ -19,12 +19,13 @@ import { IconType } from "react-icons/lib";
 type CardProps = {
     nextUiCardProps?: ComponentProps<typeof NextUICard>;
     children: React.ReactNode;
-    form: UseFormReturn<any>;
+    form?: UseFormReturn<any>;
+    showSubmitButton?: boolean;
 } & ComponentProps<"form">;
 
-function Card({ children, form, nextUiCardProps, ...props }: CardProps) {
+function Card({ children, form, nextUiCardProps, showSubmitButton, ...props }: CardProps) {
     return (
-        <FormContext.Provider value={{ form }}>
+        <FormContext.Provider value={{ form, showSubmitButton }}>
             <form {...props}>
                 <NextUICard shadow="sm" {...nextUiCardProps}>
                     {children}
@@ -105,9 +106,9 @@ Card.FormSubmit = function CardFormSubmit({
     type = "submit",
     ...props
 }: ComponentProps<typeof Button>) {
-    const { form } = useFormContext();
+    const { form, showSubmitButton } = useFormContext();
 
-    if (!form?.formState?.isDirty || form.formState.isSubmitSuccessful) {
+    if (!showSubmitButton && (!form?.formState?.isDirty || form.formState.isSubmitSuccessful)) {
         return null;
     }
 
@@ -156,7 +157,7 @@ Card.FormSelect = forwardRef(function CardFormSelect<T extends FieldValues>(
         control,
         ...props
     }: Omit<ComponentProps<typeof Select<T>>, "control"> & {
-        control: Control<any>;
+        control?: Control<any>;
     },
     ref: ForwardedRef<any>,
 ) {
@@ -173,7 +174,7 @@ Card.FormSelect = forwardRef(function CardFormSelect<T extends FieldValues>(
     return (
         <Select<T>
             ref={ref}
-            control={control as Control<T>}
+            control={(control ?? form?.control) as Control<T>}
             errorMessage={
                 props.name
                     ? ((error as unknown as { message?: string } | undefined)?.message as unknown as string)

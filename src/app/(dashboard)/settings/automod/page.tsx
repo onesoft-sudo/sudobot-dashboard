@@ -1,4 +1,4 @@
-import AntiRaidCard from "@/components/Dashboard/AutoMod/AntiRaidCard";
+import RaidProtectionCard from "@/components/Dashboard/AutoMod/RaidProtectionCard";
 import Container from "@/components/Dashboard/Container";
 import Heading from "@/components/Dashboard/Heading";
 import CardGrid from "@/components/Dashboard/Layout/CardGrid";
@@ -11,7 +11,7 @@ export default function AutoModPage() {
 
             <GuildConfigurationProvider>
                 <CardGrid>
-                    <AntiRaidCard />
+                    <RaidProtectionCard />
                 </CardGrid>
             </GuildConfigurationProvider>
         </Container>

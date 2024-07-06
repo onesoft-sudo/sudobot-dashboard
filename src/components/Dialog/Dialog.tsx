@@ -16,10 +16,11 @@ import DialogTitle from "./DialogTitle";
 type DialogProps = {
     isOpen: boolean;
     onClose?: () => void;
+    onManualExit?: () => void;
     children: React.ReactNode;
 };
 
-function Dialog({ isOpen, onClose, children }: DialogProps) {
+function Dialog({ isOpen, onClose, onManualExit, children }: DialogProps) {
     const { mode } = useTheme();
 
     useEffect(() => {
@@ -47,6 +48,7 @@ function Dialog({ isOpen, onClose, children }: DialogProps) {
 
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === "Escape") {
+                onManualExit?.();
                 onClose?.();
             }
         };
@@ -56,7 +58,7 @@ function Dialog({ isOpen, onClose, children }: DialogProps) {
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, [isOpen, onClose]);
+    }, [isOpen, onClose, onManualExit]);
 
     return (
         <DialogContext.Provider value={{ onClose }}>
@@ -70,6 +72,7 @@ function Dialog({ isOpen, onClose, children }: DialogProps) {
                         transition={{ duration: 0.2 }}
                         onClick={(e) => {
                             e.stopPropagation();
+                            onManualExit?.();
                             onClose?.();
                         }}
                         className="fixed left-0 top-0 z-[100000000000000] flex h-screen w-screen items-center justify-center"
@@ -80,7 +83,7 @@ function Dialog({ isOpen, onClose, children }: DialogProps) {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.5 }}
                             transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                            className="mx-10 w-full rounded-lg bg-white/70 p-5 shadow outline-none backdrop-blur-md [box-shadow:0_10px_30px_10px_rgba(0,0,0,0.3)] dark:bg-[rgba(35,35,35,0.2)] md:w-80"
+                            className="mx-10 w-full rounded-2xl bg-white/70 p-5 shadow outline-none backdrop-blur-xl [box-shadow:0_10px_30px_10px_rgba(0,0,0,0.15)] dark:bg-[rgba(255,255,255,0.08)] md:w-80"
                             onClick={(e) => e.stopPropagation()}
                         >
                             {children}

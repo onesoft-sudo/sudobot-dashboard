@@ -19,7 +19,7 @@ const initialState: ToastManagerSliceType = {
 };
 
 const ToastManagerSlice = createSlice({
-    name: "toastManager",
+    name: "dialogManager",
     initialState,
     reducers: {
         addToast: (state, action: PayloadAction<ToastDetails>) => {

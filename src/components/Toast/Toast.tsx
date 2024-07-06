@@ -28,7 +28,7 @@ const iconResolver = (icon: string): ReactNode => {
 
 const Toast: FC<ToastProps> = ({ details, onClose }) => {
     return (
-        <div className="w-full rounded-md bg-zinc-300 text-sm dark:bg-[rgb(35,35,35)]">
+        <div className="w-full rounded-md bg-white text-sm shadow-md dark:bg-[rgb(35,35,35)] dark:shadow-none">
             <div className="py-2 pl-4 pr-3">
                 <div className="flex items-center justify-between">
                     <div className="mb-2 flex items-center gap-1.5">
@@ -48,7 +48,7 @@ const Toast: FC<ToastProps> = ({ details, onClose }) => {
                         <MdClose />
                     </Button>
                 </div>
-                <p className="text-[#999] dark:text-neutral-300">{details.contents}</p>
+                <p className="text-neutral-800 dark:text-neutral-300">{details.contents}</p>
             </div>
             {details.progress && <LinearProgress className="mt-1 rounded-b-md" />}
         </div>
