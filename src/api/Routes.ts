@@ -1,5 +1,6 @@
 export enum Route {
     AUTH_LOGIN = "/login",
+    AUTH_LOGIN_WITH_DISCORD = "/challenge/auth/discord",
     LATEST_ANNOUNCEMENT = "/announcements/latest",
     VERIFY_BY_GITHUB = "/challenge/github",
     VERIFY_BY_DISCORD = "/challenge/discord",
