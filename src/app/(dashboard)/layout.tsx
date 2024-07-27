@@ -5,9 +5,19 @@ import Sidebar from "@/components/Sidebar/Sidebar";
 import ToastView from "@/components/Toast/ToastView";
 import { ConfigMutationProvider } from "@/contexts/ConfigMutationProvider";
 import { getAppRouterURL } from "@/utils/routing";
+import { Metadata } from "next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { PropsWithChildren } from "react";
+
+export const metadata: Metadata = {
+    title: "SudoBot Dashboard",
+    description: "The ultimate Discord Bot for moderation purposes.",
+    robots: {
+        follow: false,
+        index: false,
+    }
+};
 
 export default function DashboardLayout({ children }: PropsWithChildren) {
     const cookieStore = cookies();

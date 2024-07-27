@@ -1,3 +1,7 @@
+if [ "$SUDOBOT_DASHBOARD_USE_COMMITLINT_CHECKS" != "1" ]; then
+    exit 0
+fi
+
 has_bunx=$(command -v bunx)
 has_npx=$(command -v npx)
 
