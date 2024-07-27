@@ -184,7 +184,7 @@ const LoginForm: FC = () => {
                 type="button"
                 isDisabled={loginMutation.isPending || loginMutation.isSuccess}
                 as={Link}
-                href={process.env.NEXT_PUBLIC_DISCORD_AUTH_URL}
+                href={process.env.NEXT_PUBLIC_DISCORD_AUTH_URL ?? ""}
                 color="primary"
                 variant="flat"
                 fullWidth
