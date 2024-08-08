@@ -18,7 +18,7 @@ export default function NotFound() {
                 <p className="mt-2 text-[#999]">You&rsquo;ll be redirected to the donation page shortly.</p>
                 <hr className="my-3 border-t-1 border-t-gray-200 dark:border-t-gray-700" />
                 <p className="text-[#999]">
-                    If you're not being redirected in 5 seconds, you can{" "}
+                    If you&rsquo;re not being redirected in 5 seconds, you can{" "}
                     <Link href={DONATION_URL} className="link">
                         manually navigate
                     </Link>
