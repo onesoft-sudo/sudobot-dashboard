@@ -12,7 +12,7 @@ const RedirectTo: FC<RedirectToProps> = ({ to }) => {
 
     useEffect(() => {
         router.replace(to);        
-    }, []); // eslint-disable react-hooks/exhaustive-deps
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return null;
 };
