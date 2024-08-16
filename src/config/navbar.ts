@@ -1,3 +1,9 @@
+import {
+    DOCS_URL,
+    INVITE_REQUEST_URL,
+    SUPPORT_EMAIL_ADDRESS
+} from "@/constants/links";
+
 export const links = [
     {
         title: "Home",
@@ -5,15 +11,15 @@ export const links = [
     },
     {
         title: "Commands",
-        href: "https://docs.sudobot.org/commands/automation/afk",
+        href: DOCS_URL,
     },
     {
         title: "Support",
-        href: "mailto:team@onesoftnet.eu.org",
+        href: `mailto:${SUPPORT_EMAIL_ADDRESS}`,
     },
     {
         title: "Invite",
-        href: "https://forms.gle/5vCJhrP4skdcL6kq5",
+        href: INVITE_REQUEST_URL,
     },
     {
         title: "Login",
