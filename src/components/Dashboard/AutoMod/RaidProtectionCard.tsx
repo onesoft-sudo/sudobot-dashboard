@@ -1,5 +1,6 @@
 "use client";
 
+import { EntityType } from "@/components/Form/EntitySelect";
 import { useGuildConfigurationUpdate } from "@/hooks/config";
 import { useDialog } from "@/hooks/dialog";
 import { useConfigForm } from "@/hooks/forms";
@@ -207,26 +208,11 @@ export default function RaidProtectionCard() {
                     {watch("raid_protection.action")?.startsWith("lock") && (
                         <>
                             <Spacer y={3} />
-                            <Card.FormSelect
+                            <Card.FormEntitySelect
                                 name="raid_protection.channels"
                                 label="Channels To Lock"
-                                selectionMode="multiple"
-                            >
-                                {[
-                                    {
-                                        label: "Channel 1",
-                                        value: "1134518138172620903",
-                                    },
-                                    {
-                                        label: "Channel 2",
-                                        value: "1134518138172620902",
-                                    },
-                                ].map(({ label, value }) => (
-                                    <SelectItem key={value} value={value}>
-                                        {`#${label}`}
-                                    </SelectItem>
-                                ))}
-                            </Card.FormSelect>
+                                type={EntityType.Channel}
+                            />
                         </>
                     )}
 

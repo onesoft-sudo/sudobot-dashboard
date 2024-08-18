@@ -1,5 +1,6 @@
 "use client";
 
+import EntitySelect from "@/components/Form/EntitySelect";
 import Select from "@/components/Form/Select";
 import { FormContext, useFormContext } from "@/contexts/FormContext";
 import { GuildConfigurationContext } from "@/contexts/GuildConfigurationContext";
@@ -13,7 +14,7 @@ import {
     Switch,
 } from "@nextui-org/react";
 import React, { ComponentProps, FC, ForwardedRef, ReactNode, forwardRef, useContext } from "react";
-import { Control, Controller, FieldValues, UseFormReturn } from "react-hook-form";
+import { Control, Controller, FieldValues, Path, UseFormReturn } from "react-hook-form";
 import { IconType } from "react-icons/lib";
 
 type CardProps = {
@@ -187,5 +188,37 @@ Card.FormSelect = forwardRef(function CardFormSelect<T extends FieldValues>(
         </Select>
     );
 });
+
+Card.FormEntitySelect = function CardFormEntitySelect<T extends FieldValues>({
+    control,
+    name,
+    ...props
+}: ComponentProps<typeof EntitySelect> & {
+    control?: Control<any>;
+}) {
+    const { form } = useFormContext();
+
+    let error: unknown = form?.formState?.errors;
+
+    if (error) {
+        for (const key of name?.split(".") ?? []) {
+            error = (error as Record<string, string>)?.[key];
+        }
+    }
+
+    return (
+        <EntitySelect<T>
+            control={(control ?? form?.control) as Control<T>}
+            errorMessage={
+                name
+                    ? ((error as unknown as { message?: string } | undefined)?.message as unknown as string)
+                    : undefined
+            }
+            isInvalid={name ? !!(error as unknown as { message?: string } | undefined)?.message : undefined}
+            name={name as Path<T>}
+            {...(props as any)}
+        />
+    );
+};
 
 export default Card;
