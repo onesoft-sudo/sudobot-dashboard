@@ -5,4 +5,4 @@ Disallow: /settings
 Disallow: /account
 Disallow: /logs
 
-Sitemap: https://www.sudobot.org/sitemap.xml
+Sitemap: https://sudobot.onesoftnet.eu.org/sitemap.xml
