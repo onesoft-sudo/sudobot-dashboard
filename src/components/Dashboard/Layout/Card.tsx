@@ -13,8 +13,21 @@ import {
     CardHeader as NextUICardHeader,
     Switch,
 } from "@nextui-org/react";
-import React, { ComponentProps, FC, ForwardedRef, ReactNode, forwardRef, useContext } from "react";
-import { Control, Controller, FieldValues, Path, UseFormReturn } from "react-hook-form";
+import React, {
+    ComponentProps,
+    FC,
+    ForwardedRef,
+    ReactNode,
+    forwardRef,
+    useContext,
+} from "react";
+import {
+    Control,
+    Controller,
+    FieldValues,
+    Path,
+    UseFormReturn,
+} from "react-hook-form";
 import { IconType } from "react-icons/lib";
 
 type CardProps = {
@@ -24,11 +37,26 @@ type CardProps = {
     showSubmitButton?: boolean;
 } & ComponentProps<"form">;
 
-function Card({ children, form, nextUiCardProps, showSubmitButton, ...props }: CardProps) {
+function Card({
+    children,
+    form,
+    nextUiCardProps,
+    showSubmitButton,
+    ...props
+}: CardProps) {
     return (
         <FormContext.Provider value={{ form, showSubmitButton }}>
             <form {...props}>
-                <NextUICard shadow="sm" {...nextUiCardProps}>
+                <NextUICard
+                    classNames={{
+                        body: "overflow-visible",
+                    }}
+                    shadow="sm"
+                    style={{
+                        overflow: "visible",
+                    }}
+                    {...nextUiCardProps}
+                >
                     {children}
                 </NextUICard>
             </form>
@@ -50,7 +78,11 @@ type CardFormProps = {
     children: React.ReactNode;
 };
 
-Card.Header = function CardHeader({ icon: Icon, title, switchName }: CardHeaderProps) {
+Card.Header = function CardHeader({
+    icon: Icon,
+    title,
+    switchName,
+}: CardHeaderProps) {
     const { isRefetching } = useContext(GuildConfigurationContext) ?? {};
     const { form } = useFormContext();
     const refreshing = !!isRefetching?.();
@@ -69,7 +101,11 @@ Card.Header = function CardHeader({ icon: Icon, title, switchName }: CardHeaderP
                     name={switchName}
                     disabled={refreshing}
                     render={({ field }) => (
-                        <Switch isSelected={!!field.value} onValueChange={field.onChange} isDisabled={refreshing} />
+                        <Switch
+                            isSelected={!!field.value}
+                            onValueChange={field.onChange}
+                            isDisabled={refreshing}
+                        />
                     )}
                 />
             )}
@@ -81,7 +117,13 @@ Card.Body = function CardBody({ children }: CardBodyProps) {
     return (
         <>
             <Divider />
-            <NextUICardBody>{children}</NextUICardBody>
+            <NextUICardBody
+                style={{
+                    overflow: "visible",
+                }}
+            >
+                {children}
+            </NextUICardBody>
         </>
     );
 };
@@ -109,19 +151,35 @@ Card.FormSubmit = function CardFormSubmit({
 }: ComponentProps<typeof Button>) {
     const { form, showSubmitButton } = useFormContext();
 
-    if (!showSubmitButton && (!form?.formState?.isDirty || form.formState.isSubmitSuccessful)) {
+    if (
+        !showSubmitButton &&
+        (!form?.formState?.isDirty || form.formState.isSubmitSuccessful)
+    ) {
         return null;
     }
 
     return (
-        <Button type={type} fullWidth isLoading={form?.formState?.isSubmitting} {...props}>
+        <Button
+            type={type}
+            fullWidth
+            isLoading={form?.formState?.isSubmitting}
+            {...props}
+        >
             {children}
         </Button>
     );
 };
 
 function CardFormControl<T extends FC | keyof JSX.IntrinsicElements>(
-    { component, children, ...props }: ComponentProps<T> & { component: T; children?: ReactNode; name?: string },
+    {
+        component,
+        children,
+        ...props
+    }: ComponentProps<T> & {
+        component: T;
+        children?: ReactNode;
+        name?: string;
+    },
     ref: ForwardedRef<any>,
 ) {
     const { form } = useFormContext();
@@ -139,10 +197,16 @@ function CardFormControl<T extends FC | keyof JSX.IntrinsicElements>(
             ref={ref}
             errorMessage={
                 props.name
-                    ? ((error as unknown as { message?: string } | undefined)?.message as unknown as string)
+                    ? ((error as unknown as { message?: string } | undefined)
+                          ?.message as unknown as string)
                     : undefined
             }
-            isInvalid={props.name ? !!(error as unknown as { message?: string } | undefined)?.message : undefined}
+            isInvalid={
+                props.name
+                    ? !!(error as unknown as { message?: string } | undefined)
+                          ?.message
+                    : undefined
+            }
             {...(props as ComponentProps<typeof Component>)}
         >
             {children}
@@ -178,10 +242,16 @@ Card.FormSelect = forwardRef(function CardFormSelect<T extends FieldValues>(
             control={(control ?? form?.control) as Control<T>}
             errorMessage={
                 props.name
-                    ? ((error as unknown as { message?: string } | undefined)?.message as unknown as string)
+                    ? ((error as unknown as { message?: string } | undefined)
+                          ?.message as unknown as string)
                     : undefined
             }
-            isInvalid={props.name ? !!(error as unknown as { message?: string } | undefined)?.message : undefined}
+            isInvalid={
+                props.name
+                    ? !!(error as unknown as { message?: string } | undefined)
+                          ?.message
+                    : undefined
+            }
             {...props}
         >
             {children}
@@ -211,10 +281,16 @@ Card.FormEntitySelect = function CardFormEntitySelect<T extends FieldValues>({
             control={(control ?? form?.control) as Control<T>}
             errorMessage={
                 name
-                    ? ((error as unknown as { message?: string } | undefined)?.message as unknown as string)
+                    ? ((error as unknown as { message?: string } | undefined)
+                          ?.message as unknown as string)
                     : undefined
             }
-            isInvalid={name ? !!(error as unknown as { message?: string } | undefined)?.message : undefined}
+            isInvalid={
+                name
+                    ? !!(error as unknown as { message?: string } | undefined)
+                          ?.message
+                    : undefined
+            }
             name={name as Path<T>}
             {...(props as any)}
         />
