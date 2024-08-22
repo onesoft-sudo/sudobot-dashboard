@@ -11,3 +11,4 @@ A huge thanks to all of the contributors and the people who have helped us devel
 
 Copyright (C) 2023 OSN Developers and all the contributors.
  
+URL: https://sudobot-dashboard-6c7506h5v-osn.vercel.app/
