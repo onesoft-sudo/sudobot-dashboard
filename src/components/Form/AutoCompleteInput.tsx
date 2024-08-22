@@ -56,7 +56,7 @@ const AutoCompleteInput = <T,>({
     return (
         <div
             // eslint-disable-next-line tailwindcss/no-custom-classname
-            className="transition-background relative flex cursor-text flex-col rounded-xl bg-zinc-800 p-2.5 hover:bg-zinc-700"
+            className="transition-background relative flex cursor-text flex-col rounded-xl bg-zinc-100 p-2.5 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700"
             tabIndex={0}
             onFocusCapture={onFocus}
             onBlurCapture={onBlur}
@@ -66,9 +66,10 @@ const AutoCompleteInput = <T,>({
                 className={clsx(
                     "absolute left-0 ml-2.5 select-none transition-all",
                     {
-                        "text-sm text-neutral-400 top-1/2 -translate-y-1/2":
+                        "text-sm text-neutral-500 dark:text-neutral-400 top-1/2 -translate-y-1/2":
                             !isLabelFocused,
-                        "mt-2 text-xs text-neutral-200 top-0": isLabelFocused,
+                        "mt-2 text-xs text-neutral-600 dark:text-neutral-200 top-0":
+                            isLabelFocused,
                     },
                 )}
             >
@@ -85,7 +86,7 @@ const AutoCompleteInput = <T,>({
                         tabIndex={0}
                         onFocus={(event) => event.stopPropagation()}
                         onBlur={(event) => event.stopPropagation()}
-                        className="z-50 flex items-center gap-1 rounded-full bg-neutral-600 px-2 py-1 text-xs text-neutral-300"
+                        className="z-50 flex items-center gap-1 rounded-full bg-neutral-300 px-2 py-1 text-xs text-neutral-800 dark:bg-neutral-600 dark:text-neutral-300"
                     >
                         <span>{renderItem?.(value)}</span>
                         <MdClose
