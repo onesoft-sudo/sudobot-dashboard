@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: `https://${NEXT_PUBLIC_FRONTEND_DOMAIN}`,
+        url: `https://${process.env.NEXT_PUBLIC_FRONTEND_DOMAIN}`,
         siteName: "SudoBot",
         title: "SudoBot",
         description: "The ultimate Discord Bot for moderation purposes.",
         images: [
             {
-                url: `https://${NEXT_PUBLIC_FRONTEND_DOMAIN}/logo-full.png`,
+                url: `https://${process.env.NEXT_PUBLIC_FRONTEND_DOMAIN}/logo-full.png`,
                 width: 1281,
                 height: 641,
                 alt: "SudoBot",
