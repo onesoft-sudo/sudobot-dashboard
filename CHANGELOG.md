@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.0...v1.2.1) (2024-08-24)
+
+
+### Bug Fixes
+
+* mail box trigger not working ([6866a6b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6866a6b0982d92b7319f28a8c3504498f7e6c021))
+
+
+
 # [1.2.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.1.1...v1.2.0) (2024-08-24)
 
 
@@ -132,15 +141,6 @@
 ### Bug Fixes
 
 * **build:** errors in `/view_deleted_messages` page ([7db807b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/7db807bc50f8d672d1fb9f49606df3552d922cb1))
-
-
-
-# [0.61.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.60.1...v0.61.0) (2023-12-24)
-
-
-### Features
-
-* **verification:** create email verification finish page ([556bd50](https://github.com/onesoft-sudo/sudobot-dashboard/commit/556bd50dbc76d362c06d622fc117c999bf9c64ec))
 
 
 
