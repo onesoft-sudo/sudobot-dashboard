@@ -100,7 +100,7 @@ export default function GuildEmailVerificationMail({
                         <Row>
                             <Text className="text-center text-xs text-gray-500">
                                 If you have any questions, please contact us at{" "}
-                                <Link href="mailto:support@sudobot.org">support@sudobot.org</Link>. We received this
+                                <Link href="mailto:support@sudobot.online">support@sudobot.online</Link>. We received this
                                 verification request from the IP address <strong>{ipAddress}</strong>
                                 {geo
                                     ? ` located in ${geo.city ? `${geo.city}, ` : ""}${geo.region ? `${geo.region}, ` : ""}${geo.country}`
