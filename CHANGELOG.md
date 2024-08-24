@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.1.0...v1.1.1) (2024-08-24)
+
+
+### Bug Fixes
+
+* **page:home:** better and more attractive cards ([b58d6dd](https://github.com/onesoft-sudo/sudobot-dashboard/commit/b58d6ddf8342f0b61e29d810c126d83bcbb773b1))
+
+
+
 # [1.1.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.61.1...v1.1.0) (2024-08-24)
 
 
@@ -132,15 +141,6 @@
 ### Bug Fixes
 
 * **error:types:** invalid value of `dynamic` property ([b61129f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/b61129fbbf82cb66392dfab228c0f70879a347ba))
-
-
-
-# [0.60.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.59.1...v0.60.0) (2023-12-23)
-
-
-### Features
-
-* **verification:email:** send email on step 1 ([bef37fd](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bef37fdf16dc6be9f53e5cb9e69ebc7f59030616))
 
 
 
