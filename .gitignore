@@ -41,3 +41,6 @@ next-env.d.ts
 
 /src/app/(dashboard)/test
 /tmp
+
+/package-lock.json
+/bun.lockb
