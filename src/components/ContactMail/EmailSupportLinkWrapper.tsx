@@ -16,7 +16,7 @@ const EmailSupportLinkWrapper: FC<EmailSupportLinkWrapperProps> = ({
     return (
         <div className="relative overflow-visible">
             <ContactMailProvider>
-                <ContactMailTrigger as="a" href="#" title={link.title}>
+                <ContactMailTrigger as="span">
                     {link.title}
                 </ContactMailTrigger>
                 <ContactMail direction="bottom" />
