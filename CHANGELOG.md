@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.1.1...v1.2.0) (2024-08-24)
+
+
+### Features
+
+* add contact email support modal ([3249f38](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3249f382f5c807a14d7bae6614e7896f646f6af8))
+
+
+
 ## [1.1.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.1.0...v1.1.1) (2024-08-24)
 
 
@@ -132,15 +141,6 @@
 ### Features
 
 * **verification:** create email verification finish page ([556bd50](https://github.com/onesoft-sudo/sudobot-dashboard/commit/556bd50dbc76d362c06d622fc117c999bf9c64ec))
-
-
-
-## [0.60.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.60.0...v0.60.1) (2023-12-23)
-
-
-### Bug Fixes
-
-* **error:types:** invalid value of `dynamic` property ([b61129f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/b61129fbbf82cb66392dfab228c0f70879a347ba))
 
 
 
