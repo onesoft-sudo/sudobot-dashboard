@@ -1,3 +1,4 @@
+import EmailSupportLinkWrapper from "@/components/ContactMail/EmailSupportLinkWrapper";
 import {
     DISCORD_SERVER_INVITE_URL,
     DOCS_URL,
@@ -21,7 +22,8 @@ export const links = {
             },
             {
                 title: "Email Support",
-                url: `mailto:${SUPPORT_EMAIL_ADDRESS}`,
+                id: "email_support",
+                render: EmailSupportLinkWrapper,
             },
             {
                 title: "GitHub",

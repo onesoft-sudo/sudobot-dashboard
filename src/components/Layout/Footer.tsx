@@ -20,18 +20,37 @@ export default function Footer() {
                                     {value.groupName}
                                 </h2>
                                 <ul className="font-medium text-gray-500 dark:text-gray-400">
-                                    {value.links.map((link) => (
-                                        <li key={`${link.title}_${link.url}`} className="mb-4 last:mb-0">
-                                            <Link
-                                                href={link.url}
-                                                title={link.title}
-                                                target={link.url ? "_blank" : undefined}
-                                                className="hover:underline"
+                                    {value.links.map((link) => {
+                                        const Render =
+                                            "render" in link &&
+                                            typeof link.render === "function"
+                                                ? link.render
+                                                : undefined;
+
+                                        return (
+                                            <li
+                                                key={`${link.title}_${link.url ?? link.id ?? ""}`}
+                                                className="mb-4 last:mb-0"
                                             >
-                                                {link.title}
-                                            </Link>
-                                        </li>
-                                    ))}
+                                                {Render ? (
+                                                    <Render link={link} />
+                                                ) : (
+                                                    <Link
+                                                        href={link.url ?? "#"}
+                                                        title={link.title}
+                                                        target={
+                                                            link.url
+                                                                ? "_blank"
+                                                                : undefined
+                                                        }
+                                                        className="hover:underline"
+                                                    >
+                                                        {link.title}
+                                                    </Link>
+                                                )}
+                                            </li>
+                                        );
+                                    })}
                                 </ul>
                             </div>
                         ))}
