@@ -118,8 +118,7 @@ const UserSlice = createSlice({
 
             if (Cookies.get("logged_in") !== "true") {
                 Cookies.set("logged_in", "true", {
-                    expires: action.payload.storage === "local" ? new Date(action.payload.expires) : undefined,
-                    sameSite: "strict",
+                    expires: action.payload.storage === "local" ? new Date(action.payload.expires) : undefined
                 });
 
                 logger.debug(
