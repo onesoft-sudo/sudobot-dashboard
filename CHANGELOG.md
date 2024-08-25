@@ -1,3 +1,12 @@
+## [1.2.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.3...v1.2.4) (2024-08-25)
+
+
+### Bug Fixes
+
+* **page:donate:** missing spacing ([bac3243](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bac3243a29cc98cfb2704c79bd711fee49e61153))
+
+
+
 ## [1.2.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.2...v1.2.3) (2024-08-25)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * add contact email support modal ([3249f38](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3249f382f5c807a14d7bae6614e7896f646f6af8))
-
-
-
-## [1.1.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.1.0...v1.1.1) (2024-08-24)
-
-
-### Bug Fixes
-
-* **page:home:** better and more attractive cards ([b58d6dd](https://github.com/onesoft-sudo/sudobot-dashboard/commit/b58d6ddf8342f0b61e29d810c126d83bcbb773b1))
 
 
 
