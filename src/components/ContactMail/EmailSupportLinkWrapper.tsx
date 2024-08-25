@@ -3,7 +3,6 @@
 import { LinkInfo } from "@/config/links";
 import { type FC } from "react";
 import ContactMail from "./ContactMail";
-import ContactMailProvider from "./ContactMailProvider";
 import ContactMailTrigger from "./ContactMailTrigger";
 
 type EmailSupportLinkWrapperProps = {
@@ -13,14 +12,14 @@ type EmailSupportLinkWrapperProps = {
 const EmailSupportLinkWrapper: FC<EmailSupportLinkWrapperProps> = ({
     link,
 }) => {
+    console.log(1);
+
     return (
         <div className="relative overflow-visible">
-            <ContactMailProvider>
-                <ContactMailTrigger as="span">
-                    {link.title}
-                </ContactMailTrigger>
-                <ContactMail direction="bottom" />
-            </ContactMailProvider>
+            <ContactMailTrigger as="a" href="#">
+                {link.title}
+            </ContactMailTrigger>
+            <ContactMail direction="bottom" />
         </div>
     );
 };

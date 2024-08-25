@@ -16,7 +16,7 @@ import {
     ContactMailFormData,
     ContactMailFormSchema,
 } from "./ContactMailFormSchema";
-import { useContactMail } from "./ContactMailProvider";
+import { useContactMail } from "./useContactMail";
 
 const ContactMailForm: FC = () => {
     const { close } = useContactMail();

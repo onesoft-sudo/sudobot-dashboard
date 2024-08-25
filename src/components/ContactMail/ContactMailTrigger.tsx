@@ -1,5 +1,5 @@
 import { ComponentProps, MouseEvent, type FC } from "react";
-import { useContactMail } from "./ContactMailProvider";
+import { useContactMail } from "./useContactMail";
 
 type ContactMailTriggerProps<
     T extends

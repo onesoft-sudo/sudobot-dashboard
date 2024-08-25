@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import AnalyticsSliceReducer from "../slice/AnalyticsSlice";
 import AntiRaidConfigSliceReducer from "../slice/AntiRaidConfigSlice";
 import CommandConfigSliceReducer from "../slice/CommandConfigSlice";
+import ContactMailSlice from "../slice/ContactMailSlice";
 import DialogManagerSlice from "../slice/DialogManagerSlice";
 import GuildCacheReducer from "../slice/GuildCacheSlice";
 import InitializationSliceReducer from "../slice/InitializationSlice";
@@ -33,6 +34,7 @@ export const makeStore = () => {
             antiRaidConfig: AntiRaidConfigSliceReducer,
             rootConfig: RootConfigSliceReducer,
             commandConfig: CommandConfigSliceReducer,
+            contactMail: ContactMailSlice,
         },
     });
 };

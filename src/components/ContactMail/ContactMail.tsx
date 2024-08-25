@@ -7,7 +7,7 @@ import { type FC } from "react";
 import { HiOutlineEnvelope } from "react-icons/hi2";
 import { MdClose } from "react-icons/md";
 import ContactMailForm from "./ContactMailForm";
-import { useContactMail } from "./ContactMailProvider";
+import { useContactMail } from "./useContactMail";
 
 type ContactMailProps = {
     isOpen?: boolean;
