@@ -21,7 +21,7 @@ export default function NotFound() {
                     If you&rsquo;re not being redirected in 5 seconds, you can{" "}
                     <Link href={DONATION_URL} className="link">
                         manually navigate
-                    </Link>
+                    </Link>{" "}
                     to the page.
                 </p>
             </main>
