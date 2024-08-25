@@ -1,3 +1,12 @@
+## [1.2.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.1...v1.2.2) (2024-08-25)
+
+
+### Bug Fixes
+
+* email support dialog not opening ([1cc3af3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/1cc3af32a5e121be7605a5c28b624af8ef37da26))
+
+
+
 ## [1.2.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.0...v1.2.1) (2024-08-24)
 
 
@@ -132,15 +141,6 @@
 * trusting proxies and supporting cloudflare ([142d1be](https://github.com/onesoft-sudo/sudobot-dashboard/commit/142d1be518b6f1a46da5a6a709a3b12c65fc04c0))
 * use latest next ([51f4c23](https://github.com/onesoft-sudo/sudobot-dashboard/commit/51f4c230cd9f14cc8beeaea1bc7b94014532c774))
 * verification pages ([26ed4ca](https://github.com/onesoft-sudo/sudobot-dashboard/commit/26ed4ca56f8f36732059998083fd888bb63bc211))
-
-
-
-## [0.61.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v0.61.0...v0.61.1) (2024-01-04)
-
-
-### Bug Fixes
-
-* **build:** errors in `/view_deleted_messages` page ([7db807b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/7db807bc50f8d672d1fb9f49606df3552d922cb1))
 
 
 
