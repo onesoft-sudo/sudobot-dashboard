@@ -12,7 +12,8 @@ import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import posthog from "posthog-js";
 import { useEffect, type FC } from "react";
-import { MdCheck, MdError } from "react-icons/md";
+import { MdCheck, MdError } from "react-icons/md"; 
+import Cookies from "js-cookie"; 
 
 type LoginWithDiscordProps = {
     code: string;
@@ -35,7 +36,19 @@ const LoginWithDiscord: FC<LoginWithDiscordProps> = ({ code }) => {
                     currentGuildId: responseData.guilds[0]?.id,
                 }),
             );
-
+            
+            if (Cookies.get("logged_in") !== "true") {
+                Cookies.set("logged_in", "true", {
+                    expires: action.payload.storage === "local" ? new Date(action.payload.expires) : undefined
+                });
+                
+                logger.debug(
+                     "login", "Cookie set, isSession: ",
+                     action.payload.storage === "session",
+                     Math.floor((action.payload.expires - Date.now()) / 1000)
+                );
+            }
+            
             dispatch(
                 addGuilds({
                     guilds: responseData.guilds,
