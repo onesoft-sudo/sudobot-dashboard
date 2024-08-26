@@ -41,11 +41,6 @@ const LoginWithDiscord: FC<LoginWithDiscordProps> = ({ code }) => {
                 Cookies.set("logged_in", "true", {
                     expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7)
                 });
-                
-                logger.debug(
-                     "login", "Cookie set, isSession: ",
-                     false,
-                );
             }
             
             dispatch(
