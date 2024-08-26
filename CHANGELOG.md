@@ -1,3 +1,14 @@
+## [1.2.5](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.4...v1.2.5) (2024-08-26)
+
+
+### Bug Fixes
+
+* infinite redirect when logging in with discor ([07347ee](https://github.com/onesoft-sudo/sudobot-dashboard/commit/07347eeb1dcb6c14a598fa925e3ce6f76a8eedc0))
+* type errors ([f51de52](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f51de52ebefdbcdf18ab081e754990a9d0a8a24a))
+* undefined references ([314b0e6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/314b0e64f376c640561bcc07129ab603fd879ecd))
+
+
+
 ## [1.2.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.3...v1.2.4) (2024-08-25)
 
 
@@ -31,15 +42,6 @@
 ### Bug Fixes
 
 * mail box trigger not working ([6866a6b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6866a6b0982d92b7319f28a8c3504498f7e6c021))
-
-
-
-# [1.2.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.1.1...v1.2.0) (2024-08-24)
-
-
-### Features
-
-* add contact email support modal ([3249f38](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3249f382f5c807a14d7bae6614e7896f646f6af8))
 
 
 
