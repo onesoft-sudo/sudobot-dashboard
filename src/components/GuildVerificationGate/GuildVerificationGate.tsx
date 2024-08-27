@@ -9,7 +9,6 @@ import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import { BsCheckCircle } from "react-icons/bs";
-import { HiOutlineExclamationCircle } from "react-icons/hi2";
 
 type GuildVerificationGateProps = {
     guild: Guild;
@@ -122,7 +121,6 @@ const GuildVerificationGate: FC<GuildVerificationGateProps> = ({
                 )}
                 {isError && (
                     <div className="flex items-center gap-1 pb-2">
-                        <HiOutlineExclamationCircle className="text-red-500 text-xl" />
                         <p className="text-red-500 text-sm text-center">
                             {(error instanceof AxiosError
                                 ? error?.response?.data?.error

@@ -1,22 +1,21 @@
 import PageExpired from "@/app/page-expired";
 import GuildVerificationGate from "@/components/GuildVerificationGate/GuildVerificationGate";
+import { Guild } from "@/types/Guild";
 import { ServerComponentProps } from "@/types/ServerComponentProps";
+import axios from "axios";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 
-const getGuildCached = cache(async (id: string) => {
-    return [{ id: "01", name: "Test Server", icon: null }, null] as const;
-
-    // try {
-    //     const guild = await getGuild(id);
-    //     return [
-    //         guild,
-    //         guild === null ? new Error("404 Not Found") : null,
-    //     ] as const;
-    // } catch (error) {
-    //     return [null, error] as const;
-    // }
+const getVerificationInfo = cache(async (guildId: string, memberId: string) => {
+    try {
+        const info = await axios.get(
+            `${process.env.NEXT_PUBLIC_API_URL}/guilds/${encodeURIComponent(guildId)}/members/${encodeURIComponent(memberId)}/verify`,
+        );
+        return [info.data?.guild as Guild, null] as const;
+    } catch (error) {
+        return [null, error] as const;
+    }
 });
 
 export async function generateMetadata({
@@ -33,7 +32,9 @@ export async function generateMetadata({
         };
     }
 
-    const [guild, error] = id ? await getGuildCached(id) : [null, true];
+    const [guild, error] = id
+        ? await getVerificationInfo(id, userId)
+        : [null, true];
 
     if (!guild || error) {
         return {
@@ -62,7 +63,11 @@ export default async function VerifyOnboardingPage({
         return <PageExpired />;
     }
 
-    const [guild, error] = id ? await getGuildCached(id) : [null, true];
+    const [guild, error] = id
+        ? await getVerificationInfo(id, userId)
+        : [null, true];
+
+    console.log(guild, error);
 
     if (!guild || error) {
         notFound();
