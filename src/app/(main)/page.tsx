@@ -77,6 +77,7 @@ export default function HomePage() {
 
                         <div className="items-center justify-center gap-2 py-5 md:flex md:pt-10 lg:py-20">
                             <Button
+                                as="a"
                                 startContent={<MdLink size={20} />}
                                 size="lg"
                                 color="primary"
@@ -88,6 +89,7 @@ export default function HomePage() {
                             </Button>
 
                             <Button
+                                as="a"
                                 endContent={<MdArrowForward size={20} />}
                                 size="lg"
                                 color="primary"
