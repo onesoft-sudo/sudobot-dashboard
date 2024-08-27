@@ -4,7 +4,6 @@ import { Guild } from "@/types/Guild";
 import { ServerComponentProps } from "@/types/ServerComponentProps";
 import axios from "axios";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { cache } from "react";
 
 const getVerificationInfo = cache(async (guildId: string, memberId: string) => {
@@ -38,7 +37,7 @@ export async function generateMetadata({
 
     if (!guild || error) {
         return {
-            title: "404 Not Found - SudoBot",
+            title: "419 Page Expired - SudoBot",
         };
     }
 
@@ -70,7 +69,7 @@ export default async function VerifyOnboardingPage({
     console.log(guild, error);
 
     if (!guild || error) {
-        notFound();
+        return <PageExpired />;
     }
 
     return (
