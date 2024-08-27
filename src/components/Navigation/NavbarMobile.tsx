@@ -43,7 +43,11 @@ export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
                             text: "text-base",
                         }}
                     />
-                    <Button onClick={() => setOpen(false)} sx={{ minWidth: 0 }} className="text-black dark:text-white">
+                    <Button
+                        onClick={() => setOpen(false)}
+                        sx={{ minWidth: 0 }}
+                        className="text-black dark:text-white"
+                    >
                         <MdClose size="1.2rem" />
                     </Button>
                 </div>
@@ -53,7 +57,12 @@ export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
                         <hr className="[border-top:1px_solid_#aaa] dark:[border-top:1px_solid_#333]" />
 
                         <div className="p-2">
-                            <GuildSwitcher buttonProps={{ fullWidth: true, disableRipple: false }} />
+                            <GuildSwitcher
+                                buttonProps={{
+                                    fullWidth: true,
+                                    disableRipple: false,
+                                }}
+                            />
                         </div>
 
                         <hr className="[border-top:1px_solid_#aaa] dark:[border-top:1px_solid_#333]" />
@@ -78,7 +87,12 @@ export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
                                             }
                                         }}
                                     >
-                                        <Box component="span" display="flex" alignItems="center" gap={2}>
+                                        <Box
+                                            component="span"
+                                            display="flex"
+                                            alignItems="center"
+                                            gap={2}
+                                        >
                                             <item.icon />
                                             {item.title}
                                         </Box>
@@ -115,6 +129,30 @@ export default function NavbarMobile({ open, setOpen }: NavbarMobileProps) {
                             </Link>
                         </li>
                     ))}
+
+                    {!isLoggedIn && (
+                        <li key="/login_login">
+                            <Link
+                                href="/login"
+                                title="Login"
+                                className={clsx(
+                                    "block rounded px-3 py-[0.35rem]",
+                                    {
+                                        "bg-[rgba(255,255,255,0.2)] dark:bg-[rgba(255,255,255,0.11)]":
+                                            pathname === "/login",
+                                    },
+                                    "hover:bg-[rgba(255,255,255,0.12)] dark:hover:bg-[rgba(255,255,255,0.09)]",
+                                )}
+                                onClick={() => {
+                                    if (pathname !== "/login") {
+                                        setOpen(false);
+                                    }
+                                }}
+                            >
+                                Login
+                            </Link>
+                        </li>
+                    )}
                 </ul>
             </aside>
         </>

@@ -1,7 +1,7 @@
 import {
     DOCS_URL,
     INVITE_REQUEST_URL,
-    SUPPORT_EMAIL_ADDRESS
+    SUPPORT_EMAIL_ADDRESS,
 } from "@/constants/links";
 
 export const links = [
@@ -20,10 +20,6 @@ export const links = [
     {
         title: "Invite",
         href: INVITE_REQUEST_URL,
-    },
-    {
-        title: "Login",
-        href: "/login",
-        mobileOnly: true,
+        mobileOnly: false,
     },
 ];
