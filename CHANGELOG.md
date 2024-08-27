@@ -1,3 +1,22 @@
+# [1.3.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.5...v1.3.0) (2024-08-27)
+
+
+### Bug Fixes
+
+* home page buttons ([9b081d7](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9b081d7d8f891ddd44945e61a4a83928fd30ec94))
+* **pages:home:** buttons not working ([66947a5](https://github.com/onesoft-sudo/sudobot-dashboard/commit/66947a5f8238557425ec47817ab42f154475e378))
+* type errors ([4c4e125](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4c4e1251581bac3c55f9d6042038c796a30595bd))
+* verification gate error icon ([4a496da](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4a496dad9822b07c16cba80cb28c937d5b9b3424))
+* **verification:** error messages ([ad75ace](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ad75ace52016f91e3099d7926bbf63a8161cc57f))
+
+
+### Features
+
+* add verification pages [1/3] ([09fb55a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/09fb55a8aa0eb4207038d0a99218caabca12d289))
+* finalize verification gate [2/3] ([65d5ada](https://github.com/onesoft-sudo/sudobot-dashboard/commit/65d5ada407a64245e6cffecfe25352dc1f5f121a))
+
+
+
 ## [1.2.5](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.4...v1.2.5) (2024-08-26)
 
 
@@ -33,15 +52,6 @@
 ### Bug Fixes
 
 * email support dialog not opening ([1cc3af3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/1cc3af32a5e121be7605a5c28b624af8ef37da26))
-
-
-
-## [1.2.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.0...v1.2.1) (2024-08-24)
-
-
-### Bug Fixes
-
-* mail box trigger not working ([6866a6b](https://github.com/onesoft-sudo/sudobot-dashboard/commit/6866a6b0982d92b7319f28a8c3504498f7e6c021))
 
 
 
