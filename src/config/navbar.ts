@@ -20,5 +20,6 @@ export const links = [
     {
         title: "Invite",
         href: INVITE_REQUEST_URL,
+        mobileOnly: false,
     },
 ];
