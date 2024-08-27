@@ -16,5 +16,5 @@ export const verifyMember = async (payload: VerifyMemberPayload) => {
         },
     );
 
-    return res.data;
+    return res.data as { success: boolean; error?: string };
 };

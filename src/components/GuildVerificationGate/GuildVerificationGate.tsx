@@ -6,6 +6,7 @@ import { Guild } from "@/types/Guild";
 import { LinearProgress } from "@mui/material";
 import { Spacer } from "@nextui-org/react";
 import { useMutation } from "@tanstack/react-query";
+import { AxiosError } from "axios";
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import { BsCheckCircle } from "react-icons/bs";
 import { HiOutlineExclamationCircle } from "react-icons/hi2";
@@ -123,7 +124,9 @@ const GuildVerificationGate: FC<GuildVerificationGateProps> = ({
                     <div className="flex items-center gap-1 pb-2">
                         <HiOutlineExclamationCircle className="text-red-500 text-xl" />
                         <p className="text-red-500 text-sm text-center">
-                            {error?.message ?? "We were unable to verify you."}
+                            {(error instanceof AxiosError
+                                ? error?.response?.data?.error
+                                : null) ?? "We were unable to verify you."}
                         </p>
                     </div>
                 )}
