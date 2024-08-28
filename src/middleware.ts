@@ -12,14 +12,14 @@ const httpStatusText: Record<number, string> = {
     500: "Internal Server Error",
 };
 
-const FRONTEND_DOMAIN = process.env.NEXT_PUBLIC_FRONTEND_DOMAIN?.replace(
+const FRONTEND_DOMAIN = process.env.NEXT_PUBLIC_FRONTEND_ROOT_DOMAIN?.replace(
     /:\d+$/,
     "",
 );
 
 function error(status: number, message: string) {
     const [hostname, port] =
-        process.env.NEXT_PUBLIC_FRONTEND_DOMAIN?.split(":") ?? [];
+        process.env.NEXT_PUBLIC_FRONTEND_ROOT_DOMAIN?.split(":") ?? [];
 
     const html = `
         <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
