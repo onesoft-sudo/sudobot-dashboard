@@ -20,8 +20,8 @@ export default withSentryConfig(
 
         // Suppresses source map uploading logs during build
         silent: true,
-        org: "osn-vq",
-        project: "sudobot",
+        org: "onesoftnet",
+        project: "sudobot-dashboard",
     },
     {
         // For all available options, see:
