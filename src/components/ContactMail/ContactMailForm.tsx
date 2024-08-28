@@ -1,5 +1,5 @@
 import { logger } from "@/logging/logger";
-import { sendContactMessage } from "@/server/contact";
+import { sendContactMessage } from "@/server/support";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LinearProgress } from "@mui/material";
 import { Button, Input, Spacer, Textarea } from "@nextui-org/react";

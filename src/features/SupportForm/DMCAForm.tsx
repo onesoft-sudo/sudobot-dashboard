@@ -1,5 +1,8 @@
+import { sendFormSubmission } from "@/server/support";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Alert } from "@mui/material";
 import { Input, Radio, RadioGroup, Spacer, Textarea } from "@nextui-org/react";
+import { useMutation } from "@tanstack/react-query";
 import clsx from "clsx";
 import { useRef, useState, type FC } from "react";
 import { Controller, Form, useForm } from "react-hook-form";
@@ -8,6 +11,7 @@ import CommonFields from "./CommonFields";
 import DMCASwornStatements from "./DMCASwornStatements";
 import SubmitButton from "./SubmitButton";
 import { DMCAFormSchema } from "./SupportFormSchemas";
+import { SupportFormType } from "./SupportFormType";
 
 type DMCAFormProps = {};
 
@@ -25,6 +29,12 @@ const DMCAForm: FC<DMCAFormProps> = (props) => {
         false,
         false,
     ]);
+    const { data, isError, isPending, isSuccess, mutate } = useMutation({
+        mutationFn: sendFormSubmission,
+        onSuccess() {
+            window.scrollTo(0, 0);
+        },
+    });
 
     const handleSubmit = ({
         data,
@@ -39,11 +49,20 @@ const DMCAForm: FC<DMCAFormProps> = (props) => {
         }
 
         setSwornStatementsError(null);
-        console.log(data);
+        mutate({
+            type: SupportFormType.DMCA,
+            data,
+        });
     };
 
     return (
         <Form control={control} onSubmit={handleSubmit}>
+            {isSuccess && data?.success && (
+                <Alert severity="success" className="mb-5">
+                    Your DMCA form has been submitted successfully.
+                </Alert>
+            )}
+
             <CommonFields
                 control={control}
                 register={register}
@@ -206,7 +225,15 @@ const DMCAForm: FC<DMCAFormProps> = (props) => {
                 {...register("signature")}
             />
 
-            <SubmitButton />
+            {(isError || (data && !data.success)) && (
+                <p className="text-red-500 text-sm mt-2">
+                    {data?.message ?? "An error has occurred."}
+                </p>
+            )}
+            <SubmitButton
+                isLoading={isPending}
+                isDisabled={isSuccess && data?.success}
+            />
         </Form>
     );
 };

@@ -1,10 +1,11 @@
 import { Button, Spacer } from "@nextui-org/react";
+import { ComponentProps } from "react";
 
-const SubmitButton = () => {
+const SubmitButton = (props: ComponentProps<typeof Button>) => {
     return (
         <>
             <Spacer y={5} />
-            <Button type="submit" variant="flat" fullWidth>
+            <Button type="submit" variant="flat" fullWidth {...props}>
                 Submit
             </Button>
         </>

@@ -39,6 +39,7 @@ const SupportForm: FC<SupportFormProps> = ({ form }) => {
             <Select
                 label="Category"
                 name="category"
+                defaultSelectedKeys={type ? [type] : []}
                 onSelectionChange={(keys) =>
                     setType(
                         Array.from(
