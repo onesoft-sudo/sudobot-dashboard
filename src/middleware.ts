@@ -17,10 +17,8 @@ const FRONTEND_DOMAIN = process.env.NEXT_PUBLIC_FRONTEND_DOMAIN!.replace(
     "",
 );
 
-const FRONTEND_ROOT_DOMAIN = process.env.NEXT_PUBLIC_FRONTEND_ROOT_DOMAIN!.replace(
-    /:\d+$/,
-    "",
-);
+const FRONTEND_ROOT_DOMAIN =
+    process.env.NEXT_PUBLIC_FRONTEND_ROOT_DOMAIN!.replace(/:\d+$/, "");
 
 function error(status: number, message: string) {
     const [hostname, port] =
@@ -88,7 +86,8 @@ export function middleware(request: NextRequest) {
     if (
         !hostname ||
         (!hostname.endsWith("." + FRONTEND_ROOT_DOMAIN) &&
-            hostname !== FRONTEND_DOMAIN && hostname !== FRONTEND_ROOT_DOMAIN)
+            hostname !== FRONTEND_DOMAIN &&
+            hostname !== FRONTEND_ROOT_DOMAIN)
     ) {
         return error(400, "The request hostname is not valid.");
     }
@@ -115,7 +114,9 @@ export function middleware(request: NextRequest) {
     if (subdomainConfig.rewrite) {
         return NextResponse.rewrite(
             new URL(
-                subdomainConfig.rewrite.replace("%URI%", nextUrl.pathname),
+                subdomainConfig.rewrite.replace("%URI%", nextUrl.pathname) +
+                    (request.nextUrl.search ? "?" : "") +
+                    request.nextUrl.searchParams.toString(),
                 request.url,
             ),
         );
