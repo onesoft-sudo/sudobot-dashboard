@@ -1,3 +1,13 @@
+## [1.5.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.5.1...v1.5.2) (2024-08-28)
+
+
+### Bug Fixes
+
+* broken link renders ([c2432d0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c2432d07ca1c7d289cee8e08facf7e931f8e4e84))
+* type errors ([3aaeec8](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3aaeec8159e79a1377519bb1376b675673e3c4bf))
+
+
+
 ## [1.5.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.5.0...v1.5.1) (2024-08-28)
 
 
@@ -37,16 +47,6 @@
 
 * 400 errors ([3f8cd2f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3f8cd2f0dc82d4ea889bf640741616151083f423))
 * type errors ([9475a29](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9475a2945c7c8186e9136d12243ca14a20f23413))
-
-
-
-## [1.4.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.4.0...v1.4.1) (2024-08-28)
-
-
-### Bug Fixes
-
-* 400 errors on subdomainds in production ([a754e00](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a754e007776773c0767634a7612c4b1d8fd13fd3))
-* better error messages ([c1636f1](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c1636f178f1d09655f69772af44ce49be74cb556))
 
 
 
