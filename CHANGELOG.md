@@ -1,3 +1,13 @@
+# [1.4.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.3.2...v1.4.0) (2024-08-28)
+
+
+### Features
+
+* allow subdomain routing ([4a53827](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4a53827ed887d12fdb8cf81c147ae8247582bca2))
+* **verification:** support separate domains ([1a7fff9](https://github.com/onesoft-sudo/sudobot-dashboard/commit/1a7fff9dc885254690bde074a589576488d0dcd1))
+
+
+
 ## [1.3.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.3.1...v1.3.2) (2024-08-28)
 
 
@@ -43,15 +53,6 @@
 * infinite redirect when logging in with discor ([07347ee](https://github.com/onesoft-sudo/sudobot-dashboard/commit/07347eeb1dcb6c14a598fa925e3ce6f76a8eedc0))
 * type errors ([f51de52](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f51de52ebefdbcdf18ab081e754990a9d0a8a24a))
 * undefined references ([314b0e6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/314b0e64f376c640561bcc07129ab603fd879ecd))
-
-
-
-## [1.2.4](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.3...v1.2.4) (2024-08-25)
-
-
-### Bug Fixes
-
-* **page:donate:** missing spacing ([bac3243](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bac3243a29cc98cfb2704c79bd711fee49e61153))
 
 
 
