@@ -1,3 +1,17 @@
+# [1.5.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.4.3...v1.5.0) (2024-08-28)
+
+
+### Bug Fixes
+
+* sentry errors ([748597d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/748597d28f1383e9ea8daf0f3fc482eeb9086ef7))
+
+
+### Features
+
+* support page ([ea90d45](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ea90d45fd41f9f92f7d3f823d6eadc3f944516a1))
+
+
+
 ## [1.4.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.4.2...v1.4.3) (2024-08-28)
 
 
@@ -34,15 +48,6 @@
 
 * allow subdomain routing ([4a53827](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4a53827ed887d12fdb8cf81c147ae8247582bca2))
 * **verification:** support separate domains ([1a7fff9](https://github.com/onesoft-sudo/sudobot-dashboard/commit/1a7fff9dc885254690bde074a589576488d0dcd1))
-
-
-
-## [1.3.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.3.1...v1.3.2) (2024-08-28)
-
-
-### Bug Fixes
-
-* contact modal does not show up correctly on mobile ([06a2069](https://github.com/onesoft-sudo/sudobot-dashboard/commit/06a2069619e66feed2294d1734297446ed955a74))
 
 
 
