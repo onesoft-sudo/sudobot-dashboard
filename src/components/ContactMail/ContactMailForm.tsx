@@ -16,10 +16,8 @@ import {
     ContactMailFormData,
     ContactMailFormSchema,
 } from "./ContactMailFormSchema";
-import { useContactMail } from "./useContactMail";
 
-const ContactMailForm: FC = () => {
-    const { close } = useContactMail();
+const ContactMailForm: FC<{ onClose: () => void }> = ({ onClose: close }) => {
     const {
         control,
         register,
@@ -90,53 +88,61 @@ const ContactMailForm: FC = () => {
             {isPending && <LinearProgress />}
             <Spacer y={2} />
 
-            <div className="px-3">
-                {" "}
-                <Input
-                    label="Name"
-                    isInvalid={!!errors.name}
-                    errorMessage={errors.name?.message}
-                    placeholder="Enter your name"
+            <Input
+                label="Name"
+                isInvalid={!!errors.name}
+                errorMessage={errors.name?.message}
+                placeholder="Enter your name"
+                variant="flat"
+                isDisabled={isPending}
+                {...register("name")}
+            />
+            <Spacer y={2} />
+            <Input
+                label="Email"
+                isInvalid={!!errors.email}
+                errorMessage={errors.email?.message}
+                placeholder="Enter your email"
+                variant="flat"
+                isDisabled={isPending}
+                {...register("email")}
+            />
+            <p className="text-xs text-neutral-500 dark:text-neutral-400 pt-1 pl-1">
+                We will use this email to contact you back. This will be kept
+                private.
+            </p>
+            <Spacer y={3} />
+            <Input
+                label="Subject"
+                isInvalid={!!errors.subject}
+                errorMessage={errors.subject?.message}
+                placeholder="What do you need help with?"
+                variant="flat"
+                isDisabled={isPending}
+                {...register("subject")}
+            />
+            <Spacer y={2} />
+            <Textarea
+                label="Message"
+                isInvalid={!!errors.message}
+                errorMessage={errors.message?.message}
+                placeholder="Type your message here..."
+                variant="flat"
+                isDisabled={isPending}
+                {...register("message")}
+            />
+            <Spacer y={2} />
+            <div className="flex justify-end items-center">
+                <Button
+                    type="submit"
                     variant="flat"
-                    isDisabled={isPending}
-                    {...register("name")}
-                />
-                <Spacer y={2} />
-                <Input
-                    label="Email"
-                    isInvalid={!!errors.email}
-                    errorMessage={errors.email?.message}
-                    placeholder="Enter your email"
-                    variant="flat"
-                    isDisabled={isPending}
-                    {...register("email")}
-                />
-                <p className="text-xs text-neutral-500 dark:text-neutral-400 pt-1 pl-1">
-                    We will use this email to contact you back. This will be
-                    kept private.
-                </p>
-                <Spacer y={3} />
-                <Textarea
-                    label="Message"
-                    isInvalid={!!errors.message}
-                    errorMessage={errors.message?.message}
-                    placeholder="Type your message here..."
-                    variant="flat"
-                    isDisabled={isPending}
-                    {...register("message")}
-                />
-                <Spacer y={2} />
-                <div className="flex justify-end items-center">
-                    <Button
-                        type="submit"
-                        variant="flat"
-                        endContent={<BsSend />}
-                        isLoading={isPending}
-                    >
-                        Send
-                    </Button>
-                </div>
+                    endContent={<BsSend />}
+                    isLoading={isPending}
+                >
+                    Send
+                </Button>
             </div>
+            <Spacer y={2} />
         </Form>
     );
 };

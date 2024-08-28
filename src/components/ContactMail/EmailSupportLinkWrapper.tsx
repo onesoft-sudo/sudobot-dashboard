@@ -19,7 +19,7 @@ const EmailSupportLinkWrapper: FC<EmailSupportLinkWrapperProps> = ({
             <ContactMailTrigger as="a" href="#">
                 {link.title}
             </ContactMailTrigger>
-            <ContactMail direction="bottom" />
+            <ContactMail />
         </div>
     );
 };

@@ -7,6 +7,7 @@ import {
     ContactMailFormSchema,
 } from "@/components/ContactMail/ContactMailFormSchema";
 import env from "@/utils/env";
+import { escapeMarkdown } from "@/utils/utils";
 import axios from "axios";
 import { headers } from "next/headers";
 import { v4 as uuid } from "uuid";
@@ -64,7 +65,7 @@ export async function sendContactMessage(data: ContactMailFormData) {
     form.set(
         "payload_json",
         JSON.stringify({
-            content: `# New Support Ticket\n**Ticket ID**: ${id}\n**Assigned To**: None\n### Submitter Information\n**Name:** ${data.name}\n**Email:** ${data.email}\n\n-# Always be careful with file attachments.`,
+            content: `# New Support Ticket\n**Ticket ID**: ${id}\n**Subject**: ${escapeMarkdown(data.subject)}\n**Assigned To**: None\n### Submitter Information\n**Name:** ${data.name}\n**Email:** ${data.email}\n\n-# Always be careful with file attachments.`,
         }),
     );
 

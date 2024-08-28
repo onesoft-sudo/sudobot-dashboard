@@ -5,6 +5,10 @@ export const ContactMailFormSchema = z.object({
         .string({ required_error: "Please enter your name!" })
         .min(1, "Please enter your name!")
         .max(128, "Your name must be at most 128 characters long!"),
+    subject: z
+        .string({ required_error: "Please enter a subject!" })
+        .min(1, "Please enter a subject!")
+        .max(256, "Your subject must be at most 256 characters long!"),
     email: z
         .string({
             required_error:
