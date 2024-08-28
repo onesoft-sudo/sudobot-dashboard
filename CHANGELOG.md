@@ -1,3 +1,13 @@
+## [1.4.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.4.0...v1.4.1) (2024-08-28)
+
+
+### Bug Fixes
+
+* 400 errors on subdomainds in production ([a754e00](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a754e007776773c0767634a7612c4b1d8fd13fd3))
+* better error messages ([c1636f1](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c1636f178f1d09655f69772af44ce49be74cb556))
+
+
+
 # [1.4.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.3.2...v1.4.0) (2024-08-28)
 
 
@@ -42,17 +52,6 @@
 
 * add verification pages [1/3] ([09fb55a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/09fb55a8aa0eb4207038d0a99218caabca12d289))
 * finalize verification gate [2/3] ([65d5ada](https://github.com/onesoft-sudo/sudobot-dashboard/commit/65d5ada407a64245e6cffecfe25352dc1f5f121a))
-
-
-
-## [1.2.5](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.4...v1.2.5) (2024-08-26)
-
-
-### Bug Fixes
-
-* infinite redirect when logging in with discor ([07347ee](https://github.com/onesoft-sudo/sudobot-dashboard/commit/07347eeb1dcb6c14a598fa925e3ce6f76a8eedc0))
-* type errors ([f51de52](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f51de52ebefdbcdf18ab081e754990a9d0a8a24a))
-* undefined references ([314b0e6](https://github.com/onesoft-sudo/sudobot-dashboard/commit/314b0e64f376c640561bcc07129ab603fd879ecd))
 
 
 
