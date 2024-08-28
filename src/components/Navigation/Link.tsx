@@ -50,9 +50,9 @@ const Link: FC<LinkProps> = (
     return (
         <NextLink
             href={
-                alwaysUseRootDomain
-                    ? `${FRONTEND_DOMAIN?.startsWith("localhost") ? "http://" : "https://"}${FRONTEND_DOMAIN}${href}`
-                    : href
+                !alwaysUseRootDomain || href.startsWith("http://") || href.startsWith("https://") || href.startsWith("ftp://") || href.startsWith("mailto:")
+                    ? href
+                    :`${FRONTEND_DOMAIN?.startsWith("localhost") ? "http://" : "https://"}${FRONTEND_DOMAIN}${href}`
             }
             ref={ref}
             className={clsx(
