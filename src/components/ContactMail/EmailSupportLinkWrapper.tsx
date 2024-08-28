@@ -12,8 +12,6 @@ type EmailSupportLinkWrapperProps = {
 const EmailSupportLinkWrapper: FC<EmailSupportLinkWrapperProps> = ({
     link,
 }) => {
-    console.log(1);
-
     return (
         <div className="relative overflow-visible">
             <ContactMailTrigger as="a" href="#">

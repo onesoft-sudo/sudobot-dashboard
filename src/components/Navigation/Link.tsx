@@ -5,28 +5,60 @@ import { setLoading } from "@/redux/slice/NavigationSlice";
 import clsx from "clsx";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
-import { ComponentProps, forwardRef, type FC } from "react";
+import { ComponentProps, forwardRef, useCallback, type FC } from "react";
 
 type LinkProps = ComponentProps<typeof NextLink> & {
     defaultStyles?: boolean;
+    alwaysUseRootDomain?: boolean;
 };
 
-const Link: FC<LinkProps> = ({ className, defaultStyles = false, onClick, onKeyUp, children, href, ...props }, ref) => {
+const FRONTEND_DOMAIN = process.env.NEXT_PUBLIC_FRONTEND_DOMAIN;
+
+const Link: FC<LinkProps> = (
+    {
+        className,
+        defaultStyles = false,
+        onClick,
+        onKeyUp,
+        children,
+        href,
+        alwaysUseRootDomain = true,
+        ...props
+    },
+    ref,
+) => {
     const dispatch = useAppDispatch();
     const pathname = usePathname();
-    const navigate = () => {
+
+    const navigate = useCallback(() => {
         if (pathname !== href) {
             dispatch(setLoading(true));
+            return;
         }
-    };
+
+        if (!URL.canParse(href)) {
+            return;
+        }
+
+        const targetHostname = new URL(href).hostname;
+
+        if (targetHostname !== window.location.hostname) {
+            dispatch(setLoading(true));
+        }
+    }, [pathname]);
 
     return (
         <NextLink
-            href={href}
+            href={
+                alwaysUseRootDomain
+                    ? `${FRONTEND_DOMAIN?.startsWith("localhost") ? "http://" : "https://"}${FRONTEND_DOMAIN}${href}`
+                    : href
+            }
             ref={ref}
             className={clsx(
                 {
-                    "text-blue-500 hover:underline hover:text-blue-700": defaultStyles,
+                    "text-blue-500 hover:underline hover:text-blue-700":
+                        defaultStyles,
                 },
                 className,
             )}
