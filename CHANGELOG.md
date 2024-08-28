@@ -1,3 +1,12 @@
+## [1.5.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.5.0...v1.5.1) (2024-08-28)
+
+
+### Bug Fixes
+
+* update sentry project name ([f686202](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f686202676e73ab2132c3e9418153d1964018274))
+
+
+
 # [1.5.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.4.3...v1.5.0) (2024-08-28)
 
 
@@ -38,16 +47,6 @@
 
 * 400 errors on subdomainds in production ([a754e00](https://github.com/onesoft-sudo/sudobot-dashboard/commit/a754e007776773c0767634a7612c4b1d8fd13fd3))
 * better error messages ([c1636f1](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c1636f178f1d09655f69772af44ce49be74cb556))
-
-
-
-# [1.4.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.3.2...v1.4.0) (2024-08-28)
-
-
-### Features
-
-* allow subdomain routing ([4a53827](https://github.com/onesoft-sudo/sudobot-dashboard/commit/4a53827ed887d12fdb8cf81c147ae8247582bca2))
-* **verification:** support separate domains ([1a7fff9](https://github.com/onesoft-sudo/sudobot-dashboard/commit/1a7fff9dc885254690bde074a589576488d0dcd1))
 
 
 
