@@ -1,3 +1,12 @@
+## [1.4.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.4.2...v1.4.3) (2024-08-28)
+
+
+### Bug Fixes
+
+* query params are not being rewritten ([c60b994](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c60b99419c26962f41911b98c22fd3c9ff0fe826))
+
+
+
 ## [1.4.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.4.1...v1.4.2) (2024-08-28)
 
 
@@ -34,15 +43,6 @@
 ### Bug Fixes
 
 * contact modal does not show up correctly on mobile ([06a2069](https://github.com/onesoft-sudo/sudobot-dashboard/commit/06a2069619e66feed2294d1734297446ed955a74))
-
-
-
-## [1.3.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.3.0...v1.3.1) (2024-08-27)
-
-
-### Bug Fixes
-
-* change status code for invalid verification url data to 419 ([8f3abca](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8f3abca7bb65134dfcd6ed81930e3f1f09422c64))
 
 
 
