@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Support",
     description: "Contact our support team for help.",
+    openGraph: {}
 };
 
 export default function Page({ searchParams }: ServerComponentProps) {
