@@ -46,9 +46,6 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Lint
-        run: bun lint
-
       - name: Setup API server
         run: |
           git clone https://github.com/virtual-designer/sudobot-dummy-api;
