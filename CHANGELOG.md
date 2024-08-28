@@ -1,3 +1,12 @@
+## [1.5.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.5.2...v1.5.3) (2024-08-28)
+
+
+### Bug Fixes
+
+* better titles with templates and SEO optimization ([05cdc1a](https://github.com/onesoft-sudo/sudobot-dashboard/commit/05cdc1aa99c77e78e8aa6b18a87dcc3d36e0b251))
+
+
+
 ## [1.5.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.5.1...v1.5.2) (2024-08-28)
 
 
@@ -37,16 +46,6 @@
 ### Bug Fixes
 
 * query params are not being rewritten ([c60b994](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c60b99419c26962f41911b98c22fd3c9ff0fe826))
-
-
-
-## [1.4.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.4.1...v1.4.2) (2024-08-28)
-
-
-### Bug Fixes
-
-* 400 errors ([3f8cd2f](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3f8cd2f0dc82d4ea889bf640741616151083f423))
-* type errors ([9475a29](https://github.com/onesoft-sudo/sudobot-dashboard/commit/9475a2945c7c8186e9136d12243ca14a20f23413))
 
 
 
