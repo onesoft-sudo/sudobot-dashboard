@@ -1,3 +1,12 @@
+## [1.3.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.3.0...v1.3.1) (2024-08-27)
+
+
+### Bug Fixes
+
+* change status code for invalid verification url data to 419 ([8f3abca](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8f3abca7bb65134dfcd6ed81930e3f1f09422c64))
+
+
+
 # [1.3.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.5...v1.3.0) (2024-08-27)
 
 
@@ -43,15 +52,6 @@
 ### Bug Fixes
 
 * improved support form view on mobile devices ([8528e3d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8528e3d173bc6da931a9077810d23f6a8d84c63e))
-
-
-
-## [1.2.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.1...v1.2.2) (2024-08-25)
-
-
-### Bug Fixes
-
-* email support dialog not opening ([1cc3af3](https://github.com/onesoft-sudo/sudobot-dashboard/commit/1cc3af32a5e121be7605a5c28b624af8ef37da26))
 
 
 
