@@ -1,3 +1,12 @@
+## [1.3.2](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.3.1...v1.3.2) (2024-08-28)
+
+
+### Bug Fixes
+
+* contact modal does not show up correctly on mobile ([06a2069](https://github.com/onesoft-sudo/sudobot-dashboard/commit/06a2069619e66feed2294d1734297446ed955a74))
+
+
+
 ## [1.3.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.3.0...v1.3.1) (2024-08-27)
 
 
@@ -43,15 +52,6 @@
 ### Bug Fixes
 
 * **page:donate:** missing spacing ([bac3243](https://github.com/onesoft-sudo/sudobot-dashboard/commit/bac3243a29cc98cfb2704c79bd711fee49e61153))
-
-
-
-## [1.2.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.2.2...v1.2.3) (2024-08-25)
-
-
-### Bug Fixes
-
-* improved support form view on mobile devices ([8528e3d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8528e3d173bc6da931a9077810d23f6a8d84c63e))
 
 
 
