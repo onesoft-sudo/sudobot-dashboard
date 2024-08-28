@@ -12,7 +12,12 @@ const httpStatusText: Record<number, string> = {
     500: "Internal Server Error",
 };
 
-const FRONTEND_DOMAIN = process.env.NEXT_PUBLIC_FRONTEND_ROOT_DOMAIN?.replace(
+const FRONTEND_DOMAIN = process.env.NEXT_PUBLIC_FRONTEND_DOMAIN?.replace(
+    /:\d+$/,
+    "",
+);
+
+const FRONTEND_ROOT_DOMAIN = process.env.NEXT_PUBLIC_FRONTEND_ROOT_DOMAIN?.replace(
     /:\d+$/,
     "",
 );
@@ -82,14 +87,14 @@ export function middleware(request: NextRequest) {
 
     if (
         !hostname ||
-        (!hostname.endsWith("." + FRONTEND_DOMAIN) &&
-            hostname !== FRONTEND_DOMAIN)
+        (!hostname.endsWith("." + FRONTEND_ROOT_DOMAIN) &&
+            hostname !== FRONTEND_DOMAIN && hostname !== FRONTEND_ROOT_DOMAIN)
     ) {
         return error(400, "The request hostname is not valid.");
     }
 
-    if (hostname === FRONTEND_DOMAIN) {
-        requestHeaders.set("x-domain", FRONTEND_DOMAIN);
+    if (hostname === FRONTEND_DOMAIN || hostname === FRONTEND_ROOT_DOMAIN) {
+        requestHeaders.set("x-domain", FRONTEND_ROOT_DOMAIN);
 
         return NextResponse.next({
             request: {
@@ -98,8 +103,7 @@ export function middleware(request: NextRequest) {
         });
     }
 
-    const subdomain = hostname.replace("." + FRONTEND_DOMAIN, "").trim();
-
+    const subdomain = hostname.replace("." + FRONTEND_ROOT_DOMAIN, "").trim();
     const subdomainConfig = subdomains[subdomain];
 
     if (!subdomainConfig) {
