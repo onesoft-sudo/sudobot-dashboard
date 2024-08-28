@@ -66,8 +66,6 @@ export default async function VerifyOnboardingPage({
         ? await getVerificationInfo(id, userId)
         : [null, true];
 
-    console.log(guild, error);
-
     if (!guild || error) {
         return <PageExpired />;
     }
