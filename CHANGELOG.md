@@ -1,3 +1,12 @@
+## [1.6.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.6.0...v1.6.1) (2024-08-28)
+
+
+### Bug Fixes
+
+* remove opengraph tags from support page ([282f568](https://github.com/onesoft-sudo/sudobot-dashboard/commit/282f56880b2826e98a2b2a895a42c69c6af1ed11))
+
+
+
 # [1.6.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.5.3...v1.6.0) (2024-08-28)
 
 
@@ -32,20 +41,6 @@
 ### Bug Fixes
 
 * update sentry project name ([f686202](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f686202676e73ab2132c3e9418153d1964018274))
-
-
-
-# [1.5.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.4.3...v1.5.0) (2024-08-28)
-
-
-### Bug Fixes
-
-* sentry errors ([748597d](https://github.com/onesoft-sudo/sudobot-dashboard/commit/748597d28f1383e9ea8daf0f3fc482eeb9086ef7))
-
-
-### Features
-
-* support page ([ea90d45](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ea90d45fd41f9f92f7d3f823d6eadc3f944516a1))
 
 
 
