@@ -1,3 +1,12 @@
+# [1.6.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.5.3...v1.6.0) (2024-08-28)
+
+
+### Features
+
+* finalize DMCA form ([8b45a97](https://github.com/onesoft-sudo/sudobot-dashboard/commit/8b45a97ac20605ebacdcacd07f2911e834c367b5))
+
+
+
 ## [1.5.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.5.2...v1.5.3) (2024-08-28)
 
 
@@ -37,15 +46,6 @@
 ### Features
 
 * support page ([ea90d45](https://github.com/onesoft-sudo/sudobot-dashboard/commit/ea90d45fd41f9f92f7d3f823d6eadc3f944516a1))
-
-
-
-## [1.4.3](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.4.2...v1.4.3) (2024-08-28)
-
-
-### Bug Fixes
-
-* query params are not being rewritten ([c60b994](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c60b99419c26962f41911b98c22fd3c9ff0fe826))
 
 
 
