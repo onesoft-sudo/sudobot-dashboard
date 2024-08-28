@@ -103,7 +103,7 @@ export function middleware(request: NextRequest) {
     const subdomainConfig = subdomains[subdomain];
 
     if (!subdomainConfig) {
-        return error(400, "The request hostname is not valid.");
+        return error(400, "The request domain is not valid.");
     }
 
     requestHeaders.set("x-domain", hostname);
