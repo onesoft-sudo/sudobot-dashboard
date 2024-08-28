@@ -1,6 +1,12 @@
 import SupportForm from "@/features/SupportForm/SupportForm";
 import { ServerComponentProps } from "@/types/ServerComponentProps";
 import { Spacer } from "@nextui-org/react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Support",
+    description: "Contact our support team for help.",
+};
 
 export default function Page({ searchParams }: ServerComponentProps) {
     const form = searchParams?.form;

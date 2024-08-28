@@ -19,16 +19,16 @@ export const generateMetadata = async ({
     }
 
     return {
-        title: "Message Deletion Logs - SudoBot",
+        title: "Message Deletion Logs",
         description: "See a detailed log of deleted messages in your server.",
         robots: { index: false, follow: false },
     };
 };
 
-const DeletedMessageLogPage: FC<{ params?: Record<string, string>; searchParams?: Record<string, string> }> = ({
-    params,
-    searchParams,
-}) => {
+const DeletedMessageLogPage: FC<{
+    params?: Record<string, string>;
+    searchParams?: Record<string, string>;
+}> = ({ params, searchParams }) => {
     const { guild: guildId } = params || {};
     const { du: dataURL } = searchParams || {};
 

@@ -2,7 +2,7 @@ import DiscordVerification from "@/components/Verification/DiscordVerification";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Verify with Discord - SudoBot",
+    title: "Verify with Discord",
     robots: {
         index: false,
         follow: false,

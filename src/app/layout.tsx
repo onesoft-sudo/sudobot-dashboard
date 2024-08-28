@@ -11,7 +11,10 @@ import Providers from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "SudoBot",
+    title: {
+        default: "SudoBot",
+        template: "%s - SudoBot",
+    },
     description: "The ultimate Discord Bot for moderation purposes.",
     openGraph: {
         type: "website",
@@ -28,21 +31,27 @@ export const metadata: Metadata = {
                 alt: "SudoBot",
             },
         ],
-        emails: ["support@sudobot.org"],
+        emails: ["support@onesoftnet.eu.org"],
         determiner: "",
     },
-    metadataBase: new URL((process.env.NEXT_PUBLIC_FRONTEND_DOMAIN?.startsWith("localhost") ? "http" : "https") + "://" + process.env.NEXT_PUBLIC_FRONTEND_DOMAIN!),
+    metadataBase: new URL(
+        (process.env.NEXT_PUBLIC_FRONTEND_DOMAIN?.startsWith("localhost")
+            ? "http"
+            : "https") +
+            "://" +
+            process.env.NEXT_PUBLIC_FRONTEND_DOMAIN!,
+    ),
     alternates: {
-        canonical: "./"
+        canonical: "./",
     },
 };
 
 export const viewport: Viewport = {
-    colorScheme: 'dark light',
+    colorScheme: "dark light",
     initialScale: 1,
     minimumScale: 1,
     maximumScale: 3,
-    themeColor: '#005eff'
+    themeColor: "#005eff",
 };
 
 export default function RootLayout({

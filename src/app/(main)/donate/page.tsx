@@ -1,21 +1,23 @@
-import { Metadata } from "next";
-import { DONATION_URL } from "@/config/links";
 import Link from "@/components/Navigation/Link";
 import RedirectTo from "@/components/Navigation/RedirectTo";
+import { DONATION_URL } from "@/config/links";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Donate - SudoBot"
+    title: "Donate",
 };
 
 export default function NotFound() {
     return (
-	<div className="flex min-h-[80svh] items-center justify-center">
+        <div className="flex min-h-[80svh] items-center justify-center">
             <main className="mx-auto my-5 w-96 text-center lg:my-10">
                 <h1 className="text-3xl lg:text-4xl">
                     <span className="text-blue-500">Redirecting...</span>
                 </h1>
                 <RedirectTo to={DONATION_URL} />
-                <p className="mt-2 text-[#999]">You&rsquo;ll be redirected to the donation page shortly.</p>
+                <p className="mt-2 text-[#999]">
+                    You&rsquo;ll be redirected to the donation page shortly.
+                </p>
                 <hr className="my-3 border-t-1 border-t-gray-200 dark:border-t-gray-700" />
                 <p className="text-[#999]">
                     If you&rsquo;re not being redirected in 5 seconds, you can{" "}

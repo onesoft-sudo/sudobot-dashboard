@@ -27,7 +27,7 @@ export async function generateMetadata({
 
     if (!id || !userId || !requestToken) {
         return {
-            title: "419 Page Expired - SudoBot",
+            title: "419 Page Expired",
         };
     }
 
@@ -37,12 +37,12 @@ export async function generateMetadata({
 
     if (!guild || error) {
         return {
-            title: "419 Page Expired - SudoBot",
+            title: "419 Page Expired",
         };
     }
 
     return {
-        title: "Verify to Continue - SudoBot",
+        title: "Verify to Continue",
         robots: {
             index: false,
             follow: false,
