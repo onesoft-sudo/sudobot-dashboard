@@ -47,10 +47,12 @@ const Link: FC<LinkProps> = (
         }
     }, [pathname]);
 
+    const stringHref = String(href);
+
     return (
         <NextLink
             href={
-                !alwaysUseRootDomain || href.startsWith("http://") || href.startsWith("https://") || href.startsWith("ftp://") || href.startsWith("mailto:")
+                !alwaysUseRootDomain || stringHref.startsWith("http://") || stringHref.startsWith("https://") || stringHref.startsWith("ftp://") || stringHref.startsWith("mailto:")
                     ? href
                     :`${FRONTEND_DOMAIN?.startsWith("localhost") ? "http://" : "https://"}${FRONTEND_DOMAIN}${href}`
             }
