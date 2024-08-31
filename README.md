@@ -17,6 +17,6 @@ version publicly according to this license, and preserve the above copyright not
 and source code comments.
 You may add your own copyright *alongside* with these notices.
 
-### Exceptions
+#### Exceptions
 
 * The logos of SudoBot (in public/ and in src/images/) are licensed under [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/).
