@@ -11,7 +11,28 @@ const CommonSchema = z.object({
         .max(255, "Email is too long!"),
 });
 
-export const GeneralHelpFormSchema = CommonSchema.extend({});
+export const GeneralHelpFormSchema = CommonSchema.extend({
+    subject: z
+        .string({ message: "Please enter the subject!" })
+        .min(1, "Please enter the subject!")
+        .max(255, "Subject is too long!"),
+    type: z
+        .string({ message: "Please select a type!" })
+        .min(1, "Please select a type!")
+        .max(255, "Type is too long!"),
+    description: z
+        .string({ message: "Please enter the description!" })
+        .min(1, "Please enter the description!")
+        .max(1024 * 16, "Description is too long!"),
+    platform: z
+        .string({ message: "Please select a platform!" })
+        .min(1, "Please select a platform!")
+        .max(255, "Platform is too long!"),
+    interpreter: z
+        .string({ message: "Please select an interpreter!" })
+        .min(1, "Please select an interpreter!")
+        .max(255, "Interpreter is too long!"),
+});
 export const DMCAFormSchema = CommonSchema.extend({
     infringingURLs: z
         .array(
