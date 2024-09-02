@@ -1,3 +1,12 @@
+# [1.7.0](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.6.1...v1.7.0) (2024-09-02)
+
+
+### Features
+
+* add more fields to GeneralHelpForm ([aeeb319](https://github.com/onesoft-sudo/sudobot-dashboard/commit/aeeb319d483d4c50ed81a470b06ca116050a18ed))
+
+
+
 ## [1.6.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.6.0...v1.6.1) (2024-08-28)
 
 
@@ -32,15 +41,6 @@
 
 * broken link renders ([c2432d0](https://github.com/onesoft-sudo/sudobot-dashboard/commit/c2432d07ca1c7d289cee8e08facf7e931f8e4e84))
 * type errors ([3aaeec8](https://github.com/onesoft-sudo/sudobot-dashboard/commit/3aaeec8159e79a1377519bb1376b675673e3c4bf))
-
-
-
-## [1.5.1](https://github.com/onesoft-sudo/sudobot-dashboard/compare/v1.5.0...v1.5.1) (2024-08-28)
-
-
-### Bug Fixes
-
-* update sentry project name ([f686202](https://github.com/onesoft-sudo/sudobot-dashboard/commit/f686202676e73ab2132c3e9418153d1964018274))
 
 
 
